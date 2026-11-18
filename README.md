@@ -77,7 +77,7 @@ The roadmap is drawn like a trace on the board. Solid steps are done, and the da
 
 [![Exploded view: keycaps, switches, plate, main board and the case tray, separated vertically](docs/assets/readme/exploded.webp)](https://monstercameron.github.io/OmarKeyboard/#inside)
 
-| | |
+| Part | Rev B.1 |
 | --- | --- |
 | Controller | RP2040 reading an 8 × 12 key matrix, with USB-C at the rear |
 | Switches | 89 Gateron G Pro 3.0 Brown, and a Cherry MX Grey for Lock |
