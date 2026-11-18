@@ -1,0 +1,83 @@
+/* The print model. An opaque band in the page's own theme, above the fixed 3D board like the
+   circuit band after it. The viewer stays a still picture until the reader asks for the model. */
+.print {
+  --well: #d6d8e0;
+  --well-edge: #c4c8da;
+  position: relative; z-index: 3; pointer-events: auto;
+  margin-top: 70vh;
+  padding: clamp(56px, 10vh, 120px) var(--gutter) clamp(56px, 9vh, 100px);
+  background: var(--ground); color: var(--ink);
+}
+@media (prefers-color-scheme: dark) {
+  .print { --well: #24283b; --well-edge: #2f344d; }
+}
+.print + .circuit { margin-top: 0; }
+.print-wrap { max-width: 1680px; margin: 0 auto; }
+.print :where(button) { font: inherit; color: inherit; }
+.print .h-icon { color: var(--tn-orange); }
+.print-head { margin-bottom: 1.6rem; }
+.print-intro { max-width: 70ch; margin: 0; color: var(--ink-2); font-size: .95rem; }
+
+/* The viewer */
+.print-view { margin: 0; border: 1px solid var(--well-edge); border-radius: 8px; background: var(--well); overflow: hidden; }
+.print-stage { position: relative; aspect-ratio: 16 / 7; }
+.print-stage model-viewer, .print-poster { position: absolute; inset: 0; width: 100%; height: 100%; }
+.print-stage model-viewer { --poster-color: transparent; background: transparent; opacity: 0; transition: opacity .5s ease; }
+.print-stage.loaded model-viewer { opacity: 1; }
+.print-poster { object-fit: contain; transition: opacity .5s ease; }
+.print-stage.loaded .print-poster { opacity: 0; pointer-events: none; }
+.print-gate {
+  position: absolute; left: 50%; bottom: clamp(14px, 4%, 36px); transform: translateX(-50%);
+  display: grid; justify-items: center; gap: .45rem;
+  width: max-content; max-width: calc(100% - 24px);
+  padding: .85rem 1.1rem .75rem;
+  background: var(--panel);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3); backdrop-filter: blur(18px) saturate(1.3);
+  border: 1px solid var(--panel-edge); border-radius: 8px; box-shadow: var(--panel-shadow);
+  text-align: center;
+}
+.print-gate[hidden] { display: none; }
+.print-load {
+  margin: 0; padding: .65rem 1.15rem; border: 0; border-radius: 6px; cursor: pointer;
+  background: var(--ink); color: var(--ground) !important; font: 700 .9rem/1.2 var(--mono) !important;
+}
+.print-load:hover:not(:disabled) { filter: brightness(1.15); }
+.print-load:disabled { cursor: progress; opacity: .85; }
+.print-load:focus-visible, .print-tools button:focus-visible { outline: 2px solid var(--tn-blue); outline-offset: 2px; }
+.print-cost { margin: 0; font-size: .8rem; color: var(--ink-2); }
+.print-bar { width: 100%; height: 4px; border-radius: 2px; background: var(--rule); overflow: hidden; }
+.print-bar[hidden] { display: none; }
+.print-bar span { display: block; height: 100%; width: calc(var(--p, 0) * 100%); background: var(--tn-orange); transition: width .15s linear; }
+
+.print-tools { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.2rem; padding: .7rem .9rem; border-top: 1px solid var(--well-edge); }
+.print-tools[hidden] { display: none; }
+.print-cams, .print-zoom { display: flex; flex-wrap: wrap; gap: .35rem; }
+.print-tools button {
+  margin: 0; padding: .4rem .7rem; border: 1px solid var(--rule); border-radius: 5px; cursor: pointer;
+  background: transparent; font: 600 .76rem/1.25 var(--mono); color: var(--ink-2);
+}
+.print-tools button:hover { border-color: var(--ink-2); color: var(--ink); }
+.print-tools button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--ground); }
+.print-zoom button { min-width: 2.1rem; font-size: .95rem; }
+.print-help { margin: 0 0 0 auto; font-size: .78rem; color: var(--ink-2); }
+
+.print-foot { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 30rem); gap: 1rem 3rem; margin-top: 1.6rem; align-items: start; }
+.print-facts { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 0 2rem; }
+.print-facts div { padding: .65rem 0; border-top: 1px solid var(--rule); }
+.print-facts dt { font: 600 .8rem/1.5 var(--mono); color: var(--ink-2); }
+.print-facts dd { margin: .15rem 0 0; font-size: .9rem; line-height: 1.55; }
+.print .downloads { margin: 0; padding-top: .55rem; }
+
+@media (max-width: 999px) {
+  .print { margin-top: 40vh; }
+  .print-foot { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 720px) {
+  .print { margin-top: 45vh; padding: 48px 12px; }
+  .print-stage { aspect-ratio: 4 / 3.2; }
+  .print-tools { padding: .6rem; gap: .6rem; }
+  .print-help { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .print-stage model-viewer, .print-poster, .print-bar span { transition: none; }
+}

@@ -39,6 +39,12 @@ Press the keys on the board and a simulated Omarchy screen above it responds. Se
 
 [![The Try it section: a simulated Omarchy screen with a terminal and a browser, above the clickable keyboard](docs/assets/readme/site-try.webp)](https://monstercameron.github.io/OmarKeyboard/#try)
 
+### [The print model](https://monstercameron.github.io/OmarKeyboard/#print)
+
+The T4 assembly the prints are made from, exported from SolidCraft with every legend modeled as raised geometry. The site loads a 5-million-triangle copy, 10.8 MB, only when you press **Load the print model**. Then you can turn it, zoom in on the legends, or jump to the roller and the front edge.
+
+[![The print model zoomed in on the top-left keys, with Esc, the desk keys, the number row, Tab, Q, W with its Close legend, and E, each legend raised from the cap](docs/assets/readme/site-print.webp)](https://monstercameron.github.io/OmarKeyboard/#print)
+
 ### [The circuit board](https://monstercameron.github.io/OmarKeyboard/#circuit)
 
 The routed Rev B.1 board is drawn from the KiCad files, with the top copper in orange and the bottom in blue. Pulses follow the USB data and the light chain. Hand-drawn notes mark where USB comes in, where the 90 lights start and where the controller sits. Choose a part to zoom to it.
@@ -133,6 +139,7 @@ Then open `http://127.0.0.1:8000/`.
 | Look at the earlier Rev A board | [Rev A mainboard](hardware/mainboard/README.md) · [Verification report](hardware/mainboard/verification.md) · [Rev A firmware](firmware/qmk/omar_keyboard/rev_a/) |
 | Check dimensions, switch positions or parts | [Hardware specification](hardware/specification.md) · [Parts and cost plan](hardware/parts-plan.md) · [Switch coordinates](hardware/layout/omar-switches.csv) · [Dimensioned drawing](docs/assets/omar-dimensions.svg) |
 | See inside the case | [Internal assembly](hardware/model/internals/README.md) · [Offline internal viewer](hardware/model/internals/View-Internals.html) · [Tray STL](hardware/model/Omar-Keyboard-Tray.stl) |
+| Print the case and keycaps | [T4 print files](hardware/mechanical-rfq/rev-b2-t4/README.md) · [One-piece tray STL](hardware/mechanical-rfq/rev-b2-t4/T4-One-piece-tray.stl) · [High-detail print model, GLB](docs/assets/omar-print-model.glb) |
 | Run a reach or usability session | [Validation tasks and acceptance criteria](docs/design/validation.md) |
 | Understand the design decisions | [Omarchy interaction patterns](docs/research/omarchy.md) · [Stock shortcuts](docs/research/stock-shortcuts.md) · [Keyboard market study](docs/research/keyboards.md) · [Controllers and firmware](docs/research/controllers.md) |
 | Change the layout, model or site | [Contributor and verification guide](CONTRIBUTING.md) |

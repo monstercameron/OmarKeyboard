@@ -32,8 +32,8 @@ function targetY(a) {
   if (!el) return 0;
   const top = el.getBoundingClientRect().top + scrollY;
   if (el.matches(".cfg-work")) return top;
-  // The circuit board and roadmap sit on an opaque band; their headings go near the top.
-  if (el.closest(".circuit")) return top - (narrow.matches ? 76 : 96);
+  // The print model, circuit board and roadmap sit on opaque bands; their headings go near the top.
+  if (el.closest(".print, .circuit")) return top - (narrow.matches ? 76 : 96);
   if (el.matches(".play-hold")) return top + innerHeight * 0.35;
   return top - innerHeight * (narrow.matches ? 0.48 : 0.14);
 }

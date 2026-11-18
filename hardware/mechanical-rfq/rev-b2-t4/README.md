@@ -13,3 +13,9 @@ The full STEP contains 783 physical instances. The KiCad boards, installed compo
 [All 405 component clearances to tray and plate](mainboard-clearances.csv) · [Vertical clearance below every socket and LED](underside-vertical-clearances.csv).
 
 [Rear-pocket and H7 fastener coupon](T4-rear-pocket-and-deck-boss-coupon.stl) is a solid section of the T4 tray, in its desk printing orientation. It includes the USB opening, both webbed carrier posts and one deck boss. Use the intended tray material and process to qualify the Ø1.60 USB pilots and a retention method for the Ø2.24 H7 pilot. Use the actual R03/R04/R05 parts for the encoder and bearing fit trial. Record results on specification sheet 22A.
+
+## High-detail print master
+
+`Omar-Keyboard-full-T4-SolidCraft.stl` in this folder is the SolidCraft export that prints are made from. It has 25.0 million triangles in 1,694 bodies, including every keycap legend as raised geometry, in millimetres with Z up and the case floor at Z0. At 1.25 GB it is over GitHub’s 100 MB file limit, so `.gitignore` keeps it out of the repository. Keep the file here, at this name, beside the other T4 files.
+
+The site shows a simplified, compressed copy with colors added from the keycap groups: [docs/assets/omar-print-model.glb](../../../docs/assets/omar-print-model.glb), 5.0 million triangles, 10.8 MB. After a new SolidCraft export, rebuild it with `python tools/build-print-model.py`. The script needs numpy, scipy and Node.js. [View it on the site](https://monstercameron.github.io/OmarKeyboard/#print)

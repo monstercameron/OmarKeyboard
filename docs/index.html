@@ -22,12 +22,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300..800;1,400&display=swap">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="circuit.css">
+<link rel="stylesheet" href="print.css">
 <link rel="stylesheet" href="fun.css">
 <script type="module" src="vendor/model-viewer.min.js"></script>
 <script type="module" src="site.js"></script>
 <script type="module" src="play.js"></script>
 <script type="module" src="config.js"></script>
 <script type="module" src="circuit.js"></script>
+<script type="module" src="print.js"></script>
 <script type="module" src="nav.js"></script>
 <script type="module" src="fun.js"></script>
 </head>
@@ -48,6 +50,7 @@
     <li><a href="#try">Try it</a></li>
     <li><a href="#inside">Inside the case</a></li>
     <li><a href="#specs">The physical board</a></li>
+    <li><a href="#print">The print model</a></li>
     <li><a href="#circuit">The circuit board</a></li>
     <li><a href="#lights">A light under every key</a></li>
     <li><a href="#parts">Parts and what the board needs</a></li>
@@ -273,6 +276,49 @@
      <a href="assets/omar-internals.glb" download>Download the internal assembly</a> <span class="size">GLB, 7.9&nbsp;MB, with the exploded animation</span><br>
      <a href="assets/omar-dimensions.svg">Open the dimension drawing</a> <span class="size">SVG, to scale in millimeters</span><br>
      <a href="assets/omar-assembly-specification.pdf">Read the assembly specification</a> <span class="size">PDF, revision 16, 66 pages</span></p>
+  </div>
+</section>
+
+<section class="print" aria-labelledby="print">
+  <div class="print-wrap">
+    <header class="print-head">
+      <h2 id="print">The print model</h2>
+      <p class="print-intro">This is the T4 assembly the prints are made from, exported from SolidCraft: the one-piece tray, the plate, all 90 keycaps, both knobs and the roller. Every legend is modeled as raised geometry, letter by letter, the way a print carries it. The full model has 25&nbsp;million triangles. This copy keeps a fifth of them, enough to read every legend, and downloads only when you ask for it.</p>
+    </header>
+    <figure class="print-view">
+      <div class="print-stage">
+        <img class="print-poster" src="assets/omar-print-model-poster.webp" width="1600" height="700" loading="lazy" decoding="async" alt="A still picture of the high-detail print model: the dark case with cream keys, amber desk keys, green launcher keys, blue window keys and their printed legends">
+        <div class="print-gate">
+          <button type="button" class="print-load">Load the print model</button>
+          <p class="print-cost">GLB, 10.8&nbsp;MB, 5.0&nbsp;million triangles</p>
+          <div class="print-bar" hidden><span></span></div>
+        </div>
+      </div>
+      <figcaption class="print-tools" hidden>
+        <div class="print-cams" role="group" aria-label="Camera views">
+          <button type="button" data-cam="whole" aria-pressed="false">Whole board</button>
+          <button type="button" data-cam="top" aria-pressed="false">From above</button>
+          <button type="button" data-cam="legends" aria-pressed="false">Legends up close</button>
+          <button type="button" data-cam="roller" aria-pressed="false">Roller and dial</button>
+          <button type="button" data-cam="front" aria-pressed="false">From the front</button>
+        </div>
+        <div class="print-zoom" role="group" aria-label="Zoom">
+          <button type="button" data-zoom="in" aria-label="Zoom in">+</button>
+          <button type="button" data-zoom="out" aria-label="Zoom out">−</button>
+        </div>
+        <p class="print-help">Drag to turn. Ctrl and the scroll wheel zoom. On a touch screen, pinch.</p>
+      </figcaption>
+    </figure>
+    <div class="print-foot">
+      <dl class="print-facts">
+        <div><dt>Print master</dt><dd>SolidCraft STL, 25.0&nbsp;million triangles, 1.25&nbsp;GB</dd></div>
+        <div><dt>On this page</dt><dd>5.0&nbsp;million triangles, meshopt-compressed to 10.8&nbsp;MB</dd></div>
+        <div><dt>Bodies</dt><dd>1,694, including 358 legend pieces on the keycaps</dd></div>
+        <div><dt>Color</dt><dd>Added for this view from the keycap groups. The STL has no color.</dd></div>
+      </dl>
+      <p class="downloads"><a href="assets/omar-print-model.glb" download>Download the print model</a> <span class="size">GLB, 10.8&nbsp;MB</span><br>
+        <a href="https://github.com/monstercameron/OmarKeyboard/tree/main/hardware/mechanical-rfq/rev-b2-t4">Open the T4 print files</a> <span class="size">tray STL, fit coupon, full STEP and Blender assembly</span></p>
+    </div>
   </div>
 </section>
 
@@ -592,7 +638,7 @@
 </section>
 
 <footer class="colophon">
-  <p>Omar-Keyboard is an independent design for Omarchy 4.5.0 and is not affiliated with the Omarchy project. The 3D view uses <a href="https://modelviewer.dev">model-viewer</a> under the <a href="vendor/model-viewer-LICENSE.txt">Apache 2.0 license</a>.</p>
+  <p>Omar-Keyboard is an independent design for Omarchy 4.5.0 and is not affiliated with the Omarchy project. The 3D view uses <a href="https://modelviewer.dev">model-viewer</a> under the <a href="vendor/model-viewer-LICENSE.txt">Apache 2.0 license</a>, and the print model is decoded with <a href="https://meshoptimizer.org">meshoptimizer</a> under the <a href="vendor/meshoptimizer-LICENSE.txt">MIT license</a>.</p>
 </footer>
 
 </main>

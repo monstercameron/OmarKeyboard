@@ -51,4 +51,6 @@ node tests/check-viewer.cjs
 
 The model builder uses Segoe UI Bold when available on Windows and Blender’s built-in font elsewhere. Set `OMAR_LEGEND_FONT` to an installed font file to choose the legend face. The saved legends are meshes. If the render changes, also refresh the site's WebP and social preview in `docs/assets/`. Keep the GLB at its shared path so the site, README and offline viewer use the same model.
 
+The site's print model comes from the SolidCraft STL master in `hardware/mechanical-rfq/rev-b2-t4/`. That file is too large for the repository and stays local. After a new export, run `python tools/build-print-model.py` with numpy, scipy and Node.js installed. It colors the bodies from the switch layout and writes `docs/assets/omar-print-model.glb`. If the framing changes, re-render `docs/assets/omar-print-model-poster.webp` from the new model.
+
 Include the checks you ran with a proposed change. For physical trials, record the board, switch and encoder models, Omarchy version, measured result and any deviation from the [trial criteria](docs/design/validation.md).
