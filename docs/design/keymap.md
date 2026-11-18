@@ -1,6 +1,6 @@
 # Keymap and window controls
 
-**Tap Desk 3 to go there. Tap Send & Stay, then Desk 3 to send a window there while you keep working. Hold Focus and press an arrow to choose a neighboring window.** Omar gives those everyday Omarchy actions physical labels while preserving US QWERTY, a full number row, Super under either thumb and a real Alt key.
+**Tap Desk 3 to go there. Tap Send & Stay, then Desk 3 to send a window there while you keep working. Hold Focus and press an arrow to choose a neighboring window.** Omar gives those everyday Omarchy actions physical labels while preserving US QWERTY, a full number row, Super under either thumb and Ctrl on both sides.
 
 ![Omar Keyboard with five desk keys above digits 1–5, Fn and Super legends, hold-only window controls, two corner dials and a wide roller](../assets/omar-keymap.png)
 
@@ -15,12 +15,12 @@
 | Left edge, top down | **Guide, Browser, Menu, Terminal, Files.** Menu sits at home-row height. Shift + Menu opens the app grid. |
 | Across the top | **Esc, Desk 1–5, Last Desk, Send & Stay, Move & Go, Clip History, Paste, Alerts, Mic Mute, Delete, Screenshot, Grab Text, Lock.** Desk 5 has a tactile mark. Delete sits over Backspace. Lock has a lower, recessed cap and a heavier 80 gf switch. |
 | Right edge, top down | **Flip Split, Float, Fullscreen, Swap, Focus.** Hold Swap or Focus while pressing an arrow. Releasing either key ends the gesture. Brushing either cap alone has no effect. |
-| Bottom row | **Ctrl, Super, Space, Super, Next Window, Alt.** Next Window cycles on the current desk. Shift reverses the cycle. Fn + Next Window returns to the most recently focused other window on this desk with the optional host binding. Alt sits left of the left arrow and sends Right Alt. Left Ctrl is the only Ctrl. |
+| Bottom row | **Ctrl, Super, Space, Super, Next Window, Right Ctrl.** Next Window cycles on the current desk. Shift reverses the cycle. Fn + Next Window returns to the most recently focused other window on this desk with the optional host binding. The 1.75u Ctrl cap next to the arrows sends Right Ctrl (USB usage 0xE4). |
 | Top-left dial | Turn for speaker volume. Press to mute or unmute speakers. **Mic Mute** controls the input separately. |
 | Top-right dial | Turn for screen brightness. Press for workspace layout. Hold Fn and turn to move the horizontal split boundary. External brightness uses Omarchy’s DDC path on compatible monitors. |
 | Wide roller above the arrows | Pull toward you to scroll down, push away to scroll up. Hold Fn to send Page Down or Page Up to the keyboard-focused app. Ordinary rolling uses pointer-wheel routing. |
 
-## Caps, Fn and Alt
+## Caps, Fn and Ctrl
 
 **Tap Caps for Caps Lock. Hold Caps for Fn.** Pressing a second key while Caps is held selects Fn immediately. A solitary press shorter than 200 ms toggles Caps Lock. This timing is a prototype starting value. Fn does only what is printed on the keys, in one dedicated Fn legend colour. Every other key is unchanged while Fn is held.
 
@@ -37,13 +37,13 @@ The Super legends (Close, Copy, Paste on W, C and V) use a second, amber legend 
 
 **Omar deliberately has no function keys.** There are no F1–F12 legends and nothing on the Fn layer produces them. Digits, minus and equals type normally with Caps held. An application whose function-key shortcuts matter must be rebound inside that application. The board keeps three private input codes for Guide, Last Window and the microphone fallback. They are internal and are never labeled for the user.
 
-**Alt.** The right-hand bottom key sends Right Alt and replaces the right Ctrl. With the right hand on the arrows, Alt gives Alt + Left/Right for browser history, Alt + B, F and period for shell word movement, and Alt + Screenshot for screen recording. Held Right Alt is Omarchy’s dictation push-to-talk when a backend is configured, and Alt + Space toggles dictation. On layouts that use it, Right Alt is AltGr. Fn does not change either Super key. [Omarchy dictation bindings](https://github.com/omacom/omarchy/blob/v4.5.0/default/hypr/bindings/dictation.lua)
+**Right Ctrl.** Hold Ctrl and an arrow for word navigation in applications that support it. Both Super keys remain available under Fn. Dedicated actions generate any Alt chords Omarchy needs internally.
 
 ## Moving between windows and desks
 
 A transfer accepts **one of the five labeled Desk keys within three seconds**. Esc or a second press of the same transfer cancels it. The other transfer replaces it and starts a fresh timer. A typing key cancels and types once. An arrow cancels and moves the caret. Last Desk cancels and visits the previous desk on this monitor. Focus, Swap and the dial presses also cancel. Modifier presses, holding Caps and dial or roller turns do not cancel, so Shift then Desk 3 still completes and turning the volume keeps the transfer. After expiry a Desk press simply visits. Destination lights follow the pending state.
 
-Five desks are directly available per monitor. On stock Omarchy, Super + 6 through 0 stay available, Super + Tab visits the next workspace, and Super + Shift + Tab goes back. The optional five-desk setting confines keyboard workspace traversal and numbered transfers to the five labeled destinations. [Omarchy window and workspace bindings](https://github.com/omacom/omarchy/blob/v4.5.0/default/hypr/bindings/tiling.lua)
+The installed Omar host profile defaults to five numbered destinations per monitor. Super + Tab and Super + wheel wrap between 1 and 5, including empty slots. Last Desk recalls the previous eligible slot on that monitor. Set `omar_five_desks = false` before loading the profile for stock workspace navigation. [Host setup](../build/pilot.md)
 
 **A keyboard-only example.** With an editor and browser on Desk 1, tap Next Window to focus the browser. Press Send & Stay then Desk 3. The editor stays in view. Tap Desk 3, take a Screenshot, then tap Last Desk to return to the editor. To continue working in the browser as it moves, use Move & Go.
 
@@ -53,7 +53,7 @@ The two outer rails sit half a key unit away from their neighbors. The Next Wind
 
 ## What the board sends
 
-Super is the everyday desktop modifier. Dedicated actions can send any modifier internally, including Alt. The Alt key sends Right Alt (Alt + arrows, Alt + Screenshot for screen recording, held for dictation push-to-talk, AltGr where the layout uses it). The target below is Omarchy **v4.5.0** with stock bindings enabled and an ANSI physical number row. Owners who have rebound a stock action can adapt the corresponding firmware output.
+Super is the everyday desktop modifier. The firmware emits the host chords below from dedicated controls. These bindings target Omarchy v4.5.0 and an ANSI physical number row.
 
 | Physical control | Host input |
 | --- | --- |

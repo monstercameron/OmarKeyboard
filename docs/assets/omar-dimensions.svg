@@ -292,7 +292,7 @@
 <text x="259.56" y="113.94" font-size="2.2" fill="#7a1346" stroke="none" text-anchor="middle">Last Win</text>
 <rect x="281.512" y="100.538" width="32.288" height="18.000" rx="1.2" fill="#fafaf6"/>
 <rect x="290.66" y="102.54" width="14" height="14" stroke="#b5bac0" stroke-width="0.15" stroke-dasharray="1 0.8"/>
-<text x="297.66" y="110.54" font-size="3.0" fill="#2b2f33" stroke="none" text-anchor="middle">Alt</text>
+<text x="297.66" y="110.54" font-size="3.0" fill="#2b2f33" stroke="none" text-anchor="middle">Ctrl</text>
 <rect x="338.662" y="81.488" width="18.000" height="18.000" rx="1.2" fill="#fafaf6"/>
 <rect x="340.66" y="83.49" width="14" height="14" stroke="#b5bac0" stroke-width="0.15" stroke-dasharray="1 0.8"/>
 <text x="347.66" y="89.79" font-size="4.0" fill="#2b2f33" stroke="none" text-anchor="middle">↑</text>
@@ -328,10 +328,10 @@
 <circle cx="271.50" cy="109.54" r="1.1" stroke="#b34a00" stroke-width="0.3"/>
 <line x1="247.62" y1="116.14" x2="271.50" y2="116.14" stroke="#b34a00" stroke-width="0.25" stroke-dasharray="1.2 0.8"/>
 <rect id="roller-module" x="319.09" y="23.81" width="57.15" height="38.10" rx="2" stroke="#2b2f33" stroke-width="0.4" fill="#f1f4f7"/>
-<rect id="barrel-slot" x="323.59" y="36.86" width="44.0" height="12.0" rx="1.5" stroke="#2b2f33" stroke-width="0.4" fill="#ffffff"/>
-<rect x="324.59" y="34.86" width="42.0" height="16.0" rx="1" stroke="#6b7178" stroke-width="0.25" stroke-dasharray="2 1"/>
+<rect id="barrel-slot" x="320.29" y="36.11" width="44.4" height="13.5" rx="0.55" stroke="#2b2f33" stroke-width="0.4" fill="#ffffff"/>
+<rect x="321.49" y="34.86" width="42.0" height="16.0" rx="1" stroke="#6b7178" stroke-width="0.25" stroke-dasharray="2 1"/>
 <text x="347.66" y="28.81" font-size="3" fill="#2b2f33" stroke="none" text-anchor="middle">Roller module</text>
-<text x="345.59" y="43.76" font-size="2.4" fill="#6b7178" stroke="none" text-anchor="middle">barrel O16 x 42</text>
+<text x="342.49" y="43.76" font-size="2.4" fill="#6b7178" stroke="none" text-anchor="middle">barrel O16 x 42</text>
 <circle cx="23.81" cy="33.34" r="1.1" stroke="#2b2f33" stroke-width="0.3"/>
 <path d="M21.61,33.34H26.01M23.81,31.14V35.54" stroke="#6b7178" stroke-width="0.15"/>
 <text x="25.61" y="31.94" font-size="2" fill="#6b7178" stroke="none">1</text>
@@ -424,12 +424,12 @@
 <line x1="376.24" y1="61.91" x2="376.24" y2="67.91" stroke="#6b7178" stroke-width="0.15"/>
 <line x1="319.09" y1="66.41" x2="376.24" y2="66.41" stroke="#2b2f33" stroke-width="0.25" marker-start="url(#ar)" marker-end="url(#ar)"/>
 <text x="347.66" y="65.11" font-size="3.2" fill="#2b2f33" stroke="none" text-anchor="middle" font-weight="normal">Module 57.15</text>
-<line x1="323.59" y1="48.86" x2="323.59" y2="57.36" stroke="#6b7178" stroke-width="0.15"/>
-<line x1="367.59" y1="48.86" x2="367.59" y2="57.36" stroke="#6b7178" stroke-width="0.15"/>
-<line x1="323.59" y1="55.86" x2="367.59" y2="55.86" stroke="#2b2f33" stroke-width="0.25" marker-start="url(#ar)" marker-end="url(#ar)"/>
-<text x="345.59" y="54.56" font-size="3.2" fill="#2b2f33" stroke="none" text-anchor="middle" font-weight="normal">Slot 44</text>
-<text x="370.19" y="43.86" font-size="2.4" fill="#2b2f33" stroke="none" text-anchor="middle" font-weight="normal">12</text>
-<text x="345.59" y="33.31" font-size="2.2" fill="#6b7178" stroke="none" text-anchor="middle" font-weight="normal">axis y = 42.86   centre x = 345.59</text>
+<line x1="320.29" y1="48.86" x2="320.29" y2="57.36" stroke="#6b7178" stroke-width="0.15"/>
+<line x1="364.69" y1="48.86" x2="364.69" y2="57.36" stroke="#6b7178" stroke-width="0.15"/>
+<line x1="320.29" y1="55.86" x2="364.69" y2="55.86" stroke="#2b2f33" stroke-width="0.25" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="342.49" y="54.56" font-size="3.2" fill="#2b2f33" stroke="none" text-anchor="middle" font-weight="normal">Slot 44.4</text>
+<text x="367.29" y="43.86" font-size="2.4" fill="#2b2f33" stroke="none" text-anchor="middle" font-weight="normal">13.5</text>
+<text x="342.49" y="33.31" font-size="2.2" fill="#6b7178" stroke="none" text-anchor="middle" font-weight="normal">axis y = 42.86   centre x = 342.49</text>
 </g>
 <g stroke="#2b2f33" stroke-width="0.3" fill="none"><rect x="46.0" y="233.0625" width="170" height="42"/><line x1="46.0" y1="245.0625" x2="216.0" y2="245.0625"/></g>
 <text x="50.0" y="241.5625" font-size="6" font-weight="bold" fill="#2b2f33">Omar keyboard: dimensioned top view</text>

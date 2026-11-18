@@ -25,7 +25,7 @@ void suspend_power_down_user(void) {
 | --- | --- | --- |
 | Caps | `LT(1, KC_CAPS)` | Transparent Caps position |
 | Super left/right | `KC_LGUI`, `KC_RGUI` | Transparent, transparent |
-| Alt (bottom right, replaces right Ctrl) | `KC_RALT` | Transparent |
+| Right Ctrl (1.75u beside the arrows) | `KC_RCTL` | Transparent |
 | Digits 1–0, minus, equals | Normal typing keys | Transparent. Omar has no function keys |
 | Left, Right, Up, Down, Delete | Standard keycodes | `KC_HOME`, `KC_END`, `KC_PGUP`, `KC_PGDN`, `KC_INS` |
 | Five desks, former desk | `OM_DESK1` through `OM_DESK5`, `OM_LAST_DESK` | Transparent |
@@ -34,7 +34,7 @@ void suspend_power_down_user(void) {
 | Guide, Mic Mute, Screenshot | Private codes `KC_F13` and `KC_F15`, then `KC_PSCR` | Transparent |
 | Layout and speaker-mute dial presses | `LGUI(KC_L)`, `KC_MUTE` | Transparent |
 
-For the other labeled keys, use the [stock output map](../design/keymap.md). For example, Browser is `LGUI(LSFT(KC_B))` and Grab Text is `LGUI(LCTL(KC_PSCR))`. Leave unspecified Fn positions transparent. Use layer 1 for Fn or adjust `LT` to match your board. In `config.h` set `TAPPING_TERM 200`, `HOLD_ON_OTHER_KEY_PRESS` and `QUICK_TAP_TERM 0`. If the target already uses tap-hold keys, apply those settings per key to Caps where supported. Alternate finger rolls, repeated Caps taps and holding Alt with the right hand on the arrows are part of the trial. [QMK tap-hold behavior](https://docs.qmk.fm/tap_hold) · [Layer tap and transparent keys](https://docs.qmk.fm/feature_layers)
+For the other labeled keys, use the [stock output map](../design/keymap.md). For example, Browser is `LGUI(LSFT(KC_B))` and Grab Text is `LGUI(LCTL(KC_PSCR))`. Leave unspecified Fn positions transparent. Use layer 1 for Fn or adjust `LT` to match your board. In `config.h` set `TAPPING_TERM 200`, `HOLD_ON_OTHER_KEY_PRESS` and `QUICK_TAP_TERM 0`. If the target already uses tap-hold keys, apply those settings per key to Caps where supported. Alternate finger rolls, repeated Caps taps and holding Right Ctrl with the right hand on the arrows are part of the trial. [QMK tap-hold behavior](https://docs.qmk.fm/tap_hold) · [Layer tap and transparent keys](https://docs.qmk.fm/feature_layers)
 
 For a three-encoder board enable `ENCODER_ENABLE`, `ENCODER_MAP_ENABLE`, `EXTRAKEY_ENABLE` and `MOUSEKEY_ENABLE` in `rules.mk`. Define A/B pins in the keyboard definition. An encoder map uses these detent pairs. A macropad without encoders can use spare switches for the same outputs.
 
@@ -63,7 +63,7 @@ dofile(os.getenv("HOME") .. "/.local/share/omar-keyboard/omar-bindings.lua")
 
 Three private input codes (F13, F14 and F15 to the host, never labeled for the user) open the Guide, return to the most recently focused eligible window on the same workspace and run Omarchy’s microphone toggle. The last-window code filters by workspace, mapped/visible state and focus history. With three windows, use the directional controls to change focus out of cycle order and then confirm the code toggles between the last pair. [Omarchy binding template](https://github.com/omacom/omarchy/blob/v4.5.0/config/hypr/bindings.lua) · [Omarchy use of focusHistoryID](https://github.com/omacom/omarchy/blob/v4.5.0/bin/omarchy-hyprland-focus-app)
 
-**Optional five-desk mode.** Set `omar_five_desks = true` immediately *before* the `dofile` line. Numbered visit/move/send bindings for 6–10 are removed from the Omarchy session. Super + Tab, Shift + Super + Tab and Super + vertical wheel wrap over slots 1–5 on the active monitor. Last Desk uses the last eligible slot visited there since reload. The setting applies to all keyboards attached to that session. Applications and unrelated input bindings can still create other workspaces. Remove the setting and reload for stock workspace behavior. [Omarchy per-monitor slot mapping](https://github.com/omacom/omarchy/blob/v4.5.0/default/hypr/monitor-workspaces.lua)
+**Default five-desk profile.** Loading the profile enables it. Numbered visit/move/send bindings for 6–10 are removed from the Omarchy session. Super + Tab, Shift + Super + Tab and Super + vertical wheel wrap over slots 1–5 on the active monitor. Last Desk uses the last eligible slot visited there since reload. The setting applies to all keyboards attached to that session. Applications and unrelated input bindings can still create other workspaces. To restore stock workspace behavior, set `omar_five_desks = false` immediately before the `dofile` line and reload. [Omarchy per-monitor slot mapping](https://github.com/omacom/omarchy/blob/v4.5.0/default/hypr/monitor-workspaces.lua)
 
 ## 3. Optional desk and microphone lights
 

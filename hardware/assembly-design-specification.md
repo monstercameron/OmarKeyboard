@@ -1,6 +1,6 @@
 # Omar-Keyboard assembly design specification
 
-**Revision 9 · Rev B.1 SolidWorks modeling specification · Engineering prototype · 18 November 2026**
+**Revision 16 · B.2 motherboard, T3 roller and T4 assembly · Engineering prototype · 18 November 2026**
 
 A wired US QWERTY keyboard for Omarchy. Five desk keys give windows a physical destination, the right rail puts tile controls beside the arrows, and a wide roller scrolls long pages. This specification describes how the controls fit, connect and come apart in the full-size custom PCB build.
 
@@ -8,15 +8,17 @@ A wired US QWERTY keyboard for Omarchy. Five desk keys give windows a physical d
 
 **Figure 1.** The exploded model separates the keycaps, switches, plate, populated motherboard and tray. The USB carrier sits behind Desk 3. Frame 1 of the Blender model closes the stack. Frame 61 opens it.
 
-**Design status.** Dimensions marked **baseline** control the first sample. A **proposal** is a modeled placement or an integration choice that still needs a trial. An **open** item needs a part selection, drawing or measurement before fabrication. The full-size Rev A mainboard has a routed KiCad layout, drill files and a compiled QMK target. Its outline, holes, pads, tracks and component centers register the assembled Blender model. The separate USB carrier, purchased-part tolerances and first physical assembly still need validation. [Mainboard verification](mainboard/verification.md)
+**Design status.** Dimensions marked **baseline** control the first sample. A **proposal** is a modeled placement or an integration choice that still needs a trial. An **open** item needs a part selection, drawing or measurement before fabrication. The full-size Rev A mainboard has a routed KiCad layout, drill files and a compiled QMK target. Its outline, holes, pads, tracks and component centers register the assembled Blender model. The routed T4 carrier is documented on sheet 20. Purchased-part tolerances and the first physical assembly still need validation. [Mainboard verification](mainboard/verification.md)
 
-**Build revision.** Use the Rev B.1 mainboard with two Bourns corner encoders, 90 sockets and 90 addressable LEDs. Sheets 05–05C and 07 document Rev A. Sheets 07A–07C give the current lighting, pinout and encoder dimensions. [Rev B.1 hardware](mainboard-rev-b/README.md) · [90-key light register](mainboard-rev-b/backlight-map.csv) · [Rev B firmware](../firmware/builds/omar_keyboard_rev_b_default.uf2) · [Populated-board quote](mainboard-rev-b/quotes/2026-11-18-bourns/Omar-Keyboard-Rev-B.1-JLCPCB-quote.md)
+**Current electrical build.** Use the Rev B.2 mainboard, T3 encoder card and T4 USB-C carrier. B.2 adds R12/R13 and retains the B.1 switch, dial and 90-LED placements. The 403-placement quote pertains to B.1. See sheets 19–19B for B.2. [Rev B.2 project and fabrication files](mainboard-rev-b2/README.md) · [Encoder card](roller-encoder-card/README.md)
+
+**Current mechanical build.** Use the T4 closed assembly and tray with the T3 plate and roller. Sheets 20–20C control the carrier, collars, cap rims, knob bores and clearances. [Full SolidWorks exchange assembly](mechanical-rfq/rev-b2-t4/Omar-Keyboard-full-T4.step)
 
 **SolidWorks model.** [Datums and mates](#solidworks) · [Fitted parts](#cad-parts) · [Key stations](#cad-stations) · [Controller placements](#cad-logic) · [Verification](#cad-verification)
 
 **At the bench.** [Fastener map](#bench-map) · [Build](#bench-build) · [Open the tray](#bench-open) · [Repair by part](#bench-repair) · [Proposed refinements](#bench-refinements)
 
-**Working files.** [Offline internal viewer](model/internals/View-Internals.html) · [Editable assembly](model/internals/Omar-Keyboard-Internals.blend) · [One-piece tray STL, mm](model/Omar-Keyboard-Tray.stl) · [Rev A model source PCB](mainboard/omar-mainboard.kicad_pcb) · [Dimensioned baseline](specification.md) · [Parts, costs and supplier drawings](parts-plan.md)
+**Current build register.** Sheets 21–21C list all nine assemblies. Sheets 22–22B give the revised fabrication inputs, software defaults and first-article acceptance tests. [Full T4 STEP](mechanical-rfq/rev-b2-t4/Omar-Keyboard-full-T4.step) · [Editable T4 assembly](mechanical-rfq/rev-b2-t4/Omar-Keyboard-full-T4.blend) · [T4 tray STL](mechanical-rfq/rev-b2-t4/T4-One-piece-tray.stl).
 
 ## 01 / Assembly map and design datums
 
@@ -72,9 +74,9 @@ The rear view locates the USB-C opening behind Desk 3. It appears to the viewer'
 | −8.4 / −10.4 | Socket underside / target inner floor. Nominal clearance is 2 |
 | −12.9 | Nominal outside of a 2.5 floor |
 
-At 6° with feet fitted, the estimated front and back heights are 20 and 34 mm. The appearance model uses a desk-parallel floor. Check actual clearance across the whole cavity, especially at the front sockets, under the joiner and beside the rear carrier. Vertical rays from the 90 modeled socket meshes give a smallest socket-vertex-to-floor gap of 3.22 mm. The 2 mm target applies to the first physical assembly, including solder and board deflection.
+At 6° with feet fitted, the estimated front and back heights are 20 and 34 mm. The appearance model uses a desk-parallel floor. Check actual clearance across the whole cavity, especially at the front sockets, under the joiner and beside the rear carrier. The T4 underside screen gives 3.126 mm minimum vertical socket clearance at SW88. The 2 mm target applies to the first physical assembly, including solder and board deflection.
 
-**Plate.** Cut 92 openings of 14.00 × 14.00 mm (+0.05/−0) for 90 MX housings and the two dial bodies. Add the twelve 6.6 × 12.2 stabilizer reliefs (two per stabilized key), the centered 44 × 12 roller slot, four roller support fixings and the main mounting holes below. Match stabilizer openings to the selected housing. Test clips in the actual stock before cutting the full plate. A nominal 0.063-inch sheet is approximately 1.60 mm.
+**Plate.** Cut 92 openings of 14.00 × 14.00 mm (+0.05/−0) for 90 MX housings and the two dial bodies. Add the twelve 6.6 × 12.2 stabilizer reliefs (two per stabilized key), the T3 44.40 × 13.50 R0.55 roller opening, four roller support fixings and the main mounting holes below. Match stabilizer openings to the selected housing. Test clips in the actual stock before cutting the full plate. A nominal 0.063-inch sheet is approximately 1.60 mm.
 
 | Shared plate / PCB mounts | Centers (x, y), mm |
 | --- | --- |
@@ -94,10 +96,10 @@ At 6° with feet fitted, the estimated front and back heights are 20 and 34 mm. 
 | Lower spacers | 14 × Ø4.30 outside, Ø2.20 bore, 3.20 tall, z = −9.80 to −6.60. The 0.02 modeled seating allowance closes in the hardware stack. Check all spacers support the board without bow |
 | Upper spacers | H1–H12 only, Ø4.10 outside, Ø2.20 bore, 3.50 tall, z = −5.00 to −1.50. The two interior supports end at the PCB |
 | Enter stabilizer | The tray leaves (278.60, 80.96) clear. The adjoining Ø3.70 HS6 through-bore is at (280.95, 79.695), just 2.67 center-to-center from the omitted post. Check screw head and wire sweep on assembly |
-| USB carrier pocket | Center (95.25, −3.38). Internal relief 21.60 × 9.50, z = −7.85 to −1.20. Exterior port 12 × 7, R1.4. Carrier and saddle interfaces are on sheet 06A |
-| Optional split | The printable mesh contains one connected shell, 14 bosses, two slide rails and three open cable saddles. Insert type/depth, tray screw lengths, split joint and tightening torque require a material sample |
+| USB carrier pocket | T4 relief X84.40–106.10, field Y−8.13 to +1.38, floor Z−10.35. Exterior port 12 × 7, R1.4. Carrier and saddle interfaces are on sheets 06A and 20A |
+| Optional split | The printable mesh contains one connected shell, 14 motherboard bosses, two webbed USB carrier posts and three open cable saddles. Insert type/depth, tray screw lengths, split joint and tightening torque require a material sample |
 
-[One-piece tray STL](model/Omar-Keyboard-Tray.stl) · [Editable assembled model](model/Omar-Keyboard.blend) · [Exact drill and component coordinates](model/internals/board-geometry.json)
+[Current T4 tray STL](mechanical-rfq/rev-b2-t4/T4-One-piece-tray.stl) · [Closed T4 assembly](mechanical-rfq/rev-b2-t4/Omar-Keyboard-full-T4.step).
 
 ## 03 / A3 · Switches, stabilizers and cap set
 
@@ -107,7 +109,7 @@ Install **89 Gateron G Pro 3.0 Brown five-pin switches** and **one CHERRY MX Lin
 | --- | --- | --- |
 | 1u | 75 | Includes DSA Lock and all four arrows |
 | 1.5u | 6 | Two R1 transfers, Tab, backslash, Ctrl and right Super |
-| 1.75u | 3 | Caps, left Super and R4 Right Alt |
+| 1.75u | 3 | Caps, left Super and R4 right Ctrl |
 | 2u | 1 | Backspace |
 | 2.25u | 3 | Enter, left Shift and R4 Next Window |
 | 2.75u / 6.25u | 1 each | Right Shift / Space |
@@ -151,14 +153,14 @@ Use six PCB screw-in stabilizer pairs on the custom board. Backspace, Enter, bot
 | Knobs | Two knurled Ø18 × 12 knobs with set screws. Target top +23 mm with the uncut shaft and ≥1 mm to neighboring caps. Allow 10.5 mm shaft insertion and verify the set screw lands on the flat. Verify at full push and full rotation |
 | Rev B.1 encoder mounting | Shaft-centered 12.5 × 13.4 mm body in the 14 mm plate opening. A 6.5 mm body plus a 20 mm shaft puts its tip at +21.5 mm with the PCB at −5. Check full 0.5 mm push travel. [Bourns drawing](https://www.bourns.com/docs/Product-Datasheets/PEC11R.pdf) |
 | Dial labels | Mute on the left, Layout · Fn Resize on the right. Use 2.4 mm lettering in the 4.76 mm band below each dial |
-| Roller envelope | x = 319.09–376.24, y = 23.81–61.91. Finished barrel Ø16 × 42, x = 324.59–366.59, center y = 42.86, axle z = +6 |
-| Left bearing | MR63ZZ, Ø3 bore × Ø6 OD × 2.5 wide. Ø3 axle stub in a 4 mm block spanning x = 320.09–324.09 |
-| Right drive | Horizontal Ø6 D shaft into the barrel with an M3 set screw. Encoder plus bracket share 7.50 mm axially at x = 367.09–374.59. Shim the bracket to set axle height |
-| Bezel and harness | 56.2 × 37.2 bezel, 1.2 top skin, 46 × 17 window, four M2 fixings shared with supports. Route A, B and common away from the tread. Model proposes a separate 3.8 × 6.3 lead passage near (374.5, 53.9) |
+| Roller envelope | T3 tread Ø16 × 42, X321.49–363.49, axis Y42.86 / Z+6.00 |
+| Left bearing | MR63ZZ, Ø3 bore × Ø6 OD × 2.5 wide. Ø3 journal carried by R04, with the foot centred at T3 field X319.465. |
+| Right drive | Alps EC11E15204A3, supported at the bushing and housing by R03/R05. Solder its metal lugs and terminals to a mounting card. See sheets 19–19B. |
+| Bezel and harness | T3 hood, four underside M2 fixings shared with the supports. The card and dressed leads clear the hood and shaped P01 opening on sheets 19–19B. |
 
-Use a ribbed barrel or a printed core with a 1 mm silicone sleeve. Ø16 is the finished outside diameter. Select 30 detents / 15 pulses, with no roller push. The target is one wheel step per detent, approximately 1.68 mm of tread. Pulling the upper surface toward the user scrolls down. The Alps EC11E15204A3 mounted on its side is a bench fixture option. The production encoder, bracket and wire exit remain open.
+Use the T2 turned core with a silicone sleeve giving Ø16 finished tread. The selected non-push Alps has 30 detents and 15 pulses per turn. One detent should scroll one step, about 1.68 mm of tread. Pulling the upper surface toward the user scrolls down.
 
-**Axial stack.** From left to right the 57.15 mm envelope comprises 1.00 mm to the bearing block, 4.00 mm of block, a 0.50 mm gap, 42.00 mm of tread, a second 0.50 mm gap, 7.50 mm of bracket and sensor, and 1.65 mm to the right boundary. These are body clearances. The stub and drive shaft extend into their mating parts. Specify engagement and end float after measuring those parts.
+**Axial stack.** T3 uses a 42.00 mm tread, 12.00 mm of shaft engagement, a 2.00 mm shaft-tip allowance and a 1.00 mm nominal bushing-to-core gap. Sheet 19 locates both ends and defines sample limits.
 
 Check that the roller encoder cannot rotate in its bracket when the user reverses direction. Confirm that repeated end loading cannot walk the barrel off the bearing or loosen the drive set screw. The four module holes use the coordinates on sheet 04B. Final bearing-seat tolerance, end float and shaft engagement depend on the purchased parts. The following section shows where to measure moving clearance.
 
@@ -166,7 +168,7 @@ Check that the roller encoder cannot rotate in its bracket when the user reverse
 
 ![Dimensioned roller section through the bezel, plate and motherboard](../docs/assets/omar-roller-section.svg)
 
-**Figure 2.** Section perpendicular to the roller axle, at mid-tread. The modeled barrel passes through the plate. The lower square edge of the bezel is the closest surface. Dimensions are nominal millimeters. The end supports lie outside this section.
+**Figure 2.** Mid-tread section from the concept model. The table gives horizontal clearance at selected heights. The T3 solid minima are 0.760 mm at the hood and 1.031 mm at the plate. Use sheet 19B for acceptance.
 
 | Section plane | Barrel width at plane | Nominal opening | Clearance per side |
 | --- | --- | --- | --- |
@@ -189,9 +191,9 @@ The earlier 16.00-wide opening left just 0.04 per side at the underside. The 17.
 | Moving or clamped interface | Modeled dimensions, mm |
 | --- | --- |
 | Barrel and flash | U2 center (330, 32), body 5.30 × 5.30, mounted height 2.15. Its nearest y edge is 34.65, outside the tread projection starting at 34.86. Flash top −2.85 clears the plate underside −1.50 by 1.35 |
-| Module fixing pattern | Four Ø2.20 through-holes in the plate. Centers x = 322.565 or 372.765 crossed with y = 27.26 or 58.46. Pitch 50.20 × 31.20. The mainboard has no module screw holes |
-| Bracket and bezel | Two 4.40 × 35.20 × 1.50 bracket feet. Four Ø4.60 posts span z = +1.50 to +6.80, with Ø1.60 modeled tapping pilot. M2 × 8 from plate underside gives 5.00 nominal engagement and 0.30 tip clearance below the bezel skin. Head envelope Ø3.80 × 1.10 reaches z = −2.60 |
-| Separate lead passage | Plate cut 3.80 × 6.30 at (374.50, 53.90), with 0.75 corner radius in the cutter. Three Ø0.44 lead envelopes pass through it to J2, away from the tread |
+| T3 module fixing pattern | Four Ø2.20 through-holes in P01. Centre X319.465 or X369.665 crossed with Y27.26 or Y58.46. Pitch 50.20 × 31.20. The board has no module screw holes. |
+| Bracket and bezel · concept section | Two 4.40 × 35.20 × 1.50 bracket feet. Four Ø4.60 posts span z = +1.50 to +6.80, with Ø1.60 modeled tapping pilot. M2 × 8 from plate underside gives 5.00 nominal engagement and 0.30 tip clearance below the bezel skin. Head envelope Ø3.80 × 1.10 reaches z = −2.60 |
+| T3 encoder opening | Use the shaped passage in P01 T3. Its nearest webs to H4 and M4 are 3.391 and 2.133. |
 
 **First article.** Measure installed U1 height, assembled axle height at both ends, maximum tread diameter and runout. Rotate through 360° while loading the center and both ends. Check for witness marks on the chip, plate and bezel and measure the smallest gap under load. The digital measurements describe the unloaded assembly.
 
@@ -280,14 +282,14 @@ Fit **34 capacitors and eight resistors** on the mainboard. All use 0603 imperia
 
 | Interface | Requirement or sample proposal |
 | --- | --- |
-| Case to carrier | Port centered at x = 95.25 behind Desk 3. Rear opening 12 × 7. Proposed 20 × 7 × 1 mm carrier sits on two retaining ledges in a relieved pocket. Verify plug overmold, complete seating and extraction load |
+| Case to carrier | Port centered at x = 95.25 behind Desk 3. Rear opening 12 × 7. The T4 20 × 7 × 1 carrier seats on two screw posts. See sheet 20A. Verify plug overmold, complete seating and extraction load |
 | USB-C receptacle | GCT USB4105-GF-A candidate, 8.94 mm wide. Use USB 2.0 full-speed data and bus power. Validate shell tabs, connector-to-board datum and access with both plug orientations |
 | Port protection | Separate 5.1 kΩ pull-downs from CC1 and CC2 to ground. Fit USBLC6-2SC6 beside the inlet and a 500 mA hold PTC in the VBUS path |
-| Four-wire link | Protected VBUS, D−, D+ and ground. J1 pins 1–4 take these nets in this order. Solder the link on the underside. The 260–300 mm trial cut includes breakouts and service allowance. Confirm actual cable OD, conductor gauge, termination and strain relief on the first sample. |
+| Four-wire link | Protected VBUS, D−, D+ and ground. J1 pins 1–4 take these nets in this order. Solder the link on the underside. Start with an untrimmed donor. Use 260–300 mm only as a rough trial range and measure the service loop per sheet 22A. Confirm actual cable OD, conductor gauge, termination and strain relief on the first sample. |
 | Mainboard distribution | Protected 5 V feeds LEDs, the AHCT buffer and the LDO input. AP2112K-3.3 candidate supplies the 3.3 V domain, including MCU I/O and QSPI flash. Rev A includes the RP2040 core supply and local bypassing. Check all three rails on the assembled sample. |
 | Data and service | Place a 27 Ω series resistor on each data line near the RP2040. Keep the pair together across both boards and the harness. Check shield termination, return path and data continuity in the electrical design |
 
-For Rev B.1 the configured USB budget is 500 mA and the steady-state acceptance target is ≤450 mA at capped white (16/255). Measure total draw at the host. Sheet 07B gives pre-configuration and suspend limits. Check startup, configured operation, and suspend behavior against the implemented USB descriptor and power states. Size the supply path using measured peak draw and check the selected PTC's trip curve.
+For B.2 the configured USB budget is 500 mA and the steady-state acceptance target is ≤450 mA at capped white (16/255). Measure total draw at the host. Sheet 07B gives pre-configuration and suspend limits. Check startup, configured operation, and suspend behavior against the implemented USB descriptor and power states. Size the supply path using measured peak draw and check the selected PTC's trip curve.
 
 Before connecting the host, verify CC terminations, VBUS polarity, continuity of both data conductors, and absence of a supply short. Bring up the rails on a current-limited source, then test enumeration and recovery on a data-capable cable. Reinsert the plug with the case closed and check carrier movement and harness pinch.
 
@@ -295,17 +297,17 @@ Before connecting the host, verify CC terminations, VBUS polarity, continuity of
 
 | Assembly or interface | Dimensions and routing, mm |
 | --- | --- |
-| USB carrier | 20.00 × 7.00 × 1.00, R0.50, center (95.25, −4.35), z = −6.55 to −5.55. At y = −0.85 its front edge clears the mainboard rear edge by 0.35. Connector shell body 8.94 wide × 3.26 high |
-| Carrier slides | Two rails centered about x = 95.25, y = −4.52. Each lower shelf 1.20 × 7.50 × 0.60 at x offset ±9.55, z = −7.15 to −6.55. Each top keeper 0.75 × 6.00 × 0.35 at offset ±9.72, z = −5.55 to −5.20. The CAD fit is line-to-line in height. Set assembly clearance for the selected process |
+| USB carrier | 20.00 × 7.00 × 1.00, four 0.50 corner chamfers, center (95.25, −4.35), z = −6.55 to −5.55. At y = −0.85 its front edge clears the mainboard rear edge by 0.35. Connector shell body 8.94 wide × 3.26 high |
+| T4 carrier retention | Two Ø3.80 webbed posts, Ø1.60 blind pilots and M2 × 4 screws. Post centers and trial fit are on sheet 20A. |
 | USB cable | Jacket Ø2.50, modeled centerline 255.38 from the carrier breakout to the J1 breakout. Main span y = 2.00, z = −11.00, jacket top/bottom −9.75/−12.25. Use a USB-rated twisted data pair. Confirm bend radius and strain relief for the purchased cable |
 | Three floor saddles | Centers (134, 2), (218, 2), (309, 2). Each is 4.00 wide along the cable, pedestal 5.80 across, clear channel 2.80. Saddle floor z = −12.35. Lift the cable vertically to release it during service |
 | J1 wire pads | Pin 1 at (348.50, 24.50), then x = 347.00, 345.50, 344.00 at the same y. Pitch 1.50, Ø0.65 plated holes. Pin order is protected VBUS, D−, D+, GND. Dress breakouts below the PCB |
-| J2 roller leads | Pins 1–3 at x = 371.50, 373.00, 374.50 and y = 53.90. Pitch 1.50, Ø0.65 plated holes. A, common ground, B. Keep solder and insulation inside the adjacent bracket envelope |
-| Service and production | Route the main cable outside the roller sweep and release it from all three saddles before lifting the PCB. The trial uses a soldered link. Desolder one end for complete separation. Qualify the carrier, retention, slack, strain relief and USB enumeration in both plug orientations |
+| J2 roller leads | Three Ø0.65 plated holes at Y53.90 on 1.50 pitch. From X371.50, pins are A/GP24, GND and B/GP25. Route from the encoder card with strain relief. Sheet 19A locates R12 and R13. |
+| Service and production | Route the main cable outside the roller sweep and support the first short deck lift and release each saddle as it becomes accessible. The trial uses a soldered link. Desolder one end for complete separation. Qualify the carrier, retention, slack, strain relief and USB enumeration in both plug orientations |
 
 ## 06B / A3, A5 and A7 · Off-board electronics
 
-The rear carrier uses its own 20 × 7 × 1 mm custom PCB and **five electronic components**. Its layout and fabrication files are still open. It joins the routed mainboard at J1. The scroll encoder connects at J2. Neither connection requires a separate header.
+The rear carrier uses its own 20 × 7 × 1 mm custom PCB and **five electronic components**. Sheet 20 identifies its routed source, fabrication archive and two-sided assembly data. It joins the routed mainboard at J1. The scroll encoder connects at J2. Neither connection requires a separate header.
 
 | Location | Fit | Manufacturer and orderable part | Assembly detail |
 | --- | ---: | --- | --- |
@@ -313,13 +315,13 @@ The rear carrier uses its own 20 × 7 × 1 mm custom PCB and **five electronic c
 | Rear carrier | 1 | STMicroelectronics · [USBLC6-2SC6](https://www.st.com/resource/en/datasheet/usblc6-2.pdf) | SOT-23-6. Place at the USB data entry. |
 | Rear carrier | 1 | Littelfuse · [1206L050YR](https://www.littelfuse.com/assetdocs/resettable-ptcs-1206l-datasheet?assetguid=2b6a1515-d4ee-4c83-8bd4-152b4901b8f5) | 1206 PPTC, 500 mA hold. Check peak-load drop and temperature derating. |
 | Rear carrier | 2 | YAGEO · [RC0603FR-075K1L](https://www.yageogroup.com/component-documentation/download/specsheet/RC0603FR-075K1L) | 5.1 kΩ each, ±1%, 0603. Fit one from CC1 to ground and one from CC2 to ground. |
-| J1 harness | 1 | Sanwa Supply · [KU20-SL05WK](https://www.sanwa.co.jp/product/syohin?code=KU20-SL05WK) | One 0.50 m USB 2.0 donor, approx. Ø2.5 mm, with twisted data pair. Cut 260–300 mm between solder breakouts. Verify all four conductors and VBUS drop under load. |
-| Roller / J2 | 1 | Alps Alpine · [EC11E15204A3](https://tech.alpsalpine.com/e/products/detail/EC11E15204A3/) | Bench selection, 30 detents / 15 pulses, without push. Route A, ground and B using three insulated wires from the donor offcut. |
+| J1 harness | 1 | Sanwa Supply · [KU20-SL05WK](https://www.sanwa.co.jp/product/syohin?code=KU20-SL05WK) | One 0.50 m USB 2.0 donor, approx. Ø2.5 mm, with twisted data pair. Establish the cut length by trial in both closed and supported service positions (sheet 22A). Verify all four conductors and VBUS drop under load. |
+| Roller / J2 | 1 | Alps Alpine · [EC11E15204A3](https://tech.alpsalpine.com/e/products/detail/EC11E15204A3/) | Selected for T3. Solder the seven terminals and lugs to the mounting card, then wire the card to J2. Sheet 19A gives the footprint and pull-ups. |
 | Key field | 89 | Gateron · [KS-9E10B055NW-Y51](https://www.gateron.com/products/gateron-g-pro-30-switch-set) | Five-pin G Pro 3.0 Brown for typing and controls. Fit after soldering the sockets. |
 | Lock | 1 | CHERRY · [MX1A-21NW](https://media.digikey.com/pdf/Data%20Sheets/Cherry%20PDFs/MX%20Series.pdf) | PCB-mount MX Linear Grey for the recessed Lock key. |
 | Host | 1 | Adafruit · [4474](https://www.adafruit.com/product/4474) | One data-capable cable from the host to the rear USB-C inlet. An existing compatible cable can be used. |
 
-**What remains open.** The Alps encoder is the part to buy for the roller fixture. Its bracket, shaft engagement and 7.50 mm axial envelope still need a fit test before choosing a production encoder. For the rear carrier, prove the receptacle mounting and pinout, CC pull-downs, ESD return, fuse path and harness continuity before releasing its PCB. Sheet 06A gives the solder-pad order and cable saddle dimensions.
+**What remains open.** Build and qualify the B.2 board and T3 mounting card on sheets 19–19B. For the rear carrier, prove the receptacle mounting and pinout, CC pull-downs, ESD return, fuse path and harness continuity before releasing its PCB. Sheet 06A gives the solder-pad order and cable saddle dimensions.
 
 ## 07 / A8 and A9 · Rev A indicators, firmware and host
 
@@ -379,10 +381,10 @@ Each of the 90 MX keys gets one independently addressable OPSCO SK6812MINI-E. Eq
 | --- | --- |
 | Fit on the top side | ENC1 (volume) at (9.53, 9.53) and ENC2 (brightness) at (395.29, 9.53), both at 0°. The assembler solders both Bourns PEC11R-4220F-S0024 encoders before plate installation. Orient the A/C/B row toward the keys and the push pair toward the rear. |
 | Contact holes | Five Ø1.05 mm plated holes. Viewed from the shaft side, A/C/B lie at x = −2.50, 0, +2.50 and y = +7.50 mm. Push 1/2 lie at x = −2.50, +2.50 and y = −7.00 mm. |
-| Grounded body tabs | Two vertical plated slots on 11.40 mm centers. Finished slot 2.00 × 4.40 mm, pad 3.00 × 5.40 mm. The fab drill routes four slots across the two dials. |
+| Grounded body tabs | Two vertical plated slots on 11.40 mm centers. Finished slot 2.00 × 4.40 mm, pad 3.00 × 5.40 mm. The supplier’s 13.20 mm spans the outside edges of its nominal 1.80 mm holes. Verify retention on a populated sample. |
 | Electronics | The two quadrature pairs and both matrix pushes retain their assignments. Keep QMK resolution 4 on the dials and 2 on the separate roller. Test slow clockwise/counterclockwise turns for 24 events per revolution and verify each push. |
 | Form and feel | The stock shaft puts the Rev B.1 knob about 7 mm above the original +16 mm target depicted in the earlier renders. Verify knob engagement, grip and cap clearance on the first physical assembly. |
-| Installed parts | 403 per board, including two Bourns encoders, 90 reverse-mount LEDs and 90 HanElectricity sockets. The assembly BOM also specifies the stocked Walsin 1 µF, Yageo 100 nF, Samsung 15 pF and C&K 2.6 N service switches. |
+| Quoted assembly | 403 placements per board, including two Bourns encoders, 90 reverse-mount LEDs and 90 HanElectricity sockets. The assembly BOM also specifies the stocked Walsin 1 µF, Yageo 100 nF, Samsung 15 pF and C&K 2.6 N service switches. |
 
 JLCPCB quoted five double-sided mainboards for **$277.81 before shipping and tax**. All 403 placements were selected. Switches, knobs, keycaps, roller, USB-C daughterboard and case are separate assemblies. [Quote and manufacturing configuration](mainboard-rev-b/quotes/2026-11-18-bourns/Omar-Keyboard-Rev-B.1-JLCPCB-quote.md)
 
@@ -395,19 +397,19 @@ JLCPCB quoted five double-sided mainboards for **$277.81 before shipping and tax
 | Zone | Required behavior |
 | --- | --- |
 | Left rail | Guide, Browser, Menu, Terminal, Files. Menu on the home row launches the menu. Shift + Menu opens the app grid |
-| Top row | Esc, Desk 1–5, Last Desk, Send & Stay, Move & Go, Clip History, Paste, Alerts, Mic Mute, Delete, Screenshot, Grab Text, Lock. Alt + Screenshot invokes recording |
+| Top row | Esc, Desk 1–5, Last Desk, Send & Stay, Move & Go, Clip History, Paste, Alerts, Mic Mute, Delete, Screenshot, Grab Text, Lock |
 | Right rail | Flip Split, Float, Fullscreen, Swap, Focus. Hold Focus + arrow to select a neighbor or Swap + arrow to exchange tiles. Focus wins if both are held |
-| Bottom row | Left Ctrl, left Super, Space, right Super, Next Window, Right Alt. Tap Next Window to cycle, add Shift to reverse or Fn to recall via the host helper |
+| Bottom row | Left Ctrl, left Super, Space, right Super, Next Window, Right Ctrl. Tap Next Window to cycle, add Shift to reverse or Fn to recall via the host helper |
 | Caps and Fn | Tap Caps for Caps Lock. Hold for Fn. Arrows become Home, End, Page Up and Page Down by direction. Fn + Delete gives Insert. Digits and both Super keys retain their base functions. F1–F12 have no user mapping |
 | Three rotary controls | Left dial adjusts volume and pushes for speaker mute. Right dial adjusts brightness and pushes for Layout. Fn + right dial resizes a split. The wide roller scrolls under normal host pointer routing. Fn + roller sends Page Up/Down to the focused application |
 
-**Moving a window.** Send & Stay keeps the source desk visible. Move & Go follows the window. Arm one command, then tap Desk 1–5 within 3 seconds. Esc or the same command cancels. The other command replaces it and restarts the timer. A normal key cancels and acts once. A direction, Focus, Swap or dial push cancels. Last Desk cancels and visits history. Modifier presses, holding Caps and rotary turns preserve the arm. After expiry a desk press only visits. Five desk keys address the current monitor. Stock Omarchy can still reach additional slots. [Complete physical-to-host mapping](../docs/design/keymap.md)
+**Moving a window.** Send & Stay keeps the source desk visible. Move & Go follows the window. Arm one command, then tap Desk 1–5 within 3 seconds. Esc or the same command cancels. The other command replaces it and restarts the timer. A normal key cancels and acts once. A direction, Focus, Swap or dial push cancels. Last Desk cancels and visits history. Modifier presses, holding Caps and rotary turns preserve the arm. After expiry a desk press only visits. Five desk keys address the current monitor. The installed Omar host profile defaults to slots 1–5 per monitor. Super+Tab and Super+wheel wrap. Sheet 22 gives the explicit stock-profile opt-out. [Complete physical-to-host mapping](../docs/design/keymap.md)
 
 <a id="bench-map"></a>
 
 ## 09 / A1–A7 · Fastener and access map
 
-Start here to open a Rev B.1 keyboard. The **deck** is the plate, switches and mainboard lifted together. The roller stays on the plate and the two Bourns encoders stay soldered to the mainboard.
+Use this sequence for the B.2 mainboard, T3 roller and T4 tray/carrier. The **deck** is the plate, switches and mainboard lifted together. The roller stays on the plate and the two Bourns encoders stay soldered to the mainboard.
 
 ![Top view of Omar-Keyboard with twelve deck screws, two PCB-only supports and four roller screws](../docs/assets/omar-service-map.png)
 
@@ -422,18 +424,18 @@ Start here to open a Rev B.1 keyboard. The **deck** is the plate, switches and m
 
 <a id="bench-build"></a>
 
-## 09A / A1–A8 · Assemble one Rev B.1 keyboard
+## 09A / A1–A8 · Assemble the B.2 / T3 / T4 keyboard
 
-Start with the JLCPCB-populated Rev B.1 mainboard and the Rev B firmware. On the first sample, check the plate, PCB and tray against the 100 mm print scale and trial a switch, stabilizer, dial and roller before fitting the full key field. The separate USB-C carrier needs a working prototype before powered testing. Photograph both PCB faces and record the firmware build.
+Start with the 405-placement B.2 mainboard, populated T4 carrier, soldered T3 encoder card and Rev B firmware. Photograph both sides, record revisions and verify the 100 mm print scale. Trial a switch, stabilizer, dial and roller before loading the field. Qualify the tray retention and service loop on sheet 22A before final closure.
 
 | Step | Assembly sequence |
 | --- | --- |
-| 1 · Verify the open board | Inspect the 90 sockets, 90 rear-mounted LEDs and both soldered Bourns encoders. With power off, label and meter the USB harness end to end. J1 pins 1–4 are protected VBUS, D−, D+, GND. Attach the carrier and J1 leads. Follow sheet 06 for current-limited bring-up, then test USB enumeration, BOOTSEL and RUN while the buttons are exposed. Disconnect power. |
+| 1 · Verify the open board | Inspect the 90 sockets, 90 rear-mounted LEDs and both soldered Bourns encoders. With power off, label and meter the USB harness end to end. J1 pins 1–4 are protected VBUS, D−, D+, GND. Rehearse the service loop unpowered (sheet 22A). With the boards out of the tray, solder both ends, inspect and meter the harness. Follow sheet 06 for current-limited bring-up, then test USB enumeration, BOOTSEL and RUN while the buttons are exposed. Disconnect power. |
 | 2 · Build the PCB side | Fit six screw-in stabilizer pairs to the populated PCB, with five short wires and the long Space wire. Retain the wire orientations on sheet 03. Inspect the screws and Enter sweep from underneath. Cycle each stabilizer before the plate hides its housings. |
-| 3 · Build the plate side | On the free plate, install the bearing, roller, encoder bracket and shims. Feed the three leads through the separate passage. Install all four M2 × 8 bezel screws from below. Hand-turn the barrel through a revolution and check end float and clearance before mating the PCB. |
-| 4 · Join the deck | Set the twelve upper spacers at H1–H12. Guide the plate squarely over both bare encoder shafts and the stabilizer housings. Solder the roller leads at J2 with access to the pads, in pin order A, GND, B. Connect power only for bench tests. Seat a few well-separated switches with straight pins, backing each socket from below. Check the 5.00 mm plate-top to PCB-top spacing, then seat the remaining switches with the same support. |
+| 3 · Build the plate side | For the fit sample, seat the bearing and the soldered encoder/card. Clock the bare core screw onto the flat before adding the sleeve. Trial the dressed leads and fit R03 with the four underside screws. Measure free rotation and end float. See sheets 19–19B. |
+| 4 · Join the deck | Set the twelve upper spacers at H1–H12. Guide the plate squarely over both bare encoder shafts and the stabilizer housings. Solder the three leads from the mounting card at J2 with access to the pads, in pin order A, GND, B. Connect power only for bench tests. Seat a few well-separated switches with straight pins, backing each socket from below. Check the 5.00 mm plate-top to PCB-top spacing, then seat the remaining switches with the same support. |
 | 5 · Test before closure | Exercise all 90 key switches, both dial pushes and all three rotary controls. Walk the 90 LEDs individually. Spin the roller under light center and end loads and check for rub above U1. Trial both knobs at +23 mm nominal, turn and fully depress them. Test each stabilized cap at both ends. Keep caps over the twelve fasteners off until closure. Disconnect USB. |
-| 6 · Seat and close | Place all fourteen lower spacers, seat the carrier in its rails and lay the USB jacket in all three open saddles. Keep the USB pair together and the roller leads clear. Before inserting screws, rehearse step 2 on sheet 09B. Adjust the cable routing or trial length until the supported lift gives access to the saddles without loading J1. Lower the deck level, start all twelve screws by hand and tighten evenly in alternating areas. Stop if a corner lifts or the plate bows. Fit the remaining caps and complete sheet 10. |
+| 6 · Seat and close | Place all fourteen lower spacers, secure the T4 carrier to its two posts and lay the USB jacket in all three open saddles. Keep the USB pair together and the roller leads clear. Before inserting screws, rehearse step 2 on sheet 09B. Adjust the cable routing or trial length until the supported lift gives access to the saddles without loading J1. Lower the deck level, start all twelve screws by hand and tighten evenly in alternating areas. Stop if a corner lifts or the plate bows. Fit the remaining caps and complete sheet 10. |
 
 <a id="bench-open"></a>
 
@@ -444,10 +446,10 @@ Start with the JLCPCB-populated Rev B.1 mainboard and the Rev B firmware. On the
 | Step | Removal sequence |
 | --- | --- |
 | 1 · Expose the screws | Unplug external USB. Photograph key positions and knob height. Place the keyboard face up. Use the map on sheet 09 and pull only the caps that block the driver. Loosen the twelve deck screws progressively and collect them. H13 and H14 are PCB supports. The four roller screws stay in place. |
-| 2 · Open to the harness | Lift both ends of the deck together just enough to see the wiring. Prop the edges on nonconductive blocks while another hand guides the leads. Stop at the first sign of cable tension. Ease the USB jacket vertically out of the three open saddles as they become accessible. Support the carrier when sliding it clear of its rails. Keep the cable, carrier and deck together for a solder-free tray inspection. |
+| 2 · Open to the harness | Lift both ends of the deck together just enough to see the wiring. Prop the edges on nonconductive blocks while another hand guides the leads. Stop at the first sign of cable tension. Ease the USB jacket vertically out of the three open saddles as they become accessible. Support the carrier while removing its two M2 screws, then ease the connector inward and lift. Keep the cable, carrier and deck together for a solder-free tray inspection. |
 | 3 · Support the open deck | Capture any loose lower spacers, including H13 and H14. Rest the deck on its edges with the underside accessible and the carrier supported beside it. Keep the knobs, roller, sockets and LEDs clear of the bench. Inspect J1, J2 and any affected socket joints. |
 | 4 · Separate the plate if needed | Label the roller leads and photograph J2 before desoldering one end of the three-wire harness. Free the leads to pass back through the plate. Loosen both knob set screws and lift the knobs straight off. Remove any shaft hardware that captures the plate. Remove the remaining caps and all 90 plug-in switches, releasing each pair of plate clips and pulling straight. The Bourns bodies remain on the PCB. |
-| 5 · Expose the buried hardware | Support plate and PCB independently. Guide the plate straight over the shafts and stabilizer housings. Collect the twelve upper spacers. The four roller screw heads are now accessible. Support the bezel before undoing them and capture the bearing, bracket and shims. For complete mainboard separation, label J1 and desolder one end of the USB harness as well. |
+| 5 · Expose the buried hardware | Support plate and PCB separately and lift the plate over the shafts and stabilizers. Collect the twelve upper spacers. The four roller fixing heads are accessible. Follow sheet 19B for R03 and R04 removal. For full mainboard separation label J1 and desolder one end of the USB harness. |
 
 **Close after service.** Restore each shim and spacer to its recorded location. For any soldered lead that was disturbed, check its pin-to-pin continuity and adjacent pads for bridges before applying power. Repeat the affected open-deck tests, then close using step 6 on sheet 09A. With the case closed, check USB in both plug orientations and exercise the serviced controls again.
 
@@ -461,7 +463,7 @@ Start with the JLCPCB-populated Rev B.1 mainboard and the Rev B firmware. On the
 | One MX switch | Expose the cap and release the switch clips with the puller. Inspect both electrical pins. Open the tray for underside support when seating the replacement. Press against the socket body from below while inserting straight from above. Stop if a pin folds or the socket moves. Test that key and its light. Lock uses the heavy CHERRY switch. |
 | Socket or per-key LED | The socket and reverse-mount LED are soldered to the underside. Remove the affected switch before socket rework. Use the Rev B light register to identify the emitter. For one dead key, check the socket joints and diode. For a dark run, check VLED, ground and DIN/DOUT at the first dark pixel and its predecessor. Verify key release and walk the light chain after repair. |
 | USB-C inlet or harness | Open the tray and free the jacket from the saddles. For a carrier swap, desolder the marked carrier end and retain the J1 joint where practical. Check VBUS polarity, D−/D+ continuity and shorts before power. Confirm enumeration, suspend/wake and retention with the case closed. |
-| Roller, stabilizer or corner encoder | Split the deck using sheet 09B. Undo the roller's four underside screws for a bearing, bracket or sensor repair. For a stabilizer, preserve wire direction, then test the wide cap at both ends. For a Bourns body, clear five electrical pins and both plated anchor slots before lifting the part. Check 24 events per turn in each direction and one clean push. |
+| Roller, stabilizer or corner encoder | Split the deck using sheet 09B. For a roller repair, follow the carrier and rotor removal trial on sheet 19B. For a stabilizer, preserve wire direction, then test the wide cap at both ends. For a Bourns body, clear five electrical pins and both plated anchor slots before lifting the part. Check 24 events per turn in each direction and one clean push. |
 
 **Hand-wired pilot variant.** An Olimex RP2040-PICO30 (51 × 21 mm) provides the controller, regulator and USB-C inlet. Direct-wire the 92 contacts with axial 1N4148 diodes and use plate-mount stabilizers with matching cutouts. Mount the controller separately and check its own cable path. Its port mount, wiring and stabilizers need their own fit trial. The full-size hot-swap assembly above uses an onboard RP2040 and the rear USB carrier. [Pilot and setup instructions](../docs/build/pilot.md)
 
@@ -496,7 +498,7 @@ Record the sample identity, actual part numbers, firmware revision, test setup, 
 
 **Service trial.** Record one complete opening and closure with the production-intent plate and caps. Account for all 12 deck screws, 14 lower and 12 upper spacers. Record the service opening that the harness permits, any cap obstructing the driver, and USB, lighting and input results after closure. Sheet 09D covers the proposed removable harness.
 
-**Required before a fabrication release.** Select the horizontal encoder and prove the 7.50 mm installed package. Resolve the bezel edge clearance, shaft retention and actual wire path. Trial all fourteen bosses, including the two interior PCB supports, floor clearances, stabilizer orientations and USB carrier mounting with purchased components. Freeze the connector and mating harness, screw schedule, cap/knob fit and vendor footprints. Complete the separate USB carrier design. Review the Rev B.1 mainboard netlist, native DRC record, vendor footprints and USB power configuration against the purchased parts. Issue controlled plate/case/roller and harness drawings, Gerbers and drills, assembly BOM and placement data, board firmware and the signed sample test record. [Fit and live-desktop test procedure](../docs/design/validation.md)
+**Production release.** The B.2, T3 and T4 fabrication inputs are available. Obtain supplier confirmation for carrier fill/cap and panelization, price the B.2 placement list, then complete the mechanical, electrical and live-desktop tests on sheets 22A–22B. Record qualified seat, fastener and harness measurements against the sample. [Fit and live-desktop test procedure](../docs/design/validation.md)
 
 ## 11 / Contact schedule and reference files
 
@@ -520,7 +522,7 @@ Use this schedule at the bench to identify the row and column for any key. The t
 | R2 | T | Y | U | I | O | P |
 | R3 | G | H | J | K | L | Semicolon |
 | R4 | B | N | M | Comma | Period | Slash |
-| R5 | Alt | Left arrow | Down arrow | Right arrow | Focus | unused |
+| R5 | Right Ctrl | Left arrow | Down arrow | Right arrow | Focus | unused |
 | R6 | Brightness push | Right Shift | Up arrow | Swap | unused | unused |
 | R7 | Backslash | Float | Apostrophe | Enter | Fullscreen | unused |
 
@@ -535,9 +537,9 @@ Use this schedule at the bench to identify the row and column for any key. The t
 
 <a id="solidworks"></a>
 
-## 12 / SolidWorks · Start the Rev B.1 assembly
+## 12 / SolidWorks · Start the B.2 / T3 / T4 assembly
 
-Build the assembly in millimetres. Fix one master layout part at the top level. Give every manufactured part the same plate-plane origin. Rebuild the plate and enclosure from the dimensions below. Use the Rev B.1 KiCad PCB as the authority for board geometry, populated face, pin orientation and footprint origins. The enclosed drawings, coordinates and checks describe a prototype awaiting its first physical fit.
+Build the assembly in millimetres. Fix one master layout part at the top level. Give every manufactured part the same plate-plane origin. Rebuild the plate and enclosure from the dimensions below. Use the Rev B.2 KiCad PCB as the authority for board geometry, populated face, pin orientation and footprint origins. The enclosed drawings, coordinates and checks describe a prototype awaiting its first physical fit.
 
 | Reference | How to set it in the assembly |
 | --- | --- |
@@ -546,23 +548,23 @@ Build the assembly in millimetres. Fix one master layout part at the top level. 
 | Desk and typing angle | Model the plate, PCB, shafts and bosses square to the deck. At top assembly level, tilt them 6° around the left–right axis, rear high. Keep the desk, foot contacts and tray floor horizontal. At field center (202.40625, 59.53125), the plate top is 21.99476 above the desk in the current case model. |
 | Desk-height equation | For any field point (x, y, z), height above desk = 21.99476 + (59.53125 − y) sin 6° + z cos 6°. Use this to cut the floor and determine individual boss lengths. The tray STL uses the exterior floor as its zero, 2.00 mm above the desk in the assembled model. |
 | Global dimensions | Pitch 19.05. Field 21.25u × 6.25u. Plate 405.81 × 120.06 × 1.50. PCB same outline × 1.60. PCB top −5.00, underside −6.60. Tray 422.80 × 137.10 in the typing plane. The 139.43 mm bed depth on sheet 02 is the projected STL envelope. |
-| Evidence in the tree | Mark measured or released PCB features **Rev B.1 ECAD**, model-derived solids **nominal envelope**, and unbuilt alternatives **proposal**. Store part number, quantity, revision, units, reference origin and evidence in the model properties. Board DRC verifies the PCB. Record actual moving and assembly clearances separately. |
+| Evidence in the tree | Mark measured or released PCB features **B.2 ECAD**, model-derived solids **nominal envelope**, and unbuilt alternatives **proposal**. Store part number, quantity, revision, units, reference origin and evidence in the model properties. Board DRC verifies the PCB. Record actual moving and assembly clearances separately. |
 
 **Read the registers.** Sheet 13 identifies all 19 fitted part numbers. Sheets 14A–14F give the 92 keyboard stations and their local electronics. Sheets 15A–15B give the other board placements. Dimensions use finished part geometry unless a drawing or coupon still needs a value.
 
-**Bring the board into SolidWorks.** Open the Rev B.1 fabrication archive linked on the cover and extract its KiCad folder. Export the PCB solid to STEP from the board editor, with a documented origin, then register it to ENC1, ENC2 and H12. Only 221 of the 403 fitted footprint instances contain a 3D model reference. The absent references are exactly the 90 sockets, 90 reverse-mount LEDs and two Bourns encoders. Add those bodies to the PCBA using the station register. Check that the installed KiCad libraries actually resolve the other 221 model references. Include socket contacts, LED projections, encoder tabs and solder tails in the interference configuration.
+**Bring the board into SolidWorks.** The [populated B.2 mainboard](mainboard-rev-b2/omar-mainboard-populated.step) has 405 fitted positions and resolves all package files locally. The STEP datum is the field origin in plan and the underside of the PCB in Z. For the keyboard mate its underside to Z−6.60. Check orientation at ENC1, ENC2 and H12. The complete T4 STEP already registers both boards, the roller and the case.
 
 ## 12A / SolidWorks · Part tree and mates
 
 | Assembly | Components, quantities and mating intent |
 | --- | --- |
-| A1 · Tray and feet | One tray, four feet, fourteen lower supports. Seat the feet on the desk plane. Model integral bosses, two USB slide rails and three open cable saddles as tray features. Keep removable spacers as separate bodies. The 12 shared screw positions clamp the deck. H13/H14 support the PCB only. |
+| A1 · Tray and feet | One tray, four feet, fourteen lower supports. Seat the feet on the desk plane. Model integral bosses, two webbed USB screw posts and three open cable saddles as tray features. Keep removable spacers as separate bodies. The 12 shared screw positions clamp the deck. H13/H14 support the PCB only. |
 | A2 · Switch plate | One 1.50 mm 5052 plate and twelve upper spacers. Locate the plate by the master outline or by one hole and a second direction datum. Constrain the plate and PCB to parallel planes 5.00 apart. Pattern the other holes from the layout to avoid redundant concentric mates. See sheets 02 and 12C. |
 | A3 · Key field | Pattern 89 Gateron Browns, one CHERRY Linear Grey at Lock and 90 removable caps. Locate each switch by its stem center, north-facing orientation and flange on plate top. Seat cap sockets on stems. Make six wide-key stabilizer subassemblies, each with two housings, a wire and two screw locations. Drive key travel along the switch normal. |
 | A4 · Volume and brightness | Two Bourns bodies belong to the PCBA. Align each D-shaft with its encoder body and give the shaft rotation plus a 0.50 mm axial push. Mate each separate knob to the shaft flat and one axial height. The installed knob, shaft and moving switch element travel together. |
-| A5 · Roller module | One tread/core, one bearing and stub, left bearing block, right encoder/bracket, two clamp feet, four underside M2 × 8 fasteners, bezel and drive set screw. Mate fixed supports to the plate, align both ends to a common X axis, locate the tread axially using the established gap and permit rotation. The installed production sensor, end retention and tolerances require a sample. |
-| A6 and A8 · PCBA | One Rev B.1 FR4 board with 403 soldered parts. LEDs, bypasses, load switch, both Bourns bodies and the 90 sockets are included in this number. Use a lightweight board solid for case design and an unsuppressed population for interference checks. The 90 insertable MX switches are separate. |
-| A7 · USB carrier and leads | One carrier PCB with receptacle, ESD array, fuse and two CC resistors. Mate the board bottom to the lower shelves, center between the side rails and locate the inlet to the rear opening. Route one four-conductor J1 harness and one three-conductor roller lead set. Keep each end accessible in the service configuration. |
+| A5 · Roller module | Locate R03/R04/R05 to the plate and align the bearing, core and selected Alps on the X axis. Set the shaft engagement and tap-to-flat mate on sheets 19–19B. Model the screw, card, solder, lead bends and harness before interference and extraction checks. |
+| A6 and A8 · PCBA | One B.2 FR4 board with 405 soldered parts, including R12 and R13. LEDs, bypasses, load switch, both Bourns bodies and the 90 sockets are included in this number. Use a lightweight board solid for case design and an unsuppressed population for interference checks. The 90 insertable MX switches are separate. |
+| A7 · USB carrier and leads | One carrier PCB with receptacle, ESD array, fuse and two CC resistors. Mate the carrier underside to the two post tops and register the mounting bores concentrically. Locate the receptacle mouth to the rear opening. Route one four-conductor J1 harness and one three-conductor roller lead set. Keep each end accessible in the service configuration. |
 | A9 · Controls and labels | Use the 92-station register for legends, matrix address and cap configuration. A9 has no additional mechanical solid. Apply legends and homing features to the correct cap or plate face. Use sheets 07A–07C and 08 to associate the light and control functions. |
 
 ## 12B / A1 · Tray sections and reference planes
@@ -591,7 +593,7 @@ Use the field center on sheet 12 for every rounded rectangle. The rings below re
 | Outer profile and shared fasteners | Use the Rev B.1 finished perimeter on sheet 12. Add twelve Ø2.20 plate holes at H1–H12 on sheet 02. The PCB additionally contains H13/H14 and 24 stabilizer bores. Sheet 12D lists all 24. |
 | Key and dial openings | Cut one 14.00 square per station on sheets 14A–14F. The 92 squares include both encoders. The nominal model uses R0.18 internal corners. The plate opening tolerance is +0.05/−0. Validate the selected process radius, switch clips and Bourns tabs on a coupon. |
 | Stabilizer reliefs | Two 6.60 × 12.20 plate windows per stabilized key, modeled R0.25. Center each on the key's y and on the two wire-receiver x positions in sheet 12D. Account for overlap with the main MX cut as a single cut profile where applicable. |
-| Roller and pigtail | Through-slot 44.00 × 12.00, R0.55, centered (345.59, 42.86). Four Ø2.20 module holes use the distinct fixing center (347.665, 42.86) and pitches 50.20 × 31.20. The lead slot is 3.80 × 6.30, R0.75 at (374.50, 53.90). These belong to the plate. |
+| Roller and pigtail | Through-slot 44.40 × 13.50 R0.55 centered (342.49, 42.86). Four Ø2.20 fixing holes at 50.20 × 31.20 pitch about (344.565, 42.86). Use the shaped T3 passage on sheet 19. |
 | Socket holes · board top view | About each MX stem, center Ø4.00 at (0, 0), two Ø1.70 pegs at (±5.08, 0) and Ø3.00 contact bores at (−3.81, +2.54) and (+2.54, +5.08). Bottom copper land centers are (−7.36, +2.54) and (+6.09, +5.08), each 2.55 × 2.50. Use the assembled board face orientation. |
 | LED windows · board only | Cut 90 through-windows, each 3.50 X × 3.05 Y. Their centers are 5.08 mm rearward of their respective MX stems. LED pin 1 is rear-left in the switch-side plan for this placement. Retain the optical path through the switch to the rear-facing legend. |
 | Connector pads and service points | J1 and J2 are direct wire pads with Ø0.65 plated holes. Sheet 06A gives each pin center. TP1–TP7 are Ø1.00 top copper targets. Include probe approach with the plate removed. Use the fab drills and Edge.Cuts for ECAD detail, including vias and slots. |
@@ -640,24 +642,24 @@ All fourteen board bores are Ø2.20. H1–H12 are shared. H13 and H14 are PCB-on
 
 | Feature | Geometry and service motion |
 | --- | --- |
-| Bezel and aperture | Outer skin 56.20 × 37.20, R2.20, centered (347.665, 42.86), from z +6.80 to +8.00. The 46.00 × 17.00 window, R0.85, is centered on the tread at x 345.59. Its offset from the bezel center is −2.075 X. Skirt outer 56.15 × 37.15 R2.17, inner 53.50 × 34.50 R1.55, z +0.05 to +6.80. |
-| Tread and supports | X-axis at y 42.86, z +6.00. Tread Ø16 × 42.00. Left block 4.00 × 9.00, z 0 to +7.75 centers at x 322.09. Right sensor envelope 7.50 × 12.60, z +0.10 to +7.75 centers at x 370.84. Four bezel posts Ø4.60 and the two plate feet are dimensioned on sheet 04B. Retain the 0.50 axial gaps on both sides of the tread. |
-| Axle details | In the fit model, the Ø3 stub runs x 320.40–325.50, the Ø6 bearing OD spans x 320.80–323.30, and the Ø6 drive shaft spans x 364.80–370.00. The Ø16 tread includes its sleeve. Trial bearing retention, drive flat, M3 screw access and end float with the actual parts. |
-| USB inlet and rails | Rear wall opening 12 × 7 R1.40 centered at x 95.25, deck z −4.60. Its axis follows the rear direction in the deck plane. Separate carrier shelf and keeper sizes are on 06A. Each rail's side web is 1.10 × 7.50 × 2.72, centered at x = 95.25 ± 10.12, y −4.52, bottom z −7.70. Verify tab and plug overmold approach in both insertion orientations. |
-| Carrier population | On the nominal carrier top z −5.55, the shell proxy origin is (95.25, −4.68), fuse (102.20, −5.90), CC resistors (102.55, −2.28) and (102.55, −3.56), and ESD array (88.15, −5.55). This is the proposed 20 × 7 carrier on sheets 06–06B. The carrier ESD part is separate from motherboard U5. |
+| Bezel and aperture · earlier Blender model | Outer skin 56.20 × 37.20, R2.20, centered (347.665, 42.86), from z +6.80 to +8.00. The 46.00 × 17.00 window, R0.85, is centered on the tread at x 345.59. Its offset from the bezel center is −2.075 X. Skirt outer 56.15 × 37.15 R2.17, inner 53.50 × 34.50 R1.55, z +0.05 to +6.80. |
+| Tread and supports · earlier Blender model | X-axis at y 42.86, z +6.00. Tread Ø16 × 42.00. Left block 4.00 × 9.00, z 0 to +7.75 centers at x 322.09. Right sensor envelope 7.50 × 12.60, z +0.10 to +7.75 centers at x 370.84. Four bezel posts Ø4.60 and the two plate feet are dimensioned on sheet 04B. Use sheet 18 for the T2 axial stack. |
+| Axle details · earlier Blender model | In the fit model, the Ø3 stub runs x 320.40–325.50, the Ø6 bearing OD spans x 320.80–323.30, and the Ø6 drive shaft spans x 364.80–370.00. The Ø16 tread includes its sleeve. Trial bearing retention, drive flat, M3 screw access and end float with the actual parts. |
+| USB inlet and carrier posts | Rear wall opening 12 × 7 R1.40 centered at field X95.25, deck Z−4.60. The receptacle faces rearward. Sheet 20A locates the two post tops, rear webs and cable exit. Verify the overmold approach and engagement with both plug orientations. |
+| Carrier population | T4 uses top-side J1 and bottom-side F1, U1, R1 and R2. Mount coordinates and two-sided orientation are on sheet 20. |
 | USB jacket sweep | Sweep Ø2.50 through these field (x, y, z) points in order. (103.5, −2, −7.8), (106.5, −0.4, −10.6), (111, 2, −11), (329, 2, −11), (335, 3, −11), (340.5, 6.5, −11), (344, 11.5, −11), (346.2, 18, −10.7), (346.2, 20, −9.6). The polyline is 255.38 long before breakouts. Dress the actual cable with its qualified bend radius and enough slack for sheet 09B. |
-| Roller pigtail | Model three separate leads. For the middle lead the nominal path is (371.4, 48.3, +1.2), (373.65, 51, +0.25), (373.85, 52.6, −1.9), (373.0, 53.9, −3.4), (373.0, 53.9, −4.88). The side leads fan to J2 pins 1 and 3. Use sheet 06A for all landing coordinates. Model the current soldered ends in the baseline. |
+| Roller pigtail | Route from a lug-soldered card on the back of the encoder to J2. Model insulation, solder and strain relief in installed and service configurations. Sheet 19A gives fixed endpoints and measured constraints. The lead route and length require a trial. |
 
 ## 12G / SolidWorks · Clearance and release checks
 
 | Configuration or section | What to measure or record |
 | --- | --- |
 | Closed · underside and fasteners | Check board registration at ENC1, ENC2 and H12. Section all fourteen supports, Enter/HS6 and the socket nearest each boss. Measure the smallest gap from any actual socket, solder tail, LED or component to the floor and saddle. The design targets 2.00 mm under sockets. The 3.22 mm Rev A vertex result describes the earlier proxy. |
-| Roller · center and end load | Sweep 360°. The concentric static model gives 2.00 mm to the U1 package, 3.00 mm to bare PCB and only 0.54 mm per side at the bezel underside. Include U5 at (366.50, 40.00) under the drive end and the nearby passives. Its DCK package maximum height is 1.10 above seating plane. For a conservative first screen, allow 0.10 extra installed height, giving 1.80 clearance to the lowest tread plane anywhere its projection overlaps. Measure local clearance with the curved surface and loaded bracket. [TI package outline](https://www.ti.com/lit/ds/symlink/tps22919.pdf) |
+| Roller · center and end load | Sweep 360°. The concentric static model gives 2.00 mm to the U1 package, 3.00 mm to bare PCB and 0.54 mm lateral clearance at the mid-tread section. T3 solid minima are 0.760 at the hood and 1.031 at the plate. Include U5 at (366.50, 40.00) under the drive end and the nearby passives. Its DCK package maximum height is 1.10 above seating plane. For a conservative first screen, allow 0.10 extra installed height, giving 1.80 clearance to the lowest tread plane anywhere its projection overlaps. Measure local clearance with the curved surface and loaded bracket. [TI package outline](https://www.ti.com/lit/ds/symlink/tps22919.pdf) |
 | Keys and dial push | Test full key travel, the stabilized key ends, Lock recess and full 0.50 axial dial push at representative shaft angles. Check knob-to-cap clearance ≥1.00, positive axial seating, screw approach to the flat, and stem/cap return. Check light-window alignment on Lock, Space and a two-line legend. |
-| Carrier and service lift | Check the 0.35 nominal carrier-to-mainboard plan gap, plug insertion, rail entry, strain relief and cable position when closed and at the first supported lift. Line-to-line modeled keeper height needs a measured process allowance. Record actual service opening, cable bend radius and slack. |
+| Carrier and service lift | Check the 0.35 nominal carrier-to-mainboard plan gap, plug insertion, screw access, strain relief and cable position when closed and at the first supported lift. Measure plug engagement and carrier screw torque on the printed tray. Record actual service opening, cable bend radius and slack. |
 | Configurations to save | Save closed, keys/dials pressed, bare PCB, deck supported for tray inspection and plate-separated configurations. Prepare an exploded view following sheet 09B. Retained spacers, inline plugs, finger reliefs and the top-release roller each belong to a separate proposal configuration until the sample passes sheet 09D. |
-| Drawing release | Record supplier part/drawing revision, manufactured tolerance and measured minimum for each critical interface. Open decisions include the roller sensor/bracket and fits, shaft retention, knob bore/set-screw geometry, carrier PCB and retention, screw length/inserts/torque, tray process, cable strain relief and service slack. Keep these values marked open in the model. |
+| Drawing release | Record supplier part/drawing revision, manufactured tolerance and measured minimum for each critical interface. Open decisions include the roller mounting card, bias resistors and support fits, shaft retention, knob bore/set-screw geometry, carrier PCB and retention, screw length/inserts/torque, tray process, cable strain relief and service slack. Keep these values marked open in the model. |
 
 Run Interference Detection in the assembled and pressed configurations. Section the optical windows and roller pocket as well. Coincident mounting faces, stem engagement and screw threads are intentional contacts. Log every other overlap and dimension the near misses. Check motion and flexible parts on the first article. [SOLIDWORKS interference detection](https://help.solidworks.com/2025/english/SolidWorks/Sldworks/t_detecting_interferences.htm)
 
@@ -679,13 +681,13 @@ The following dimensions reproduce the nominal exterior model for comparison wit
 | Fn, plum | Caps → Fn, Delete → Insert, Next Window → Last Win. Left → Home, Right → End, Up → PgUp and Down → PgDn. |
 | Super, dark amber | W → Close, C → Copy and V → Paste. |
 
-**Bottom-row revision check.** The Rev B.1 project keymap and layout register assign Right Alt to the 1.75u R4 station left of the arrows. The earlier no-Alt design direction affects the legend and key assignment. Keep the recorded station geometry for the Rev B.1 reconstruction and resolve the assignment before ordering custom artwork.
+**Bottom-row assignment.** R5/C6 (SW88) is Right Ctrl. Fit a 1.75u R4 cap with the Ctrl legend, left of the arrow cluster. Its width, center, socket and indicator are listed on sheet 14F.
 
 <a id="cad-parts"></a>
 
 ## 13 / A6 and A8 · Fitted board components
 
-Quantities are fitted to one mainboard. The board has 20 manufacturing BOM rows covering 19 order codes. D75 has the same diode as the other matrix positions with a different footprint. Use the supplier body, seating plane and pin-1 datum when available. Footprint names specify land patterns.
+Quantities are fitted to one mainboard. The board has 21 manufacturing BOM rows covering 20 order codes. D75 has the same diode as the other matrix positions with a different footprint. Use the supplier body, seating plane and pin-1 datum when available. Footprint names specify land patterns.
 
 | Component | Manufacturer part / JLCPCB code | Top | Bottom |
 | --- | --- | --- | --- |
@@ -708,8 +710,9 @@ Quantities are fitted to one mainboard. The board has 20 manufacturing BOM rows 
 | LED data series | RC0603FR-07330RL · C105881 | 1 | 0 |
 | Lighting pull-down resistors | RC0603FR-07100KL · C14675 | 3 | 0 |
 | LED rail load switch | TPS22919DCKR · C2149796 | 1 | 0 |
+| Roller input pull-ups R12/R13 | 0603WAF2701T5E · C13167 | 1 | 1 |
 
-Installed total 403. J1/J2, the seven test pads and the mounting bores are PCB features. The plug-in MX switches, USB carrier and roller sensor belong to other assemblies.
+Installed total 405. J1/J2, the seven test pads and the mounting bores are PCB features. The plug-in MX switches, USB carrier and roller sensor belong to other assemblies.
 
 <a id="cad-stations"></a>
 
@@ -841,7 +844,7 @@ All x, y pairs are absolute mm in switch-side plan. SW origins are stems. ENC or
 | Space · 6.25u R4 | SW85 / 150.02, 109.54 | D85 / 156.12, 117.54 | LED87 · i86 / 150.02, 104.46 | C187 / 155.32, 104.46 / 90° |
 | Right Super · 1.5u R4 | SW86 / 223.84, 109.54 | D86 / 229.94, 117.54 | LED88 · i85 / 223.84, 104.46 | C188 / 229.14, 104.46 / 90° |
 | Next Window · 2.25u R4 | SW87 / 259.56, 109.54 | D87 / 265.66, 117.54 | LED89 · i84 / 259.56, 104.46 | C189 / 264.86, 104.46 / 90° |
-| Alt · 1.75u R4 | SW88 / 297.66, 109.54 | D88 / 303.76, 117.54 | LED90 · i83 / 297.66, 104.46 | C190 / 302.96, 104.46 / 90° |
+| Right Ctrl · 1.75u R4 | SW88 / 297.66, 109.54 | D88 / 303.76, 117.54 | LED90 · i83 / 297.66, 104.46 | C190 / 302.96, 104.46 / 90° |
 | ← · 1u R4 | SW89 / 328.61, 109.54 | D89 / 334.71, 117.54 | LED14 · i82 / 328.61, 104.46 | C114 / 333.91, 104.46 / 90° |
 | ↓ · 1u R4 | SW90 / 347.66, 109.54 | D90 / 353.76, 117.54 | LED13 · i81 / 347.66, 104.46 | C113 / 352.96, 104.46 / 90° |
 | → · 1u R4 | SW91 / 366.71, 109.54 | D91 / 372.81, 117.54 | LED12 · i80 / 366.71, 104.46 | C112 / 372.01, 104.46 / 90° |
@@ -930,3 +933,241 @@ The design data above was checked against the quoted Rev B.1 fabrication package
 | Layout CSV SHA-256 | 210fcc1777d5d53951762cac712f1b0c75abbbadf47153cb71e0a83b846cd641 |
 
 **Before drawing release.** Compare the native reconstruction with the supplied tray STL by registering the desk/plate frames, port and at least two mount centers. Check the board perimeter, hole schedule, moving stack, all cable transitions and each supplier model’s pin-1 orientation. Keep the physical sample results with the drawing revision. The current checks establish registration and parts coverage. No native SolidWorks assembly or measured fit report has been produced by this document revision.
+
+## 17 / A2 and A5 · T1 mechanical quotation and trial geometry
+
+Use the existing one-piece tray STL for the JLC3DP quote. The T1 models and quotes on this sheet are historical. Use sheet 19 for current P01 and A5. The dimensions in sheets 04 and 12 describe the earlier roller envelope. The following changes apply to the T1 fit sample. [Quotation package, STEP files, drawings and captured prices](mechanical-rfq/rev-b1-t1/README.md)
+
+| Item | Prototype geometry and release check |
+| --- | --- |
+| P01 and P02 · plate | P01 retains the 405.81 × 120.06 × 1.50 envelope and all 122 through-cut features. P02 trials an MX switch, a Bourns encoder and one stabilized position in the same 5052 stock. Confirm all 92 finished windows at 14.00–14.05 and nominal R0.18 corners. The lead passage leaves a 0.388 mm web to the nearest roller fixing. Request shop review before cutting the plate. |
+| R01 and R02 · rotor | Quote a turned bare 6061-T6 core, Ø14 × 42 body and integral Ø3 journal projecting 4.19. Add nominal Ø14 ID × Ø16 OD × 42 silicone tread. Proposed drive is a Ø6.05 × 6 full-depth bore with one M3 × 0.5 radial screw 3.00 from the end. It requires at least 4.50 of shaft engagement. The earlier shaft envelope supplies 1.79. Confirm the selected encoder, retention and sleeve grip before release. |
+| R03 · bezel | The original nominal shell overlaps the bearing and supports. T1 keeps the 56.20 × 37.20 footprint and top window but raises the end hoods to z +10.60. Reliefs clear the feet, bearing and sensor. The underside aperture is widened to 17.40 up to z +7.75. Recheck near caps and under end loading. |
+| R04 and R05 · supports | R04 combines the left foot and block, with an open-top Ø6.04 × 3.21 bearing pocket and Ø3.50 journal clearance. R05 is the right clamping foot. The encoder-specific adapter needs the production sensor drawing. Validate the foot seating, axial retention and tapped bezel pilots in the actual material. |
+| Verification and quote status | Seven STEP files reimported as valid individual solids. The T1 bezel clears the nominal roller, bearing, both feet and sensor envelope in unloaded CAD. The portal priced one white SLS tray at $110.79 plus $18.12 estimated freight, and one machined core at $40.84 standard before freight. P01 needs a manual quote. |
+
+## 18 / A2 and A5 · T2 plate and roller drive (historical)
+
+This sheet records the superseded T2 geometry. Use T3 on sheet 19 for new parts. The positioned assembly omits the mounting card and set screw and needs the rotational mate on sheet 18B. Sheet 17 records the earlier T1 trial and quotations. [T2 CAD, drawings and quotation record](mechanical-rfq/rev-b1-t2/README.md)
+
+| Interface | T2 dimensions and assembly controls in mm |
+| --- | --- |
+| P01 · plate | 405.81 × 120.06 × 1.50 bare 5052, deburred both sides. Cut one 9.50 × 17.50 R0.75 through-opening centered at field X379.040, Y46.110 for encoder tabs and leads. Bounds X374.29–383.79, Y37.36–54.86. The former 0.388 web grows to 3.059 at M4. H4 is closest at 2.920. Retain 121 other openings. Inspect all 92 switch and dial windows at 14.00–14.05 in both axes. |
+| R01 and encoder | Use Alps Alpine EC11E15204A3, 30 detents, 15 pulses, without push. Rotate its mounting plane perpendicular to X. Set shaft axis Y42.86, Z+6.00 facing left. Set housing front X374.59 and rear X379.09. A 20.00 stock Ø6 D shaft enters the roller 12.00 past its drive face at X366.59. Bore Ø6.05 +0.03/−0.00 × 14.00 full-diameter depth. Blind drill tip may extend farther. Tip X354.59 leaves 2.00 to the full-bore bottom. |
+| Retention | Set screw center X363.59, 3.00 from the core face and 9.00 from the shaft tip. Align the flat to the screw. Trial M3 × 0.5 × 5 flat point. Confirm its head stays below core OD. Shaft engagement acceptance target 11.70–12.30, bottom clearance ≥1.50, running clearance to bushing ≥0.50. The nominal bushing gap is 1.00. Inspect runout, axial retention and grip under hand load. |
+| R03 and R05 | Split Ø7.10 seat spans X370.79–373.74. Front shoulder X374.49, rear stops X379.24, nominal axial clearances 0.10 front and 0.15 rear. Side cheeks Y±6.20 from the axis restrain housing rotation. Hood roof Z13.10–14.30, outermost X384.70. The right-rail cap skirt starts at X386.29, leaving 1.59. H4 driver relief Ø5.40. Drawing sheets 2–4 give the T2 geometry and the required fit checks. |
+| Harness and service | Use the three-wire mounting-card interface on sheet 18A and trial removal with R04 and the rotor lifting together on sheet 18B. The fixed-carrier vertical extraction path interferes with the bearing and journal. |
+| Verification | 92 plate windows and 12 shared holes register to KiCad within 0.001 mm. All 90 emitter centers register 5.08 mm rearward of their switch centers. Confirm light transmission on a populated sample. The bare encoder tab reaches Z−0.55, 4.45 above bare PCB. [Manufacturer dimensions and STEP](https://tech.alpsalpine.com/e/products/detail/EC11E15204A3/) |
+
+## 18A / A5 and A6 · T2 review requirements (historical)
+
+**Mounting card.** Use one daughterboard perpendicular to the roller axis. Use the Alps mounting-hole pattern viewed from the mounting side. Solder every metal mounting lug to the substrate and solder A, common and B to the card. Secure the insulated three-wire pigtail to the stationary assembly. Define card thickness, outline, hole plating, pad sizes, tail projection and strain relief from the manufacturer drawing and measured samples. The T2 hood and plate opening were checked against the bare encoder only. T3 checks the soldered card and three-wire harness on sheet 19B. [Alps ratings and mounting instructions](https://tech.alpsalpine.com/e/products/detail/EC11E15204A3/)
+
+| Interface | Requirement for the revised assembly |
+| --- | --- |
+| Terminal and hood | At field X381.50 the upper terminal spans Z8.05–8.95. The notch ends at Z7.00 and only 0.375 mm is available outboard at terminal height. The earlier wire model alone was Ø0.44. Build the card, tab ends, solder fillets, insulation, bends and strain relief into the SolidWorks assembly. |
+| Rear wall and deck | The encoder housing ends at X379.09 and the rear stops begin at X379.24. Include the installed and removal positions of the card, pigtail, caps, H4 driver, four module screws and populated PCB. Record minimum separations and the cable’s qualified bend radius in both positions. Resize the relief or supports where needed. |
+| J2 connection | Three pads at field Y53.90. Pin 1 at X371.50 carries A to GP24. Pin 2 at X373.00 is common/GND. Pin 3 at X374.50 carries B to GP25. The harness has no supply conductor. |
+| Input bias | Rev B.1 connects each signal only to J2 and U1. Internal 50–80 kΩ pull-ups supply about 41–66 µA at 3.3 V. Alps specifies 1–10 mA resistive current. On the next mainboard add two 2.7 kΩ ±1% 0603 resistors, one from ROLL_A and one from ROLL_B to 3V3. Each supplies 1.22 mA nominal through its closed contact. [RP2040 electrical data](https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf#page=617) |
+| Electrical acceptance | With external pull-ups alone, use minimum 3V3 / 2.727 kΩ and maximum 3V3 / 2.673 kΩ for the current bounds. Include enabled internal pull-ups and contact resistance. Verify 1–10 mA on each closed channel. Measure both contact currents and verify open/closed logic on a powered prototype. Check 30 host scroll events per turn in each direction at slow and fast speeds, including reversals. |
+
+**Procurement status.** The encoder card and two pull-ups are prospective parts with cost pending. The Rev B.1 quote and placement files cover 403 installed parts. Release revised schematic, PCB, Gerbers, BOM and placement data after implementing the change.
+
+## 18B / A5 · T2 service findings (historical)
+
+| Operation | How to perform and verify it on the fit sample |
+| --- | --- |
+| 1 · Free the module | Unplug USB. Support and split the deck following sheet 09B. Label the three leads and free the J2 end. Support the card, harness and rotor. Remove the four underside M2 screws, then lift the R03 hood. |
+| 2 · Remove the bearing carrier | Lift R04 together with the coupled rotor, bearing and encoder/card clear of R05. Keep the harness slack. The rigid Ø6.04 seat has a 4.923 mm mouth around a Ø6.00 MR63ZZ. A 0.50 mm vertical lift with R04 fixed gave 0.854 mm³ bearing and 0.214 mm³ journal interference. |
+| 3 · Separate on the bench | Once clear of the deck, withdraw R04 and the bearing axially from the journal. Support the inner race when applying load to the journal. Slide off the sleeve, loosen the M3 screw, then withdraw the encoder shaft. On refit, the fixed shoulder may touch only the outer race. Demonstrate extraction and refit with the purchased bearing and a soldered card. If the sequence binds, revise the carrier before release. |
+| 4 · Set the drive flat | In the delivered STEP the tap faces +Z and the shaft flat +Y. In the shown shaft pose rotate the core about X until the tap faces +Y. Model the M3 × 0.5 × 5 flat-point screw in place. Nominally the outer end of the screw sits 0.50 below core OD on the flat and 1.00 proud on the round. Confirm recess before fitting the sleeve. |
+| 5 · Prove running fits | Exact nominal minima are 0.433 mm tread to hood, 0.485 tread to plate, 0.050 encoder to hood and to cradle, and 0.253 encoder to plate. The Ø6.04 pocket leaves only 0.020 radial bearing allowance. Use 0.60 mm as the SLS moving-clearance design target. Published 1172 Pro tolerance is ±0.30 mm at these sizes. Size fixed seats to measured parts and trial coupons. [SLS guidance](https://jlc3dp.com/3d-printing/selective-laser-sintering) · [Nylon tolerance](https://jlc3dp.com/help/article/precimid-1172-pro) |
+| 6 · Release P01 and A5 | Obtain written acceptance of the 14.00–14.05 finished windows. Check a same-stock coupon with actual switches, dial and stabilizer. Measure end float, shaft engagement and loaded runout. Turn the tread 360° under center and end load and demonstrate free travel, sleeve grip, cap and PCB clearance, screw access and repeatable service. Record results against the CAD revisions tested. |
+
+## 19 / A2 and A5 · T3 plate and roller assembly
+
+Use this sheet for new roller parts and SolidWorks mates. T3 moves the module 3.10 mm left of T2 to preserve H4 driver access. Field X grows right and Y toward the spacebar. STEP uses (X, −Y, Z) with the plate top at Z0. [SolidWorks-ready assembly and individual STEP files](mechanical-rfq/rev-b2-t3/README.md)
+
+![T3 roller, encoder card, installed screw and hood](mechanical-rfq/rev-b2-t3/roller-integration.png)
+
+| Part | Geometry and mate in mm |
+| --- | --- |
+| P01 | 405.81 × 120.06 × 1.50. Tread opening 44.40 × 13.50 R0.55 about (342.49, 42.86). The shaped cable passage is defined in the STEP and gives 3.391 web to H4 and 2.133 to M4. The 92 station openings and 12 shared holes retain their positions. |
+| R01/R02 and encoder | Align to X at Y42.86, Z+6.00. Tread X321.49–363.49. Encoder front X371.49, back X375.99. The uncut shaft tip at X351.49 seats 12.00 into the 14.00 full bore. Bushing gap 1.00, tip allowance 2.00. |
+| Drive retention | At X360.49 mate the M3 × 0.5 × 5 flat point with the shaft flat facing +Y in STEP. Its centre is recessed 0.50 and its outer rim clears the sleeve by 0.329. Install the sleeve after checking the screw. The assembly suppresses mating threads. Machine the bare core to the R01 tapping drawing. |
+| R03/R04/R05 | T3 hood top Z16.12, Ø6.80 H4 relief, card stop 0.370 behind the card. T3 R04 has an outer-race shoulder with Ø5.26 relief. Use the T2 R05 cradle at the new location. Four underside M2 positions at X319.465/369.665 and Y27.26/58.46. |
+| Clearance to nearby parts | Tread to hood 0.760, plate 1.031 and left carrier 0.750. Hood to nearby cap travel boxes 2.660. Encoder to plate 0.763. The fixed bushing keeper has 0.050 nominal clearance. Finish its seat to the purchased bushing. |
+
+## 19A / A5 and A6 · B.2 roller electronics and mounting card
+
+| Item | Build and inspect |
+| --- | --- |
+| R12 and R13 | Two UNI-ROYAL 0603WAF2701T5E, 2.7 kΩ ±1%, 0603 (JLCPCB C13167). R12 front at X366.90 Y52.80 ties +3V3 to ROLL_A. R13 back at X352.50 Y44.10 ties +3V3 to ROLL_B. The resistor alone supplies 1.22 mA nominal through a closed contact. |
+| J2 | At Y53.90, pin 1 X371.50 = A/GP24, pin 2 X373.00 = GND, pin 3 X374.50 = B/GP25. Both new resistors appear in the 405-placement BOM and CPL. The earlier B.1 quote covers 403 placements. |
+| Daughterboard | Two layers, 15.20 × 23.40 × 1.00 FR4 with relieved corner. Mount the encoder on the front face at X375.99. Rear solder face X376.99. Local u points +Z in assembly and v points toward the spacebar. |
+| Encoder lands | A/C/B at u −2.50/0/+2.50, v+7.50. D/E at u ±2.50, v−7.00. Finished Ø1.08 holes. Two soldered lugs at u ±5.50, v0 in 1.60 × 4.20 plated routed slots. Both lugs and dummy lands are isolated. Trim only D/E to 0.96 maximum beyond the back pad. |
+| Harness | Three rear lap pads 2.40 × 1.05 at u−5.60, v4.40/8.85/13.60 in A/GND/B order. Use ≤Ø0.60 jacket and ≤Ø0.30 stranded bundle. The model includes 1.80 centreline bend radii, terminations and strain relief. Trial actual bend radius, strain relief and insulation. |
+| Native verification | Both boards passed KiCad DRC with zero unconnected pads and footprint errors. Netlist and layout agree on 1,082 connected mainboard pad assignments and six daughterboard endpoints. [Mainboard and fabrication files](mainboard-rev-b2/README.md) · [Daughterboard and slot details](roller-encoder-card/README.md) |
+
+## 19B / A5 · T3 fit and service checks
+
+| Inspection | Result and first-article action |
+| --- | --- |
+| Installed card and wiring | CAD minimum card to hood/plate 0.370/1.100 mm. Harness including soldered wire ends and strain relief to hood/plate 1.501/1.256. Encoder solder envelopes to hood/plate 0.990/2.350. Harness to the four fixing screws 3.088 and to nearby electronic component envelopes 3.564. |
+| Hood and tool access | The Ø5.40 H4 driver gauge clears the hood by 0.700 and the clipped encoder by 1.117. An 18 mm vertical hood lift clears the card by 0.370 and the conservative solder/attachment sweeps by 0.680. |
+| Service procedure | Unplug USB, support and split the deck, desolder and straighten the J2 leads. Undo all four underside screws and lift R03. Withdraw R04 together with the bearing, coupled rotor and encoder/card. Separate the carrier axially. Slide off the sleeve, loosen the screw and withdraw the encoder shaft. Straightened leads clear P01 by 1.873. |
+| Physical acceptance | Record finished card thickness and lug fit. Check outer-race contact, end float, sleeve grip, full rotation and clearance under centre and end loads. Demonstrate service with the dressed harness. Measure 1–10 mA per closed channel, then check 30 scroll events per revolution in both directions at slow and fast speeds, including reversals. |
+
+## 20 / A7 · USB-C carrier T4
+
+The rear carrier is a separate four-layer PCB. Five components mount across both faces. Route, BOM and placement data belong to this carrier. The keyboard motherboard is B.2 and the roller card is T3. [Native carrier and fabrication files](usb-c-carrier/README.md)
+
+| Interface | Controlled definition, mm |
+| --- | --- |
+| Board and mates | 20.00 × 7.00 × 1.00 FR-4 with four 0.50 × 45° corner chamfers. Field center (95.25, −4.35). PCB bottom −6.55, top −5.55. KiCad J1 origin (100,100) maps to field (95.25, −5.65). |
+| Connector | J1 GCT USB4105-GF-A on top, KiCad 180°. Fit its locating pegs, signal contacts and four grounded shell stakes. The mouth overhangs the board’s rear edge. Rear opening 12 × 7. D− is A7/B7, D+ A6/B6. A8/B8 are free. |
+| Bottom components | U1 USBLC6-2SC6 at field (95.25, −4.15), rotation 90° in the placement file. F1 1206L050YR at (87.75, −2.45). R1/R2 RC0603FR-075K1L at (92.86, −7.05) and (97.77, −7.05). F1/R1/R2 rotation 0°. |
+| USB and power | Separate 5.1 kΩ to ground on CC1 and CC2. U1 pins 1/6 protect D+, 3/4 protect D−, 2 ground, 5 raw VBUS. F1 connects raw VBUS to the cable, 500 mA hold nominal. The two 27 Ω series resistors are on the mainboard. |
+| Harness | Backside J2 lands 0.90 × 1.75 on 1.24 pitch. At field Y −2.83, the four X centers are 100.85, 102.09, 103.33 and 104.57. Order is fused VBUS, D−, D+, GND. Terminate at same-numbered mainboard J1. Tin the wire lightly and dress the pair together. |
+| Stack and fabrication | 35 µm outer and 17.5 µm inner copper. Nominal dielectric 0.160 / 0.555 / 0.160. Board has 153 routed segments and 11 through vias. Minimum trace 0.18, clearance 0.15, copper to edge and hole clearance 0.20. Confirm stack and panelization with the fabricator. |
+| Assembly treatment | Specify planar filled and plated-over via-in-pad at J1 A6 and B6, finished Ø0.20 in Ø0.40 lands, CAD X100.25 and X99.25, Y104.25. Four ground contact designators use shortened 0.60 × 1.11 solder lands for locator clearance. Request footprint and stencil review for the first panel. |
+| Electrical acceptance | Native DRC reports zero violations, open pads and footprint errors. The schematic matches all 31 connected pin assignments. Check continuity and both CC pull-downs unpowered. Test USB enumeration in both orientations and at the maximum permitted LED load. Signal integrity, ESD transients and thermal performance require bench tests. |
+
+## 20A / A1 and A7 · Rear pocket and installation
+
+![T4 carrier underside with four harness leads, fuse, ESD array and retaining screws](mechanical-rfq/rev-b2-t4/T4-carrier-underside.png)
+
+| Feature | Build and inspection |
+| --- | --- |
+| Pocket | Field X84.40–106.10, Y−8.13 to +1.38. Relief floor Z−10.35. A Ø3.36 cable relief follows the jacket as it leaves the carrier. Use the T4 tray STL in the original desk orientation. |
+| Retention | Two Ø2.20 carrier bores at field (87.65, −6.13) and (102.85, −6.13). Ø3.80 posts land at Z−6.55. Each has a 1.20-wide rear web and a blind Ø1.60 pilot 3.50 deep. Sample two M2 × 4 thread-forming screws with head Ø3.80 maximum, 1.55 maximum head height. Nominal screw engagement 3.00. Qualify the pilot and installation torque for the chosen tray material. |
+| Installation | Solder and inspect the four underside leads before installation. Lower the carrier onto the two posts, keeping the receptacle centered in the rear wall. Fit both top-access screws, guide the cable into the relief and press it into the three saddles. |
+| Service | Unplug USB, loosen the deck, prop it at the qualified service lift, release the saddles, support the carrier and remove its two screws. Ease the mouth inward from the exterior aperture, lift the carrier and desolder one end of the harness for complete separation. Prove this sequence with a terminated cable. |
+| Nominal clearances | PCB-to-PCB gap 0.35. The installed shell is approximately 1.12 from the tray and 1.23 from either screw head. Sampled component-to-tray distances are F1 0.99, R1/R2 1.25 and U1 2.20. The carrier underside seats against the two post tops. Solder fillets and external plug overmolds need a physical check. |
+
+## 20B / A1–A8 · Full assembly and fit results
+
+Use the full T4 assembly for the closed keyboard. Electronics and T3 roller geometry retain native CAD faces. Enclosure and key parts use faceted reference surfaces. Dimensions below are nominal. [Complete assembly, models and inspection files](mechanical-rfq/rev-b2-t4/README.md)
+
+| Area | Finding and disposition |
+| --- | --- |
+| Mainboard | 405 fitted positions. The board has models for 90 CPG151101S11-16 sockets, 90 SK6812MINI-E Rev 02 LEDs and two PEC11R-4220F-S0024 encoders. The body, solder tails, reverse optical position and D-shafts are represented. Active contacts and thread forms are simplified. The B.2 copper fabrication archive is byte-identical to the previous package. |
+| Underside supports | H13 and H14 lower collars are Ø4.30 OD, Ø2.20 bore, Z−9.80 to −6.60. Add a flat facing D22 or D44. In STEP XY the outward normal is 142° from +X on both. Center-to-flat dimensions are 1.621 and 1.614 respectively. This gives 0.32 nominal clearance to each diode and leaves over 0.51 wall at the bore. Orient the flats when seating the collars. |
+| Corner knobs | Ø18 × 12, bottom +11.00, top +23.00. Bore Ø6.10 to Z+22.20. Horizontal M3 × 6 flat-point screw at Z+18.50 bears on the +Y shaft flat in the STEP pose. The nominal shaft tip is +21.55 in the populated STEP. Check the purchased hub’s socket access, engagement and 0.50 mm push travel. |
+| Switches and stabilizers | Cap lower rim +4.75 above the plate at rest. The original +4.40 rim contacted the housing flange at 4.00 travel. Keep the cap roof and stem seat datums when making the rim. Six Ø1.20 stabilizer-wire routing envelopes use a crossbar 8.85 from the stem row at Z−2.40. Check the actual wire bend, pivots and switch clearances against the purchased set. |
+| Static screen | 783 physical objects, 306,153 unordered pairs. The report records intersecting mesh surfaces and possible containment. Plate-to-roller fastener/seat contacts have zero common mesh volume. The carrier-to-post result is below 0.00001 mm³ of mesh noise. Remaining flagged pairs are installation, retention, switch or solder interfaces. |
+| Actuation | Sampled each of the 90 cap shells at 0.25 mm intervals through 4.00 mm and each dial shell through 0.50 mm. No shell crossed screened stationary geometry in the revised model. The check moves the plunger with its cap. First articles must establish internal switch operation, dynamic wire flex and production tolerances. |
+| First assembly | Try the two fitted collars, seated switches, caps and stabilizers on the actual plate and PCB. Verify free return, full dial rotation and push, roller action, port alignment, lead slack and strain relief. Perform both-orientation USB and backlight load tests before releasing a production order. |
+
+
+## 20C / A1–A8 · Populated-board clearance register
+
+![T4 closed keyboard with both corner dials, the T3 roller, the switch plate and assembled enclosure](mechanical-rfq/rev-b2-t4/T4-closed-assembly.png)
+
+| Nominal measurement | Result and witness |
+| --- | --- |
+| Minimum installed part to tray | 1.721 mm at the underside SOD-123 diodes, including D82 and D87. The 405-position register measures shortest three-dimensional distance to the complete tray, including its integral supports and cable saddles. |
+| Hot-swap sockets | Shortest socket-to-tray distance 2.644 mm at SW52. Shortest sampled vertical clearance below a socket 3.126 mm at SW88, relative to the 2.00 mm design target. The vertical witness is STEP (299.484, −116.290, −8.500). |
+| Per-key LEDs | Minimum LED-to-tray distance 2.010 mm at LED6. The lower-face vertical ray at STEP (132.581, −4.817, −7.590) reaches an integral cable saddle. |
+| Encoders and controller | Both Bourns bodies clear the T3 plate by 0.300 mm nominal and the tray by 3.379 mm. RP2040 U1 clears the plate by 2.534 mm. Confirm dial fit with the real body and finished plate opening. |
+| Method and sample limit | Exported STEP packages were transformed into the closed assembly, converted to closed triangle solids and measured against the T4 tray and T3 plate. For the vertical screen, sample the lower socket and LED surfaces on a mesh of at most 0.40 mm spacing and cast rays parallel to deck −Z. Tolerances, solder buildup and load deflection consume the nominal clearances. |
+
+[405 fitted positions and shortest distances](mechanical-rfq/rev-b2-t4/mainboard-clearances.csv) · [180 underside vertical measurements](mechanical-rfq/rev-b2-t4/underside-vertical-clearances.csv)
+
+## 21 / Build register · Parts for one keyboard
+
+| Assembly | Installed quantity and specification | Detail sheets |
+| --- | --- | --- |
+| A1 · Enclosure | 1 T4 one-piece tray, 4 feet, 12 top-entry M2 deck screws, 14 lower spacers and 12 upper spacers. Machine the two lower spacer flats at H13/H14. The 14 deck bosses, 2 USB posts and 3 cable saddles are integral to the tray. Deck fastener length, insert and torque require a material trial. | 02–02A, 09, 20A–20B |
+| A2 · Plate | 1 P01 T3 plate, 405.81 × 120.06 × 1.50 mm, 5052 aluminum. 92 station openings, 12 shared deck holes, 4 roller fixings and the shaped harness passage. | 12C–12D, 19 |
+| A3 · Key field | 89 Gateron KS-9E10B055NW-Y51 Browns, 1 CHERRY MX1A-21NW for Lock, 90 caps and 6 stabilizer sets. Each set has two housings and one wire. Five use 23.88 mm stem spacing and Space uses 100 mm. Cap widths, row profiles, legends and revised rim height are tabulated by station. | 03–03A, 12D–12H, 14A–14F, 20B |
+| A4 · Dials | 2 Bourns PEC11R-4220F-S0024 fitted to the mainboard, 2 Ø18 × 12 knobs and 2 M3 × 6 flat-point screws. Knob bore Ø6.10, installed top Z+23.00. Dial pushes are two of the 92 matrix positions. | 04, 07C, 20B |
+| A5 · Roller | 1 each R01 machined core, R02 silicone tread, R03 T3 hood, R04 T3 bearing carrier, R05 cradle, MR63ZZ bearing, Alps EC11E15204A3, T3 encoder PCB and M3 × 0.5 × 5 flat-point screw. Four M2 module fixings, three insulated conductors, solder and flexible strain relief. Purchased bearing Ø3 × Ø6 × 2.5. | 19–19B |
+| A6 / A8 · Mainboard and light | 1 B.2 bare PCB, 405.81 × 120.06 × 1.60 mm. Its 405 fitted parts include 90 sockets, 90 addressable LEDs, both dial encoders, RP2040 and R12/R13. Integral wire pads, test pads and holes are board features. | 07A–07C, 13–15B, 19A, 21A–21B |
+| A7 · USB and wiring | 1 T4 four-layer carrier PCB, 5 fitted electronic parts, 2 M2 × 4 carrier screws, 1 four-conductor USB data harness and 1 external USB data cable. The roller's three conductors can be cut from the same donor cable. | 06–06B, 20–20C, 21C |
+| A9 · Controls | Rev B QMK target for B.2. SW88 sends Right Ctrl, both Super keys remain desktop modifiers and the Omar host profile defaults to five workspaces per monitor. Two push dials and one roller retain their existing actions. | 07–08, 12H, 14F, 22–22B |
+
+The complete STEP contains 783 physical instances. This includes PCB substrates, modeled solder, wire ends and cap receivers. Use fitted quantities in this register when purchasing. The STEP component tree and the purchasing quantities serve different purposes.
+
+## 21A / B.2 mainboard · Fitted parts and references
+
+Quantities are per board. A repeated order code identifies the D75 alternate land pattern. All designators in these two tables match the current B.2 manufacturing BOM and placement file.
+
+| Part and order code | Fitted references | Top / bottom |
+| --- | --- | --- |
+| Controller · SC0914(13) · C2040 | U1 | 1 / 0 |
+| QSPI flash · W25Q16JVSSIQ · C131025 | U2 | 1 / 0 |
+| 3.3 V regulator · AP2112K-3.3TRG1 · C51118 | U3 | 1 / 0 |
+| LED data buffer · SN74AHCT1G125DBVR · C7484 | U4 | 1 / 0 |
+| Clock crystal · ABM8-272-T3 · C20625731 | Y1 | 1 / 0 |
+| BOOTSEL / RUN buttons · PTS810SJK250SMTRLFS · C221896 | SW93–SW94 | 2 / 0 |
+| MX hot-swap sockets · CPG151101S11-16 · C41430893 | SW2–SW18, SW20–SW92 | 0 / 90 |
+| Corner push encoders · PEC11R-4220F-S0024 · C143797 | ENC1–ENC2 | 2 / 0 |
+| Matrix diodes · 1N4148W-7-F · C83528 | D1–D74, D76–D92 | 0 / 91 |
+| Matrix diodes · 1N4148W-7-F · C83528 | D75 | 0 / 1 |
+| Per-key backlight and indicators · SK6812MINI-E · C5149201 | LED1–LED90 | 0 / 90 |
+
+## 21B / B.2 mainboard · Passives and power switching
+
+| Part and order code | Fitted references | Top / bottom |
+| --- | --- | --- |
+| Supply capacitors · 0603B105K160CT · C108463 | C1–C4, C17, C20 | 4 / 2 |
+| Decoupling capacitors · CC0603KRX7R9BB104 · C14663 | C5–C13, C16, C18–C19, C101–C190 | 2 / 100 |
+| Crystal load capacitors · CL10C150JB8NNNC · C1644 | C14–C15 | 2 / 0 |
+| USB data series · RC0603FR-0727RL · C137753 | R1–R2 | 2 / 0 |
+| BOOT and crystal series · RC0603FR-071KL · C22548 | R3, R5 | 2 / 0 |
+| Flash, reset and buffer-enable pull-ups · RC0603FR-0710KL · C98220 | R4, R6, R9 | 3 / 0 |
+| LED data series · RC0603FR-07330RL · C105881 | R7 | 1 / 0 |
+| Lighting pull-down resistors · RC0603FR-07100KL · C14675 | R8, R10–R11 | 3 / 0 |
+| LED rail load switch · TPS22919DCKR · C2149796 | U5 | 1 / 0 |
+| Roller input pull-ups · 0603WAF2701T5E · C13167 | R12–R13 | 1 / 1 |
+
+## 21C / Electronics · Carrier, roller card and interconnects
+
+| Part or connection | Qty | Specification and assembly |
+| --- | --- | --- |
+| USB carrier PCB | 1 | T4, 20 × 7 × 1.00 mm, four copper layers. ENIG and two plated-over filled Ø0.20 vias at receptacle A6/B6. See sheet 20 for the stack, dimensions, origin and pad treatment. |
+| Carrier J1 | 1 | GCT USB4105-GF-A, top, 180°. Solder signal contacts and four shell stakes. |
+| Carrier U1 | 1 | ST USBLC6-2SC6, SOT-23-6, underside. Data protection on pins 1/6 and 3/4, ground on 2, raw VBUS on 5. |
+| Carrier F1 | 1 | Littelfuse 1206L050YR, 500 mA hold PPTC, underside. Raw VBUS to fused harness supply. |
+| Carrier R1, R2 | 2 | YAGEO RC0603FR-075K1L, 5.1 kΩ ±1%, 0603, underside. Separate CC1 and CC2 pull-downs. |
+| USB harness and host cable | 1 each | Sanwa KU20-SL05WK donor, nominal Ø2.5, four conductors with twisted data pair. Carrier J2 to mainboard J1, pins 1–4 fused VBUS, D−, D+, GND. Adafruit 4474 is the reference external 1 m data cable. |
+| Roller card and sensor | 1 each | T3 two-layer, 15.20 × 23.40 × 1.00 mm FR4 and Alps EC11E15204A3. Three signal terminals A/C/B, two isolated dummy lands D/E and two soldered mechanical lugs. Clip D/E to 0.96 mm maximum behind the pad. |
+| Roller harness | 3 leads | Rear card pads 1/2/3 to mainboard J2 pins 1/2/3, A/GND/B. Maximum Ø0.60 jacket and Ø0.30 conductor bundle. Nominal formed centerlines 15.83 / 11.84 / 10.81 mm respectively. Trim after forming and strain-relieve at the card. |
+
+**First-article items.** Record deck screw/insert selection and torque, finished plate and bearing fits, USB post torque, switch and stabilizer travel, plug engagement, and harness slack during service. Verify both USB plug orientations and maximum permitted LED load. The $277.81 reference covered five older B.1 mainboards. Current B.2, T3 and T4 pricing remains unquoted in this specification.
+
+## 22 / Fabrication · Revision 16 release inputs
+
+| Item | What to send or install | Verified in the files |
+| --- | --- | --- |
+| B.2 mainboard | B.2 Gerbers and PTH/NPTH drills, JLCPCB-BOM.csv and JLCPCB-CPL.csv from mainboard-rev-b2. Request pricing for 405 placements on both sides, including both Bourns encoders. | BOM and CPL each cover the same 405 references. Native PCB and schematic agree on 1,082 connected pad assignments. R12 and R13 are 2.7 kΩ. The $277.81 B.1 quote covered 403 placements. |
+| T3 roller card | Its own two-layer Gerbers and drills. Fit the Alps EC11E15204A3 and solder the lugs, A/C/B terminals and isolated dummy lands per sheet 19A. Dress the three leads before installing R03. | A/common/B connect to J2 pins 1/2/3. GP24 and GP25 have separate pull-ups. |
+| T4 USB-C carrier | Send the four-layer 1.00 mm Gerber ZIP including fabrication-notes.txt. Supply its five-position CPL and BOM for double-sided assembly. Fit J1 on the top face. Solder its surface-mount contacts and all four plated shell stakes. Have the assembler confirm its through-hole soldering process. | The PCB stackup and Gerber job both call out ENIG. Copper and drill operations match the previous routed geometry. Native DRC reports zero violations, opens and footprint errors for both regenerated boards. |
+| Selective via treatment | At J1 A6 use X100.25 and at J1 B6 use X99.25. Both are D+, native KiCad Y+104.25, absolute Excellon Y−104.25 mm. Two finished Ø0.20 holes with Ø0.40 lands. Epoxy-fill, planarize and copper plate over both faces. | Both centers and nets checked in KiCad and against the PTH drill. Obtain written acceptance of selective fill/cap, ENIG and a panel drawing with tabs/tooling clear of the mouth before ordering. |
+| Key and desktops | SW88 at (297.66, 109.54) mm, row 5 column 6, R4 1.75u, legend **Ctrl**, HID Right Control 0xE4. Load the supplied Omar bindings on Omarchy for five desktops per monitor. | Right Ctrl is in both default QMK builds. The five keys visit, send or follow. Super+Tab and Super+wheel wrap through 1–5, including empty slots. Numbered visit/move/send for 6–10 are unbound. Set `omar_five_desks = false` before loading to opt out. |
+
+[T4 fab notes](usb-c-carrier/fabrication-notes.txt) · [T4 rear-pocket and H7 coupon](mechanical-rfq/rev-b2-t4/T4-rear-pocket-and-deck-boss-coupon.stl) · [B.2 fabrication inputs](mainboard-rev-b2/README.md).
+
+## 22A / First article · Fit, fastening and service
+
+All checks below await purchased parts. Record material, process, print orientation, measured dimensions, tool, load, torque and sample ID alongside each result. CAD figures below are nominal.
+
+| Bench test | Method and acceptance evidence |
+| --- | --- |
+| Bearing and keeper | Print R04, R03 and R05 from the release in the intended process. Measure the purchased bearing and encoder bushing and their seats before fitting. The Ø6.04 seat has 0.020 mm radial allowance and the keeper gap is 0.050 mm. Finish to the measured parts. Verify retention at the outer race only, free rotation and no shield or inner-race contact. Record the finished sizes. |
+| Loaded roller | Check shaft engagement 12.00 mm, tip allowance 2.00 mm and M3 × 5 flat-point seating on the flat. Inspect the recess before fitting the tread. Nominal tread gaps are 0.760 mm to hood, 1.031 to plate and 0.750 to left carrier. Rotate through 360° under measured center and end loads in both directions. Record minimum clearance, runout and end float. Pass on free rotation without rubbing, sleeve slip, screw loosening or axial walk. Lift R04 with the rotor for removal, then withdraw axially. |
+| Deck and USB screws | The rear-pocket coupon reproduces both webbed carrier posts and the H7 deck boss. Print it in the intended tray material, orientation and finish. Trial M2 × 4 carrier screws, actual plug and a candidate deck insert/fastener in separate pilot holes. The Ø2.24 deck pilot requires a compatible retention design. Check available wall, depth, head and driver clearance, record installation/removal torque, repeat service cycles and inspect for cracking, stripping or bottoming. Confirm on the complete tray before assigning production hardware or torque. |
+| USB service loop | The closed CAD jacket centerline is 255.38 mm. The 260–300 mm figure is a rough trial range. Use the donor at generous length, mock up both breakouts, mock solder joints and route through all three saddles. Support the unpowered deck at the minimum lift that gives finger or tool access. Measure closed and lifted paths, bend radius, free slack and termination allowances. Trim and solder off-tray only after both positions fit. Log final cut length and safe supported lift. Reopen, unplug and inspect for pad load, pinching or abrasion. |
+| Case and keys | With all 14 lower spacers and 12 upper spacers, check tray rocking, deck flex, H4 driver access, Enter stabilizer clearance, all 90 switches through full travel and both dials through rotation and push. Inspect the 0.35 mm board-to-board gap and 0.30 mm dial-body-to-plate gaps on the finished assembly. Recheck with wires dressed, deck tightened and stabilized caps pressed at both ends. |
+
+## 22B / First article · Power, USB and keyboard behavior
+
+| Bench test | Evidence to record before production |
+| --- | --- |
+| First power and USB | Unpowered, verify each 5.1 kΩ CC pull-down, continuity of the twisted D−/D+ pair and fused VBUS/GND, and absence of shorts. Inspect receptacle lands and four shell stakes. Use current-limited bring-up. Record carrier and mainboard VBUS, 3V3, plug engagement and voltage drop. Enumerate, type and transfer data through both plug orientations, then repeat reconnect, suspend and wake at capped white. Record errors, resets, and signal-integrity and ESD test results separately. |
+| LED rail and fuse | With 90 LEDs installed, scope GP27, GP28, VLED and far-end supply at attach and wake. Expect GP27 low / GP28 high while off, then at least 5 ms between rail enable and data-buffer enable. Record inrush, total current, steady fuse temperature and supply drop at the intended ambient extremes. Targets are ≤100 mA before configuration, ≤450 mA steady at 16/255 white, and ≤2.5 mA during suspend. The configurator and shipping firmware cap white at 16/255. The 393 mA estimate and 500 mA nominal fuse hold rating require measurements. |
+| Roller and lighting | On each closed A/B contact measure 1–10 mA and clean transitions. Count 30 scroll events per full revolution in both directions. Pull toward the user for down, push away for up. Check Fn paging and scan all 90 LEDs in order, including LED90 at SW88. Exercise capture, both dial pushes, BOOTSEL and RUN. |
+| Desktop behavior | Flash the Rev B target on B.2. On a live Omarchy session verify make and break for Right Ctrl, editor Ctrl+arrow, both Super keys and Guide. On two monitors visit, send and follow to desks 1–5. Test 5→1, 1→5 and Last Desk independently per monitor. Confirm keys 6–0 still type digits and their numbered workspace chords have no effect in this profile. Check active-desk and mic feedback with the optional host bridge. |
+| Use by touch | Without looking, select the five desks, take a screenshot, hold Focus with the arrows and reach Right Ctrl. Record misses, reach discomfort and accidental Lock presses. Verify dial access, knob return and roller grip with the assembled caps. Record the firmware build, board IDs, host version, photos and measured results with the first article. |
+

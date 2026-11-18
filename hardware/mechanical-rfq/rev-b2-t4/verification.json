@@ -1,0 +1,172 @@
+{
+  "units": "mm unless specified",
+  "representation": "Delivered nominal CAD and tessellated assembly. Clearances reported as approximate are sampled bidirectional mesh distances, not production tolerance bounds.",
+  "objects": 783,
+  "unordered_pairs": 306153,
+  "broad_phase_pairs": 2012,
+  "flagged_pairs": 449,
+  "contact_resolutions": {
+    "mating or retained interface; inspect engagement": 308,
+    "registration or mounting interface; inspect penetration": 106,
+    "carrier underside seats on post tops; common mesh volume 0.0000048 mm3": 1,
+    "flat-point screw seats on encoder shaft flat": 2,
+    "plate support or screw seating; common mesh volume zero": 6,
+    "roller interfaces; see T3 exact-solid report": 26
+  },
+  "travel": {
+    "cap_shells": 90,
+    "cap_max_mm": 4,
+    "dial_shells": 2,
+    "dial_max_mm": 0.5,
+    "step_mm": 0.25,
+    "unintended_surface_crossings": 0,
+    "scope": "shell against fixed geometry; own plunger moves with cap; receiver internals and deformed wire are not rigid-shell tests"
+  },
+  "carrier_to_neighbors": {
+    "usb J1 / Carrier M2 thread envelope": 2.1307,
+    "usb J1 / Carrier M2 head": 1.23,
+    "usb J1 / Carrier M2 thread envelope.001": 2.1307,
+    "usb J1 / Carrier M2 head.001": 1.23,
+    "usb J1 / Mount 07 · M2": 21.6477,
+    "usb J1 / mb omar-mainboard PCB": 1.045,
+    "usb J1 / t3 P01 T3 switch plate": 1.6465,
+    "usb J1 / mb SW6": 14.8454,
+    "usb J1 / mb SW5": 11.9903,
+    "usb J1 / T4 one-piece tray": 1.1237,
+    "usb R1 / Carrier M2 thread envelope": 3.4408,
+    "usb R1 / Carrier M2 head": 2.7634,
+    "usb R1 / Carrier M2 thread envelope.001": 8.2057,
+    "usb R1 / Carrier M2 head.001": 7.3879,
+    "usb R1 / Mount 07 · M2": 26.6365,
+    "usb R1 / mb omar-mainboard PCB": 6.15,
+    "usb R1 / t3 P01 T3 switch plate": 7.9895,
+    "usb R1 / mb SW6": 21.9632,
+    "usb R1 / mb SW5": 17.04,
+    "usb R1 / T4 one-piece tray": 1.251,
+    "usb U1 / Carrier M2 thread envelope": 5.2808,
+    "usb U1 / Carrier M2 head": 4.625,
+    "usb U1 / Carrier M2 thread envelope.001": 5.2808,
+    "usb U1 / Carrier M2 head.001": 4.625,
+    "usb U1 / Mount 07 · M2": 23.4271,
+    "usb U1 / mb omar-mainboard PCB": 2.25,
+    "usb U1 / t3 P01 T3 switch plate": 5.5743,
+    "usb U1 / mb SW6": 17.168,
+    "usb U1 / mb SW5": 13.14,
+    "usb U1 / T4 one-piece tray": 2.2,
+    "usb R2 / Carrier M2 thread envelope": 8.3355,
+    "usb R2 / Carrier M2 head": 7.5163,
+    "usb R2 / Carrier M2 thread envelope.001": 3.3118,
+    "usb R2 / Carrier M2 head.001": 2.6453,
+    "usb R2 / Mount 07 · M2": 28.1124,
+    "usb R2 / mb omar-mainboard PCB": 6.15,
+    "usb R2 / t3 P01 T3 switch plate": 7.9895,
+    "usb R2 / mb SW6": 19.4463,
+    "usb R2 / mb SW5": 17.04,
+    "usb R2 / T4 one-piece tray": 1.251,
+    "usb F1 / Carrier M2 thread envelope": 2.0497,
+    "usb F1 / Carrier M2 head": 1.477,
+    "usb F1 / Carrier M2 thread envelope.001": 12.8039,
+    "usb F1 / Carrier M2 head.001": 11.9549,
+    "usb F1 / Mount 07 · M2": 20.9342,
+    "usb F1 / mb omar-mainboard PCB": 1.15,
+    "usb F1 / t3 P01 T3 switch plate": 5.228,
+    "usb F1 / mb SW6": 21.3801,
+    "usb F1 / mb SW5": 12.04,
+    "usb F1 / T4 one-piece tray": 0.9856,
+    "usb usb-c-carrier PCB / Carrier M2 thread envelope": 0.0979,
+    "usb usb-c-carrier PCB / Carrier M2 head": 0,
+    "usb usb-c-carrier PCB / Carrier M2 thread envelope.001": 0.0979,
+    "usb usb-c-carrier PCB / Carrier M2 head.001": 0,
+    "usb usb-c-carrier PCB / Mount 07 · M2": 20.1301,
+    "usb usb-c-carrier PCB / mb omar-mainboard PCB": 0.3504,
+    "usb usb-c-carrier PCB / t3 P01 T3 switch plate": 4.0651,
+    "usb usb-c-carrier PCB / mb SW6": 11.6843,
+    "usb usb-c-carrier PCB / mb SW5": 11.2404,
+    "usb usb-c-carrier PCB / T4 one-piece tray": 0
+  },
+  "collar_flats_center_to_flat_and_normal_degrees": {
+    "Mount 13 · M2": [
+      1.6214,
+      142.0,
+      66.68,
+      -42.86
+    ],
+    "Mount 14 · M2": [
+      1.6135,
+      142.0,
+      190.5,
+      -61.91
+    ]
+  },
+  "carrier_electrical": {
+    "vias": 11,
+    "tracks": 153,
+    "via_lands_touch_smd": [
+      [
+        "DP",
+        [
+          100.25,
+          104.25
+        ],
+        "J1",
+        "A6",
+        0.2
+      ],
+      [
+        "DP",
+        [
+          99.25,
+          104.25
+        ],
+        "J1",
+        "B6",
+        0.2
+      ]
+    ],
+    "layer_count": 4,
+    "thickness": 1.0,
+    "routed_lengths_mm": {
+      "DM": 23.0,
+      "DP": 16.45,
+      "VBUS_RAW": 21.16,
+      "VBUS_F": 13.12
+    }
+  },
+  "step_reimport": {
+    "groups": {
+      "B.2 mainboard": 406,
+      "T3 plate and roller": 23,
+      "T4 USB carrier": 6,
+      "Cap": 90,
+      "Carrier screw": 4,
+      "Deck mount": 14,
+      "Deck screw": 12,
+      "Foot": 4,
+      "Jacket": 1,
+      "Knob": 2,
+      "Knob screw": 2,
+      "Receiver": 102,
+      "Stabilizer": 18,
+      "Switch": 90,
+      "Tray": 1,
+      "USB lead": 8
+    },
+    "instances": 783,
+    "bounds": [
+      -8.993956758696804,
+      -128.0814567586966,
+      -27.586956758696406,
+      413.8063567586968,
+      9.325156758696394,
+      23.000156758696683
+    ]
+  },
+  "mainboard_shortest_gaps_mm": {
+    "populated_parts": 405,
+    "all_parts_to_tray": 1.7212,
+    "socket_to_tray": 2.6438,
+    "socket_vertical_to_tray": 3.1255,
+    "led_to_tray": 2.01,
+    "encoder_to_plate": 0.3
+  }
+}

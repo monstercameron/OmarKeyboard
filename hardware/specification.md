@@ -1,10 +1,10 @@
 # Omar-Keyboard hardware specification
 
-Revision 3 · first-sample values. This sheet fixes the numbers a plate, PCB, case and keycap order need. Values marked **(sample)** are starting points for the first physical build; measure them on that build before the second order. Per-switch data lives in [omar-switches.csv](layout/omar-switches.csv), the layout in [omar-kle.json](layout/omar-kle.json) for keyboard-layout-editor and plate generators, and the dimensioned top view in [dimensioned drawing](../docs/assets/omar-dimensions.svg). The [layout generator](../tools/generate-layout.py) writes all three from a single layout table, and the browser check confirms the prototype matches it.
+Rev B.2 mainboard and T3 mechanical prototype. The assembly specification gives the governing dimensions, current fit findings and first-article checks. The switch register and key layout supply key centres, sizes and row assignments. [Assembly specification](assembly-design-specification.md) · [Switch register](layout/omar-switches.csv) · [Key layout](layout/omar-kle.json) · [Dimensioned top view](../docs/assets/omar-dimensions.svg) · [Layout generator](../tools/generate-layout.py)
 
 ![Dimensioned top view](../docs/assets/omar-dimensions.svg)
 
-**Rev B backlight option.** All 90 MX positions have a rear-facing optical window, an individually addressable RGB emitter and a local bypass. See the [Rev B register](mainboard-rev-b/backlight-map.csv) for exact aperture centers and matrix indices. The original 15-light development layout and the current case envelope remain the mechanical baselines.
+**Rev B.1 backlight.** Each of the 90 MX stations has a rear-facing light window, an addressable RGB emitter and a local bypass capacitor. Fifteen emitters also show keyboard state. [Rev B.1 optical register](mainboard-rev-b/backlight-map.csv)
 
 ## Coordinates and overall size
 
@@ -34,7 +34,7 @@ The prototype's previous 0.23u top gap left the bottom row 0.03u outside its 6.2
 | --- | --- | --- |
 | 1u | 75 | Letters, digits, punctuation, Esc, Desk 1–5, Last Desk, top-row utilities, both rails, arrows |
 | 1.5u | 6 | Send & Stay, Move & Go, Tab, \\, Ctrl, right Super |
-| 1.75u | 3 | Caps, left Super, Alt |
+| 1.75u | 3 | Caps, left Super, right Ctrl |
 | 2u | 1 | Backspace |
 | 2.25u | 3 | Enter, left Shift, Next Window |
 | 2.75u | 1 | right Shift |
@@ -58,9 +58,9 @@ PCB-mount, screw-in, Cherry-style. Use the same wire for 2u through 2.75u.
 | Item | Specification |
 | --- | --- |
 | Material | 1.5 mm 5052 aluminium for the production build. 1.6 mm FR4 is acceptable for the first sample |
-| Switch cutouts | 14.00 × 14.00 mm, +0.05/−0 mm, at all 90 switch centres and both dial centres (the EC11 body passes through a switch cutout) |
+| Switch cutouts | 14.00 × 14.00 mm, +0.05/−0 mm, at all 90 switch centres and both dial centres (the Bourns body passes through a dial opening) |
 | Stabilizer cutouts | Standard Cherry/Costar-compatible cutouts at the spacings above. Generate them from [omar-kle.json](layout/omar-kle.json) with a plate generator and check them against the chosen stabilizer's drawing |
-| Roller slot | 44.0 × 12.0 mm, centred on the barrel at (345.59, 42.86) |
+| Roller slot | 44.40 × 13.50 mm, centred on the barrel at (342.49, 42.86) |
 | Roller module fixings | Two M2 holes for the bearing block and two for the encoder bracket, located from the roller drawing below |
 | Mounting holes | 12 × Ø2.2 mm for M2, listed below. The PCB uses the same positions |
 
@@ -81,9 +81,9 @@ z is measured from the top of the plate, positive up. **(sample)** values need m
 | Layer | z (mm) |
 | --- | --- |
 | Roller barrel top | +14.0 **(sample)** |
-| Dial knob top | +16.0 ±1, level with the Esc cap top **(sample)** |
+| Dial knob top | +23 nominal with the Bourns shaft. Verify knob and cap clearance through the full 0.50 push. |
 | Typical keycap top, Cherry profile R3 | about +14 **(sample)** |
-| Roller bezel top | +8.0 |
+| Roller bezel top | +8.0 at the tread window. The T3 encoder hood reaches +16.12. |
 | Roller axle | +6.0 |
 | Case top edge | +5.0 |
 | Plate | 0 to −1.5 |
@@ -97,18 +97,7 @@ The case sits on 2 mm feet. Typing angle is **6°**. The front edge is about **2
 
 ## Roller
 
-| Item | Specification |
-| --- | --- |
-| Module envelope | x 319.09–376.24 mm, y 23.81–61.91 mm (3u × 2u above the arrows) |
-| Barrel | Ø16.0 mm, 42.0 mm tread, x 324.59–366.59 mm, axis at y = 42.86 mm. Aluminium with a fine circumferential rib, or a printed core with a 1 mm silicone sleeve |
-| Axle height | +6.0 mm above the plate top, set by a shim under the encoder bracket |
-| Exposure | 6 mm above the bezel. Bezel window 46 × 17 mm |
-| Left support | Printed or machined block, 4 mm, x 320.09–324.09 mm, holding an MR63ZZ bearing (3 × 6 × 2.5 mm) on a Ø3 mm barrel stub |
-| Right support and sensor | Horizontal-shaft (right-angle) EC11-series encoder, no push switch, 30 detents / 15 pulses, 6 mm D shaft into the barrel bore with an M3 set screw. Bracket and body x 367.09–374.59 mm |
-| Feel | 30 detents per turn, about 1.7 mm of tread per detent. One detent is one wheel step |
-| Direction | Pulling the top surface toward the user scrolls down |
-| Bezel | Printed cover 56.2 × 37.2 mm, 1.2 mm top skin, top at +8.0 mm, fixed by the support screws |
-| Wiring | A, B and common from the encoder to PCB pads through the plate slot |
+The T3 tread spans X321.49–363.49, on a horizontal axis at Y42.86 and Z+6.00. It turns the Alps EC11E15204A3 through a 12.00 mm shaft engagement and an M3 flat-point screw seated on the flat. R03 covers the soldered encoder card and three conductors to J2. B.2 supplies two 2.7 kΩ pull-ups to 3V3. One detent sends one scroll step. Pulling the upper surface toward the user scrolls down. [Assembly and service](mechanical-rfq/rev-b2-t3/README.md) · [Encoder card](roller-encoder-card/README.md) · [Mainboard](mainboard-rev-b2/README.md)
 
 ## Dials
 
@@ -125,7 +114,7 @@ The case sits on 2 mm feet. Typing angle is **6°**. The front edge is about **2
 | --- | --- |
 | All keys except Lock | MX-compatible, 5-pin, plate-mount. Reference feel: tactile, 55–62 gf |
 | Lock | MX-compatible linear, 80 gf spring |
-| Sockets | Kailh MX hot-swap sockets on the first PCB, so switch weights can be changed after the reach tests |
+| Sockets | 90 HanElectricity CPG151101S11-16 underside MX hot-swap sockets in the Rev B.1 assembly quote (JLCPCB C41430893). |
 
 ## Keycaps
 
@@ -133,7 +122,7 @@ Cherry profile, 1.5 mm PBT, dye-sublimated legends. Rows follow the physical row
 
 | Item | Specification |
 | --- | --- |
-| Custom sizes | Two R1 1.5u caps (Send & Stay, Move & Go) are outside standard kits. Next Window uses an R4 2.25u blank (left-Shift size). Alt uses an R4 1.75u blank |
+| Custom sizes | Two R1 1.5u caps (Send & Stay, Move & Go) are outside standard kits. Next Window uses an R4 2.25u blank (left-Shift size). Right Ctrl uses an R4 1.75u blank |
 | Homing bars | F and J (standard), plus Menu (R3), Focus (R4) and Desk 5 (R1) |
 | Lock | 1u DSA cap, about 2 mm lower than its R1 neighbours, giving a recessed top that a finger crossing the top row does not catch. An 80 gf linear switch adds resistance. A rim cannot fit, because neighbouring caps are only 1.05 mm apart |
 | Primary legends | Condensed grotesk, centred. Single glyphs 4.0 mm cap height. Words 2.8 mm, at most two lines on a 3.3 mm line pitch. Desk caps: "Desk" 1.9 mm above a 4.0 mm numeral |
@@ -164,11 +153,11 @@ Match the prototype colours to the keycap vendor's dye or plastic colour chart b
 | Matrix | 8 rows × 12 columns, COL2ROW. One 1N4148W (SOD-123) per contact, anode on the column side. 92 diodes |
 | Encoders | Volume A/B GP20/GP21, brightness GP22/GP23, roller GP24/GP25. Dial push contacts are in the matrix |
 | Rows and columns | Rows GP0–GP7, columns GP8–GP19 |
-| LEDs | 15 × SK6812MINI-E, reverse-mounted under the switch LED windows (north-facing switches, LED 5.08 mm north of the switch centre). 5 V supply, 100 nF each. Data from GP26 through a 74AHCT1G125 level shifter |
-| Spare | GP27–GP29 |
-| Power budget | Firmware caps LED brightness at 80/255, which keeps the LEDs under about 250 mA at full white. The total stays under the 500 mA USB 2.0 limit |
+| LEDs | 90 reverse-mounted SK6812MINI-E at 5.08 mm rearward of their switch centres, with a 100 nF bypass each. GP26 drives the data buffer. GP27 enables the 5 V LED rail and GP28 controls buffer output enable. |
+| Spare | GP29 |
+| Power budget | Rev B firmware limits brightness to 16/255. Estimated maximum capped-white draw is 393 mA including logic allowance. Measure USB inrush, operating current and suspend on the populated board. |
 
-| LED index | Key | Shows |
+| Logical indicator index | Key | Shows |
 | --- | --- | --- |
 | 0 | Caps | Caps Lock on |
 | 1–5 | Desk 1–5 | Amber while a transfer is pending. Otherwise dim white on the host-reported active desk |
@@ -191,7 +180,7 @@ The reference matrix fills each physical row's first 12 contacts from the left i
 | R2 | Browser | Tab | Q | W | E | R | T | Y | U | I | O | P |
 | R3 | Menu | Caps | A | S | D | F | G | H | J | K | L | ; |
 | R4 | Terminal | Left Shift | Z | X | C | V | B | N | M | , | . | / |
-| R5 | Files | Ctrl | Left Super | Space | Right Super | Next Window | Alt | ← | ↓ | → | Focus | — |
+| R5 | Files | Ctrl | Left Super | Space | Right Super | Next Window | Right Ctrl | ← | ↓ | → | Focus | — |
 | R6 | Alerts | Mic Mute | Delete | Screenshot | Grab Text | Lock | Brightness dial press | Right Shift | ↑ | Swap | — | — |
 | R7 | - | = | Backspace | Flip Split | [ | ] | \ | Float | ' | Enter | Fullscreen | — |
 <!-- MATRIX:END -->
@@ -205,7 +194,7 @@ The reference matrix fills each physical row's first 12 contacts from the left i
 | Debounce | `sym_defer_pk`, 5 ms |
 | Tap-hold | `TAPPING_TERM 200`, `HOLD_ON_OTHER_KEY_PRESS`, `QUICK_TAP_TERM 0` |
 | Encoders | `ENCODER_MAP_ENABLE`. Resolution 4 for the dials and 2 for the roller (set from the encoders' detent and pulse counts) |
-| Features | `EXTRAKEY_ENABLE`, `MOUSEKEY_ENABLE` (roller wheel), `RAW_ENABLE` (indicator bridge), `NKRO_ENABLE`, `RGB_MATRIX_ENABLE` with the WS2812 PIO driver and `RGB_MATRIX_MAXIMUM_BRIGHTNESS 80` |
+| Features | `EXTRAKEY_ENABLE`, `MOUSEKEY_ENABLE` (roller wheel), `RAW_ENABLE` (indicator bridge), `NKRO_ENABLE`, `RGB_MATRIX_ENABLE` with the WS2812 PIO driver and `RGB_MATRIX_MAXIMUM_BRIGHTNESS 16` |
 | Polling | 1000 Hz |
 | USB IDs | A pid.codes test PID for the first sample. Request an assigned PID before any release |
 
@@ -224,24 +213,26 @@ The reference matrix fills each physical row's first 12 contacts from the left i
 | --- | --- |
 | MX-compatible tactile switches | 89 |
 | MX-compatible 80 gf linear switch (Lock) | 1 |
-| Kailh MX hot-swap sockets | 90 |
+| HanElectricity MX hot-swap sockets, CPG151101S11-16 | 90 |
 | 1N4148W diodes | 92 |
-| EC11E vertical encoders with push switch | 2 |
-| EC11 horizontal encoder, 30 detents, no switch | 1 |
+| Bourns PEC11R-4220F-S0024 corner push encoders, Rev B.1 | 2 |
+| Alps EC11E15204A3 roller encoder, 30 detents, without push | 1 |
+| T3 encoder mounting card and two B.2 2.7 kΩ pull-ups | 1 card, 2 resistors |
 | Knobs, Ø18 mm | 2 |
 | Roller barrel, MR63ZZ bearing, Ø3 mm axle stub, supports, bezel | 1 set |
 | Stabilizers, PCB screw-in: 2u / 6.25u | 5 / 1 |
-| SK6812MINI-E | 15 |
+| SK6812MINI-E addressable backlight emitters and 100 nF local bypass capacitors | 90 of each |
 | RP2040, 12 MHz crystal, 2 MB QSPI flash, 3.3 V LDO, USB-C receptacle, USBLC6-2, PTC, 74AHCT1G125, buttons, passives | 1 set |
 | Plate and PCB | 1 each |
-| Case, printed in two halves joined at x ≈ 200 mm with an internal bar, or machined | 1 |
-| M2 standoffs and screws | 15 |
+| One-piece tray, including mounting bosses and USB carrier slides | 1 |
+| Deck hardware | 12 top-entry M2 screws, 14 lower spacers at 3.20 mm and 12 upper spacers at 3.50 mm |
+| Separate roller fixings | 4 underside M2 screws and 1 M3 flat-point drive screw |
 | Feet, 2 mm | 4 |
 | Keycap set as specified above | 1 |
 
 ## Before the second order
 
-1. Measure keycap, knob and roller heights against the stack table and adjust the knob shaft length and the roller shim.
+1. Measure keycap, knob and roller heights against the stack table and verify cap clearance and roller-axis alignment.
 2. Run the paper fit and reach tests in [validation guide](../docs/design/validation.md) on the printed template.
 3. Check roller drag, skipped detents and axle deflection at the centre and both ends of the tread.
 4. Confirm the LED brightness cap against measured USB current.

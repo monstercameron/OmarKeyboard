@@ -22,7 +22,7 @@
     <div class="oe-work-head"><strong class="oe-current">Desk 1</strong><span>Window preview</span></div>
     <div class="oe-tiles"></div>
   </div>
-  <div class="oe-result" role="status">Hold Focus or Swap on screen and press a physical arrow. Hold Caps (Fn) and press an arrow or Delete to try the second legends. Hold Alt and press a letter to see an Alt chord.</div>
+  <div class="oe-result" role="status">Hold Focus or Swap on screen and press a physical arrow. Hold Caps (Fn) and press an arrow or Delete to try the second legends. Hold Right Ctrl and press an arrow to try word navigation.</div>
   <button type="button" class="oe-print-button">Print full-size fit template</button>
   <details class="oe-sample">
     <summary class="oe-paperhead">Omar key guide <output aria-label="Reading progress" aria-live="off">0%</output></summary>
@@ -31,11 +31,11 @@
       <p><strong>Choose a desk</strong>The five desk keys sit above typing digits 1 through 5. Last Desk returns to the previous one. Send &amp; Stay and Move &amp; Go use the five desk keys.</p>
       <p><strong>Take a picture or copy words</strong>Screenshot opens the capture tool. Grab Text extracts words from a screen region so you can paste them as text.</p>
       <p><strong>Take a window with you</strong>Tap Move &amp; Go, then a desk key. Your focused window moves there and you follow it.</p>
-      <p><strong>Send a window ahead</strong>Tap Send &amp; Stay, then Desk 3. The window moves to desk 3 and you stay where you are. Esc or a second tap on the same action cancels. Modifier keys (Ctrl, Shift, Super, Alt), Caps/Fn, the dials and the roller do not cancel a pending transfer. Another key does.</p>
+      <p><strong>Send a window ahead</strong>Tap Send &amp; Stay, then Desk 3. The window moves to desk 3 and you stay where you are. Esc or a second tap on the same action cancels. Modifier keys (Ctrl, Shift, Super), Caps/Fn, the dials and the roller do not cancel a pending transfer. Another key does.</p>
       <p><strong>Return to your editor</strong>Last Desk takes you back to the previous desk on this monitor.</p>
       <p><strong>Pick or swap a tile</strong>Hold Focus or Swap while pressing an arrow. Releasing the control immediately restores ordinary arrows. A quick accidental tap has no effect.</p>
       <p><strong>Use the Fn legends</strong>Tap Caps for Caps Lock. Hold it for Fn. Fn does only what is printed in the Fn colour: Left/Right give Home/End, Up/Down give Page Up/Down, Delete gives Insert, and Next Window returns to the last window. Every other key types normally. A transfer expires after three seconds.</p>
-      <p><strong>Hold Alt</strong>Alt sits next to the arrows. Hold it for Alt + arrow, Alt + a letter in a shell, and Alt + Screenshot, which starts or stops screen recording. Holding Alt does not trigger Focus or Swap.</p>
+      <p><strong>Right Ctrl</strong>The Ctrl key beside the arrows sends Right Control. Hold it with Left or Right for word navigation in editors. Dedicated desk and window keys generate their own shortcuts.</p>
       <p><strong>Adjust the dials</strong>Volume presses mute speakers. Shift + Menu opens Apps. The right dial adjusts brightness, Fn + turn resizes the split, and pressing cycles layouts. Fn + roller delivers Page Up/Down to the focused application.</p>
       <p><strong>Pick the next window</strong>Tap Next Window to cycle forward or add Shift to reverse. Fn + Next Window returns to the last focused window on this desk with the optional Omar bindings. Super + K opens Omarchy’s live shortcut list.</p>
       <p><strong>Open and edit</strong>Menu is beside Caps on the left edge. Delete is above Backspace. Clipboard opens history and Paste inserts the current clipboard item into the focused app.</p>
@@ -145,7 +145,7 @@
   const controls = new Map();
   const prompts = {"Send & Stay":"Choose Desk 1–5 within 3 seconds. You will stay here.","Move & Go":"Choose Desk 1–5 within 3 seconds. You will follow the window."};
   const fnMap={"←":"Home","→":"End","↑":"PgUp","↓":"PgDn",Delete:"Insert","Next Window":"Last Win"};
-  const holdKeys=new Set(["Focus","Swap","Caps","Alt"]);
+  const holdKeys=new Set(["Focus","Swap","Caps","Right Ctrl"]);
   const held=new Map();
   const hasHeld=k=>[...held.values()].some(v=>v.key===k);
   let transferTimer=0,deadline=0,speakerMuted=false;
@@ -245,9 +245,8 @@
   }
   function press(key,shift=false) {
     expire();
-    if(hasHeld("Alt") && !holdKeys.has(key)) {
-      if(key==="Screenshot") status.textContent="Alt + Screenshot · starts or stops screen recording.";
-      else status.textContent="Alt + "+(directions[key]?directions[key]+" arrow":key)+" · sent to the focused application.";
+    if(hasHeld("Right Ctrl") && !pending && !hasHeld("Caps") && (directions[key] || /^[A-Za-z0-9]$/.test(key))) {
+      status.textContent="Ctrl + "+(directions[key]?directions[key]+" arrow":key)+" · sent to the focused application.";
       return;
     }
     if(isSuper(key) && prompts[pending]) {status.textContent="Super · modifier. The pending transfer stays; choose a desk key.";return;}
@@ -297,8 +296,7 @@
     else if(previous===key && prompts[key]) message="Canceled. Normal typing.";
     else if(previous==="Super" && directions[key]) message=directional(key,false);
     else if(previous==="Super" && key==="Tab") {
-      const open=desks.map((d,i)=>d.apps.length || i+1===deskNumber ? i+1 : 0).filter(Boolean);
-      message=chooseDesk(open[(open.indexOf(deskNumber)+(shift?-1:1)+open.length)%open.length],"visit");
+      message=chooseDesk((deskNumber - 1 + (shift ? -1 : 1) + 5) % 5 + 1,"visit");
     }
     else if(previous==="Super" && /^[1-5]$/.test(key)) message=chooseDesk(Number(key),"visit");
     else if(previous==="Super" && key==="W") {
@@ -308,7 +306,7 @@
       message=closed?"Closed "+closed+" in the preview.":"No window to close.";
     }
     else if(previous==="Super" && superAction(key)) message="Super + "+key+" · "+superAction(key);
-    else if(previous==="Super" && /^[06-9]$/.test(key)) message="Super + "+key+" visits a stock Omarchy workspace outside this five-desk preview.";
+    else if(previous==="Super" && /^[06-9]$/.test(key)) message="Super + "+key+" has no desk binding in the five-desktop profile.";
     else if (key.startsWith("Desk ")) message=chooseDesk(Number(key.slice(5)),previous);
     else if (key==="Last Desk") {
       if(previousDesk) {visit(previousDesk);message="Back on desk "+deskNumber+".";}
@@ -406,9 +404,9 @@
   }
   function beginHold(key,id) {
     if(held.has(id)) return;
-    if(key!=="Caps" && key!=="Alt") {clearPending();captureTarget=null;}
+    if(key!=="Caps" && key!=="Right Ctrl") {clearPending();captureTarget=null;}
     held.set(id,{key,start:performance.now(),used:false});
-    status.textContent=key==="Caps"?"Fn held. Press an arrow, Delete or Next Window for the printed Fn legends.":key==="Alt"?"Alt held. Press a letter, digit, arrow or Screenshot; release to type normally.":key+" held. Press a physical arrow; release to type normally.";
+    status.textContent=key==="Caps"?"Fn held. Press an arrow, Delete or Next Window for the printed Fn legends.":key==="Right Ctrl"?"Right Ctrl held. Press a letter or an arrow.":key+" held. Press a physical arrow; release to type normally.";
     refreshLights();
   }
   function endHold(id,canceled=false) {
@@ -525,8 +523,8 @@
     for(const entry of keys) {
       const [k,w] = Array.isArray(entry) ? entry : [entry,1];
       const style=isSuper(k) ? "super" : w>1 && k!=="Space" ? "mod" : "";
-      const label=isSuper(k)?"Super":k==="Caps"?"Caps":k==="Next Window"?"Next Window":k;
-      const el=cap(zone,k,x,y,w,style,label,k==="Caps" || k==="Alt" || k==="Enter" || Boolean(fnMap[k]) || isSuper(k) || Boolean(superAction(k)));
+      const label=isSuper(k)?"Super":k==="Right Ctrl"?"Ctrl":k==="Caps"?"Caps":k==="Next Window"?"Next Window":k;
+      const el=cap(zone,k,x,y,w,style,label,k==="Caps" || k==="Right Ctrl" || k==="Enter" || Boolean(fnMap[k]) || isSuper(k) || Boolean(superAction(k)));
       const front={W:"Close",C:"Copy",V:"Paste"}[k];
       if(front) {
         const sub=document.createElement("small");
@@ -541,7 +539,7 @@
   row([["Tab",1.5],..."QWERTYUIOP","[","]",["\\",1.5]],2.25);
   row([["Caps",1.75],..."ASDFGHJKL",";","'",["Enter",2.25]],3.25);
   row([["Shift",2.25],..."ZXCVBNM",",",".","/",["Shift",2.75]],4.25);
-  row([["Ctrl",1.5],["Left Super",1.75],["Space",6.25],["Right Super",1.5],["Next Window",2.25],["Alt",1.75]],5.25,"thumbs");
+  row([["Ctrl",1.5],["Left Super",1.75],["Space",6.25],["Right Super",1.5],["Next Window",2.25],["Right Ctrl",1.75]],5.25,"thumbs");
   [["←",0,5.25],["↓",1,5.25],["↑",1,4.25],["→",2,5.25]].forEach(([k,x,y])=>cap("arrows",k,16.75+x,y,1,"mod",k,true));
   const roller=root.querySelector(".oe-roll-input");
   const barrel=root.querySelector(".oe-barrel");
@@ -606,13 +604,13 @@
   });
   root.addEventListener("keydown",e=>{
     if(e.code==="CapsLock"){e.preventDefault();if(!e.repeat)beginHold("Caps","physicalCaps");return;}
-    if(e.code==="AltLeft" || e.code==="AltRight"){e.preventDefault();if(!e.repeat)beginHold("Alt","physical"+e.code);return;}
+    if(e.code==="ControlRight"){e.preventDefault();if(!e.repeat)beginHold("Right Ctrl","physical"+e.code);return;}
     const physical={ArrowLeft:"←",ArrowRight:"→",ArrowUp:"↑",ArrowDown:"↓",Minus:"-",Equal:"=",Delete:"Delete",MetaLeft:"Left Super",MetaRight:"Right Super"}[e.code] || (/^Digit[0-9]$/.test(e.code)?e.code.slice(5):"");
     if(held.size && physical) {
       e.preventDefault();
       if(!e.repeat)press(physical,e.shiftKey);return;
     }
-    if(hasHeld("Alt") && e.key.length===1 && !e.ctrlKey && !e.metaKey) {e.preventDefault();if(!e.repeat)status.textContent="Alt + "+e.key+" · sent to the focused application.";return;}
+    if(hasHeld("Right Ctrl") && /^[a-z]$/i.test(e.key) && !e.metaKey) {e.preventDefault();if(!e.repeat)press(e.key,e.shiftKey);return;}
     if(e.key==="Escape" && guide.open && !pending && captureTarget===null) {e.preventDefault();press("Esc");return;}
     if ((!pending && captureTarget===null) || e.altKey || e.ctrlKey || e.metaKey || e.isComposing) return;
     if(captureTarget!==null && e.key==="Enter") {e.preventDefault();press("Enter");return;}
@@ -623,7 +621,7 @@
   });
   root.addEventListener("keyup",e=>{
     if(e.code==="CapsLock"){e.preventDefault();endHold("physicalCaps");}
-    if(e.code==="AltLeft" || e.code==="AltRight"){e.preventDefault();endHold("physical"+e.code);status.textContent="Alt released. Ordinary keys restored.";}
+    if(e.code==="ControlRight"){e.preventDefault();endHold("physical"+e.code);status.textContent="Right Ctrl released. Ordinary keys restored.";}
   });
   if(location.hash==="#guide") {guide.open=true;pane.focus();}
 })();

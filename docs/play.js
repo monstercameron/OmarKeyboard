@@ -336,7 +336,7 @@ function press(label) {
   }
 
   // Modifiers leave a waiting move alone, as on the board.
-  if (["Left Shift", "Right Shift", "Ctrl", "Alt"].includes(label)) { say(label, label.replace(/^(Left|Right) /, "")); render(); return; }
+  if (["Left Shift", "Right Shift", "Ctrl", "Right Ctrl"].includes(label)) { say(label, label.replace(/^(Left|Right) /, "")); render(); return; }
 
   // A typing key cancels a waiting move and then does its usual job.
   if (state.pending && !CHORD[label]?.startsWith("Super")) { state.pending = null; toast("Move canceled. The key went to the window"); }

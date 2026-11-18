@@ -76,16 +76,18 @@ row([("Tab", 1.5)] + [(c, 1) for c in "QWERTYUIOP"] + [("[", 1), ("]", 1), ("\\"
 row([("Caps", 1.75)] + [(c, 1) for c in "ASDFGHJKL"] + [(";", 1), ("'", 1), ("Enter", 2.25)], 3.25)
 row([("Shift", 2.25)] + [(c, 1) for c in "ZXCVBNM"] + [(",", 1), (".", 1), ("/", 1), ("Shift", 2.75)], 4.25)
 row([("Ctrl", 1.5), ("Left Super", 1.75), ("Space", 6.25), ("Right Super", 1.5),
-     ("Next Window", 2.25), ("Alt", 1.75)], 5.25, "main")
+     ("Next Window", 2.25), ("Right Ctrl", 1.75)], 5.25, "main")
 for k, x, y in [("↑", 17.75, 4.25), ("←", 16.75, 5.25), ("↓", 17.75, 5.25), ("→", 18.75, 5.25)]:
     add(k, k, "arrows", x, y, 1, fn=FN[k])
 # Space has no legend
 for k in keys:
+    if k["id"] == "Right Ctrl":
+        k["primary"] = "Ctrl"
     if k["id"] == "Space":
         k["primary"] = ""
     if k["id"] == "Left Super" or k["id"] == "Right Super":
         k["zone"] = "thumbs"
-    if k["id"] in ("Ctrl", "Space", "Next Window", "Alt"):
+    if k["id"] in ("Ctrl", "Space", "Next Window", "Right Ctrl"):
         k["zone"] = "thumbs"
 
 # --------------------------------------------------------------- derived fields
@@ -222,13 +224,13 @@ HOLES = ([(1.25 * U, y * U) for y in (1.75, 3.75, 5.75)] + [(20.0 * U, y * U) fo
 MOD_X0, MOD_X1 = 16.75 * U, 19.75 * U
 MOD_Y0, MOD_Y1 = 1.25 * U, 3.25 * U
 SUP_L0, SUP_L1 = MOD_X0 + 1.0, MOD_X0 + 5.0
-BAR_X0 = SUP_L1 + 0.5
+BAR_X0 = 321.49  # T3 tread drive and journal datums, sheet 19
 BAR_LEN, BAR_D = 42.0, 16.0
 BAR_X1 = BAR_X0 + BAR_LEN
 BAR_CX, BAR_CY = (BAR_X0 + BAR_X1) / 2, (MOD_Y0 + MOD_Y1) / 2
 ENC_X0 = BAR_X1 + 0.5
 ENC_X1 = ENC_X0 + 7.5
-SLOT_W, SLOT_H = 44.0, 12.0
+SLOT_W, SLOT_H = 44.40, 13.50
 
 # ------------------------------------------------------------------------- SVG
 OX, OY = 46.0, 52.0
@@ -292,7 +294,7 @@ for name, (sx, sy, span) in STABS.items():
 
 # roller module
 A(f'<rect id="roller-module" x="{MOD_X0:.2f}" y="{MOD_Y0:.2f}" width="{MOD_X1-MOD_X0:.2f}" height="{MOD_Y1-MOD_Y0:.2f}" rx="2" stroke="{INK}" stroke-width="0.4" fill="#f1f4f7"/>')
-A(f'<rect id="barrel-slot" x="{BAR_CX-SLOT_W/2:.2f}" y="{BAR_CY-SLOT_H/2:.2f}" width="{SLOT_W}" height="{SLOT_H}" rx="1.5" stroke="{INK}" stroke-width="0.4" fill="#ffffff"/>')
+A(f'<rect id="barrel-slot" x="{BAR_CX-SLOT_W/2:.2f}" y="{BAR_CY-SLOT_H/2:.2f}" width="{SLOT_W}" height="{SLOT_H}" rx="0.55" stroke="{INK}" stroke-width="0.4" fill="#ffffff"/>')
 A(f'<rect x="{BAR_X0:.2f}" y="{BAR_CY-BAR_D/2:.2f}" width="{BAR_LEN}" height="{BAR_D}" rx="1" stroke="{MUTE}" stroke-width="0.25" stroke-dasharray="2 1"/>')
 A(f'<text x="{(MOD_X0+MOD_X1)/2:.2f}" y="{MOD_Y0+5:.2f}" font-size="3" fill="{INK}" stroke="none" text-anchor="middle">Roller module</text>')
 A(f'<text x="{BAR_CX:.2f}" y="{BAR_CY+0.9:.2f}" font-size="2.4" fill="{MUTE}" stroke="none" text-anchor="middle">barrel O16 x 42</text>')

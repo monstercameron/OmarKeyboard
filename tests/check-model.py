@@ -47,7 +47,7 @@ for fmt in ["blend","glb"]:
     for knob in knobs:
         bb=bounds_in_deck(knob)
         assert abs(size(bb,0)-18)<.015 and abs(size(bb,2)-12)<.015
-    assert bpy.data.objects.get("Cap | Alt") and bpy.data.objects.get("Cap | Right Super")
+    assert bpy.data.objects.get("Cap | Right Ctrl") and bpy.data.objects.get("Cap | Right Super")
     assert bpy.data.objects.get("J1 · USB-C shell, tongue and mating contacts")
     assert len([o for o in bpy.data.objects if o.name.startswith("Homing bar |")])==5
     assert len([o for o in bpy.data.objects if o.name.startswith("Stabilizer wire |")])==6

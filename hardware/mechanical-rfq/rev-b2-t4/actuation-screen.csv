@@ -1,0 +1,93 @@
+Moving shell,Final displacement mm,Sampling step mm,Downstroke samples,Unintended surface crossings
+Cap | Esc,4,0.25,16,0
+Cap | Desk 1,4,0.25,16,0
+Cap | Desk 2,4,0.25,16,0
+Cap | Desk 3,4,0.25,16,0
+Cap | Desk 4,4,0.25,16,0
+Cap | Desk 5,4,0.25,16,0
+Cap | Last Desk,4,0.25,16,0
+Cap | Send & Stay,4,0.25,16,0
+Cap | Move & Go,4,0.25,16,0
+Cap | Clipboard,4,0.25,16,0
+Cap | Paste,4,0.25,16,0
+Cap | Alerts,4,0.25,16,0
+Cap | Mic Mute,4,0.25,16,0
+Cap | Delete,4,0.25,16,0
+Cap | Screenshot,4,0.25,16,0
+Cap | Grab Text,4,0.25,16,0
+Cap | Lock,4,0.25,16,0
+Cap | Guide,4,0.25,16,0
+Cap | ~,4,0.25,16,0
+Cap | 1,4,0.25,16,0
+Cap | 2,4,0.25,16,0
+Cap | 3,4,0.25,16,0
+Cap | 4,4,0.25,16,0
+Cap | 5,4,0.25,16,0
+Cap | 6,4,0.25,16,0
+Cap | 7,4,0.25,16,0
+Cap | 8,4,0.25,16,0
+Cap | 9,4,0.25,16,0
+Cap | 0,4,0.25,16,0
+Cap | -,4,0.25,16,0
+Cap | =,4,0.25,16,0
+Cap | Backspace,4,0.25,16,0
+Cap | Flip Split,4,0.25,16,0
+Cap | Browser,4,0.25,16,0
+Cap | Tab,4,0.25,16,0
+Cap | Q,4,0.25,16,0
+Cap | W,4,0.25,16,0
+Cap | E,4,0.25,16,0
+Cap | R,4,0.25,16,0
+Cap | T,4,0.25,16,0
+Cap | Y,4,0.25,16,0
+Cap | U,4,0.25,16,0
+Cap | I,4,0.25,16,0
+Cap | O,4,0.25,16,0
+Cap | P,4,0.25,16,0
+Cap | [,4,0.25,16,0
+Cap | ],4,0.25,16,0
+Cap | \,4,0.25,16,0
+Cap | Float,4,0.25,16,0
+Cap | Menu,4,0.25,16,0
+Cap | Caps,4,0.25,16,0
+Cap | A,4,0.25,16,0
+Cap | S,4,0.25,16,0
+Cap | D,4,0.25,16,0
+Cap | F,4,0.25,16,0
+Cap | G,4,0.25,16,0
+Cap | H,4,0.25,16,0
+Cap | J,4,0.25,16,0
+Cap | K,4,0.25,16,0
+Cap | L,4,0.25,16,0
+Cap | ;,4,0.25,16,0
+Cap | ',4,0.25,16,0
+Cap | Enter,4,0.25,16,0
+Cap | Fullscreen,4,0.25,16,0
+Cap | Terminal,4,0.25,16,0
+Cap | Left Shift,4,0.25,16,0
+Cap | Z,4,0.25,16,0
+Cap | X,4,0.25,16,0
+Cap | C,4,0.25,16,0
+Cap | V,4,0.25,16,0
+Cap | B,4,0.25,16,0
+Cap | N,4,0.25,16,0
+Cap | M,4,0.25,16,0
+"Cap | ,",4,0.25,16,0
+Cap | .,4,0.25,16,0
+Cap | /,4,0.25,16,0
+Cap | Right Shift,4,0.25,16,0
+Cap | ↑,4,0.25,16,0
+Cap | Swap,4,0.25,16,0
+Cap | Files,4,0.25,16,0
+Cap | Ctrl,4,0.25,16,0
+Cap | Left Super,4,0.25,16,0
+Cap | Space,4,0.25,16,0
+Cap | Right Super,4,0.25,16,0
+Cap | Next Window,4,0.25,16,0
+Cap | Right Ctrl,4,0.25,16,0
+Cap | ←,4,0.25,16,0
+Cap | ↓,4,0.25,16,0
+Cap | →,4,0.25,16,0
+Cap | Focus,4,0.25,16,0
+Dial | Volume dial press,0.5,0.25,2,0
+Dial | Brightness dial press,0.5,0.25,2,0

@@ -5,9 +5,8 @@ o.bind("code:191", "Omar keyboard guide", helper .. "guide")
 o.bind("code:192", "Return to last window on this workspace", helper .. "previous-window")
 o.bind("code:193", "Mute microphone", "omarchy-audio-input-mute", { locked = true })
 
--- Enable only for a deliberately restricted five-desk keyboard profile.
--- Keep the board's five labels and stock Omarchy bindings by default.
-if omar_five_desks then
+-- Five desks per monitor by default. Set omar_five_desks = false before loading to opt out.
+if omar_five_desks ~= false then
   local history = {}
   local visits = {}
   for i = 1, 5 do visits[i] = o.workspaces.focus(i) end

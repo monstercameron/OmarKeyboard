@@ -1,0 +1,1 @@
+(footprint "Mount_M2" (version 20221018)(generator pcbnew)(layer "F.Cu")(fp_text reference "REF**"(at 0 0)(layer "F.Fab") hide(effects(font(size 1 1))))(fp_text value "Mount_M2"(at 0 0)(layer "F.Fab") hide(effects(font(size 1 1))))(pad "" np_thru_hole circle(at 0 0)(size 2.2 2.2)(drill 2.2)(layers "*.Cu" "*.Mask")))

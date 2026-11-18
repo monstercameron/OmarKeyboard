@@ -1,0 +1,10 @@
+** Drc report for /mnt/c/Users/mreca/Desktop/omar-keyboard/hardware/mainboard-rev-b2/omar-mainboard.kicad_pcb **
+** Created on 2026-11-18 17:12:16 **
+
+** Found 0 DRC violations **
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **

@@ -20,7 +20,7 @@ const poses = {
   rail:      { t: [0.193, 0.033, 0.012],     o: [34, 50, 52],   c: "Flip Split, Float and Fullscreen down the right edge." },
   toprow:    { t: [null, 0.036, -0.048],     o: [0, 34, 112],   c: "The top row, where F1 to F12 used to be." },
   roller:    { t: [0.144, 0.034, -0.016],    o: [12, 44, 44],   c: "The scroll roller, in place of the six navigation keys." },
-  alt:       { t: [0.120, 0.028, 0.050],     o: [10, 50, 48],   c: "Alt, beside the left arrow, in place of the right-hand Ctrl." },
+  rightCtrl: { t: [0.120, 0.028, 0.050],     o: [10, 50, 48],   c: "Right Ctrl sits beside the left arrow for text navigation and selection." },
   fn:        { t: [0.150, 0.030, 0.040],     o: [-14, 46, 56],  c: "Home, End, PgUp and PgDn, printed in plum on the arrows." },
   dial:      { t: [-0.208, 0.045, -0.070],   o: [-24, 46, 30],  c: "The volume dial. Press it to mute the speakers.", dx: -0.1 },
   lock:      { t: [0.172, 0.040, -0.064],    o: [18, 46, 42],   c: "Lock sits lower than its neighbors, beside the brightness dial." },

@@ -1,0 +1,6 @@
+(footprint "Wire_Lap_3" (version 20221018) (generator pcbnew) (layer "F.Cu")
+(fp_text reference "REF**" (at 0 0) (layer "F.SilkS") hide (effects (font (size 0.75 0.75) (thickness 0.12))))
+(fp_text value "Wire_Lap_3" (at 0 0) (layer "F.Fab") hide (effects (font (size 0.75 0.75) (thickness 0.12))))
+(pad "1" smd roundrect (at -5.6 4.4) (size 2.40 1.05) (layers "B.Cu" "B.Mask") (roundrect_rratio 0.20))
+(pad "2" smd roundrect (at -5.6 8.85) (size 2.40 1.05) (layers "B.Cu" "B.Mask") (roundrect_rratio 0.20))
+(pad "3" smd roundrect (at -5.6 13.6) (size 2.40 1.05) (layers "B.Cu" "B.Mask") (roundrect_rratio 0.20)))

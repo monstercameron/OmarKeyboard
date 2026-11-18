@@ -1,0 +1,22 @@
+OMAR-KEYBOARD | USB-C CARRIER | T4 | FABRICATION AND ASSEMBLY
+Units mm. Finished profile 20.00 x 7.00, four-layer FR-4, finished thickness
+1.00, ENIG. Outer copper 35 um, inner nominal 17.5 um. Route Edge_Cuts
+including four 0.50 corner chamfers. Keep plated slots distinct from NPTH.
+
+SELECTIVE FILLED VIA-IN-PAD
+Epoxy-fill, planarize and copper plate over both ends of the following two
+plated through vias. Finish exposed copper with ENIG. Finished design holes
+0.20 diameter, copper lands 0.40 diameter. Hole centers in absolute coordinates,
+viewed from the top. X is shared; native KiCad and drill Y are shown separately.
+Use the PTH drill file, tool T1. T1 also drills other positions.
+
+Land    Net                X     KiCad Y   Drill Y
+J1 B6   DP             99.25    +104.25    -104.25
+J1 A6   DP            100.25    +104.25    -104.25
+
+Before order, confirm filled and capped pad construction and return the
+panel drawing for approval. Keep tabs, breakaway stubs and tooling clear of
+the connector mouth, mounting holes and finished mating outline. Panelize for
+two-sided assembly. Use the separate assembly BOM and placement CSV. Fit J1
+on top and solder all four shell stakes; R1, R2, U1 and F1 fit underneath.
+Check both sides against the placement preview and inspect the two signal lands.

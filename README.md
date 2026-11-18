@@ -1,5 +1,7 @@
 <div align="center">
 
+[Current T4 keyboard assembly for SolidWorks](hardware/mechanical-rfq/rev-b2-t4/Omar-Keyboard-full-T4.step) · [USB-C carrier fabrication and assembly files](hardware/usb-c-carrier/README.md) · [Assembly specification](hardware/assembly-design-specification.md).
+
 # Omar-Keyboard
 
 **A keyboard made for [Omarchy](https://omarchy.org/).** Desks, windows and launchers get labeled keys of their own, arranged around a standard US layout.
@@ -21,7 +23,7 @@ Omarchy runs on keyboard shortcuts. Omar-Keyboard puts the most-used ones on key
 - **Two dials.** The left one sets volume and mutes when pressed. The right one sets brightness.
 - **A light under every key.** The 90 per-key lights show the active desk, a muted microphone and Caps Lock.
 
-The typing block is an ordinary US QWERTY layout, with the full number row, two Super keys and Right Alt. Caps works as Fn when held. The [full keymap](docs/design/keymap.md) covers alternate legends and cancelling a move.
+The typing block is an ordinary US QWERTY layout, with the full number row, two Super keys and a Ctrl key on either side. The included Omarchy profile defaults to five desktops per monitor. Caps works as Fn when held. The [full keymap](docs/design/keymap.md) covers alternate legends and cancelling a move.
 
 [![Top-down keymap with desk keys in amber, launchers in green and window controls in blue](docs/assets/omar-keymap.png)](https://monstercameron.github.io/OmarKeyboard/#desks)
 
@@ -69,26 +71,26 @@ Choose a key to see its keycode, its place in the switch matrix and what Omarchy
 
 ### [Where it's heading](https://monstercameron.github.io/OmarKeyboard/#roadmap)
 
-The roadmap is drawn like a trace on the board. Solid steps are done, and the dashed ones still have to be routed. The next step is the small USB-C carrier board in the rear wall.
+The roadmap is drawn like a trace on the board. Solid steps are done, and the dashed ones still have to be routed. The rear USB-C carrier is routed. Its plating, assembly and service fit await supplier confirmation and first-article tests.
 
 [![The roadmap drawn as a copper trace, with completed steps solid and the remaining steps dashed](docs/assets/readme/site-roadmap.webp)](https://monstercameron.github.io/OmarKeyboard/#roadmap)
 
-## Rev B.1 hardware
+## Current prototype hardware
 
 [![Exploded view: keycaps, switches, plate, main board and the case tray, separated vertically](docs/assets/readme/exploded.webp)](https://monstercameron.github.io/OmarKeyboard/#inside)
 
-| Part | Rev B.1 |
+| Part | B.2 mainboard, T3 roller and T4 USB-C carrier |
 | --- | --- |
 | Controller | RP2040 reading an 8 × 12 key matrix, with USB-C at the rear |
 | Switches | 89 Gateron G Pro 3.0 Brown, and a Cherry MX Grey for Lock |
 | Dials | Two Bourns PEC11R encoders with 24 detents |
 | Lights | 90 SK6812MINI-E per-key LEDs on one chain, starting at Esc. A load switch turns the light rail off. |
-| Power | About 292 mA at the default brightness, and under 450 mA at the brightness ceiling |
-| Board | 4,744 copper segments, 522 vias, 235 nets and 403 parts. The design passes DRC. |
-| Cost | JLCPCB quotes $277.81 for five assembled boards, or $55.56 each |
+| Power | Estimated 292 mA at default white and 393 mA at the 16/255 ceiling. First-article target ≤450 mA at the host |
+| Board | 405 placements, including the two roller pull-ups. Native KiCad DRC passes. |
+| Cost | The historical B.1 quote was $277.81 for five 403-placement boards. B.2 needs a fresh quote. |
 | Firmware | QMK, target `omar_keyboard/rev_b` |
 
-Rev B.1 is a complete design and has not been fabricated yet. Fit, roller feel and electrical behavior still need a bench trial. The [Rev B package](hardware/mainboard-rev-b/README.md) has the KiCad sources, Gerbers, BOM and placement files.
+The current hardware pairs a 405-placement Rev B.2 mainboard with a separate soldered roller card and T3 mechanical assembly. The four-layer T4 USB-C carrier completes the three-board set. All three native DRC reports pass. Card, harness and screw fit have been checked in CAD. A populated physical sample remains to be tested. [Rev B.2 board](hardware/mainboard-rev-b2/README.md) · [Encoder card](hardware/roller-encoder-card/README.md) · [T3 roller assembly](hardware/mechanical-rfq/rev-b2-t3/README.md)
 
 ### Drawings
 
@@ -125,6 +127,8 @@ Then open `http://127.0.0.1:8000/`.
 | To do this | Start here |
 | --- | --- |
 | Build or review the full assembly | [Assembly design specification](hardware/assembly-design-specification.md) · [Illustrated PDF](hardware/assembly-design-specification.pdf) |
+| Open the current T3 plate and roller | [Positioned STEP, revised parts and fit checks](hardware/mechanical-rfq/rev-b2-t3/README.md) |
+| Review the earlier T2 quotations | [STEP assembly, part drawings and plate quotations](hardware/mechanical-rfq/rev-b1-t2/README.md) |
 | Order or review the Rev B.1 board | [KiCad project, BOM and quotes](hardware/mainboard-rev-b/README.md) · [Rev B firmware](firmware/qmk/omar_keyboard/rev_b/) |
 | Look at the earlier Rev A board | [Rev A mainboard](hardware/mainboard/README.md) · [Verification report](hardware/mainboard/verification.md) · [Rev A firmware](firmware/qmk/omar_keyboard/rev_a/) |
 | Check dimensions, switch positions or parts | [Hardware specification](hardware/specification.md) · [Parts and cost plan](hardware/parts-plan.md) · [Switch coordinates](hardware/layout/omar-switches.csv) · [Dimensioned drawing](docs/assets/omar-dimensions.svg) |

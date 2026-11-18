@@ -175,8 +175,8 @@
   <div class="step" data-view="roller">
     <p>The navigation block became a scroll roller: a ribbed barrel 42&nbsp;mm wide above the arrows, broad enough to catch with whichever finger is nearest, with thirty soft detents to a turn. Pull it toward you to read further down a page. <kbd class="k">Delete</kbd> moved to the top row, directly above <kbd class="k">Backspace</kbd>, so the two directions of deleting share a column.</p>
   </div>
-  <div class="step" data-view="alt">
-    <p>The right-hand Ctrl became <kbd class="k">Alt</kbd>. It sits beside the left arrow, so the right hand can hold it while using the arrows, and it sends a true Right Alt, which Omarchy uses for push-to-talk dictation and which some keyboard layouts need for accented characters.</p>
+  <div class="step" data-view="rightCtrl">
+    <p><kbd class="k">Ctrl</kbd> sits beside the left arrow. Hold it with an arrow to move by a word in a text editor. Super under either thumb handles desktop shortcuts.</p>
   </div>
   <div class="step" data-view="fn">
     <p>Caps Lock still toggles when tapped. Held, it becomes Fn, and Fn does only what is printed on the keys in <span class="fn">plum</span>: <span class="fn">Home</span>, <span class="fn">End</span>, <span class="fn">PgUp</span> and <span class="fn">PgDn</span> on the arrows, <span class="fn">Insert</span> on Delete, <span class="fn">Last Win</span> on Next Window, split resizing on the right dial and paging on the roller.</p>
@@ -217,7 +217,7 @@
       <tr><td><kbd class="k">Lock</kbd></td><td>Super + Ctrl + L</td></tr>
     </tbody>
     </table>
-    <p>A few extras need optional host bindings: the on-screen key guide, recalling the last window on a desk, and the microphone toggle on the pilot board. A separate setting limits keyboard travel to the five labeled desks. A small helper program lets the desk keys show which desk is active and lets <kbd class="k">Mic Mute</kbd> show whether the microphone is live. Without it, the lights show only what the keyboard can tell on its own.</p>
+    <p>A few extras need optional host bindings: the on-screen key guide, recalling the last window on a desk, and the microphone toggle on the pilot board. The Omar profile makes the five labeled desks the default on each monitor. A small helper program lets the desk keys show which desk is active and lets <kbd class="k">Mic Mute</kbd> show whether the microphone is live. Without it, the lights show only what the keyboard can tell on its own.</p>
   </div>
 </section>
 
@@ -239,7 +239,7 @@
   <div class="step" data-view="layers">
     <h2 id="inside">Inside the case</h2>
     <p>The board is built in five layers. From the bottom: the tray, the main circuit board, a 1.5&nbsp;mm aluminium plate that also carries the scroll roller, 89 tactile Gateron G Pro&nbsp;3.0 Brown switches with one heavier Cherry MX Grey for Lock, and the keycaps with the two dial knobs. The switches clip into the plate and push into sockets on the circuit board, so none of them is soldered in.</p>
-    <p>The board to build is Rev&nbsp;B.1. It keeps the Rev&nbsp;A outline, mounting holes and controller bay, which the 3D model on this page still shows, and adds a light under every key. Physical sample testing and the separate USB carrier design are still open.</p>
+    <p>The current prototype pairs the B.2 mainboard and its 90 lights with the T3 roller card and T4 USB-C carrier. The board view below shows the earlier B.1 copper. The assembly specification contains the current drawings and fit checks.</p>
   </div>
   <div class="step" data-view="board">
     <p>The main board is one sheet of FR4, 405.81 × 120.06 × 1.6&nbsp;mm, with its top 5&nbsp;mm below the plate. It has openings for every switch's pins and a light window under each of the 90 keys. It shares twelve M2 mounting holes with the plate, with two additional supports under the typing span. The tray leaves the Enter stabilizer clear.</p>
@@ -267,12 +267,12 @@
     </dl>
   </div>
   <div class="step" data-view="finale">
-    <p>No physical board has been made yet. Omar-Keyboard exists as dimensioned drawings, a browser prototype, host scripts with passing tests, the two models on this page, and a routed Rev&nbsp;B.1 circuit board with firmware that compiles for it. JLCPCB has quoted $277.81 for five assembled boards. Before an order, the USB-C carrier has to be designed, the parts checked against real samples and the first assembled board tested. The circuit board, its parts and the steps still ahead are below.</p>
+    <p>The B.2 mainboard, T3 roller card and T4 carrier have fabrication files. The historical $277.81 quote covered five B.1 boards. A B.2 quote, carrier via-treatment confirmation and first-article fit, USB and power measurements remain open.</p>
     <p class="downloads"><a href="prototype/OMAR-KEYBOARD-PROTOTYPE.html">Open the browser prototype</a> <span class="size">includes a full-size print template</span><br>
      <a href="assets/omar-keyboard.glb" download>Download the 3D model</a> <span class="size">GLB, 7.9&nbsp;MB</span><br>
      <a href="assets/omar-internals.glb" download>Download the internal assembly</a> <span class="size">GLB, 7.9&nbsp;MB, with the exploded animation</span><br>
      <a href="assets/omar-dimensions.svg">Open the dimension drawing</a> <span class="size">SVG, to scale in millimeters</span><br>
-     <a href="assets/omar-assembly-specification.pdf">Read the assembly specification</a> <span class="size">PDF, revision 9, 2.7&nbsp;MB</span></p>
+     <a href="assets/omar-assembly-specification.pdf">Read the assembly specification</a> <span class="size">PDF, revision 16, 66 pages</span></p>
   </div>
 </section>
 
@@ -433,7 +433,7 @@
         <div><dt>Assembly</dt><dd>Both sides populated, including the two through-hole encoders. JLCPCB accepted all 403 placements and showed about three days to make the boards and four to five to assemble them, before shipping.</dd></div>
         <div><dt>Power</dt><dd>5&nbsp;V from USB, with the firmware asking the computer for 500&nbsp;mA. The lights’ rail stays off until USB is configured and during sleep. Every key white at the 16 of 255 ceiling is estimated at 393&nbsp;mA for the whole board; the targets to measure are 100&nbsp;mA before configuration, 450&nbsp;mA steady and 2.5&nbsp;mA asleep.</dd></div>
         <div><dt>USB</dt><dd>D+ and D− run 11.85 and 11.56&nbsp;mm on the board with no vias. The signal also passes through the harness and the carrier, so the return path has to be checked across both. The IDs 1209:0001 are private test IDs and need replacing before devices are shared.</dd></div>
-        <div><dt>USB-C carrier</dt><dd>Not designed yet. A 20 × 7 × 1&nbsp;mm board in the rear wall with the USB-C socket, a 5.1&nbsp;kΩ pull-down on each CC pin, low-capacitance static protection and a 500&nbsp;mA resettable fuse. Its pads must match J1.</dd></div>
+        <div><dt>USB-C carrier</dt><dd>T4, 20 × 7 × 1&nbsp;mm, four layers with ENIG. A 5.1&nbsp;kΩ pull-down on each CC pin, ESD array and 500&nbsp;mA resettable fuse fit alongside the reversible receptacle. Two filled and copper-capped vias under J1 require supplier confirmation.</dd></div>
         <div><dt>Wiring</dt><dd>About 260 to 300&nbsp;mm of USB-rated twisted pair with power and ground, kept twisted to both ends and laid in three floor saddles. Three wires from the roller’s encoder, with a nominal 3&nbsp;mm gap between roller and board.</dd></div>
         <div><dt>Mounting</dt><dd>Twelve 2.2&nbsp;mm M2 holes shared with the plate and two supports under the board alone. The board sits 5&nbsp;mm under the plate, with 24 extra bores for the six stabilized keys.</dd></div>
         <div><dt>Switches and caps</dt><dd>89 five-pin Gateron G Pro&nbsp;3.0 Brown and one Cherry MX Grey, plugged in after assembly. The caps need shine-through legends; opaque dye-sublimated legends would leave only a halo around each key.</dd></div>
@@ -445,9 +445,10 @@
       <div class="roadmap-head">
         <h2 id="roadmap">Where it’s heading</h2>
         <p class="circuit-note">Each step drawn as copper is done. The dashed lines are the ones still to route, the way KiCad draws a connection that has no trace yet.</p>
-        <p class="downloads"><a href="assets/omar-mainboard-rev-b1-gerbers.zip" download>Rev&nbsp;B.1 Gerbers</a> <span class="size">ZIP of copper, mask, drill and outline files, 1.0&nbsp;MB</span><br>
-          <a href="assets/omar_keyboard_rev_b_default.uf2" download>Firmware build</a> <span class="size">UF2 for Rev&nbsp;B, 82&nbsp;KB, not yet run on hardware</span><br>
-          <a href="assets/omar-assembly-specification.pdf">Assembly specification</a> <span class="size">PDF, revision 9, 2.7&nbsp;MB</span><br>
+        <p class="downloads"><a href="assets/omar-mainboard-rev-b2-gerbers.zip" download>Current B.2 mainboard Gerbers</a> <span class="size">ZIP of copper, mask, drill and outline files, 1.0&nbsp;MB</span><br>
+          <a href="assets/omar-t4-carrier-gerbers.zip" download>T4 USB-C carrier Gerbers and fabrication notes</a><br>
+          <a href="assets/omar_keyboard_rev_b_default.uf2" download>Firmware build</a> <span class="size">UF2 for Rev&nbsp;B, compiled, awaiting first-article testing</span><br>
+          <a href="assets/omar-assembly-specification.pdf">Assembly specification</a> <span class="size">PDF, revision 16, 66 pages</span><br>
           <a href="assets/omar-schematic.pdf">Rev&nbsp;A schematic</a> <span class="size">PDF of the earlier 15-light board, 1.5&nbsp;MB</span></p>
       </div>
       <ol class="route">
@@ -458,7 +459,7 @@
         <li class="done"><b>Routed board</b><span>Two layers, 4,744 trace segments and 522 vias, with no design-rule errors and nothing left unconnected.</span></li>
         <li class="done"><b>Firmware for Rev&nbsp;B</b><span>A QMK 0.31.0 keyboard definition for all 90 lights that builds an 83,968-byte UF2.</span></li>
         <li class="done"><b>Assembly quote</b><span>JLCPCB accepted all 403 placements, both encoders included: five assembled boards for $277.81 before shipping and tax.</span></li>
-        <li class="here"><b>USB-C carrier</b><span>The small board in the rear wall with the socket, the two CC resistors, static protection and the fuse. Its four pads have to match the harness pads on the main board.</span></li>
+        <li class="done"><b>T4 USB-C carrier routed</b><span>Gerbers, separate drills, fill and plating notes, five placements and a tray fit coupon are available. Physical fit and USB testing follow on the first article.</span></li>
         <li><b>Roller encoder and bezel</b><span>Prove the side-mounted encoder in its 7.5&nbsp;mm bracket, the shaft retention and the bezel’s clearance before choosing the production parts.</span></li>
         <li><b>Parts checked at full size</b><span>The socket lands, each light’s first pin, the encoder slots and the knob height, against purchased samples.</span></li>
         <li><b>First assembled board</b><span>Check for shorts, then measure the 5, 3.3 and 1.1&nbsp;V rails, flash the UF2, press all 92 inputs, turn each encoder, walk all 90 lights and measure the current at the ceiling.</span></li>

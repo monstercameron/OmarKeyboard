@@ -40,7 +40,7 @@ except OSError:
     pass
 bridge["open_device"](hid, 14, 25, "b")
 hid.device.return_value.open_path.assert_called_once_with("b")
-for strict in [False, True]:
+for strict in [None, False, True]:
     lua = LuaRuntime(unpack_returned_tuples=True)
     lua.globals().omar_five_desks = strict
     lua.execute("""
@@ -55,7 +55,7 @@ for strict in [False, True]:
     """)
     lua.execute((HOST / "omar-bindings.lua").read_text(encoding="utf-8"))
     assert lua.eval("binds['code:191'] and binds['code:192'] and binds['code:193']")
-    if not strict:
+    if strict is False:
         assert lua.eval("#unbinds == 0 and binds['SUPER + TAB'] == nil")
         continue
     assert lua.eval("#unbinds == 15")

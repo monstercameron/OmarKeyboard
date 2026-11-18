@@ -86,7 +86,7 @@ Left Super,Left Super,thumbs,3,5.25,1.75,73.82,109.54,33.34,none,5,2,,R4,tactile
 Space,Space,thumbs,4.75,5.25,6.25,150.02,109.54,119.06,6.25u,5,3,,R4,tactile,,,
 Right Super,Right Super,thumbs,11,5.25,1.5,223.84,109.54,28.58,none,5,4,,R4,tactile,Super,,
 Next Window,Next Window,thumbs,12.5,5.25,2.25,259.56,109.54,42.86,2u,5,5,,R4,tactile,Next Window,Last Win,
-Alt,Alt,thumbs,14.75,5.25,1.75,297.66,109.54,33.34,none,5,6,,R4,tactile,Alt,,
+Right Ctrl,Right Ctrl,thumbs,14.75,5.25,1.75,297.66,109.54,33.34,none,5,6,,R4,tactile,Ctrl,,
 ←,←,arrows,16.75,5.25,1,328.61,109.54,19.05,none,5,7,13,R4,tactile,←,Home,
 ↓,↓,arrows,17.75,5.25,1,347.66,109.54,19.05,none,5,8,12,R4,tactile,↓,PgDn,
 →,→,arrows,18.75,5.25,1,366.71,109.54,19.05,none,5,9,11,R4,tactile,→,End,

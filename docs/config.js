@@ -55,7 +55,7 @@ const CATALOG = [
     ["KC_MPLY", "Play"], ["KC_MPRV", "Prev Track"], ["KC_MNXT", "Next Track"], ["MS_WHLU", "Wheel ↑"], ["MS_WHLD", "Wheel ↓"]]],
   ["Navigation", [["KC_LEFT", "←"], ["KC_DOWN", "↓"], ["KC_UP", "↑"], ["KC_RGHT", "→"], ["KC_HOME", "Home"], ["KC_END", "End"],
     ["KC_PGUP", "PgUp"], ["KC_PGDN", "PgDn"], ["KC_INS", "Insert"], ["KC_DEL", "Delete"]]],
-  ["Modifiers", [["KC_LCTL", "Ctrl"], ["KC_LSFT", "Shift"], ["KC_RSFT", "Shift"], ["KC_LGUI", "Super"], ["KC_RGUI", "Super"],
+  ["Modifiers", [["KC_LCTL", "Left Ctrl"], ["KC_RCTL", "Right Ctrl"], ["KC_LSFT", "Shift"], ["KC_RSFT", "Shift"], ["KC_LGUI", "Super"], ["KC_RGUI", "Super"],
     ["KC_LALT", "Left Alt"], ["KC_RALT", "Alt"]]],
   ["Layers", [["LT(1, KC_CAPS)", "Caps / Fn"], ["MO(1)", "Fn"], ["KC_TRNS", "▽"], ["KC_NO", "None"]]],
   ["Backlight", [["RM_VALD", "Dimmer"], ["RM_VALU", "Brighter"], ["RM_TOGG", "Lights on/off"]]],
@@ -80,7 +80,7 @@ const BASE = {
   "Float": "LGUI(KC_T)", "Menu": "OM_MENU", "Caps": "LT(1, KC_CAPS)", ";": "KC_SCLN", "'": "KC_QUOT", "Enter": "KC_ENT",
   "Fullscreen": "LGUI(KC_F)", "Terminal": "LGUI(KC_ENT)", "Left Shift": "KC_LSFT", ",": "KC_COMM", ".": "KC_DOT", "/": "KC_SLSH",
   "Right Shift": "KC_RSFT", "↑": "KC_UP", "Swap": "OM_SWAP", "Files": "LGUI(LSFT(KC_F))", "Ctrl": "KC_LCTL", "Left Super": "KC_LGUI",
-  "Space": "KC_SPC", "Right Super": "KC_RGUI", "Next Window": "OM_NEXT", "Alt": "KC_RALT", "←": "KC_LEFT", "↓": "KC_DOWN",
+  "Space": "KC_SPC", "Right Super": "KC_RGUI", "Next Window": "OM_NEXT", "Right Ctrl": "KC_RCTL", "←": "KC_LEFT", "↓": "KC_DOWN",
   "→": "KC_RGHT", "Focus": "OM_FOCUS",
 };
 for (let c = 65; c <= 90; c++) BASE[String.fromCharCode(c)] = `KC_${String.fromCharCode(c)}`;
@@ -125,7 +125,7 @@ const DEFAULT_OPTS = {
   resDial: 4, resRoller: 2, raw: true, rgb: true, brightness: 16, nkro: true, armedPin: "", via: true,
 };
 // Rev B's 90 lights draw too much above a low ceiling; the 16 of 255 default keeps the board inside 450 mA.
-const BRIGHT_MAX = 32;
+const BRIGHT_MAX = DEFAULT_OPTS.brightness;
 // Estimated whole-board draw in mA at white, from sheet 07B of the assembly specification:
 // 100 mA for logic and margin, plus 90 lights at 1 mA idle and 12 mA per channel at full scale.
 const boardMa = level => Math.round(100 + 90 * (1 + 36 * level / 255));
@@ -140,7 +140,13 @@ try {
   const saved = JSON.parse(localStorage.getItem(STORE) || "null");
   if (saved?.layers?.[0]?.length === KEYS.length) { layers = saved.layers; enc = saved.enc ?? enc; opts = { ...opts, ...saved.opts }; }
   // A ceiling saved for the 15-light Rev A board would overload the Rev B supply.
-  if (opts.brightness > BRIGHT_MAX) opts.brightness = DEFAULT_OPTS.brightness;
+  if (!Number.isInteger(opts.brightness) || opts.brightness < 4 || opts.brightness > BRIGHT_MAX) opts.brightness = DEFAULT_OPTS.brightness;
+  // Migrate a previously saved factory layout only when it still exactly matches the old defaults.
+  const thumb = byId["Right Ctrl"].i;
+  if (layers[0][thumb] === "KC_RALT" && DEFAULT_LAYERS.every((row, layer) =>
+    row.every((code, key) => layers[layer]?.[key] === (layer === 0 && key === thumb ? "KC_RALT" : code)))) {
+    layers[0][thumb] = "KC_RCTL";
+  }
 } catch { /* storage unavailable: start from the defaults */ }
 function save() {
   try { localStorage.setItem(STORE, JSON.stringify({ layers, enc, opts })); } catch { /* ignore */ }
@@ -197,6 +203,7 @@ const OMARCHY = {
 const DIR = { Left: "left", Right: "right", Up: "above", Down: "below" };
 function meaning(text) {
   if (OMARCHY[text]) return OMARCHY[text];
+  if (/^Super \+ (?:Shift \+ (?:Alt \+ )?)?[6-90]$/.test(text)) return "has no workspace binding for this number in the five-desktop profile";
   let m;
   if ((m = /^Super \+ ([1-9]|0)$/.exec(text))) return `shows desk ${m[1] === "0" ? 10 : m[1]}`;
   if ((m = /^Super \+ Shift \+ ([0-9])$/.exec(text))) return `moves the window to desk ${m[1]} and follows it`;
@@ -273,11 +280,14 @@ function scan() {
 }
 // A simulated Omarchy session, so the lights the host reports back have something to show.
 function hostReceives(text) {
-  let m;
-  if ((m = /^Super \+ ([0-9])$/.exec(text))) { const n = +m[1] || 10; if (n !== sim.desk) { sim.prevDesk = sim.desk; sim.desk = n; } }
-  else if ((m = /^Super \+ Shift \+ ([0-9])$/.exec(text))) { const n = +m[1] || 10; if (n !== sim.desk) { sim.prevDesk = sim.desk; sim.desk = n; } }
-  else if (text === "Super + Ctrl + Tab") [sim.desk, sim.prevDesk] = [sim.prevDesk, sim.desk];
+  const numbered = /^Super \+ (?:Shift \+ )?([1-5])$/.exec(text);
+  let target;
+  if (numbered) target = Number(numbered[1]);
+  else if (text === "Super + Tab") target = sim.desk % 5 + 1;
+  else if (text === "Super + Shift + Tab") target = (sim.desk + 3) % 5 + 1;
+  else if (text === "Super + Ctrl + Tab") target = sim.prevDesk;
   else if (text === "F15") sim.mic = !sim.mic;
+  if (target && target !== sim.desk) [sim.prevDesk, sim.desk] = [sim.desk, target];
 }
 function tap(label, code, mods, key, note) {
   const text = chord(mods, key);
@@ -431,7 +441,7 @@ const els = KEYS.map(k => {
 });
 
 // Two-line legends as the real caps print them.
-const CAP_TEXT = { Clipboard: "Clip History", Screenshot: "Screen shot", Fullscreen: "Full screen", "Left Super": "Super", "Right Super": "Super" };
+const CAP_TEXT = { "Right Ctrl": "Ctrl", Clipboard: "Clip History", Screenshot: "Screen shot", Fullscreen: "Full screen", "Left Super": "Super", "Right Super": "Super" };
 function viewLayer() { return sim.fn ? 1 : tabLayer; }
 function capLabel(k, layer) {
   const code = layers[layer][k.i];
@@ -526,8 +536,8 @@ board.addEventListener("wheel", e => {
 const PHYSICAL = {
   Backquote: "~", Minus: "-", Equal: "=", BracketLeft: "[", BracketRight: "]", Backslash: "\\", Semicolon: ";", Quote: "'",
   Comma: ",", Period: ".", Slash: "/", Escape: "Esc", Tab: "Tab", Enter: "Enter", Backspace: "Backspace", Delete: "Delete",
-  Space: "Space", CapsLock: "Caps", ShiftLeft: "Left Shift", ShiftRight: "Right Shift", ControlLeft: "Ctrl", ControlRight: "Ctrl",
-  AltLeft: "Alt", AltRight: "Alt", ArrowLeft: "←", ArrowRight: "→", ArrowUp: "↑", ArrowDown: "↓", PrintScreen: "Screenshot",
+  Space: "Space", CapsLock: "Caps", ShiftLeft: "Left Shift", ShiftRight: "Right Shift", ControlLeft: "Ctrl", ControlRight: "Right Ctrl",
+  ArrowLeft: "←", ArrowRight: "→", ArrowUp: "↑", ArrowDown: "↓", PrintScreen: "Screenshot",
   MetaLeft: "Left Super", MetaRight: "Right Super",
 };
 const typing = root.querySelector(".cfg-typing");
@@ -690,7 +700,7 @@ function renderTrace() {
       <div class="cfg-log-head"><b>${esc(x.key)}</b>${x.code ? `<code>${esc(x.code)}</code>` : ""}</div>
       ${x.sent ? `<div class="cfg-sent">Sends <kbd>${esc(x.sent)}</kbd></div>` : ""}
       ${x.text ? `<div class="cfg-what">${esc(x.text)}</div>` : ""}
-    </li>`).join("") : `<li class="cfg-empty">Click a key on the board to press it, and each step the firmware takes shows here. Try Send &amp; Stay, then Desk 3. Shift, Ctrl, Super, Alt, Focus and Swap stay down until clicked again; hold Caps past the tapping term for Fn.</li>`;
+    </li>`).join("") : `<li class="cfg-empty">Click a key on the board to press it, and each step the firmware takes shows here. Try Send &amp; Stay, then Desk 3. Shift, Ctrl, Super, Focus and Swap stay down until clicked again; hold Caps past the tapping term for Fn.</li>`;
 }
 root.querySelector(".cfg-clear").addEventListener("click", () => { sim.log.length = 0; renderTrace(); });
 
@@ -743,7 +753,7 @@ form.innerHTML = `
     <label class="cfg-check"><input type="checkbox" name="raw"> Indicator bridge (Raw HID)</label>
     <p class="cfg-about">Lets <code>omar-indicators.py</code> report the active desk and the microphone, so those keys can light. Host state that is not confirmed for 3 seconds turns off.</p>
     <label class="cfg-num">Armed light pin <input type="text" name="armedPin" placeholder="none" maxlength="5" spellcheck="false" pattern="GP[0-9]{1,2}"></label>
-    <p class="cfg-about">For a pilot board without per-key LEDs: one light on this pin shows a waiting transfer or a held Focus or Swap. On the Rev B.1 board GP27 and GP28 run the lights' power, so only GP29 is free.</p>
+    <p class="cfg-about">For a pilot board without per-key LEDs: one light on this pin shows a waiting transfer or a held Focus or Swap. On the Rev B.2 board GP27 and GP28 run the lights' power, so only GP29 is free.</p>
   </fieldset>
   <fieldset><legend>USB</legend>
     <label class="cfg-check"><input type="checkbox" name="via"> Live editing over USB (VIA)</label>
