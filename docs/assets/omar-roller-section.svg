@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="510" height="277" preserveAspectRatio="xMinYMin meet" viewBox="0 0 510 277" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>Omar-Keyboard roller mid-tread section</title>
+	<desc>Nominal section through the 16 mm roller, bezel opening, plate slot and motherboard. The barrel has 0.54 mm nominal clearance per side at the lower edge of the bezel.</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="510" height="277"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-277)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="510" height="277" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,96%); fill-rule: evenodd;"/>
+			<rect x="22" y="41.6" width="252" height="14.399999999999999" style="stroke: rgb(7%,16%,16%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(56%,72%,63%); fill-rule: evenodd;"/>
+			<rect x="22" y="87.5" width="72.0" height="13.5" style="stroke: rgb(7%,16%,16%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(68%,74%,76%); fill-rule: evenodd;"/>
+			<rect x="202.0" y="87.5" width="72.0" height="13.5" style="stroke: rgb(7%,16%,16%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(68%,74%,76%); fill-rule: evenodd;"/>
+			<rect x="22" y="162.2" width="49.5" height="10.800000000000011" style="stroke: rgb(7%,16%,16%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(91%,71%,46%); fill-rule: evenodd;"/>
+			<rect x="224.5" y="162.2" width="49.5" height="10.800000000000011" style="stroke: rgb(7%,16%,16%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(91%,71%,46%); fill-rule: evenodd;"/>
+			<circle cx="148" cy="155.0" r="72.0" style="stroke: rgb(13%,36%,31%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(78%,85%,80%); fill-rule: evenodd;"/>
+			<path d="M 29,155 L 268,155 Z" style="stroke: rgb(27%,36%,35%); stroke-linecap: butt; stroke-width: 0.6; stroke-dasharray: 4, 3;"/>
+			<path d="M 148,80 L 148,233 Z" style="stroke: rgb(27%,36%,35%); stroke-linecap: butt; stroke-width: 0.6; stroke-dasharray: 4, 3;"/>
+			<circle cx="148" cy="155.0" r="2.4" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,36%,31%); fill-rule: evenodd;"/>
+			<text x="120.322" y="169.0" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 12px;fill: rgb(13%,36%,31%); stroke:none;" transform="translate(0,338) scale(1,-1)">Ø16 tread</text>
+			<path d="M 71.5,174 L 71.5,250 Z" style="stroke: rgb(27%,36%,35%); stroke-linecap: butt; stroke-width: 0.5;"/>
+			<path d="M 224.5,174 L 224.5,250 Z" style="stroke: rgb(27%,36%,35%); stroke-linecap: butt; stroke-width: 0.5;"/>
+			<path d="M 71.5,247 L 224.5,247 Z" style="stroke: rgb(27%,36%,35%); stroke-linecap: butt; stroke-width: 0.65;"/>
+			<polygon points="71.5 247, 75.5 248.7, 75.5 245.3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(27%,36%,35%); fill-rule: evenodd;"/>
+			<polygon points="224.5 247, 220.5 248.7, 220.5 245.3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(27%,36%,35%); fill-rule: evenodd;"/>
+			<text x="111.096" y="252" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 8px;fill: rgb(27%,36%,35%); stroke:none;" transform="translate(0,504) scale(1,-1)">17.00 bezel window</text>
+			<path d="M 94,86.5 L 94,69 Z" style="stroke: rgb(27%,36%,35%); stroke-linecap: butt; stroke-width: 0.5;"/>
+			<path d="M 202,86.5 L 202,69 Z" style="stroke: rgb(27%,36%,35%); stroke-linecap: butt; stroke-width: 0.5;"/>
+			<path d="M 94,66 L 202,66 Z" style="stroke: rgb(27%,36%,35%); stroke-linecap: butt; stroke-width: 0.65;"/>
+			<polygon points="94 66, 98 67.7, 98 64.3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(27%,36%,35%); fill-rule: evenodd;"/>
+			<polygon points="202 66, 198 67.7, 198 64.3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(27%,36%,35%); fill-rule: evenodd;"/>
+			<text x="119.32" y="71" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 8px;fill: rgb(27%,36%,35%); stroke:none;" transform="translate(0,142) scale(1,-1)">12.00 plate slot</text>
+			<path d="M 290,20 L 290,255 Z" style="stroke: rgb(79%,83%,81%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<text x="308" y="245" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 9px;fill: rgb(13%,36%,31%); stroke:none;" transform="translate(0,490) scale(1,-1)">SECTION THROUGH TREAD</text>
+			<text x="308" y="216" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 9px;fill: rgb(7%,16%,16%); stroke:none;" transform="translate(0,432) scale(1,-1)">+14.0</text>
+			<text x="381" y="216" style="font-family: Arial, sans-serif; font-size: 9px;fill: rgb(7%,16%,16%); stroke:none;" transform="translate(0,432) scale(1,-1)">Barrel crown</text>
+			<text x="308" y="187" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 9px;fill: rgb(7%,16%,16%); stroke:none;" transform="translate(0,374) scale(1,-1)">+8.0 / +6.8</text>
+			<text x="381" y="187" style="font-family: Arial, sans-serif; font-size: 9px;fill: rgb(7%,16%,16%); stroke:none;" transform="translate(0,374) scale(1,-1)">Bezel top / underside</text>
+			<text x="308" y="158" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 9px;fill: rgb(7%,16%,16%); stroke:none;" transform="translate(0,316) scale(1,-1)">+6.0</text>
+			<text x="381" y="158" style="font-family: Arial, sans-serif; font-size: 9px;fill: rgb(7%,16%,16%); stroke:none;" transform="translate(0,316) scale(1,-1)">Axle center</text>
+			<text x="308" y="129" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 9px;fill: rgb(7%,16%,16%); stroke:none;" transform="translate(0,258) scale(1,-1)">0.0</text>
+			<text x="381" y="129" style="font-family: Arial, sans-serif; font-size: 9px;fill: rgb(7%,16%,16%); stroke:none;" transform="translate(0,258) scale(1,-1)">Plate top datum</text>
+			<text x="308" y="100" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 9px;fill: rgb(7%,16%,16%); stroke:none;" transform="translate(0,200) scale(1,-1)">-2.0</text>
+			<text x="381" y="100" style="font-family: Arial, sans-serif; font-size: 9px;fill: rgb(7%,16%,16%); stroke:none;" transform="translate(0,200) scale(1,-1)">Barrel bottom</text>
+			<text x="308" y="71" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 9px;fill: rgb(7%,16%,16%); stroke:none;" transform="translate(0,142) scale(1,-1)">-5.0</text>
+			<text x="381" y="71" style="font-family: Arial, sans-serif; font-size: 9px;fill: rgb(7%,16%,16%); stroke:none;" transform="translate(0,142) scale(1,-1)">Motherboard top</text>
+			<text x="308" y="29" style="font-family: Arial, sans-serif; font-size: 9px;fill: rgb(27%,36%,35%); stroke:none;" transform="translate(0,58) scale(1,-1)">z measured in millimeters</text>
+			<text x="22" y="20" style="font-family: Arial, sans-serif; font-size: 9px;fill: rgb(27%,36%,35%); stroke:none;" transform="translate(0,40) scale(1,-1)">Looking along the axle</text>
+		</g>
+	</g>
+</svg>

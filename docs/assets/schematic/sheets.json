@@ -1,0 +1,93 @@
+[
+ {
+  "file": "controller.svg",
+  "title": "RP2040, flash, clock and recovery",
+  "symbols": 15,
+  "wires": 93,
+  "labels": 93
+ },
+ {
+  "file": "power.svg",
+  "title": "USB carrier interface, rails and bypassing",
+  "symbols": 22,
+  "wires": 42,
+  "labels": 42
+ },
+ {
+  "file": "indicators.svg",
+  "title": "Switched lighting supply and buffered data",
+  "symbols": 11,
+  "wires": 27,
+  "labels": 27
+ },
+ {
+  "file": "matrix-1.svg",
+  "title": "Scan matrix / rows 0 and 1",
+  "symbols": 48,
+  "wires": 77,
+  "labels": 77
+ },
+ {
+  "file": "matrix-2.svg",
+  "title": "Scan matrix / rows 2 and 3",
+  "symbols": 48,
+  "wires": 72,
+  "labels": 72
+ },
+ {
+  "file": "matrix-3.svg",
+  "title": "Scan matrix / rows 4 and 5",
+  "symbols": 46,
+  "wires": 69,
+  "labels": 69
+ },
+ {
+  "file": "matrix-4.svg",
+  "title": "Scan matrix / rows 6 and 7",
+  "symbols": 42,
+  "wires": 68,
+  "labels": 68
+ },
+ {
+  "file": "lights-1.svg",
+  "title": "Backlight / pixels 0 through 14",
+  "symbols": 30,
+  "wires": 90,
+  "labels": 90
+ },
+ {
+  "file": "lights-2.svg",
+  "title": "Backlight / pixels 15 through 29",
+  "symbols": 30,
+  "wires": 90,
+  "labels": 90
+ },
+ {
+  "file": "lights-3.svg",
+  "title": "Backlight / pixels 30 through 44",
+  "symbols": 30,
+  "wires": 90,
+  "labels": 90
+ },
+ {
+  "file": "lights-4.svg",
+  "title": "Backlight / pixels 45 through 59",
+  "symbols": 30,
+  "wires": 90,
+  "labels": 90
+ },
+ {
+  "file": "lights-5.svg",
+  "title": "Backlight / pixels 60 through 74",
+  "symbols": 30,
+  "wires": 90,
+  "labels": 90
+ },
+ {
+  "file": "lights-6.svg",
+  "title": "Backlight / pixels 75 through 89",
+  "symbols": 30,
+  "wires": 90,
+  "labels": 90
+ }
+]

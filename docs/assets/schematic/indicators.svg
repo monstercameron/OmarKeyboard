@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="sch" role="img" viewBox="12 11.35 346.629 154.04">
+<title>Switched lighting supply and buffered data</title>
+<g class="sch-symbol" data-ref="U4">
+<path class="sch-body sch-fill" d="M41.38 52.92 L56.62 52.92 L56.62 63.08 L41.38 63.08 Z" stroke-width="0.254"/>
+<path class="sch-pin" d="M38.84 55.46 L41.38 55.46" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="41.98" y="55.46" font-size="0.95" text-anchor="start" dominant-baseline="central">/OE</text>
+<text class="sch-pin-num" x="40.11" y="54.81" font-size="0.8" text-anchor="middle" dominant-baseline="central">1</text>
+<path class="sch-pin" d="M38.84 58 L41.38 58" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="41.98" y="58" font-size="0.95" text-anchor="start" dominant-baseline="central">A</text>
+<text class="sch-pin-num" x="40.11" y="57.35" font-size="0.8" text-anchor="middle" dominant-baseline="central">2</text>
+<path class="sch-pin" d="M38.84 60.54 L41.38 60.54" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="41.98" y="60.54" font-size="0.95" text-anchor="start" dominant-baseline="central">GND</text>
+<text class="sch-pin-num" x="40.11" y="59.89" font-size="0.8" text-anchor="middle" dominant-baseline="central">3</text>
+<path class="sch-pin" d="M59.16 58 L56.62 58" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="56.02" y="58" font-size="0.95" text-anchor="end" dominant-baseline="central">Y</text>
+<text class="sch-pin-num" x="57.89" y="57.35" font-size="0.8" text-anchor="middle" dominant-baseline="central">4</text>
+<path class="sch-pin" d="M59.16 60.54 L56.62 60.54" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="56.02" y="60.54" font-size="0.95" text-anchor="end" dominant-baseline="central">VCC</text>
+<text class="sch-pin-num" x="57.89" y="59.89" font-size="0.8" text-anchor="middle" dominant-baseline="central">5</text>
+<text class="sch-ref" x="49" y="50.72" font-size="1.1" text-anchor="middle" dominant-baseline="central">U4</text>
+<text class="sch-val" x="49" y="65.38" font-size="1.1" text-anchor="middle" dominant-baseline="central">SN74AHCT1G125</text>
+</g>
+<g class="sch-symbol" data-ref="TP7">
+<path class="sch-body sch-fill" d="M143.19 55.46 L150.81 55.46 L150.81 60.54 L143.19 60.54 Z" stroke-width="0.254"/>
+<path class="sch-pin" d="M140.65 58 L143.19 58" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="143.79" y="58" font-size="0.95" text-anchor="start" dominant-baseline="central">TP</text>
+<text class="sch-pin-num" x="141.92" y="57.35" font-size="0.8" text-anchor="middle" dominant-baseline="central">1</text>
+<text class="sch-ref" x="147" y="53.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">TP7</text>
+<text class="sch-val" x="147" y="62.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">LED_OUT</text>
+</g>
+<g class="sch-symbol" data-ref="R7">
+<path class="sch-body" d="M242.46 57.11 L247.54 57.11 L247.54 58.89 L242.46 58.89 Z" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M239.92 58 L242.46 58" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M250.08 58 L247.54 58" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="245" y="53.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">R7</text>
+<text class="sch-val" x="245" y="62.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">330R</text>
+</g>
+<g class="sch-symbol" data-ref="R8">
+<path class="sch-body" d="M340.46 57.11 L345.54 57.11 L345.54 58.89 L340.46 58.89 Z" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M337.92 58 L340.46 58" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M348.08 58 L345.54 58" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="343" y="53.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">R8</text>
+<text class="sch-val" x="343" y="62.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">100k</text>
+</g>
+<g class="sch-symbol" data-ref="C16">
+<path class="sch-body" d="M46.46 107 L48.58 107" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M48.58 105.4 L48.58 108.6" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M49.42 105.4 L49.42 108.6" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M49.42 107 L51.54 107" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M43.92 107 L46.46 107" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M54.08 107 L51.54 107" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="49" y="102.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">C16</text>
+<text class="sch-val" x="49" y="111.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">100n</text>
+</g>
+<g class="sch-symbol" data-ref="C17">
+<path class="sch-body" d="M144.46 107 L146.58 107" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M146.58 105.4 L146.58 108.6" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M147.42 105.4 L147.42 108.6" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M147.42 107 L149.54 107" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M141.92 107 L144.46 107" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M152.08 107 L149.54 107" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="147" y="102.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">C17</text>
+<text class="sch-val" x="147" y="111.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1u</text>
+</g>
+<g class="sch-symbol" data-ref="U5">
+<path class="sch-body sch-fill" d="M237.38 101.92 L252.62 101.92 L252.62 112.08 L237.38 112.08 Z" stroke-width="0.254"/>
+<path class="sch-pin" d="M234.84 104.46 L237.38 104.46" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="237.98" y="104.46" font-size="0.95" text-anchor="start" dominant-baseline="central">IN</text>
+<text class="sch-pin-num" x="236.11" y="103.81" font-size="0.8" text-anchor="middle" dominant-baseline="central">1</text>
+<path class="sch-pin" d="M234.84 107 L237.38 107" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="237.98" y="107" font-size="0.95" text-anchor="start" dominant-baseline="central">GND</text>
+<text class="sch-pin-num" x="236.11" y="106.35" font-size="0.8" text-anchor="middle" dominant-baseline="central">2</text>
+<path class="sch-pin" d="M234.84 109.54 L237.38 109.54" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="237.98" y="109.54" font-size="0.95" text-anchor="start" dominant-baseline="central">ON</text>
+<text class="sch-pin-num" x="236.11" y="108.89" font-size="0.8" text-anchor="middle" dominant-baseline="central">3</text>
+<path class="sch-pin" d="M255.16 104.46 L252.62 104.46" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="252.02" y="104.46" font-size="0.95" text-anchor="end" dominant-baseline="central">NC</text>
+<text class="sch-pin-num" x="253.89" y="103.81" font-size="0.8" text-anchor="middle" dominant-baseline="central">4</text>
+<path class="sch-pin" d="M255.16 107 L252.62 107" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="252.02" y="107" font-size="0.95" text-anchor="end" dominant-baseline="central">QOD</text>
+<text class="sch-pin-num" x="253.89" y="106.35" font-size="0.8" text-anchor="middle" dominant-baseline="central">5</text>
+<path class="sch-pin" d="M255.16 109.54 L252.62 109.54" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="252.02" y="109.54" font-size="0.95" text-anchor="end" dominant-baseline="central">OUT</text>
+<text class="sch-pin-num" x="253.89" y="108.89" font-size="0.8" text-anchor="middle" dominant-baseline="central">6</text>
+<text class="sch-ref" x="245" y="99.72" font-size="1.1" text-anchor="middle" dominant-baseline="central">U5</text>
+<text class="sch-val" x="245" y="114.38" font-size="1.1" text-anchor="middle" dominant-baseline="central">TPS22919DCKR</text>
+</g>
+<g class="sch-symbol" data-ref="R9">
+<path class="sch-body" d="M340.46 106.11 L345.54 106.11 L345.54 107.89 L340.46 107.89 Z" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M337.92 107 L340.46 107" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M348.08 107 L345.54 107" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="343" y="102.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">R9</text>
+<text class="sch-val" x="343" y="111.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">10k</text>
+</g>
+<g class="sch-symbol" data-ref="R10">
+<path class="sch-body" d="M46.46 155.11 L51.54 155.11 L51.54 156.89 L46.46 156.89 Z" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M43.92 156 L46.46 156" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M54.08 156 L51.54 156" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="49" y="151.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">R10</text>
+<text class="sch-val" x="49" y="160.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">100k</text>
+</g>
+<g class="sch-symbol" data-ref="R11">
+<path class="sch-body" d="M144.46 155.11 L149.54 155.11 L149.54 156.89 L144.46 156.89 Z" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M141.92 156 L144.46 156" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M152.08 156 L149.54 156" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="147" y="151.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">R11</text>
+<text class="sch-val" x="147" y="160.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">100k</text>
+</g>
+<g class="sch-symbol" data-ref="C20">
+<path class="sch-body" d="M242.46 156 L244.58 156" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M244.58 154.4 L244.58 157.6" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M245.42 154.4 L245.42 157.6" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M245.42 156 L247.54 156" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M239.92 156 L242.46 156" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M250.08 156 L247.54 156" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="245" y="151.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">C20</text>
+<text class="sch-val" x="245" y="160.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1u</text>
+</g>
+<path class="sch-wire" d="M38.84 55.46 L36.3 55.46" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M38.84 58 L36.3 58" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M38.84 60.54 L36.3 60.54" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M59.16 58 L61.7 58" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M59.16 60.54 L61.7 60.54" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M140.65 58 L138.11 58" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M239.92 58 L237.38 58" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M250.08 58 L252.62 58" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M337.92 58 L335.38 58" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M348.08 58 L350.62 58" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M43.92 107 L41.38 107" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M54.08 107 L56.62 107" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M141.92 107 L139.38 107" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M152.08 107 L154.62 107" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M234.84 104.46 L232.3 104.46" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M234.84 107 L232.3 107" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M234.84 109.54 L232.3 109.54" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M255.16 107 L257.7 107" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M255.16 109.54 L257.7 109.54" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M337.92 107 L335.38 107" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M348.08 107 L350.62 107" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M43.92 156 L41.38 156" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M54.08 156 L56.62 156" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M141.92 156 L139.38 156" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M152.08 156 L154.62 156" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M239.92 156 L237.38 156" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M250.08 156 L252.62 156" stroke-width="0.15" fill="none"/>
+<path class="sch-nc" d="M254.56 103.86 L255.76 105.06" stroke-width="0.15" fill="none"/>
+<path class="sch-nc" d="M254.56 105.06 L255.76 103.86" stroke-width="0.15" fill="none"/>
+<path class="sch-glabel-box" d="M36.3 55.46 L35.587 56.172 L30.419 56.172 L29.707 55.46 L30.419 54.748 L35.587 54.748 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="35.587" y="55.46" font-size="0.95" text-anchor="end" dominant-baseline="central">LED_OE_N</text>
+<path class="sch-glabel-box" d="M36.3 58 L35.587 58.712 L31.065 58.712 L30.353 58 L31.065 57.288 L35.587 57.288 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="35.587" y="58" font-size="0.95" text-anchor="end" dominant-baseline="central">RGB_3V3</text>
+<path class="sch-glabel-box" d="M36.3 60.54 L35.587 61.252 L33.649 61.252 L32.937 60.54 L33.649 59.828 L35.587 59.828 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="35.587" y="60.54" font-size="0.95" text-anchor="end" dominant-baseline="central">GND</text>
+<path class="sch-glabel-box" d="M61.7 58 L62.413 57.288 L66.288 57.288 L67.001 58 L66.288 58.712 L62.413 58.712 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="62.413" y="58" font-size="0.95" text-anchor="start" dominant-baseline="central">RGB_5V</text>
+<path class="sch-glabel-box" d="M61.7 60.54 L62.413 59.828 L64.35 59.828 L65.063 60.54 L64.35 61.252 L62.413 61.252 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="62.413" y="60.54" font-size="0.95" text-anchor="start" dominant-baseline="central">+5V</text>
+<path class="sch-glabel-box" d="M138.11 58 L137.398 58.712 L132.876 58.712 L132.163 58 L132.876 57.288 L137.398 57.288 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="137.398" y="58" font-size="0.95" text-anchor="end" dominant-baseline="central">LED_OUT</text>
+<path class="sch-glabel-box" d="M237.38 58 L236.667 58.712 L232.791 58.712 L232.079 58 L232.791 57.288 L236.667 57.288 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="236.667" y="58" font-size="0.95" text-anchor="end" dominant-baseline="central">RGB_5V</text>
+<path class="sch-glabel-box" d="M252.62 58 L253.333 57.288 L255.917 57.288 L256.629 58 L255.917 58.712 L253.333 58.712 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="253.333" y="58" font-size="0.95" text-anchor="start" dominant-baseline="central">PIX0</text>
+<path class="sch-glabel-box" d="M335.38 58 L334.668 58.712 L330.145 58.712 L329.433 58 L330.145 57.288 L334.668 57.288 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="334.668" y="58" font-size="0.95" text-anchor="end" dominant-baseline="central">RGB_3V3</text>
+<path class="sch-glabel-box" d="M350.62 58 L351.332 57.288 L353.271 57.288 L353.983 58 L353.271 58.712 L351.332 58.712 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="351.332" y="58" font-size="0.95" text-anchor="start" dominant-baseline="central">GND</text>
+<path class="sch-glabel-box" d="M41.38 107 L40.668 107.713 L38.73 107.713 L38.017 107 L38.73 106.287 L40.668 106.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="40.668" y="107" font-size="0.95" text-anchor="end" dominant-baseline="central">+5V</text>
+<path class="sch-glabel-box" d="M56.62 107 L57.332 106.287 L59.27 106.287 L59.983 107 L59.27 107.713 L57.332 107.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="57.332" y="107" font-size="0.95" text-anchor="start" dominant-baseline="central">GND</text>
+<path class="sch-glabel-box" d="M139.38 107 L138.667 107.713 L136.083 107.713 L135.371 107 L136.083 106.287 L138.667 106.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="138.667" y="107" font-size="0.95" text-anchor="end" dominant-baseline="central">VLED</text>
+<path class="sch-glabel-box" d="M154.62 107 L155.333 106.287 L157.27 106.287 L157.983 107 L157.27 107.713 L155.333 107.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="155.333" y="107" font-size="0.95" text-anchor="start" dominant-baseline="central">GND</text>
+<path class="sch-glabel-box" d="M232.3 104.46 L231.588 105.172 L229.65 105.172 L228.937 104.46 L229.65 103.747 L231.588 103.747 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="231.588" y="104.46" font-size="0.95" text-anchor="end" dominant-baseline="central">+5V</text>
+<path class="sch-glabel-box" d="M232.3 107 L231.588 107.713 L229.65 107.713 L228.937 107 L229.65 106.287 L231.588 106.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="231.588" y="107" font-size="0.95" text-anchor="end" dominant-baseline="central">GND</text>
+<path class="sch-glabel-box" d="M232.3 109.54 L231.588 110.253 L227.712 110.253 L226.999 109.54 L227.712 108.828 L231.588 108.828 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="231.588" y="109.54" font-size="0.95" text-anchor="end" dominant-baseline="central">LED_EN</text>
+<path class="sch-glabel-box" d="M257.7 107 L258.412 106.287 L260.996 106.287 L261.709 107 L260.996 107.713 L258.412 107.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="258.412" y="107" font-size="0.95" text-anchor="start" dominant-baseline="central">VLED</text>
+<path class="sch-glabel-box" d="M257.7 109.54 L258.412 108.828 L260.996 108.828 L261.709 109.54 L260.996 110.253 L258.412 110.253 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="258.412" y="109.54" font-size="0.95" text-anchor="start" dominant-baseline="central">VLED</text>
+<path class="sch-glabel-box" d="M335.38 107 L334.668 107.713 L329.5 107.713 L328.787 107 L329.5 106.287 L334.668 106.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="334.668" y="107" font-size="0.95" text-anchor="end" dominant-baseline="central">LED_OE_N</text>
+<path class="sch-glabel-box" d="M350.62 107 L351.332 106.287 L353.916 106.287 L354.629 107 L353.916 107.713 L351.332 107.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="351.332" y="107" font-size="0.95" text-anchor="start" dominant-baseline="central">+3V3</text>
+<path class="sch-glabel-box" d="M41.38 156 L40.668 156.713 L38.084 156.713 L37.371 156 L38.084 155.287 L40.668 155.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="40.668" y="156" font-size="0.95" text-anchor="end" dominant-baseline="central">PIX0</text>
+<path class="sch-glabel-box" d="M56.62 156 L57.332 155.287 L59.27 155.287 L59.983 156 L59.27 156.713 L57.332 156.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="57.332" y="156" font-size="0.95" text-anchor="start" dominant-baseline="central">GND</text>
+<path class="sch-glabel-box" d="M139.38 156 L138.667 156.713 L134.791 156.713 L134.079 156 L134.791 155.287 L138.667 155.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="138.667" y="156" font-size="0.95" text-anchor="end" dominant-baseline="central">LED_EN</text>
+<path class="sch-glabel-box" d="M154.62 156 L155.333 155.287 L157.27 155.287 L157.983 156 L157.27 156.713 L155.333 156.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="155.333" y="156" font-size="0.95" text-anchor="start" dominant-baseline="central">GND</text>
+<path class="sch-glabel-box" d="M237.38 156 L236.667 156.713 L234.73 156.713 L234.017 156 L234.73 155.287 L236.667 155.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="236.667" y="156" font-size="0.95" text-anchor="end" dominant-baseline="central">+5V</text>
+<path class="sch-glabel-box" d="M252.62 156 L253.333 155.287 L255.27 155.287 L255.983 156 L255.27 156.713 L253.333 156.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="253.333" y="156" font-size="0.95" text-anchor="start" dominant-baseline="central">GND</text>
+<text class="sch-note sch-heading" x="16" y="17" font-size="3.3" text-anchor="start" dominant-baseline="central">Switched lighting supply and buffered data</text>
+<text class="sch-note" x="16" y="27" font-size="1.55" text-anchor="start" dominant-baseline="central">GP27 enables the LED supply. GP28 high isolates data until the rail settles. R10 holds DIN low.</text>
+</svg>

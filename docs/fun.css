@@ -1,0 +1,187 @@
+/* The playful layer: Omi, sketch notes, the glyph field, the ASCII board and the question panel.
+   Sketches use Caveat, a handwriting face, so they read as notes in the margin of the design. */
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap");
+:root { --hand: "Caveat", "Segoe Print", "Comic Sans MS", cursive; --ink-pen: #b15c00; --ink-pen-2: #007197; }
+@media (prefers-color-scheme: dark) { :root { --ink-pen: #ff9e64; --ink-pen-2: #7dcfff; } }
+.circuit { --ink-pen: #ff9e64; --ink-pen-2: #7dcfff; }
+.no-fun :is(.omi, .omi-ask, .sketch, .sketch-note, .pcb-sketch, .glyph-field, .confetti) { display: none !important; }
+
+/* Sketch notes in the text */
+.sketch-note {
+  display: inline-block; margin-left: .6em; vertical-align: .15em;
+  font: 700 1.25rem/1 var(--hand); letter-spacing: 0; color: var(--ink-pen);
+  transform: rotate(var(--tilt, -3deg)); transform-origin: left center;
+  white-space: nowrap; pointer-events: none;
+  opacity: 0; transition: opacity .3s ease, transform .5s cubic-bezier(.3, 1.6, .5, 1);
+}
+.sketch-note.cyan { color: var(--ink-pen-2); }
+.sketch-note.drawn { opacity: 1; }
+.sketch-note:not(.drawn) { transform: rotate(var(--tilt, -3deg)) scale(.6); }
+h3 .sketch-note { font-size: 1.12rem; }
+.here-note { position: absolute; left: calc(var(--pad, 13px) + 1.2rem); top: -1.35em; margin: 0; font-size: 1.15rem; }
+@media (max-width: 720px) {
+  h2 .sketch-note { display: block; margin: .3rem 0 0; }
+}
+
+/* Pen strokes that draw themselves */
+.sketch .ink, .pcb-sketch .ink {
+  fill: none; stroke: var(--ink-pen); stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+}
+.sketch.drawn .ink, .pcb-sketch.drawn .ink { stroke-dashoffset: 0; transition: stroke-dashoffset .9s cubic-bezier(.5, .1, .3, 1) .2s; }
+.sketch.drawn .ink.late, .pcb-sketch.drawn .ink.late { transition-delay: 1s; transition-duration: .25s; }
+.sketch-text { font: 700 22px/1 var(--hand); fill: var(--ink-pen); opacity: 0; transition: opacity .5s ease 1s; }
+.drawn > .sketch-text { opacity: 1; }
+.hero-foot { position: relative; }
+/* Just past the right end of the opening paragraph (34em of its type size), rising toward the board. */
+.hero-sketch { position: absolute; left: calc(clamp(1.08rem, 1.45vw, 1.3rem) * 34 + 1.5rem); bottom: .2rem; width: 300px; height: 170px; overflow: visible; pointer-events: none; }
+/* Room under the opening text for Omi in the corner. */
+html:not(.no-fun) .hero { padding-bottom: max(clamp(28px, 6vh, 56px), 104px); }
+.hero-sketch .ink { stroke-width: 2.4; }
+@media (max-width: 1139px) { .hero-sketch { display: none; } }
+
+/* Notes on the board drawing, in millimetres */
+.pcb-sketch .ink { stroke-width: .55; stroke: #e0af68; }
+.pcb-sketch .sketch-text { font-size: 7.2px; fill: #e0af68; paint-order: stroke; stroke: #16161e; stroke-width: 1.6px; stroke-linejoin: round; }
+.pcb-sketch .sketch-text.green { fill: #9ece6a; }
+.pcb-sketch .sketch-text.cyan { fill: #7dcfff; }
+.pcb-sketch { transition: opacity .3s ease; }
+.pcb-canvas.zoomed .pcb-sketch { opacity: 0; }
+.pcb-canvas:not(.settled) .pcb-sketch { opacity: 0; }
+
+/* Glyph field behind the circuit heading */
+.circuit-head { position: relative; isolation: isolate; }
+.glyph-field {
+  position: absolute; z-index: -1; left: -60px; top: -40px; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent); mask-image: linear-gradient(to bottom, #000 40%, transparent);
+}
+.circuit-head > :not(.glyph-field) { position: relative; }
+
+/* The switch in the Contents drawer */
+.fun-switch { display: flex; align-items: center; gap: .6rem; margin: 1.1rem 0 0; font-size: .8rem; color: var(--ink-2); cursor: pointer; }
+.fun-switch input { margin: 0; accent-color: var(--tn-orange); }
+
+/* Omi */
+.omi { position: fixed; left: 18px; bottom: 18px; z-index: 17; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; pointer-events: none; }
+.omi-btn {
+  pointer-events: auto; position: relative; width: 58px; height: 54px; margin: 0; padding: 0; border: 0; background: none; cursor: pointer;
+  filter: drop-shadow(0 6px 8px rgb(26 27 38 / .25));
+}
+.omi-btn:focus-visible { outline-offset: 4px; border-radius: 8px; }
+.omi-sprite { width: 100%; height: 100%; animation: omi-bob 2.4s steps(2, jump-none) infinite; }
+.omi-btn:hover .omi-sprite { animation-duration: .5s; }
+@keyframes omi-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+.omi-sprite .p-o { fill: #343b58; }
+.omi-sprite .p-c { fill: #f2cd8f; }
+.omi-sprite .p-s { fill: #d9a65a; }
+.omi-sprite .p-shine { fill: #fff6df; }
+.omi-sprite .p-e { fill: #24302a; }
+@media (prefers-color-scheme: dark) { .omi-sprite .p-o { fill: #c0caf5; } .omi-btn { filter: drop-shadow(0 6px 10px rgb(0 0 0 / .5)); } }
+.omi-sprite .f { display: none; }
+.omi-sprite[data-eyes="open"] .f-open, .omi-sprite[data-eyes="shut"] .f-shut, .omi-sprite[data-eyes="happy"] .f-happy,
+.omi-sprite[data-mouth="smile"] .f-smile, .omi-sprite[data-mouth="o"] .f-o, .omi-sprite[data-mouth="flat"] .f-flat { display: inline; }
+.omi.has-news .omi-btn::after {
+  content: ""; position: absolute; right: 2px; top: 2px; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--tn-red); box-shadow: 0 0 0 2px var(--ground);
+}
+.omi-bubble {
+  position: relative; max-width: min(20rem, calc(100vw - 36px)); padding: .65rem 2rem .7rem .85rem;
+  border: 1px solid var(--panel-edge); border-radius: 8px; background: var(--panel); color: var(--ink);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3); backdrop-filter: blur(16px) saturate(1.3);
+  box-shadow: var(--panel-shadow); font-size: .8rem; line-height: 1.5;
+  opacity: 0; transform: translateY(6px) scale(.97); transform-origin: left bottom; visibility: hidden;
+  transition: opacity .2s ease, transform .25s cubic-bezier(.3, 1.4, .5, 1), visibility 0s linear .25s;
+}
+.omi-bubble::after {
+  content: ""; position: absolute; left: 22px; bottom: -6px; width: 10px; height: 10px; transform: rotate(45deg);
+  background: inherit; border-right: 1px solid var(--panel-edge); border-bottom: 1px solid var(--panel-edge);
+}
+.omi.talking .omi-bubble { pointer-events: auto; opacity: 1; transform: none; visibility: visible; transition-delay: 0s; }
+.omi-say { margin: 0; min-height: 1.5em; }
+.omi-hush {
+  position: absolute; top: .35rem; right: .35rem; width: 1.5rem; height: 1.5rem; margin: 0; padding: 0; border: 0; border-radius: 4px;
+  background: none; color: var(--ink-2); font: 600 1rem/1 var(--mono); cursor: pointer;
+}
+.omi-hush:hover { background: rgb(127 127 127 / .14); color: var(--ink); }
+.omi.ask-open .omi-bubble { display: none; }
+
+/* The question panel */
+.omi-ask {
+  position: fixed; left: 18px; bottom: 84px; z-index: 22; width: min(27rem, calc(100vw - 36px)); max-height: min(70vh, 40rem); overflow: auto;
+  padding: 1rem 1.1rem 1.1rem; border: 1px solid var(--panel-edge); border-radius: 10px;
+  background: var(--panel); color: var(--ink); box-shadow: var(--panel-shadow);
+  -webkit-backdrop-filter: blur(26px) saturate(1.35); backdrop-filter: blur(26px) saturate(1.35);
+  animation: ask-in .22s cubic-bezier(.3, 1.3, .5, 1);
+}
+.omi-ask[hidden] { display: none; }
+@keyframes ask-in { from { opacity: 0; transform: translateY(10px) scale(.98); } }
+.ask-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .7rem; }
+.ask-head h2 { margin: 0; font-size: 1.02rem; letter-spacing: -.02em; }
+.ask-close { width: 1.8rem; height: 1.8rem; margin: 0; padding: 0; border: 1px solid var(--rule); border-radius: 5px; background: none; color: var(--ink-2); font: 600 1rem/1 var(--mono); cursor: pointer; }
+.ask-form { display: flex; gap: .4rem; }
+.ask-q { flex: 1; min-width: 0; padding: .5rem .65rem; border: 1px solid var(--rule); border-radius: 6px; background: var(--ground); color: var(--ink); font: 500 .82rem/1.3 var(--mono); }
+.ask-q:focus { outline: 2px solid var(--tn-blue); outline-offset: 0; border-color: transparent; }
+.ask-go { padding: .5rem .8rem; border: 0; border-radius: 6px; background: var(--ink); color: var(--ground); font: 700 .8rem/1.2 var(--mono); cursor: pointer; }
+.ask-chips { display: flex; flex-wrap: wrap; gap: .35rem; margin: .65rem 0 0; }
+.ask-chip { padding: .28rem .55rem; border: 1px solid var(--rule); border-radius: 999px; background: none; color: var(--ink-2); font: 500 .72rem/1.3 var(--mono); cursor: pointer; text-align: left; }
+.ask-chip:hover { border-color: var(--ink-2); color: var(--ink); }
+.ask-out:not(:empty) { margin-top: .9rem; padding-top: .8rem; border-top: 1px solid var(--rule); }
+.ask-text { margin: 0 0 .8rem; font-size: .84rem; line-height: 1.6; }
+.ask-text.thinking::after { content: "…"; display: inline-block; width: 1.2em; animation: ask-dots 1s steps(4, end) infinite; overflow: hidden; vertical-align: bottom; }
+@keyframes ask-dots { from { width: 0; } to { width: 1.2em; } }
+.ask-label { margin: 0 0 .35rem; font-size: .7rem; font-weight: 650; color: var(--ink-2); }
+.ask-src { margin: 0; padding: 0; list-style: none; display: grid; gap: .45rem; }
+.ask-src li { display: grid; gap: .15rem; font-size: .74rem; line-height: 1.5; color: var(--ink-2); }
+.ask-src q { quotes: none; }
+.ask-src .ask-best .ask-text { margin: 0 0 .3rem; color: var(--ink); }
+.ask-jump { justify-self: start; display: inline-flex; gap: .45rem; align-items: baseline; margin: 0; padding: 0; border: 0; background: none; color: var(--ink); font: 650 .76rem/1.4 var(--mono); cursor: pointer; text-align: left; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+.ask-jump b { display: inline-grid; place-items: center; min-width: 1.3em; height: 1.3em; border-radius: 3px; background: var(--tn-orange); color: var(--ground); font-size: .68rem; text-decoration: none; }
+.ask-offer { margin-top: .8rem; }
+.ask-offer .ask-mode { margin-top: .4rem; }
+.ask-mode { margin: .9rem 0 0; font-size: .7rem; line-height: 1.5; color: var(--ink-2); }
+.ask-hit { outline: 2px solid var(--tn-orange); outline-offset: 4px; border-radius: 3px; transition: outline-color 1s ease; }
+
+@media (max-width: 999px) {
+  .omi { left: auto; right: 12px; bottom: 12px; align-items: flex-end; }
+  .omi-btn { width: 46px; height: 43px; }
+  .omi-bubble { transform-origin: right bottom; }
+  .omi-bubble::after { left: auto; right: 18px; }
+  .omi-ask { left: 12px; right: 12px; bottom: 66px; width: auto; max-height: 62vh; }
+}
+
+/* Confetti from the secret word */
+.confetti { position: fixed; inset: 0; z-index: 31; pointer-events: none; overflow: hidden; }
+.confetti i { position: absolute; top: 0; font-style: normal; font-family: var(--mono); font-weight: 800; }
+
+/* The board in ASCII at the foot of the page */
+.ascii {
+  --cols: 128;
+  margin: 0 0 2.2rem; padding: 1rem 1.1rem 1.1rem; border-radius: 8px; background: #16161e; color: #a9b1d6;
+  border: 1px solid #2f344d; overflow: hidden;
+}
+.ascii-prompt { margin: 0 0 .7rem; font: 500 .8rem/1.4 var(--mono); color: #c0caf5; }
+.a-user { color: #9ece6a; } .a-path { color: #7aa2f7; }
+.a-caret { display: inline-block; width: .55em; height: 1.05em; margin-left: 1px; vertical-align: -.15em; background: #c0caf5; animation: caret 1s steps(1, end) infinite; }
+.ascii.done .a-caret { display: none; }
+@keyframes caret { 50% { opacity: 0; } }
+.ascii-board {
+  margin: 0; font: 500 min(.7rem, calc((100vw - 76px) / var(--cols) / .6)) / 1.05 var(--mono); letter-spacing: 0;
+  white-space: pre; color: #565f89; overflow: hidden;
+}
+.ascii-board .a-line { display: inline; }
+.ascii:not(.done) .ascii-board, .ascii:not(.done) .ascii-sign { visibility: hidden; }
+.ascii.done .ascii-board .a-line { animation: a-line .01s steps(1, end) both; }
+.ascii.done .ascii-board .a-line:nth-child(n) { animation-delay: calc(var(--i, 0) * 45ms); }
+@keyframes a-line { from { opacity: 0; } to { opacity: 1; } }
+.a-plain { color: #a9b1d6; } .a-roller { color: #e0af68; } .a-desk { color: #ff9e64; } .a-launch { color: #9ece6a; } .a-window { color: #7aa2f7; }
+.a-capture { color: #bb9af7; } .a-dial { color: #e0af68; } .a-fn { color: #bb9af7; } .a-util { color: #7dcfff; }
+.ascii-sign { margin: .8rem 0 0; font-size: .72rem; color: #737aa2; }
+
+@media (prefers-reduced-motion: reduce) {
+  .omi-sprite, .a-caret, .ask-text.thinking::after { animation: none; }
+  .sketch-note, .omi-bubble { transition: none; }
+  .sketch .ink, .pcb-sketch .ink { stroke-dashoffset: 0; transition: none !important; }
+  .sketch-text { opacity: 1; transition: none; }
+  .omi-ask { animation: none; }
+  .ascii.done .ascii-board .a-line { animation: none; }
+}

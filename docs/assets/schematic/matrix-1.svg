@@ -1,0 +1,729 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="sch" role="img" viewBox="12 11.35 371.629 230.04">
+<title>Scan matrix / rows 0 and 1</title>
+<g class="sch-symbol" data-ref="ENC1">
+<path class="sch-body sch-fill" d="M32.38 49.38 L47.62 49.38 L47.62 64.62 L32.38 64.62 Z" stroke-width="0.254"/>
+<path class="sch-pin" d="M29.84 54.46 L32.38 54.46" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="32.98" y="54.46" font-size="0.95" text-anchor="start" dominant-baseline="central">A</text>
+<text class="sch-pin-num" x="31.11" y="53.81" font-size="0.8" text-anchor="middle" dominant-baseline="central">A</text>
+<path class="sch-pin" d="M29.84 57 L32.38 57" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="32.98" y="57" font-size="0.95" text-anchor="start" dominant-baseline="central">B</text>
+<text class="sch-pin-num" x="31.11" y="56.35" font-size="0.8" text-anchor="middle" dominant-baseline="central">B</text>
+<path class="sch-pin" d="M29.84 59.54 L32.38 59.54" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="32.98" y="59.54" font-size="0.95" text-anchor="start" dominant-baseline="central">COM</text>
+<text class="sch-pin-num" x="31.11" y="58.89" font-size="0.8" text-anchor="middle" dominant-baseline="central">C</text>
+<path class="sch-pin" d="M29.84 62.08 L32.38 62.08" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="32.98" y="62.08" font-size="0.95" text-anchor="start" dominant-baseline="central">SHELL</text>
+<text class="sch-pin-num" x="31.11" y="61.43" font-size="0.8" text-anchor="middle" dominant-baseline="central">MP</text>
+<path class="sch-pin" d="M50.16 57 L47.62 57" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="47.02" y="57" font-size="0.95" text-anchor="end" dominant-baseline="central">PUSH1</text>
+<text class="sch-pin-num" x="48.89" y="56.35" font-size="0.8" text-anchor="middle" dominant-baseline="central">S1</text>
+<path class="sch-pin" d="M50.16 59.54 L47.62 59.54" stroke-width="0.15" fill="none"/>
+<text class="sch-pin-name" x="47.02" y="59.54" font-size="0.95" text-anchor="end" dominant-baseline="central">PUSH2</text>
+<text class="sch-pin-num" x="48.89" y="58.89" font-size="0.8" text-anchor="middle" dominant-baseline="central">S2</text>
+<text class="sch-ref" x="40" y="47.18" font-size="1.1" text-anchor="middle" dominant-baseline="central">ENC1</text>
+<text class="sch-val" x="40" y="66.92" font-size="1.1" text-anchor="middle" dominant-baseline="central">PEC11R-4220F-S0024</text>
+</g>
+<g class="sch-symbol" data-ref="D1">
+<path class="sch-body" d="M79.46 65 L80.75 65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M80.75 63.65 L83.25 65 L80.75 66.35 L80.75 63.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M83.25 63.65 L83.25 66.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M83.25 65 L84.54 65" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M76.92 65 L79.46 65" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M87.08 65 L84.54 65" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="82" y="60.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D1</text>
+<text class="sch-val" x="82" y="69.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW2">
+<circle class="sch-body" cx="135.46" cy="57" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="140.54" cy="57" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M135.68 56.81 L139.75 55.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M132.92 57 L135.46 57" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M143.08 57 L140.54 57" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="138" y="52.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW2</text>
+<text class="sch-val" x="138" y="61.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">Esc</text>
+</g>
+<g class="sch-symbol" data-ref="D2">
+<path class="sch-body" d="M169.46 57 L170.75 57" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M170.75 55.65 L173.25 57 L170.75 58.35 L170.75 55.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M173.25 55.65 L173.25 58.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M173.25 57 L174.54 57" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M166.92 57 L169.46 57" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M177.08 57 L174.54 57" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="172" y="52.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D2</text>
+<text class="sch-val" x="172" y="61.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW3">
+<circle class="sch-body" cx="233.46" cy="57" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="238.54" cy="57" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M233.68 56.81 L237.75 55.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M230.92 57 L233.46 57" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M241.08 57 L238.54 57" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="236" y="52.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW3</text>
+<text class="sch-val" x="236" y="61.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">Desk 1</text>
+</g>
+<g class="sch-symbol" data-ref="D3">
+<path class="sch-body" d="M267.46 57 L268.75 57" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M268.75 55.65 L271.25 57 L268.75 58.35 L268.75 55.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M271.25 55.65 L271.25 58.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M271.25 57 L272.54 57" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M264.92 57 L267.46 57" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M275.08 57 L272.54 57" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="270" y="52.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D3</text>
+<text class="sch-val" x="270" y="61.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW4">
+<circle class="sch-body" cx="331.46" cy="57" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="336.54" cy="57" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M331.68 56.81 L335.75 55.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M328.92 57 L331.46 57" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M339.08 57 L336.54 57" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="334" y="52.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW4</text>
+<text class="sch-val" x="334" y="61.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">Desk 2</text>
+</g>
+<g class="sch-symbol" data-ref="D4">
+<path class="sch-body" d="M365.46 57 L366.75 57" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M366.75 55.65 L369.25 57 L366.75 58.35 L366.75 55.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M369.25 55.65 L369.25 58.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M369.25 57 L370.54 57" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M362.92 57 L365.46 57" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M373.08 57 L370.54 57" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="368" y="52.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D4</text>
+<text class="sch-val" x="368" y="61.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW5">
+<circle class="sch-body" cx="37.46" cy="92" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="42.54" cy="92" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M37.68 91.81 L41.75 90.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M34.92 92 L37.46 92" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M45.08 92 L42.54 92" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="40" y="87.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW5</text>
+<text class="sch-val" x="40" y="96.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">Desk 3</text>
+</g>
+<g class="sch-symbol" data-ref="D5">
+<path class="sch-body" d="M71.46 92 L72.75 92" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M72.75 90.65 L75.25 92 L72.75 93.35 L72.75 90.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M75.25 90.65 L75.25 93.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M75.25 92 L76.54 92" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M68.92 92 L71.46 92" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M79.08 92 L76.54 92" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="74" y="87.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D5</text>
+<text class="sch-val" x="74" y="96.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW6">
+<circle class="sch-body" cx="135.46" cy="92" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="140.54" cy="92" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M135.68 91.81 L139.75 90.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M132.92 92 L135.46 92" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M143.08 92 L140.54 92" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="138" y="87.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW6</text>
+<text class="sch-val" x="138" y="96.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">Desk 4</text>
+</g>
+<g class="sch-symbol" data-ref="D6">
+<path class="sch-body" d="M169.46 92 L170.75 92" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M170.75 90.65 L173.25 92 L170.75 93.35 L170.75 90.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M173.25 90.65 L173.25 93.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M173.25 92 L174.54 92" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M166.92 92 L169.46 92" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M177.08 92 L174.54 92" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="172" y="87.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D6</text>
+<text class="sch-val" x="172" y="96.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW7">
+<circle class="sch-body" cx="233.46" cy="92" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="238.54" cy="92" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M233.68 91.81 L237.75 90.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M230.92 92 L233.46 92" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M241.08 92 L238.54 92" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="236" y="87.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW7</text>
+<text class="sch-val" x="236" y="96.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">Desk 5</text>
+</g>
+<g class="sch-symbol" data-ref="D7">
+<path class="sch-body" d="M267.46 92 L268.75 92" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M268.75 90.65 L271.25 92 L268.75 93.35 L268.75 90.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M271.25 90.65 L271.25 93.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M271.25 92 L272.54 92" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M264.92 92 L267.46 92" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M275.08 92 L272.54 92" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="270" y="87.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D7</text>
+<text class="sch-val" x="270" y="96.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW8">
+<circle class="sch-body" cx="331.46" cy="92" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="336.54" cy="92" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M331.68 91.81 L335.75 90.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M328.92 92 L331.46 92" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M339.08 92 L336.54 92" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="334" y="87.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW8</text>
+<text class="sch-val" x="334" y="96.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">Last Desk</text>
+</g>
+<g class="sch-symbol" data-ref="D8">
+<path class="sch-body" d="M365.46 92 L366.75 92" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M366.75 90.65 L369.25 92 L366.75 93.35 L366.75 90.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M369.25 90.65 L369.25 93.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M369.25 92 L370.54 92" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M362.92 92 L365.46 92" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M373.08 92 L370.54 92" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="368" y="87.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D8</text>
+<text class="sch-val" x="368" y="96.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW9">
+<circle class="sch-body" cx="37.46" cy="127" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="42.54" cy="127" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M37.68 126.81 L41.75 125.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M34.92 127 L37.46 127" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M45.08 127 L42.54 127" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="40" y="122.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW9</text>
+<text class="sch-val" x="40" y="131.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">Send &amp; Stay</text>
+</g>
+<g class="sch-symbol" data-ref="D9">
+<path class="sch-body" d="M71.46 127 L72.75 127" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M72.75 125.65 L75.25 127 L72.75 128.35 L72.75 125.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M75.25 125.65 L75.25 128.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M75.25 127 L76.54 127" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M68.92 127 L71.46 127" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M79.08 127 L76.54 127" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="74" y="122.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D9</text>
+<text class="sch-val" x="74" y="131.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW10">
+<circle class="sch-body" cx="135.46" cy="127" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="140.54" cy="127" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M135.68 126.81 L139.75 125.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M132.92 127 L135.46 127" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M143.08 127 L140.54 127" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="138" y="122.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW10</text>
+<text class="sch-val" x="138" y="131.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">Move &amp; Go</text>
+</g>
+<g class="sch-symbol" data-ref="D10">
+<path class="sch-body" d="M169.46 127 L170.75 127" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M170.75 125.65 L173.25 127 L170.75 128.35 L170.75 125.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M173.25 125.65 L173.25 128.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M173.25 127 L174.54 127" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M166.92 127 L169.46 127" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M177.08 127 L174.54 127" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="172" y="122.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D10</text>
+<text class="sch-val" x="172" y="131.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW11">
+<circle class="sch-body" cx="233.46" cy="127" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="238.54" cy="127" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M233.68 126.81 L237.75 125.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M230.92 127 L233.46 127" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M241.08 127 L238.54 127" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="236" y="122.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW11</text>
+<text class="sch-val" x="236" y="131.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">Clipboard</text>
+</g>
+<g class="sch-symbol" data-ref="D11">
+<path class="sch-body" d="M267.46 127 L268.75 127" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M268.75 125.65 L271.25 127 L268.75 128.35 L268.75 125.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M271.25 125.65 L271.25 128.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M271.25 127 L272.54 127" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M264.92 127 L267.46 127" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M275.08 127 L272.54 127" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="270" y="122.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D11</text>
+<text class="sch-val" x="270" y="131.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW12">
+<circle class="sch-body" cx="331.46" cy="127" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="336.54" cy="127" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M331.68 126.81 L335.75 125.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M328.92 127 L331.46 127" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M339.08 127 L336.54 127" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="334" y="122.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW12</text>
+<text class="sch-val" x="334" y="131.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">Paste</text>
+</g>
+<g class="sch-symbol" data-ref="D12">
+<path class="sch-body" d="M365.46 127 L366.75 127" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M366.75 125.65 L369.25 127 L366.75 128.35 L366.75 125.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M369.25 125.65 L369.25 128.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M369.25 127 L370.54 127" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M362.92 127 L365.46 127" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M373.08 127 L370.54 127" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="368" y="122.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D12</text>
+<text class="sch-val" x="368" y="131.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW20">
+<circle class="sch-body" cx="37.46" cy="162" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="42.54" cy="162" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M37.68 161.81 L41.75 160.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M34.92 162 L37.46 162" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M45.08 162 L42.54 162" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="40" y="157.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW20</text>
+<text class="sch-val" x="40" y="166.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">Guide</text>
+</g>
+<g class="sch-symbol" data-ref="D20">
+<path class="sch-body" d="M71.46 162 L72.75 162" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M72.75 160.65 L75.25 162 L72.75 163.35 L72.75 160.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M75.25 160.65 L75.25 163.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M75.25 162 L76.54 162" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M68.92 162 L71.46 162" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M79.08 162 L76.54 162" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="74" y="157.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D20</text>
+<text class="sch-val" x="74" y="166.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW21">
+<circle class="sch-body" cx="135.46" cy="162" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="140.54" cy="162" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M135.68 161.81 L139.75 160.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M132.92 162 L135.46 162" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M143.08 162 L140.54 162" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="138" y="157.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW21</text>
+</g>
+<g class="sch-symbol" data-ref="D21">
+<path class="sch-body" d="M169.46 162 L170.75 162" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M170.75 160.65 L173.25 162 L170.75 163.35 L170.75 160.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M173.25 160.65 L173.25 163.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M173.25 162 L174.54 162" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M166.92 162 L169.46 162" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M177.08 162 L174.54 162" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="172" y="157.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D21</text>
+<text class="sch-val" x="172" y="166.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW22">
+<circle class="sch-body" cx="233.46" cy="162" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="238.54" cy="162" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M233.68 161.81 L237.75 160.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M230.92 162 L233.46 162" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M241.08 162 L238.54 162" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="236" y="157.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW22</text>
+<text class="sch-val" x="236" y="166.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1</text>
+</g>
+<g class="sch-symbol" data-ref="D22">
+<path class="sch-body" d="M267.46 162 L268.75 162" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M268.75 160.65 L271.25 162 L268.75 163.35 L268.75 160.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M271.25 160.65 L271.25 163.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M271.25 162 L272.54 162" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M264.92 162 L267.46 162" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M275.08 162 L272.54 162" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="270" y="157.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D22</text>
+<text class="sch-val" x="270" y="166.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW23">
+<circle class="sch-body" cx="331.46" cy="162" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="336.54" cy="162" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M331.68 161.81 L335.75 160.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M328.92 162 L331.46 162" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M339.08 162 L336.54 162" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="334" y="157.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW23</text>
+<text class="sch-val" x="334" y="166.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">2</text>
+</g>
+<g class="sch-symbol" data-ref="D23">
+<path class="sch-body" d="M365.46 162 L366.75 162" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M366.75 160.65 L369.25 162 L366.75 163.35 L366.75 160.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M369.25 160.65 L369.25 163.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M369.25 162 L370.54 162" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M362.92 162 L365.46 162" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M373.08 162 L370.54 162" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="368" y="157.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D23</text>
+<text class="sch-val" x="368" y="166.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW24">
+<circle class="sch-body" cx="37.46" cy="197" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="42.54" cy="197" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M37.68 196.81 L41.75 195.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M34.92 197 L37.46 197" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M45.08 197 L42.54 197" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="40" y="192.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW24</text>
+<text class="sch-val" x="40" y="201.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">3</text>
+</g>
+<g class="sch-symbol" data-ref="D24">
+<path class="sch-body" d="M71.46 197 L72.75 197" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M72.75 195.65 L75.25 197 L72.75 198.35 L72.75 195.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M75.25 195.65 L75.25 198.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M75.25 197 L76.54 197" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M68.92 197 L71.46 197" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M79.08 197 L76.54 197" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="74" y="192.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D24</text>
+<text class="sch-val" x="74" y="201.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW25">
+<circle class="sch-body" cx="135.46" cy="197" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="140.54" cy="197" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M135.68 196.81 L139.75 195.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M132.92 197 L135.46 197" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M143.08 197 L140.54 197" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="138" y="192.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW25</text>
+<text class="sch-val" x="138" y="201.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">4</text>
+</g>
+<g class="sch-symbol" data-ref="D25">
+<path class="sch-body" d="M169.46 197 L170.75 197" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M170.75 195.65 L173.25 197 L170.75 198.35 L170.75 195.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M173.25 195.65 L173.25 198.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M173.25 197 L174.54 197" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M166.92 197 L169.46 197" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M177.08 197 L174.54 197" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="172" y="192.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D25</text>
+<text class="sch-val" x="172" y="201.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW26">
+<circle class="sch-body" cx="233.46" cy="197" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="238.54" cy="197" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M233.68 196.81 L237.75 195.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M230.92 197 L233.46 197" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M241.08 197 L238.54 197" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="236" y="192.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW26</text>
+<text class="sch-val" x="236" y="201.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">5</text>
+</g>
+<g class="sch-symbol" data-ref="D26">
+<path class="sch-body" d="M267.46 197 L268.75 197" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M268.75 195.65 L271.25 197 L268.75 198.35 L268.75 195.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M271.25 195.65 L271.25 198.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M271.25 197 L272.54 197" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M264.92 197 L267.46 197" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M275.08 197 L272.54 197" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="270" y="192.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D26</text>
+<text class="sch-val" x="270" y="201.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW27">
+<circle class="sch-body" cx="331.46" cy="197" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="336.54" cy="197" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M331.68 196.81 L335.75 195.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M328.92 197 L331.46 197" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M339.08 197 L336.54 197" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="334" y="192.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW27</text>
+<text class="sch-val" x="334" y="201.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">6</text>
+</g>
+<g class="sch-symbol" data-ref="D27">
+<path class="sch-body" d="M365.46 197 L366.75 197" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M366.75 195.65 L369.25 197 L366.75 198.35 L366.75 195.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M369.25 195.65 L369.25 198.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M369.25 197 L370.54 197" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M362.92 197 L365.46 197" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M373.08 197 L370.54 197" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="368" y="192.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D27</text>
+<text class="sch-val" x="368" y="201.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW28">
+<circle class="sch-body" cx="37.46" cy="232" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="42.54" cy="232" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M37.68 231.81 L41.75 230.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M34.92 232 L37.46 232" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M45.08 232 L42.54 232" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="40" y="227.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW28</text>
+<text class="sch-val" x="40" y="236.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">7</text>
+</g>
+<g class="sch-symbol" data-ref="D28">
+<path class="sch-body" d="M71.46 232 L72.75 232" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M72.75 230.65 L75.25 232 L72.75 233.35 L72.75 230.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M75.25 230.65 L75.25 233.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M75.25 232 L76.54 232" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M68.92 232 L71.46 232" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M79.08 232 L76.54 232" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="74" y="227.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D28</text>
+<text class="sch-val" x="74" y="236.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW29">
+<circle class="sch-body" cx="135.46" cy="232" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="140.54" cy="232" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M135.68 231.81 L139.75 230.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M132.92 232 L135.46 232" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M143.08 232 L140.54 232" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="138" y="227.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW29</text>
+<text class="sch-val" x="138" y="236.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">8</text>
+</g>
+<g class="sch-symbol" data-ref="D29">
+<path class="sch-body" d="M169.46 232 L170.75 232" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M170.75 230.65 L173.25 232 L170.75 233.35 L170.75 230.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M173.25 230.65 L173.25 233.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M173.25 232 L174.54 232" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M166.92 232 L169.46 232" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M177.08 232 L174.54 232" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="172" y="227.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D29</text>
+<text class="sch-val" x="172" y="236.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW30">
+<circle class="sch-body" cx="233.46" cy="232" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="238.54" cy="232" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M233.68 231.81 L237.75 230.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M230.92 232 L233.46 232" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M241.08 232 L238.54 232" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="236" y="227.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW30</text>
+<text class="sch-val" x="236" y="236.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">9</text>
+</g>
+<g class="sch-symbol" data-ref="D30">
+<path class="sch-body" d="M267.46 232 L268.75 232" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M268.75 230.65 L271.25 232 L268.75 233.35 L268.75 230.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M271.25 230.65 L271.25 233.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M271.25 232 L272.54 232" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M264.92 232 L267.46 232" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M275.08 232 L272.54 232" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="270" y="227.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D30</text>
+<text class="sch-val" x="270" y="236.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<g class="sch-symbol" data-ref="SW31">
+<circle class="sch-body" cx="331.46" cy="232" r="0.36" stroke-width="0.254" fill="none"/>
+<circle class="sch-body" cx="336.54" cy="232" r="0.36" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M331.68 231.81 L335.75 230.28" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M328.92 232 L331.46 232" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M339.08 232 L336.54 232" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="334" y="227.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">SW31</text>
+<text class="sch-val" x="334" y="236.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">0</text>
+</g>
+<g class="sch-symbol" data-ref="D31">
+<path class="sch-body" d="M365.46 232 L366.75 232" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M366.75 230.65 L369.25 232 L366.75 233.35 L366.75 230.65" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M369.25 230.65 L369.25 233.35" stroke-width="0.254" fill="none"/>
+<path class="sch-body" d="M369.25 232 L370.54 232" stroke-width="0.254" fill="none"/>
+<path class="sch-pin" d="M362.92 232 L365.46 232" stroke-width="0.15" fill="none"/>
+<path class="sch-pin" d="M373.08 232 L370.54 232" stroke-width="0.15" fill="none"/>
+<text class="sch-ref" x="368" y="227.26" font-size="1.1" text-anchor="middle" dominant-baseline="central">D31</text>
+<text class="sch-val" x="368" y="236.84" font-size="1.1" text-anchor="middle" dominant-baseline="central">1N4148W</text>
+</g>
+<path class="sch-wire" d="M29.84 54.46 L27.3 54.46" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M29.84 57 L27.3 57" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M29.84 59.54 L27.3 59.54" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M29.84 62.08 L27.3 62.08" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M50.16 57 L52.7 57" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M50.16 59.54 L52.7 59.54" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M76.92 65 L74.38 65" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M87.08 65 L89.62 65" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M132.92 57 L130.38 57" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M177.08 57 L179.62 57" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M143.08 57 L166.92 57" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M230.92 57 L228.38 57" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M275.08 57 L277.62 57" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M241.08 57 L264.92 57" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M328.92 57 L326.38 57" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M373.08 57 L375.62 57" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M339.08 57 L362.92 57" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M34.92 92 L32.38 92" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M79.08 92 L81.62 92" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M45.08 92 L68.92 92" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M132.92 92 L130.38 92" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M177.08 92 L179.62 92" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M143.08 92 L166.92 92" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M230.92 92 L228.38 92" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M275.08 92 L277.62 92" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M241.08 92 L264.92 92" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M328.92 92 L326.38 92" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M373.08 92 L375.62 92" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M339.08 92 L362.92 92" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M34.92 127 L32.38 127" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M79.08 127 L81.62 127" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M45.08 127 L68.92 127" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M132.92 127 L130.38 127" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M177.08 127 L179.62 127" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M143.08 127 L166.92 127" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M230.92 127 L228.38 127" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M275.08 127 L277.62 127" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M241.08 127 L264.92 127" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M328.92 127 L326.38 127" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M373.08 127 L375.62 127" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M339.08 127 L362.92 127" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M34.92 162 L32.38 162" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M79.08 162 L81.62 162" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M45.08 162 L68.92 162" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M132.92 162 L130.38 162" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M177.08 162 L179.62 162" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M143.08 162 L166.92 162" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M230.92 162 L228.38 162" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M275.08 162 L277.62 162" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M241.08 162 L264.92 162" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M328.92 162 L326.38 162" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M373.08 162 L375.62 162" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M339.08 162 L362.92 162" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M34.92 197 L32.38 197" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M79.08 197 L81.62 197" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M45.08 197 L68.92 197" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M132.92 197 L130.38 197" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M177.08 197 L179.62 197" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M143.08 197 L166.92 197" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M230.92 197 L228.38 197" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M275.08 197 L277.62 197" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M241.08 197 L264.92 197" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M328.92 197 L326.38 197" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M373.08 197 L375.62 197" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M339.08 197 L362.92 197" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M34.92 232 L32.38 232" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M79.08 232 L81.62 232" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M45.08 232 L68.92 232" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M132.92 232 L130.38 232" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M177.08 232 L179.62 232" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M143.08 232 L166.92 232" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M230.92 232 L228.38 232" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M275.08 232 L277.62 232" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M241.08 232 L264.92 232" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M328.92 232 L326.38 232" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M373.08 232 L375.62 232" stroke-width="0.15" fill="none"/>
+<path class="sch-wire" d="M339.08 232 L362.92 232" stroke-width="0.15" fill="none"/>
+<path class="sch-glabel-box" d="M27.3 54.46 L26.588 55.172 L23.358 55.172 L22.645 54.46 L23.358 53.748 L26.588 53.748 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="26.588" y="54.46" font-size="0.95" text-anchor="end" dominant-baseline="central">VOL_A</text>
+<path class="sch-glabel-box" d="M27.3 57 L26.588 57.712 L23.358 57.712 L22.645 57 L23.358 56.288 L26.588 56.288 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="26.588" y="57" font-size="0.95" text-anchor="end" dominant-baseline="central">VOL_B</text>
+<path class="sch-glabel-box" d="M27.3 59.54 L26.588 60.252 L24.649 60.252 L23.937 59.54 L24.649 58.828 L26.588 58.828 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="26.588" y="59.54" font-size="0.95" text-anchor="end" dominant-baseline="central">GND</text>
+<path class="sch-glabel-box" d="M27.3 62.08 L26.588 62.792 L24.649 62.792 L23.937 62.08 L24.649 61.367 L26.588 61.367 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="26.588" y="62.08" font-size="0.95" text-anchor="end" dominant-baseline="central">GND</text>
+<path class="sch-glabel-box" d="M52.7 57 L53.413 56.288 L55.997 56.288 L56.709 57 L55.997 57.712 L53.413 57.712 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="53.413" y="57" font-size="0.95" text-anchor="start" dominant-baseline="central">COL0</text>
+<path class="sch-glabel-box" d="M52.7 59.54 L53.413 58.828 L57.934 58.828 L58.647 59.54 L57.934 60.252 L53.413 60.252 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="53.413" y="59.54" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_0_0</text>
+<path class="sch-glabel-box" d="M74.38 65 L73.667 65.713 L69.145 65.713 L68.433 65 L69.145 64.287 L73.667 64.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="73.667" y="65" font-size="0.95" text-anchor="end" dominant-baseline="central">KEY_0_0</text>
+<path class="sch-glabel-box" d="M89.62 65 L90.333 64.287 L92.916 64.287 L93.629 65 L92.916 65.713 L90.333 65.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="90.333" y="65" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW0</text>
+<path class="sch-glabel-box" d="M130.38 57 L129.667 57.712 L127.084 57.712 L126.371 57 L127.084 56.288 L129.667 56.288 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="129.667" y="57" font-size="0.95" text-anchor="end" dominant-baseline="central">COL1</text>
+<path class="sch-glabel-box" d="M179.62 57 L180.333 56.288 L182.917 56.288 L183.629 57 L182.917 57.712 L180.333 57.712 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="180.333" y="57" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW0</text>
+<path class="sch-glabel-box" d="M143.08 57 L143.793 56.288 L148.315 56.288 L149.027 57 L148.315 57.712 L143.793 57.712 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="143.793" y="57" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_0_1</text>
+<path class="sch-glabel-box" d="M228.38 57 L227.667 57.712 L225.083 57.712 L224.371 57 L225.083 56.288 L227.667 56.288 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="227.667" y="57" font-size="0.95" text-anchor="end" dominant-baseline="central">COL2</text>
+<path class="sch-glabel-box" d="M277.62 57 L278.332 56.288 L280.916 56.288 L281.629 57 L280.916 57.712 L278.332 57.712 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="278.332" y="57" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW0</text>
+<path class="sch-glabel-box" d="M241.08 57 L241.793 56.288 L246.315 56.288 L247.027 57 L246.315 57.712 L241.793 57.712 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="241.793" y="57" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_0_2</text>
+<path class="sch-glabel-box" d="M326.38 57 L325.668 57.712 L323.084 57.712 L322.371 57 L323.084 56.288 L325.668 56.288 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="325.668" y="57" font-size="0.95" text-anchor="end" dominant-baseline="central">COL3</text>
+<path class="sch-glabel-box" d="M375.62 57 L376.332 56.288 L378.916 56.288 L379.629 57 L378.916 57.712 L376.332 57.712 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="376.332" y="57" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW0</text>
+<path class="sch-glabel-box" d="M339.08 57 L339.792 56.288 L344.315 56.288 L345.027 57 L344.315 57.712 L339.792 57.712 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="339.792" y="57" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_0_3</text>
+<path class="sch-glabel-box" d="M32.38 92 L31.668 92.713 L29.084 92.713 L28.371 92 L29.084 91.287 L31.668 91.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="31.668" y="92" font-size="0.95" text-anchor="end" dominant-baseline="central">COL4</text>
+<path class="sch-glabel-box" d="M81.62 92 L82.333 91.287 L84.916 91.287 L85.629 92 L84.916 92.713 L82.333 92.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="82.333" y="92" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW0</text>
+<path class="sch-glabel-box" d="M45.08 92 L45.792 91.287 L50.314 91.287 L51.027 92 L50.314 92.713 L45.792 92.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="45.792" y="92" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_0_4</text>
+<path class="sch-glabel-box" d="M130.38 92 L129.667 92.713 L127.084 92.713 L126.371 92 L127.084 91.287 L129.667 91.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="129.667" y="92" font-size="0.95" text-anchor="end" dominant-baseline="central">COL5</text>
+<path class="sch-glabel-box" d="M179.62 92 L180.333 91.287 L182.917 91.287 L183.629 92 L182.917 92.713 L180.333 92.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="180.333" y="92" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW0</text>
+<path class="sch-glabel-box" d="M143.08 92 L143.793 91.287 L148.315 91.287 L149.027 92 L148.315 92.713 L143.793 92.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="143.793" y="92" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_0_5</text>
+<path class="sch-glabel-box" d="M228.38 92 L227.667 92.713 L225.083 92.713 L224.371 92 L225.083 91.287 L227.667 91.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="227.667" y="92" font-size="0.95" text-anchor="end" dominant-baseline="central">COL6</text>
+<path class="sch-glabel-box" d="M277.62 92 L278.332 91.287 L280.916 91.287 L281.629 92 L280.916 92.713 L278.332 92.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="278.332" y="92" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW0</text>
+<path class="sch-glabel-box" d="M241.08 92 L241.793 91.287 L246.315 91.287 L247.027 92 L246.315 92.713 L241.793 92.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="241.793" y="92" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_0_6</text>
+<path class="sch-glabel-box" d="M326.38 92 L325.668 92.713 L323.084 92.713 L322.371 92 L323.084 91.287 L325.668 91.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="325.668" y="92" font-size="0.95" text-anchor="end" dominant-baseline="central">COL7</text>
+<path class="sch-glabel-box" d="M375.62 92 L376.332 91.287 L378.916 91.287 L379.629 92 L378.916 92.713 L376.332 92.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="376.332" y="92" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW0</text>
+<path class="sch-glabel-box" d="M339.08 92 L339.792 91.287 L344.315 91.287 L345.027 92 L344.315 92.713 L339.792 92.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="339.792" y="92" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_0_7</text>
+<path class="sch-glabel-box" d="M32.38 127 L31.668 127.713 L29.084 127.713 L28.371 127 L29.084 126.287 L31.668 126.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="31.668" y="127" font-size="0.95" text-anchor="end" dominant-baseline="central">COL8</text>
+<path class="sch-glabel-box" d="M81.62 127 L82.333 126.287 L84.916 126.287 L85.629 127 L84.916 127.713 L82.333 127.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="82.333" y="127" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW0</text>
+<path class="sch-glabel-box" d="M45.08 127 L45.792 126.287 L50.314 126.287 L51.027 127 L50.314 127.713 L45.792 127.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="45.792" y="127" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_0_8</text>
+<path class="sch-glabel-box" d="M130.38 127 L129.667 127.713 L127.084 127.713 L126.371 127 L127.084 126.287 L129.667 126.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="129.667" y="127" font-size="0.95" text-anchor="end" dominant-baseline="central">COL9</text>
+<path class="sch-glabel-box" d="M179.62 127 L180.333 126.287 L182.917 126.287 L183.629 127 L182.917 127.713 L180.333 127.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="180.333" y="127" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW0</text>
+<path class="sch-glabel-box" d="M143.08 127 L143.793 126.287 L148.315 126.287 L149.027 127 L148.315 127.713 L143.793 127.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="143.793" y="127" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_0_9</text>
+<path class="sch-glabel-box" d="M228.38 127 L227.667 127.713 L224.438 127.713 L223.725 127 L224.438 126.287 L227.667 126.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="227.667" y="127" font-size="0.95" text-anchor="end" dominant-baseline="central">COL10</text>
+<path class="sch-glabel-box" d="M277.62 127 L278.332 126.287 L280.916 126.287 L281.629 127 L280.916 127.713 L278.332 127.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="278.332" y="127" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW0</text>
+<path class="sch-glabel-box" d="M241.08 127 L241.793 126.287 L246.961 126.287 L247.673 127 L246.961 127.713 L241.793 127.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="241.793" y="127" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_0_10</text>
+<path class="sch-glabel-box" d="M326.38 127 L325.668 127.713 L322.438 127.713 L321.725 127 L322.438 126.287 L325.668 126.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="325.668" y="127" font-size="0.95" text-anchor="end" dominant-baseline="central">COL11</text>
+<path class="sch-glabel-box" d="M375.62 127 L376.332 126.287 L378.916 126.287 L379.629 127 L378.916 127.713 L376.332 127.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="376.332" y="127" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW0</text>
+<path class="sch-glabel-box" d="M339.08 127 L339.792 126.287 L344.96 126.287 L345.673 127 L344.96 127.713 L339.792 127.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="339.792" y="127" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_0_11</text>
+<path class="sch-glabel-box" d="M32.38 162 L31.668 162.713 L29.084 162.713 L28.371 162 L29.084 161.287 L31.668 161.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="31.668" y="162" font-size="0.95" text-anchor="end" dominant-baseline="central">COL0</text>
+<path class="sch-glabel-box" d="M81.62 162 L82.333 161.287 L84.916 161.287 L85.629 162 L84.916 162.713 L82.333 162.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="82.333" y="162" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW1</text>
+<path class="sch-glabel-box" d="M45.08 162 L45.792 161.287 L50.314 161.287 L51.027 162 L50.314 162.713 L45.792 162.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="45.792" y="162" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_1_0</text>
+<path class="sch-glabel-box" d="M130.38 162 L129.667 162.713 L127.084 162.713 L126.371 162 L127.084 161.287 L129.667 161.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="129.667" y="162" font-size="0.95" text-anchor="end" dominant-baseline="central">COL1</text>
+<path class="sch-glabel-box" d="M179.62 162 L180.333 161.287 L182.917 161.287 L183.629 162 L182.917 162.713 L180.333 162.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="180.333" y="162" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW1</text>
+<path class="sch-glabel-box" d="M143.08 162 L143.793 161.287 L148.315 161.287 L149.027 162 L148.315 162.713 L143.793 162.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="143.793" y="162" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_1_1</text>
+<path class="sch-glabel-box" d="M228.38 162 L227.667 162.713 L225.083 162.713 L224.371 162 L225.083 161.287 L227.667 161.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="227.667" y="162" font-size="0.95" text-anchor="end" dominant-baseline="central">COL2</text>
+<path class="sch-glabel-box" d="M277.62 162 L278.332 161.287 L280.916 161.287 L281.629 162 L280.916 162.713 L278.332 162.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="278.332" y="162" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW1</text>
+<path class="sch-glabel-box" d="M241.08 162 L241.793 161.287 L246.315 161.287 L247.027 162 L246.315 162.713 L241.793 162.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="241.793" y="162" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_1_2</text>
+<path class="sch-glabel-box" d="M326.38 162 L325.668 162.713 L323.084 162.713 L322.371 162 L323.084 161.287 L325.668 161.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="325.668" y="162" font-size="0.95" text-anchor="end" dominant-baseline="central">COL3</text>
+<path class="sch-glabel-box" d="M375.62 162 L376.332 161.287 L378.916 161.287 L379.629 162 L378.916 162.713 L376.332 162.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="376.332" y="162" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW1</text>
+<path class="sch-glabel-box" d="M339.08 162 L339.792 161.287 L344.315 161.287 L345.027 162 L344.315 162.713 L339.792 162.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="339.792" y="162" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_1_3</text>
+<path class="sch-glabel-box" d="M32.38 197 L31.668 197.713 L29.084 197.713 L28.371 197 L29.084 196.287 L31.668 196.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="31.668" y="197" font-size="0.95" text-anchor="end" dominant-baseline="central">COL4</text>
+<path class="sch-glabel-box" d="M81.62 197 L82.333 196.287 L84.916 196.287 L85.629 197 L84.916 197.713 L82.333 197.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="82.333" y="197" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW1</text>
+<path class="sch-glabel-box" d="M45.08 197 L45.792 196.287 L50.314 196.287 L51.027 197 L50.314 197.713 L45.792 197.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="45.792" y="197" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_1_4</text>
+<path class="sch-glabel-box" d="M130.38 197 L129.667 197.713 L127.084 197.713 L126.371 197 L127.084 196.287 L129.667 196.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="129.667" y="197" font-size="0.95" text-anchor="end" dominant-baseline="central">COL5</text>
+<path class="sch-glabel-box" d="M179.62 197 L180.333 196.287 L182.917 196.287 L183.629 197 L182.917 197.713 L180.333 197.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="180.333" y="197" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW1</text>
+<path class="sch-glabel-box" d="M143.08 197 L143.793 196.287 L148.315 196.287 L149.027 197 L148.315 197.713 L143.793 197.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="143.793" y="197" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_1_5</text>
+<path class="sch-glabel-box" d="M228.38 197 L227.667 197.713 L225.083 197.713 L224.371 197 L225.083 196.287 L227.667 196.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="227.667" y="197" font-size="0.95" text-anchor="end" dominant-baseline="central">COL6</text>
+<path class="sch-glabel-box" d="M277.62 197 L278.332 196.287 L280.916 196.287 L281.629 197 L280.916 197.713 L278.332 197.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="278.332" y="197" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW1</text>
+<path class="sch-glabel-box" d="M241.08 197 L241.793 196.287 L246.315 196.287 L247.027 197 L246.315 197.713 L241.793 197.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="241.793" y="197" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_1_6</text>
+<path class="sch-glabel-box" d="M326.38 197 L325.668 197.713 L323.084 197.713 L322.371 197 L323.084 196.287 L325.668 196.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="325.668" y="197" font-size="0.95" text-anchor="end" dominant-baseline="central">COL7</text>
+<path class="sch-glabel-box" d="M375.62 197 L376.332 196.287 L378.916 196.287 L379.629 197 L378.916 197.713 L376.332 197.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="376.332" y="197" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW1</text>
+<path class="sch-glabel-box" d="M339.08 197 L339.792 196.287 L344.315 196.287 L345.027 197 L344.315 197.713 L339.792 197.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="339.792" y="197" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_1_7</text>
+<path class="sch-glabel-box" d="M32.38 232 L31.668 232.713 L29.084 232.713 L28.371 232 L29.084 231.287 L31.668 231.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="31.668" y="232" font-size="0.95" text-anchor="end" dominant-baseline="central">COL8</text>
+<path class="sch-glabel-box" d="M81.62 232 L82.333 231.287 L84.916 231.287 L85.629 232 L84.916 232.713 L82.333 232.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="82.333" y="232" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW1</text>
+<path class="sch-glabel-box" d="M45.08 232 L45.792 231.287 L50.314 231.287 L51.027 232 L50.314 232.713 L45.792 232.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="45.792" y="232" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_1_8</text>
+<path class="sch-glabel-box" d="M130.38 232 L129.667 232.713 L127.084 232.713 L126.371 232 L127.084 231.287 L129.667 231.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="129.667" y="232" font-size="0.95" text-anchor="end" dominant-baseline="central">COL9</text>
+<path class="sch-glabel-box" d="M179.62 232 L180.333 231.287 L182.917 231.287 L183.629 232 L182.917 232.713 L180.333 232.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="180.333" y="232" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW1</text>
+<path class="sch-glabel-box" d="M143.08 232 L143.793 231.287 L148.315 231.287 L149.027 232 L148.315 232.713 L143.793 232.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="143.793" y="232" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_1_9</text>
+<path class="sch-glabel-box" d="M228.38 232 L227.667 232.713 L224.438 232.713 L223.725 232 L224.438 231.287 L227.667 231.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="227.667" y="232" font-size="0.95" text-anchor="end" dominant-baseline="central">COL10</text>
+<path class="sch-glabel-box" d="M277.62 232 L278.332 231.287 L280.916 231.287 L281.629 232 L280.916 232.713 L278.332 232.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="278.332" y="232" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW1</text>
+<path class="sch-glabel-box" d="M241.08 232 L241.793 231.287 L246.961 231.287 L247.673 232 L246.961 232.713 L241.793 232.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="241.793" y="232" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_1_10</text>
+<path class="sch-glabel-box" d="M326.38 232 L325.668 232.713 L322.438 232.713 L321.725 232 L322.438 231.287 L325.668 231.287 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="325.668" y="232" font-size="0.95" text-anchor="end" dominant-baseline="central">COL11</text>
+<path class="sch-glabel-box" d="M375.62 232 L376.332 231.287 L378.916 231.287 L379.629 232 L378.916 232.713 L376.332 232.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="376.332" y="232" font-size="0.95" text-anchor="start" dominant-baseline="central">ROW1</text>
+<path class="sch-glabel-box" d="M339.08 232 L339.792 231.287 L344.96 231.287 L345.673 232 L344.96 232.713 L339.792 232.713 Z" stroke-width="0.15"/>
+<text class="sch-glabel" x="339.792" y="232" font-size="0.95" text-anchor="start" dominant-baseline="central">KEY_1_11</text>
+<text class="sch-note sch-heading" x="16" y="17" font-size="3.3" text-anchor="start" dominant-baseline="central">Scan matrix / rows 0 and 1</text>
+<text class="sch-note" x="16" y="26" font-size="1.45" text-anchor="start" dominant-baseline="central">Current path: column, switch, diode anode, banded cathode, row. Encoder A/B channels are independent of their push switches.</text>
+<text class="sch-note" x="19" y="45" font-size="1.25" text-anchor="start" dominant-baseline="central">R0C0</text>
+<text class="sch-note" x="117" y="45" font-size="1.25" text-anchor="start" dominant-baseline="central">R0C1</text>
+<text class="sch-note" x="215" y="45" font-size="1.25" text-anchor="start" dominant-baseline="central">R0C2</text>
+<text class="sch-note" x="313" y="45" font-size="1.25" text-anchor="start" dominant-baseline="central">R0C3</text>
+<text class="sch-note" x="19" y="80" font-size="1.25" text-anchor="start" dominant-baseline="central">R0C4</text>
+<text class="sch-note" x="117" y="80" font-size="1.25" text-anchor="start" dominant-baseline="central">R0C5</text>
+<text class="sch-note" x="215" y="80" font-size="1.25" text-anchor="start" dominant-baseline="central">R0C6</text>
+<text class="sch-note" x="313" y="80" font-size="1.25" text-anchor="start" dominant-baseline="central">R0C7</text>
+<text class="sch-note" x="19" y="115" font-size="1.25" text-anchor="start" dominant-baseline="central">R0C8</text>
+<text class="sch-note" x="117" y="115" font-size="1.25" text-anchor="start" dominant-baseline="central">R0C9</text>
+<text class="sch-note" x="215" y="115" font-size="1.25" text-anchor="start" dominant-baseline="central">R0C10</text>
+<text class="sch-note" x="313" y="115" font-size="1.25" text-anchor="start" dominant-baseline="central">R0C11</text>
+<text class="sch-note" x="19" y="150" font-size="1.25" text-anchor="start" dominant-baseline="central">R1C0</text>
+<text class="sch-note" x="117" y="150" font-size="1.25" text-anchor="start" dominant-baseline="central">R1C1</text>
+<text class="sch-note" x="215" y="150" font-size="1.25" text-anchor="start" dominant-baseline="central">R1C2</text>
+<text class="sch-note" x="313" y="150" font-size="1.25" text-anchor="start" dominant-baseline="central">R1C3</text>
+<text class="sch-note" x="19" y="185" font-size="1.25" text-anchor="start" dominant-baseline="central">R1C4</text>
+<text class="sch-note" x="117" y="185" font-size="1.25" text-anchor="start" dominant-baseline="central">R1C5</text>
+<text class="sch-note" x="215" y="185" font-size="1.25" text-anchor="start" dominant-baseline="central">R1C6</text>
+<text class="sch-note" x="313" y="185" font-size="1.25" text-anchor="start" dominant-baseline="central">R1C7</text>
+<text class="sch-note" x="19" y="220" font-size="1.25" text-anchor="start" dominant-baseline="central">R1C8</text>
+<text class="sch-note" x="117" y="220" font-size="1.25" text-anchor="start" dominant-baseline="central">R1C9</text>
+<text class="sch-note" x="215" y="220" font-size="1.25" text-anchor="start" dominant-baseline="central">R1C10</text>
+<text class="sch-note" x="313" y="220" font-size="1.25" text-anchor="start" dominant-baseline="central">R1C11</text>
+</svg>

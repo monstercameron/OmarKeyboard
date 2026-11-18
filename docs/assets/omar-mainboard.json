@@ -1,0 +1,1683 @@
+{
+ "board": {
+  "width_mm": 405.81,
+  "height_mm": 120.06,
+  "origin": [
+   -0.5,
+   -0.5
+  ]
+ },
+ "counts": {
+  "segments": 4744,
+  "arcs": 0,
+  "vias": 522,
+  "footprints": 450
+ },
+ "parts": [
+  {
+   "ref": "U1",
+   "value": "RP2040",
+   "footprint": "Package_DFN_QFN:QFN-56-1EP_7x7mm_P0.4mm_EP3.2x3.2mm",
+   "side": "F",
+   "x": 342.0,
+   "y": 40.0,
+   "angle": 0.0,
+   "bbox": [
+    337.52,
+    35.52,
+    346.48,
+    44.48
+   ]
+  },
+  {
+   "ref": "U2",
+   "value": "W25Q16JVSSIQ",
+   "footprint": "Package_SO:SOIC-8W_5.3x5.3mm_P1.27mm",
+   "side": "F",
+   "x": 330.0,
+   "y": 32.0,
+   "angle": 0.0,
+   "bbox": [
+    324.9,
+    29.17,
+    335.1,
+    34.83
+   ]
+  },
+  {
+   "ref": "U3",
+   "value": "AP2112K-3.3",
+   "footprint": "Package_TO_SOT_SMD:SOT-23-5",
+   "side": "F",
+   "x": 358.0,
+   "y": 32.0,
+   "angle": 0.0,
+   "bbox": [
+    355.6,
+    30.15,
+    360.4,
+    33.85
+   ]
+  },
+  {
+   "ref": "U4",
+   "value": "SN74AHCT1G125",
+   "footprint": "Package_TO_SOT_SMD:SOT-23-5",
+   "side": "F",
+   "x": 360.0,
+   "y": 48.0,
+   "angle": 0.0,
+   "bbox": [
+    357.6,
+    46.15,
+    362.4,
+    49.85
+   ]
+  },
+  {
+   "ref": "U5",
+   "value": "TPS22919DCKR",
+   "footprint": "Package_TO_SOT_SMD:SOT-363_SC-70-6",
+   "side": "F",
+   "x": 366.5,
+   "y": 40.0,
+   "angle": 0.0,
+   "bbox": [
+    364.62,
+    38.55,
+    368.38,
+    41.45
+   ]
+  },
+  {
+   "ref": "Y1",
+   "value": "ABM8-272-T3 / 12 MHz",
+   "footprint": "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm",
+   "side": "F",
+   "x": 340.0,
+   "y": 51.0,
+   "angle": 0.0,
+   "bbox": [
+    337.6,
+    48.95,
+    342.4,
+    53.05
+   ]
+  },
+  {
+   "ref": "J1",
+   "value": "USB carrier / solder link",
+   "footprint": "Omar:Wire_4_P1.5",
+   "side": "F",
+   "x": 348.5,
+   "y": 24.5,
+   "angle": 180.0,
+   "bbox": [
+    342.8,
+    23.3,
+    349.7,
+    25.7
+   ]
+  },
+  {
+   "ref": "J2",
+   "value": "Roller A COM B",
+   "footprint": "Omar:Wire_3_P1.5",
+   "side": "F",
+   "x": 371.5,
+   "y": 53.9,
+   "angle": 0.0,
+   "bbox": [
+    370.3,
+    52.7,
+    375.7,
+    55.1
+   ]
+  },
+  {
+   "ref": "ENC1",
+   "value": "PEC11R-4220F-S0024",
+   "footprint": "Omar:PEC11R_4xxxF_S",
+   "side": "F",
+   "x": 9.53,
+   "y": 9.53,
+   "angle": 0.0,
+   "bbox": [
+    1.73,
+    1.0,
+    17.33,
+    18.55
+   ]
+  },
+  {
+   "ref": "ENC2",
+   "value": "PEC11R-4220F-S0024",
+   "footprint": "Omar:PEC11R_4xxxF_S",
+   "side": "F",
+   "x": 395.29,
+   "y": 9.53,
+   "angle": 0.0,
+   "bbox": [
+    387.49,
+    1.0,
+    403.09,
+    18.55
+   ]
+  },
+  {
+   "ref": "SW93",
+   "value": "BOOTSEL",
+   "footprint": "Button_Switch_SMD:SW_SPST_PTS810",
+   "side": "F",
+   "x": 311.0,
+   "y": 21.2,
+   "angle": 0.0,
+   "bbox": [
+    307.8,
+    19.2,
+    314.2,
+    23.2
+   ]
+  },
+  {
+   "ref": "SW94",
+   "value": "RESET",
+   "footprint": "Button_Switch_SMD:SW_SPST_PTS810",
+   "side": "F",
+   "x": 324.0,
+   "y": 21.2,
+   "angle": 0.0,
+   "bbox": [
+    320.8,
+    19.2,
+    327.2,
+    23.2
+   ]
+  },
+  {
+   "ref": "LED1",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 45.24,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    40.74,
+    64.6,
+    49.74,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED2",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 57.15,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    52.65,
+    2.69,
+    61.65,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED3",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 76.2,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    71.7,
+    2.69,
+    80.7,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED4",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 95.25,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    90.75,
+    2.69,
+    99.75,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED5",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 114.3,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    109.8,
+    2.69,
+    118.8,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED6",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 133.35,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    128.85,
+    2.69,
+    137.85,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED7",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 176.21,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    171.71,
+    2.69,
+    180.71,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED8",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 204.79,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    200.29,
+    2.69,
+    209.29,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED9",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 285.75,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    281.25,
+    2.69,
+    290.25,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED10",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 395.29,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    390.79,
+    83.65,
+    399.79,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED11",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 395.29,
+   "y": 104.46,
+   "angle": 0.0,
+   "bbox": [
+    390.79,
+    102.7,
+    399.79,
+    106.22
+   ]
+  },
+  {
+   "ref": "LED12",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 366.71,
+   "y": 104.46,
+   "angle": 0.0,
+   "bbox": [
+    362.21,
+    102.7,
+    371.21,
+    106.22
+   ]
+  },
+  {
+   "ref": "LED13",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 347.66,
+   "y": 104.46,
+   "angle": 0.0,
+   "bbox": [
+    343.16,
+    102.7,
+    352.16,
+    106.22
+   ]
+  },
+  {
+   "ref": "LED14",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 328.61,
+   "y": 104.46,
+   "angle": 0.0,
+   "bbox": [
+    324.11,
+    102.7,
+    333.11,
+    106.22
+   ]
+  },
+  {
+   "ref": "LED15",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 347.66,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    343.16,
+    83.65,
+    352.16,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED16",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 38.1,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    33.6,
+    2.69,
+    42.6,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED17",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 152.4,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    147.9,
+    2.69,
+    156.9,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED18",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 228.6,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    224.1,
+    2.69,
+    233.1,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED19",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 247.65,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    243.15,
+    2.69,
+    252.15,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED20",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 266.7,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    262.2,
+    2.69,
+    271.2,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED21",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 304.8,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    300.3,
+    2.69,
+    309.3,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED22",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 328.61,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    324.11,
+    2.69,
+    333.11,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED23",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 347.66,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    343.16,
+    2.69,
+    352.16,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED24",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 366.71,
+   "y": 4.45,
+   "angle": 0.0,
+   "bbox": [
+    362.21,
+    2.69,
+    371.21,
+    6.21
+   ]
+  },
+  {
+   "ref": "LED25",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 9.53,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    5.03,
+    26.5,
+    14.03,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED26",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 38.1,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    33.6,
+    26.5,
+    42.6,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED27",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 57.15,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    52.65,
+    26.5,
+    61.65,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED28",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 76.2,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    71.7,
+    26.5,
+    80.7,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED29",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 95.25,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    90.75,
+    26.5,
+    99.75,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED30",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 114.3,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    109.8,
+    26.5,
+    118.8,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED31",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 133.35,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    128.85,
+    26.5,
+    137.85,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED32",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 152.4,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    147.9,
+    26.5,
+    156.9,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED33",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 171.45,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    166.95,
+    26.5,
+    175.95,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED34",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 190.5,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    186.0,
+    26.5,
+    195.0,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED35",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 209.55,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    205.05,
+    26.5,
+    214.05,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED36",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 228.6,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    224.1,
+    26.5,
+    233.1,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED37",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 247.65,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    243.15,
+    26.5,
+    252.15,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED38",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 266.7,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    262.2,
+    26.5,
+    271.2,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED39",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 295.28,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    290.78,
+    26.5,
+    299.78,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED40",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 395.29,
+   "y": 28.26,
+   "angle": 0.0,
+   "bbox": [
+    390.79,
+    26.5,
+    399.79,
+    30.02
+   ]
+  },
+  {
+   "ref": "LED41",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 9.53,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    5.03,
+    45.55,
+    14.03,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED42",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 42.86,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    38.36,
+    45.55,
+    47.36,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED43",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 66.68,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    62.18,
+    45.55,
+    71.18,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED44",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 85.73,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    81.23,
+    45.55,
+    90.23,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED45",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 104.78,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    100.28,
+    45.55,
+    109.28,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED46",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 123.83,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    119.33,
+    45.55,
+    128.33,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED47",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 142.88,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    138.38,
+    45.55,
+    147.38,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED48",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 161.93,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    157.43,
+    45.55,
+    166.43,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED49",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 180.98,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    176.48,
+    45.55,
+    185.48,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED50",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 200.03,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    195.53,
+    45.55,
+    204.53,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED51",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 219.08,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    214.58,
+    45.55,
+    223.58,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED52",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 238.13,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    233.63,
+    45.55,
+    242.63,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED53",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 257.18,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    252.68,
+    45.55,
+    261.68,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED54",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 276.23,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    271.73,
+    45.55,
+    280.73,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED55",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 300.04,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    295.54,
+    45.55,
+    304.54,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED56",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 395.29,
+   "y": 47.31,
+   "angle": 0.0,
+   "bbox": [
+    390.79,
+    45.55,
+    399.79,
+    49.07
+   ]
+  },
+  {
+   "ref": "LED57",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 9.53,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    5.03,
+    64.6,
+    14.03,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED58",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 71.44,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    66.94,
+    64.6,
+    75.94,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED59",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 90.49,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    85.99,
+    64.6,
+    94.99,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED60",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 109.54,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    105.04,
+    64.6,
+    114.04,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED61",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 128.59,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    124.09,
+    64.6,
+    133.09,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED62",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 147.64,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    143.14,
+    64.6,
+    152.14,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED63",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 166.69,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    162.19,
+    64.6,
+    171.19,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED64",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 185.74,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    181.24,
+    64.6,
+    190.24,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED65",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 204.79,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    200.29,
+    64.6,
+    209.29,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED66",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 223.84,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    219.34,
+    64.6,
+    228.34,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED67",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 242.89,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    238.39,
+    64.6,
+    247.39,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED68",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 261.94,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    257.44,
+    64.6,
+    266.44,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED69",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 292.89,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    288.39,
+    64.6,
+    297.39,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED70",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 395.29,
+   "y": 66.36,
+   "angle": 0.0,
+   "bbox": [
+    390.79,
+    64.6,
+    399.79,
+    68.12
+   ]
+  },
+  {
+   "ref": "LED71",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 9.53,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    5.03,
+    83.65,
+    14.03,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED72",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 50.01,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    45.51,
+    83.65,
+    54.51,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED73",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 80.96,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    76.46,
+    83.65,
+    85.46,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED74",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 100.01,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    95.51,
+    83.65,
+    104.51,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED75",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 119.06,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    114.56,
+    83.65,
+    123.56,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED76",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 138.11,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    133.61,
+    83.65,
+    142.61,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED77",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 157.16,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    152.66,
+    83.65,
+    161.66,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED78",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 176.21,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    171.71,
+    83.65,
+    180.71,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED79",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 195.26,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    190.76,
+    83.65,
+    199.76,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED80",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 214.31,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    209.81,
+    83.65,
+    218.81,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED81",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 233.36,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    228.86,
+    83.65,
+    237.86,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED82",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 252.41,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    247.91,
+    83.65,
+    256.91,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED83",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 288.13,
+   "y": 85.41,
+   "angle": 0.0,
+   "bbox": [
+    283.63,
+    83.65,
+    292.63,
+    87.17
+   ]
+  },
+  {
+   "ref": "LED84",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 9.53,
+   "y": 104.46,
+   "angle": 0.0,
+   "bbox": [
+    5.03,
+    102.7,
+    14.03,
+    106.22
+   ]
+  },
+  {
+   "ref": "LED85",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 42.86,
+   "y": 104.46,
+   "angle": 0.0,
+   "bbox": [
+    38.36,
+    102.7,
+    47.36,
+    106.22
+   ]
+  },
+  {
+   "ref": "LED86",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 73.82,
+   "y": 104.46,
+   "angle": 0.0,
+   "bbox": [
+    69.32,
+    102.7,
+    78.32,
+    106.22
+   ]
+  },
+  {
+   "ref": "LED87",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 150.02,
+   "y": 104.46,
+   "angle": 0.0,
+   "bbox": [
+    145.52,
+    102.7,
+    154.52,
+    106.22
+   ]
+  },
+  {
+   "ref": "LED88",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 223.84,
+   "y": 104.46,
+   "angle": 0.0,
+   "bbox": [
+    219.34,
+    102.7,
+    228.34,
+    106.22
+   ]
+  },
+  {
+   "ref": "LED89",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 259.56,
+   "y": 104.46,
+   "angle": 0.0,
+   "bbox": [
+    255.06,
+    102.7,
+    264.06,
+    106.22
+   ]
+  },
+  {
+   "ref": "LED90",
+   "value": "SK6812MINI-E",
+   "footprint": "Omar:SK6812MINI_E_Rev02",
+   "side": "B",
+   "x": 297.66,
+   "y": 104.46,
+   "angle": 0.0,
+   "bbox": [
+    293.16,
+    102.7,
+    302.16,
+    106.22
+   ]
+  },
+  {
+   "ref": "TP1",
+   "value": "GND",
+   "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+   "side": "F",
+   "x": 350.0,
+   "y": 61.0,
+   "angle": 0.0,
+   "bbox": [
+    348.9,
+    59.9,
+    351.1,
+    62.1
+   ]
+  },
+  {
+   "ref": "TP2",
+   "value": "+3V3",
+   "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+   "side": "F",
+   "x": 353.0,
+   "y": 61.0,
+   "angle": 0.0,
+   "bbox": [
+    351.9,
+    59.9,
+    354.1,
+    62.1
+   ]
+  },
+  {
+   "ref": "TP3",
+   "value": "SWCLK",
+   "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+   "side": "F",
+   "x": 356.0,
+   "y": 61.0,
+   "angle": 0.0,
+   "bbox": [
+    354.9,
+    59.9,
+    357.1,
+    62.1
+   ]
+  },
+  {
+   "ref": "TP4",
+   "value": "SWDIO",
+   "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+   "side": "F",
+   "x": 359.0,
+   "y": 61.0,
+   "angle": 0.0,
+   "bbox": [
+    357.9,
+    59.9,
+    360.1,
+    62.1
+   ]
+  },
+  {
+   "ref": "TP5",
+   "value": "+5V",
+   "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+   "side": "F",
+   "x": 362.0,
+   "y": 61.0,
+   "angle": 0.0,
+   "bbox": [
+    360.9,
+    59.9,
+    363.1,
+    62.1
+   ]
+  },
+  {
+   "ref": "TP6",
+   "value": "+1V1",
+   "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+   "side": "F",
+   "x": 365.0,
+   "y": 61.0,
+   "angle": 0.0,
+   "bbox": [
+    363.9,
+    59.9,
+    366.1,
+    62.1
+   ]
+  },
+  {
+   "ref": "TP7",
+   "value": "LED_OUT",
+   "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+   "side": "F",
+   "x": 380.0,
+   "y": 98.0,
+   "angle": 0.0,
+   "bbox": [
+    378.9,
+    96.9,
+    381.1,
+    99.1
+   ]
+  },
+  {
+   "ref": "R1",
+   "value": "27R",
+   "footprint": "Resistor_SMD:R_0603_1608Metric",
+   "side": "F",
+   "x": 345.4,
+   "y": 31.2,
+   "angle": -90.0,
+   "bbox": [
+    344.32,
+    29.38,
+    346.47,
+    33.02
+   ]
+  },
+  {
+   "ref": "R2",
+   "value": "27R",
+   "footprint": "Resistor_SMD:R_0603_1608Metric",
+   "side": "F",
+   "x": 343.6,
+   "y": 31.2,
+   "angle": -90.0,
+   "bbox": [
+    342.53,
+    29.38,
+    344.68,
+    33.02
+   ]
+  }
+ ]
+}

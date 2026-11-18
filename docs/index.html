@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Omar, a keyboard for Omarchy</title>
-<meta name="description" content="Omar is a keyboard designed for Omarchy. Its everyday desktop commands have keys of their own, labeled with what they do, arranged around a standard US layout.">
-<meta property="og:title" content="Omar, a keyboard for Omarchy">
+<title>Omar-Keyboard, made for Omarchy</title>
+<meta name="description" content="Omar-Keyboard is a keyboard designed for Omarchy. Its everyday desktop commands have keys of their own, labeled with what they do, arranged around a standard US layout.">
+<meta property="og:title" content="Omar-Keyboard, made for Omarchy">
 <meta property="og:description" content="Desks, windows and launchers on labeled keys around a standard US layout.">
 <meta property="og:image" content="assets/omar-social.jpg">
 <meta name="color-scheme" content="light dark">
@@ -13,16 +13,44 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300..800;1,400&display=swap">
 <link rel="stylesheet" href="styles.css">
-<link rel="preload" href="assets/omar-render.webp" as="image">
+<link rel="stylesheet" href="circuit.css">
+<link rel="stylesheet" href="fun.css">
 <script type="module" src="vendor/model-viewer.min.js"></script>
 <script type="module" src="site.js"></script>
+<script type="module" src="play.js"></script>
+<script type="module" src="config.js"></script>
+<script type="module" src="circuit.js"></script>
+<script type="module" src="nav.js"></script>
+<script type="module" src="fun.js"></script>
 </head>
 <body>
+<button type="button" class="toc-toggle" aria-expanded="false" aria-controls="toc"><span class="toc-icon" aria-hidden="true"></span>Contents</button>
+<div class="toc-backdrop" hidden></div>
+<nav class="toc" id="toc" aria-label="Sections of this page" hidden>
+  <p class="toc-title">On this page</p>
+  <ol>
+    <li><a href="#top" data-target="hero">Omar-Keyboard</a></li>
+    <li><a href="#grammar">Omarchy’s shortcuts follow a pattern</a></li>
+    <li><a href="#edges">Three edges around a normal keyboard</a></li>
+    <li><a href="#desks">Five desks on the top row</a></li>
+    <li><a href="#windows">Windows under the right hand</a></li>
+    <li><a href="#room">What made room</a></li>
+    <li><a href="#touch">Dials and utility keys</a></li>
+    <li><a href="#stock">It uses Omarchy’s own shortcuts</a></li>
+    <li><a href="#try">Try it</a></li>
+    <li><a href="#inside">Inside the case</a></li>
+    <li><a href="#specs">The physical board</a></li>
+    <li><a href="#circuit">The circuit board</a></li>
+    <li><a href="#lights">A light under every key</a></li>
+    <li><a href="#parts">Parts and what the board needs</a></li>
+    <li><a href="#roadmap">Where it’s heading</a></li>
+    <li><a href="#configure">Configure the firmware</a></li>
+  </ol>
+</nav>
 <div class="stage">
   <model-viewer
     src="assets/omar-keyboard.glb"
-    poster="assets/omar-render.webp"
-    alt="Omar keyboard: a dark green case holding cream keys, with amber desk keys across the top, sage launcher keys down the left edge, blue-grey window keys down the right edge, a dial in each top corner and a ribbed scroll roller above the arrows"
+    alt="Omar-Keyboard: a dark green case holding cream keys, with amber desk keys across the top, sage launcher keys down the left edge, blue-grey window keys down the right edge, a dial in each top corner and a ribbed scroll roller above the arrows"
     camera-controls
     disable-zoom
     disable-pan
@@ -32,21 +60,46 @@
     camera-target="auto auto auto"
     field-of-view="30deg"
     min-camera-orbit="auto 0deg auto"
-    max-camera-orbit="auto 100deg auto"
+    max-camera-orbit="auto 100deg 400%"
     interpolation-decay="45"
     shadow-intensity="0.7"
     shadow-softness="0.9"
     exposure="1.05"
     loading="eager"
     reveal="auto">
+    <div slot="progress-bar"></div>
   </model-viewer>
+  <model-viewer
+    class="inner"
+    data-src="assets/omar-internals.glb"
+    alt="Omar-Keyboard opened into layers: keycaps, switches, an aluminium plate, a green circuit board and the tray"
+    camera-controls
+    disable-zoom
+    disable-pan
+    touch-action="pan-y"
+    interaction-prompt="none"
+    field-of-view="30deg"
+    min-camera-orbit="auto 0deg 0.03m"
+    max-camera-orbit="auto 180deg 400%"
+    interpolation-decay="45"
+    shadow-intensity="0.7"
+    shadow-softness="0.9"
+    exposure="1.05"
+    loading="eager"
+    reveal="auto">
+    <div slot="progress-bar"></div>
+  </model-viewer>
+  <div class="loader" role="progressbar" aria-label="Loading the 3D model" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <svg class="loader-board" viewBox="-4 -4 431 146" aria-hidden="true"></svg>
+    <p class="loader-label"><span class="loader-text">Loading the 3D model</span> <span class="loader-pct">0%</span></p>
+  </div>
   <p class="stage-caption" aria-live="polite"></p>
 </div>
 
 <main class="story">
 
 <header class="hero" data-view="hero">
-  <h1>Omar</h1>
+  <h1>Omar-<br>Keyboard</h1>
   <div class="hero-foot">
   <p class="dek">A keyboard for Omarchy. The commands you use to move around the desktop have keys of their own, labeled with what they do, around a standard US layout.</p>
   <p class="cue">Scroll, and the board turns to show each part as you read about it. Drag it to turn it yourself.</p>
@@ -56,16 +109,17 @@
 <section class="chapter" data-side="left" aria-labelledby="grammar">
   <div class="step" data-view="lean">
     <h2 id="grammar">Omarchy’s shortcuts follow a pattern</h2>
-    <p>Omarchy is an Arch Linux setup built on Hyprland, a tiling window manager: windows are laid side by side rather than stacked on top of each other, and each workspace is a separate screen of them. It is meant to be driven from the keyboard, with Super as the desktop modifier. Super and a digit shows that workspace. Super, Shift and the same digit carries the focused window there. Add Alt and the window goes on its own while you stay put. Super and an arrow moves focus in that direction, and with Shift the two windows trade places.</p>
-    <p>The pattern is easy to learn and awkward to type. Sending a window away and taking it with you differ by one held key, Alt, and every desktop action is a chord on keys whose legends name something else.</p>
-    <p>Omar takes the actions people repeat dozens of times an hour and gives each one a key that names its result. The desk and window keys send the corresponding Omarchy chords. You can also type those chords directly. Omar calls a workspace a desk.</p>
+    <p>Omarchy is an Arch Linux setup built on Hyprland, a tiling window manager that lays windows side by side instead of stacking them. Each workspace is a separate screen of windows, and you drive it all from the keyboard with Super as the desktop modifier.</p>
+    <p>Super and a digit shows that workspace. Super, Shift and the digit carries the focused window there. Add Alt and the window goes on its own while you stay put. Super and an arrow moves focus in that direction; add Shift and the two windows trade places.</p>
+    <p>Each action is one chord, and related actions differ by a single modifier. Sending a window away and going with it differ only by Alt, and none of the keys involved say what they do.</p>
+    <p>Omar-Keyboard gives the actions you repeat most a key each, labeled with the result. Each key sends the stock Omarchy chord, and the chords still work when typed by hand. On this keyboard a workspace is called a desk.</p>
   </div>
 </section>
 
 <section class="chapter" data-side="right" aria-labelledby="edges">
   <div class="step" data-view="above">
     <h2 id="edges">Three edges around a normal keyboard</h2>
-    <p>The center of Omar is the board you already type on: US QWERTY, a full number row, both Shift keys and a full spacebar. The desktop controls sit around it, and each edge has one job.</p>
+    <p>The center of the keyboard is the board you already type on: US QWERTY, a full number row, both Shift keys and a full spacebar. The desktop controls sit around it.</p>
     <dl class="edges">
     <div><dt>The left edge opens things</dt>
       <dd><kbd class="k launch">Guide</kbd> <kbd class="k launch">Browser</kbd> <kbd class="k launch">Menu</kbd> <kbd class="k launch">Terminal</kbd> <kbd class="k launch">Files</kbd></dd></div>
@@ -73,28 +127,28 @@
       <dd><kbd class="k desk">Desk 1</kbd> to <kbd class="k desk">Desk 5</kbd>, <kbd class="k desk">Last Desk</kbd>, <kbd class="k desk">Send &amp; Stay</kbd> and <kbd class="k desk">Move &amp; Go</kbd></dd></div>
     <div><dt>The right edge arranges windows</dt>
       <dd><kbd class="k window">Flip Split</kbd> <kbd class="k window">Float</kbd> <kbd class="k window">Fullscreen</kbd> <kbd class="k window">Swap</kbd> <kbd class="k window">Focus</kbd></dd></div>
-  </dl>
-    <p>Each group has its own cap color, for finding it by eye, and its own place on the board, for finding it by touch. A raised bar on <kbd class="k launch">Menu</kbd>, <kbd class="k window">Focus</kbd> and <kbd class="k desk">Desk 5</kbd> marks the end of each group for a finger working by touch, the same way the homing bars on F and J mark the home row.</p>
+    </dl>
+    <p>Each group has its own cap color, for finding it by eye, and its own place on the board, for finding it by touch. A raised bar on <kbd class="k launch">Menu</kbd>, <kbd class="k window">Focus</kbd> and <kbd class="k desk">Desk 5</kbd> marks the end of each group, like the bars on F and J.</p>
   </div>
 </section>
 
 <section class="chapter" data-side="left" aria-labelledby="desks">
   <div class="step" data-view="desks">
     <h2 id="desks">Five desks on the top row</h2>
-    <p>Omarchy gives every monitor ten workspaces. Omar labels the first five and puts <kbd class="k desk">Desk 1</kbd> to <kbd class="k desk">Desk 5</kbd> so each one sits directly above the digit it stands for. Super with a digit still works, workspaces six to ten are still there, and <kbd class="k desk">Last Desk</kbd> at the end of the group returns you to wherever you were before.</p>
+    <p>Omarchy gives each monitor ten workspaces. The keyboard labels the first five, <kbd class="k desk">Desk 1</kbd> to <kbd class="k desk">Desk 5</kbd>, each directly above its digit. Super with a digit still reaches all ten. <kbd class="k desk">Last Desk</kbd>, at the end of the group, returns you to the desk you were on before.</p>
   </div>
   <div class="step" data-view="transfers">
-    <p>Moving a window takes two taps. Tap <kbd class="k desk">Send &amp; Stay</kbd>, then a desk, and the window goes there while you keep working where you are. Tap <kbd class="k desk">Move &amp; Go</kbd>, then a desk, and you go with it. The keys name the result because, with chords alone, the only difference between the two is whether Alt was held.</p>
+    <p>Moving a window takes two taps. Tap <kbd class="k desk">Send &amp; Stay</kbd>, then a desk, and the window goes there while you keep working where you are. Tap <kbd class="k desk">Move &amp; Go</kbd>, then a desk, and you go with it. The keys name the result. With chords alone, the two differ only by Alt.</p>
   </div>
   <div class="step" data-view="desks">
-    <p>While a move is waiting, the five desk keys light up. It waits three seconds. Esc or a second tap on the same key cancels it. An arrow or any typing key cancels it and then does its usual job, so typing is never lost to a forgotten move. Holding a modifier, turning a dial or rolling the roller leaves it alone, so you can hold Shift or lower the volume in the middle of a move.</p>
+    <p>While a move is waiting, the five desk keys light up for three seconds. Esc or a second tap on the same key cancels it. An arrow or any typing key also cancels it and then does its usual job, so no keystroke is lost. Holding a modifier, turning a dial or rolling the roller leaves the move waiting, so you can hold Shift or lower the volume midway.</p>
   </div>
 </section>
 
 <section class="chapter" data-side="right" aria-labelledby="windows">
   <div class="step" data-view="next">
     <h2 id="windows">Windows under the right hand</h2>
-    <p><kbd class="k window">Next Window</kbd> sits beside the right Super key, where the right thumb can reach it. One tap moves to the next window on this desk. Shift goes the other way, and Fn goes back to the window you used last.</p>
+    <p><kbd class="k window">Next Window</kbd> sits beside the right Super key, where the right thumb can reach it. One tap moves to the next window on this desk. Shift goes the other way, and Fn with Next Window returns to the window you used last.</p>
   </div>
   <div class="step" data-view="corner">
     <p><kbd class="k window">Focus</kbd> and <kbd class="k window">Swap</kbd> sit in the bottom-right corner, beside the arrows, and work only while held. Hold <kbd class="k window">Focus</kbd> and press an arrow to move to the neighboring window, or hold <kbd class="k window">Swap</kbd> to trade places with it. Because they act only while held, brushing one by accident cannot turn the next arrow into a window command, and letting go hands the arrows straight back to the text cursor.</p>
@@ -108,7 +162,7 @@
   <div class="step" data-view="toprow">
     <h2 id="room">What made room</h2>
     <p>The edges needed space, and it came from three places: the function row, the six-key navigation block and the right-hand Ctrl.</p>
-    <p>Omar has no F1 to F12. The top row holds desks and utilities instead, and nothing on the Fn layer brings function keys back. Applications that depend on them need those shortcuts rebound. This is the largest compromise in the design. It suits Omarchy, where Super shortcuts do the work that function keys do elsewhere.</p>
+    <p>There is no F1 to F12. The top row holds desks and utilities instead, and nothing on the Fn layer brings function keys back. Applications that depend on them need their shortcuts rebound to other keys. This is the largest compromise in the design. It suits Omarchy, where Super shortcuts do the work that function keys do elsewhere.</p>
   </div>
   <div class="step" data-view="roller">
     <p>The navigation block became a scroll roller: a ribbed barrel 42&nbsp;mm wide above the arrows, broad enough to catch with whichever finger is nearest, with thirty soft detents to a turn. Pull it toward you to read further down a page. <kbd class="k">Delete</kbd> moved to the top row, directly above <kbd class="k">Backspace</kbd>, so the two directions of deleting share a column.</p>
@@ -124,10 +178,10 @@
 <section class="chapter" data-side="right" aria-labelledby="touch">
   <div class="step" data-view="dial">
     <h2 id="touch">Dials and utility keys</h2>
-    <p>The two corner dials are knurled aluminum knobs. The left one sets the volume and mutes the speakers when pressed. The right one sets screen brightness and, pressed, cycles the desk’s layout. <kbd class="k">Mic Mute</kbd> has its own key, so silencing your microphone never touches what you hear.</p>
+    <p>The two corner dials are knurled aluminum knobs on Bourns encoders with 24 clicks to a turn. The left one sets the volume and mutes the speakers when pressed. The right one sets screen brightness and, pressed, cycles the desk’s layout. <kbd class="k">Mic Mute</kbd> has its own key, so silencing your microphone never touches what you hear.</p>
   </div>
   <div class="step" data-view="lock">
-    <p><kbd class="k">Lock</kbd> ends the top row, next to the brightness dial, and is the one key there that interrupts your work. Its cap is about two millimeters lower than its neighbors and its switch takes 80 grams to press, so a finger sweeping along the row or reaching for the dial is unlikely to press it by accident.</p>
+    <p><kbd class="k">Lock</kbd> ends the top row, next to the brightness dial, and is the one key there that interrupts your work. Its cap is about two millimeters lower than its neighbors and its switch, a linear Cherry MX Grey, takes about 80 grams to press where the other keys take 55, so a finger sweeping along the row or reaching for the dial is unlikely to press it by accident.</p>
   </div>
   <div class="step" data-view="capture">
     <p><kbd class="k capture">Screenshot</kbd> and <kbd class="k">Grab Text</kbd> sit together. One captures an image of the screen; the other reads the text in a region and puts it on the clipboard as words you can paste.</p>
@@ -154,8 +208,41 @@
       <tr><td><kbd class="k">Clip History</kbd></td><td>Super + Ctrl + V</td></tr>
       <tr><td><kbd class="k">Lock</kbd></td><td>Super + Ctrl + L</td></tr>
     </tbody>
-  </table>
-    <p>Optional host bindings open the physical key guide, recall the last window on a desk and provide the pilot’s microphone toggle. A separate setting limits keyboard travel to the five labeled desks. A small helper program lets the desk keys show which desk is active and lets <kbd class="k">Mic Mute</kbd> show whether the microphone is live. Without it, the keys light only for what the keyboard itself knows.</p>
+    </table>
+    <p>A few extras need optional host bindings: the on-screen key guide, recalling the last window on a desk, and the microphone toggle on the pilot board. A separate setting limits keyboard travel to the five labeled desks. A small helper program lets the desk keys show which desk is active and lets <kbd class="k">Mic Mute</kbd> show whether the microphone is live. Without it, the lights show only what the keyboard can tell on its own.</p>
+  </div>
+</section>
+
+<section class="play" aria-labelledby="try">
+  <div class="play-hold" data-view="play">
+    <div class="play-pin">
+      <div class="play-panel">
+        <h2 id="try">Try it</h2>
+        <p class="play-intro">Click the keys on the board. The screen shows what Omarchy does with each one.</p>
+        <p class="play-hint">Start with <kbd class="k desk">Send &amp; Stay</kbd>, then <kbd class="k desk">Desk 3</kbd>, then <kbd class="k desk">Desk 3</kbd> again to follow the window. The real board needs <kbd class="k window">Focus</kbd> and <kbd class="k window">Swap</kbd> held while you press an arrow; here a click holds them for four seconds. Letters you type on your own keyboard go to the focused terminal.</p>
+        <p class="play-sent" aria-live="polite"><span class="play-key">Press a key on the board</span><span class="play-chord"></span></p>
+      </div>
+      <div class="monitor"><div class="screen" aria-label="Simulated Omarchy desktop"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" data-side="left" aria-labelledby="inside">
+  <div class="step" data-view="layers">
+    <h2 id="inside">Inside the case</h2>
+    <p>The board is built in five layers. From the bottom: the tray, the main circuit board, a 1.5&nbsp;mm aluminium plate that also carries the scroll roller, 89 tactile Gateron G Pro&nbsp;3.0 Brown switches with one heavier Cherry MX Grey for Lock, and the keycaps with the two dial knobs. The switches clip into the plate and push into sockets on the circuit board, so none of them is soldered in.</p>
+    <p>The board to build is Rev&nbsp;B.1. It keeps the Rev&nbsp;A outline, mounting holes and controller bay, which the 3D model on this page still shows, and adds a light under every key. Physical sample testing and the separate USB carrier design are still open.</p>
+  </div>
+  <div class="step" data-view="board">
+    <p>The main board is one sheet of FR4, 405.81 × 120.06 × 1.6&nbsp;mm, with its top 5&nbsp;mm below the plate. It has openings for every switch's pins and a light window under each of the 90 keys. It shares twelve M2 mounting holes with the plate, with two additional supports under the typing span. The tray leaves the Enter stabilizer clear.</p>
+    <p>To open the case, twelve M2 screws come out from the top, some under a keycap. The plate, switches and board then lift out together as one deck, with the roller still on the plate and the dials still soldered to the board.</p>
+  </div>
+  <div class="step" data-view="usb">
+    <p>The USB-C socket is not on the main board. It sits on a 20 × 7 × 1&nbsp;mm carrier in a pocket in the rear wall, directly behind Desk&nbsp;3, together with a fuse, a static-protection chip and the two resistors that let a USB-C host recognise the keyboard. Four wires run from the carrier to the main board, where the regulator, RP2040, 12&nbsp;MHz crystal and flash occupy the roller bay. The chip clears the tread by 2.00&nbsp;mm in the assembled model. Two small buttons, BOOT and RUN, are there for loading firmware.</p>
+    <p>Whether the plug seats fully, how well the carrier stays put when a cable is pulled, and how clean the USB signal is through the short harness can only be measured on a physical sample.</p>
+  </div>
+  <div class="step" data-view="sockets">
+    <p>Turned over, the board shows what the switches push into: 90 hot-swap sockets, and 92 diodes, one for each key and each dial press, so the controller can tell any combination of pressed keys apart. The 90 LEDs, one per key, are mounted upside down on this side and shine up through the windows into their keycaps. The roller's encoder runs its three wires down through a slot under the roller's bezel.</p>
   </div>
 </section>
 
@@ -163,24 +250,340 @@
   <div class="step" data-view="rear">
     <h2 id="specs">The physical board</h2>
     <dl class="specs">
-    <div><dt>Case</dt><dd>422.8 × 137.1&nbsp;mm, a 6° typing angle, about 20&nbsp;mm high at the front edge</dd></div>
+    <div><dt>Case</dt><dd>422.8 × 137.1&nbsp;mm, a 6° typing angle, about 20&nbsp;mm high at the front edge and 34 at the back</dd></div>
     <div><dt>Controls</dt><dd>90 keys, two push-button dials and a scroll roller</dd></div>
-    <div><dt>Switches</dt><dd>MX-compatible in hot-swap sockets, so switch weights can be changed after testing</dd></div>
-    <div><dt>Keycaps</dt><dd>Cherry profile PBT with dye-sublimated legends</dd></div>
+    <div><dt>Switches</dt><dd>Gateron G Pro&nbsp;3.0 Brown, tactile at 55&nbsp;gf, and a Cherry MX Grey under Lock, all in hot-swap sockets</dd></div>
+    <div><dt>Keycaps</dt><dd>Cherry profile PBT with shine-through legends, and a recessed DSA cap on Lock</dd></div>
     <div><dt>Electronics</dt><dd>RP2040 controller running QMK, USB-C on the back edge</dd></div>
-    <div><dt>Lights</dt><dd>Fifteen keys lit from below, for moves in progress, held window keys, the active desk, Caps Lock and the microphone</dd></div>
-  </dl>
+    <div><dt>Lights</dt><dd>White under all 90 keys, dimmed and brightened from Fn. Fifteen also show state in color: the active desk, a waiting move, the held window keys, Caps Lock and the microphone</dd></div>
+    </dl>
   </div>
   <div class="step" data-view="finale">
-    <p>No physical board has been made yet. Omar exists as a full dimensional specification, a browser prototype, pilot firmware and host scripts with passing tests, and the model on this page, which is built from the same switch coordinates as the plate drawing. The next steps are a full-size paper fit test on a real desk, then a hand-wired pilot to measure reach, the feel of the roller and how often a tired hand finds the wrong key.</p>
-    <p class="downloads"><a href="prototype/OMAR-KEYBOARD-PROTOTYPE.html">Try the keyboard or print the full-size layout</a><br>
-     <a href="assets/omar-keyboard.glb" download>Download the 3D model</a> <span class="size">GLB, 5.3&nbsp;MB</span><br>
-     <a href="assets/omar-dimensions.svg">Open the dimension drawing</a> <span class="size">SVG, to scale in millimeters</span></p>
+    <p>No physical board has been made yet. Omar-Keyboard exists as dimensioned drawings, a browser prototype, host scripts with passing tests, the two models on this page, and a routed Rev&nbsp;B.1 circuit board with firmware that compiles for it. JLCPCB has quoted $277.81 for five assembled boards. Before an order, the USB-C carrier has to be designed, the parts checked against real samples and the first assembled board tested. The circuit board, its parts and the steps still ahead are below.</p>
+    <p class="downloads"><a href="prototype/OMAR-KEYBOARD-PROTOTYPE.html">Open the browser prototype</a> <span class="size">includes a full-size print template</span><br>
+     <a href="assets/omar-keyboard.glb" download>Download the 3D model</a> <span class="size">GLB, 7.9&nbsp;MB</span><br>
+     <a href="assets/omar-internals.glb" download>Download the internal assembly</a> <span class="size">GLB, 7.9&nbsp;MB, with the exploded animation</span><br>
+     <a href="assets/omar-dimensions.svg">Open the dimension drawing</a> <span class="size">SVG, to scale in millimeters</span><br>
+     <a href="assets/omar-assembly-specification.pdf">Read the assembly specification</a> <span class="size">PDF, revision 9, 2.7&nbsp;MB</span></p>
+  </div>
+</section>
+
+<section class="circuit" aria-labelledby="circuit">
+  <div class="circuit-wrap">
+    <header class="circuit-head">
+      <h2 id="circuit">The circuit board</h2>
+      <p class="circuit-intro">Rev&nbsp;B.1 of the main board is drawn and routed in KiCad. This is its copper, drawn from the design files: the top layer in orange, the bottom layer in blue. The controller sits in the bay beside the roller, where its fine-pitch pins have room to spread out on two layers, and four wires bring USB in from the carrier behind Desk&nbsp;3.</p>
+    </header>
+
+    <figure class="pcb-view" data-side="both">
+      <div class="pcb-tools">
+        <div class="seg" role="group" aria-label="Copper layers shown">
+          <button type="button" data-side="both" aria-pressed="true">Both layers</button>
+          <button type="button" data-side="f" aria-pressed="false">Top</button>
+          <button type="button" data-side="b" aria-pressed="false">Bottom</button>
+        </div>
+        <div class="pcb-flows" role="group" aria-label="Signals traced on the board">
+          <label class="pcb-flow-pick f-usb"><input type="checkbox" data-flow="usb" checked> USB data</label>
+          <label class="pcb-flow-pick f-led"><input type="checkbox" data-flow="led" checked> Light chain</label>
+          <label class="pcb-flow-pick f-roller"><input type="checkbox" data-flow="roller"> Roller</label>
+        </div>
+        <div class="pcb-zoom">
+          <button type="button" class="pcb-fit" disabled>Show the whole board</button>
+        </div>
+      </div>
+      <div class="pcb-canvas" tabindex="0" aria-describedby="pcb-help">
+        <p class="pcb-loading">Loading the board drawing</p>
+      </div>
+      <figcaption class="pcb-status">
+        <dl class="pcb-facts">
+          <div><dt>Size</dt><dd>405.81 × 120.06&nbsp;mm</dd></div>
+          <div><dt>Layers</dt><dd>2</dd></div>
+          <div><dt>Trace segments</dt><dd>4,744</dd></div>
+          <div><dt>Vias</dt><dd>522</dd></div>
+          <div><dt>Nets</dt><dd>235</dd></div>
+          <div><dt>Rule errors</dt><dd>0</dd></div>
+        </dl>
+        <p id="pcb-help" class="pcb-help">Choose a part to zoom to it. Drag to move around; Ctrl and the scroll wheel zoom.</p>
+      </figcaption>
+    </figure>
+
+    <div class="pcb-picks" role="group" aria-label="Parts on the board">
+      <button type="button" data-ref="U1" aria-pressed="false"><b>RP2040</b> controller</button>
+      <button type="button" data-ref="U2" aria-pressed="false"><b>2&nbsp;MB</b> flash</button>
+      <button type="button" data-ref="Y1" aria-pressed="false"><b>12&nbsp;MHz</b> crystal</button>
+      <button type="button" data-ref="U3" aria-pressed="false"><b>3.3&nbsp;V</b> regulator</button>
+      <button type="button" data-ref="U4" aria-pressed="false"><b>Light</b> buffer</button>
+      <button type="button" data-ref="U5" aria-pressed="false"><b>Light</b> power switch</button>
+      <button type="button" data-ref="J1" aria-pressed="false"><b>USB</b> harness pads</button>
+      <button type="button" data-ref="J2" aria-pressed="false"><b>Roller</b> pads</button>
+      <button type="button" data-ref="SW93 SW94" aria-pressed="false"><b>BOOT</b> and <b>RUN</b></button>
+      <button type="button" data-ref="ENC1 ENC2" aria-pressed="false"><b>Dials</b></button>
+      <button type="button" data-ref="LED1 LED2 LED3 LED4 LED5 LED6 LED7 LED8 LED9 LED10 LED11 LED12 LED13 LED14 LED15 LED16 LED17 LED18 LED19 LED20 LED21 LED22 LED23 LED24 LED25 LED26 LED27 LED28 LED29 LED30 LED31 LED32 LED33 LED34 LED35 LED36 LED37 LED38 LED39 LED40 LED41 LED42 LED43 LED44 LED45 LED46 LED47 LED48 LED49 LED50 LED51 LED52 LED53 LED54 LED55 LED56 LED57 LED58 LED59 LED60 LED61 LED62 LED63 LED64 LED65 LED66 LED67 LED68 LED69 LED70 LED71 LED72 LED73 LED74 LED75 LED76 LED77 LED78 LED79 LED80 LED81 LED82 LED83 LED84 LED85 LED86 LED87 LED88 LED89 LED90" aria-pressed="false"><b>90</b> lights</button>
+    </div>
+    <p class="pcb-about" aria-live="polite"></p>
+
+    <div class="circuit-grid">
+      <section class="mcu" aria-labelledby="mcu-title">
+        <h3 id="mcu-title">The controller’s pins</h3>
+        <p class="circuit-note">The RP2040 seen from above, pin&nbsp;1 at the dot. 29 of its 30 general-purpose pins are used, so the board needs no second chip to read its 92 contacts and three encoders and to run its 90 lights. Choose a group, or point at a pin, to see where it goes.</p>
+        <div class="mcu-groups" role="group" aria-label="Pin groups"></div>
+        <div class="mcu-chip"></div>
+        <p class="mcu-readout" aria-live="polite"></p>
+      </section>
+
+      <section class="sch-view" aria-labelledby="sch-title">
+        <div class="sch-head">
+          <h3 id="sch-title">Schematics</h3>
+        </div>
+        <div class="seg sch-tabs" role="tablist" aria-label="Schematic sheet"></div>
+        <div class="sch-frame">
+          <div class="sch-canvas" tabindex="0" role="tabpanel" aria-label="Schematic sheet"></div>
+          <div class="sch-zoom" role="group" aria-label="Zoom the sheet">
+            <button type="button" data-zoom="in" aria-label="Zoom in">+</button>
+            <button type="button" data-zoom="out" aria-label="Zoom out">−</button>
+            <button type="button" data-zoom="fit">Whole sheet</button>
+          </div>
+        </div>
+        <p class="sch-caption" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <section class="lights" aria-labelledby="lights">
+      <div class="lights-head">
+        <h2 id="lights">A light under every key</h2>
+        <p class="circuit-note">Rev&nbsp;B.1 puts an SK6812MINI-E under each of the 90 keys. It shines up through a window in the board and the key’s shine-through legend; equal red, green and blue make white. Fifteen keys also show state in color, at the same brightness as the rest. The dials and the roller are not lit. These are the board’s own controls.</p>
+      </div>
+      <div class="lights-tools">
+        <div class="seg lights-level" role="group" aria-label="Backlight brightness">
+          <button type="button" data-level="down">Dimmer <kbd>Fn&nbsp;+&nbsp;[</kbd></button>
+          <button type="button" data-level="up">Brighter <kbd>Fn&nbsp;+&nbsp;]</kbd></button>
+          <button type="button" data-level="toggle" aria-pressed="true">Lights on <kbd>Fn&nbsp;+&nbsp;\</kbd></button>
+        </div>
+        <div class="lights-states" role="group" aria-label="Show a status light">
+          <button type="button" data-state="desk" aria-pressed="true"><i style="--c:#00e1ff"></i>Desk&nbsp;3 active</button>
+          <button type="button" data-state="move" aria-pressed="false"><i style="--c:#ff6400"></i>Move waiting</button>
+          <button type="button" data-state="caps" aria-pressed="false"><i style="--c:#3cff3c"></i>Caps Lock</button>
+          <button type="button" data-state="mic" aria-pressed="false"><i style="--c:#ff2020"></i>Mic muted</button>
+          <button type="button" data-state="focus" aria-pressed="false"><i style="--c:#2f6bff"></i>Hold Focus</button>
+        </div>
+      </div>
+      <div class="lights-board"></div>
+      <p class="lights-readout" aria-live="polite"></p>
+    </section>
+
+    <section class="parts" aria-labelledby="parts">
+      <div class="parts-head">
+        <h2 id="parts">Parts and what the board needs</h2>
+        <p class="circuit-note">All 403 parts fitted to the Rev&nbsp;B.1 main board, 29 on top and 374 underneath, with what each one does there. JLCPCB quoted five fully assembled boards for $277.81 before shipping and tax, or $55.56 a board. Prices for the encoders, lights and sockets are the quote’s; the others are estimates from the parts plan.</p>
+      </div>
+      <div class="bom-wrap">
+        <table class="bom">
+          <thead>
+            <tr><th scope="col">Part</th><th scope="col">Qty</th><th scope="col">References</th><th scope="col">Package and side</th><th scope="col">What it does and what it needs</th><th scope="col">Each</th></tr>
+          </thead>
+          <tbody>
+            <tr class="bom-group"><th colspan="6" scope="rowgroup">Controller and memory</th></tr>
+            <tr><th scope="row">RP2040</th><td>1</td><td>U1 <button type="button" class="bom-show" data-show="U1">Show</button></td><td>QFN-56, 7 × 7&nbsp;mm, 0.4&nbsp;mm pitch, top</td><td>Two Cortex-M0+ cores at up to 133&nbsp;MHz, 264&nbsp;KB of RAM, 30 GPIO and USB&nbsp;1.1. It has no flash of its own, and its exposed pad is its main ground. It sits 2.00&nbsp;mm under the roller’s tread.</td><td>$0.76</td></tr>
+            <tr><th scope="row">W25Q16JVSSIQ</th><td>1</td><td>U2 <button type="button" class="bom-show" data-show="U2">Show</button></td><td>SOIC-8, 5.3&nbsp;mm wide, top</td><td>2&nbsp;MB quad-SPI flash for the firmware, running at 3.3&nbsp;V. The controller runs its code straight from this chip.</td><td>$1.96</td></tr>
+            <tr><th scope="row">12&nbsp;MHz crystal, ABM8-272-T3</th><td>1</td><td>Y1 <button type="button" class="bom-show" data-show="Y1">Show</button></td><td>3.2 × 2.5&nbsp;mm, top</td><td>The controller’s clock, which USB timing depends on. Loaded by two 15&nbsp;pF capacitors and driven through 1&nbsp;kΩ.</td><td></td></tr>
+            <tr><th scope="row">15&nbsp;pF</th><td>2</td><td>C14, C15</td><td>0603, top</td><td>Crystal load capacitors, C0G.</td><td></td></tr>
+            <tr><th scope="row">1&nbsp;kΩ</th><td>2</td><td>R3, R5</td><td>0603, top</td><td>R3 lets BOOTSEL pull the flash chip-select low; R5 limits the crystal drive.</td><td></td></tr>
+            <tr><th scope="row">10&nbsp;kΩ</th><td>3</td><td>R4, R6, R9</td><td>0603, top</td><td>Pull-ups on the flash chip-select, on RUN and on the light buffer’s enable, so the buffer starts switched off.</td><td></td></tr>
+            <tr><th scope="row">PTS810 buttons</th><td>2</td><td>SW93, SW94 <button type="button" class="bom-show" data-show="SW93 SW94">Show</button></td><td>SMD, top</td><td>BOOTSEL and RESET. Holding BOOTSEL through a reset starts the controller’s USB drive for loading firmware. They can only be reached with the plate off.</td><td></td></tr>
+
+            <tr class="bom-group"><th colspan="6" scope="rowgroup">Power</th></tr>
+            <tr><th scope="row">AP2112K-3.3</th><td>1</td><td>U3 <button type="button" class="bom-show" data-show="U3">Show</button></td><td>SOT-23-5, top</td><td>3.3&nbsp;V regulator, up to 600&nbsp;mA, fed from USB 5&nbsp;V. It powers the controller and flash; the controller makes its own 1.1&nbsp;V core supply.</td><td></td></tr>
+            <tr><th scope="row">1&nbsp;µF</th><td>6</td><td>C1–C4, C17, C20</td><td>0603, top and bottom</td><td>Bulk capacitors on the regulator’s input and output, the 1.1&nbsp;V core, and both sides of the lights’ power switch.</td><td></td></tr>
+            <tr><th scope="row">100&nbsp;nF</th><td>102</td><td>C5–C13, C16, C18, C19, C101–C190</td><td>0603, mostly bottom</td><td>One beside each controller supply pin, the flash, the buffer and each of the 90 lights.</td><td></td></tr>
+
+            <tr class="bom-group"><th colspan="6" scope="rowgroup">USB</th></tr>
+            <tr><th scope="row">Harness pads</th><td>1</td><td>J1 <button type="button" class="bom-show" data-show="J1">Show</button></td><td>Four wire pads, 1.5&nbsp;mm pitch, top</td><td>5&nbsp;V, D−, D+ and ground from the USB-C carrier. Pin&nbsp;1 is the square pad.</td><td></td></tr>
+            <tr><th scope="row">27&nbsp;Ω</th><td>2</td><td>R1, R2 <button type="button" class="bom-show" data-show="R1 R2">Show</button></td><td>0603, top</td><td>Series resistors on D− and D+, beside the controller.</td><td></td></tr>
+
+            <tr class="bom-group"><th colspan="6" scope="rowgroup">Lights</th></tr>
+            <tr><th scope="row">TPS22919DCKR</th><td>1</td><td>U5 <button type="button" class="bom-show" data-show="U5">Show</button></td><td>SC70-6, top</td><td>A load switch that gives the lights their own 5&nbsp;V rail. GP27 closes it only once the computer has configured the USB connection, and opens it again for sleep.</td><td></td></tr>
+            <tr><th scope="row">SN74AHCT1G125</th><td>1</td><td>U4 <button type="button" class="bom-show" data-show="U4">Show</button></td><td>SOT-23-5, top</td><td>A single buffer powered at 5&nbsp;V. Its input reads the controller’s 3.3&nbsp;V signal as high, so it passes the light data on at 5&nbsp;V. GP28 enables it 5&nbsp;ms after the light rail comes up.</td><td>$0.14</td></tr>
+            <tr><th scope="row">330&nbsp;Ω</th><td>1</td><td>R7</td><td>0603, top</td><td>Series resistor between the buffer and the first light, under Esc.</td><td></td></tr>
+            <tr><th scope="row">100&nbsp;kΩ</th><td>3</td><td>R8, R10, R11</td><td>0603, top</td><td>Hold the light data and the power switch’s control low while the controller starts, so the lights stay dark.</td><td></td></tr>
+            <tr><th scope="row">SK6812MINI-E</th><td>90</td><td>LED1–LED90 <button type="button" class="bom-show" data-show="LED1 LED2 LED3 LED4 LED5 LED6 LED7 LED8 LED9 LED10 LED11 LED12 LED13 LED14 LED15 LED16 LED17 LED18 LED19 LED20 LED21 LED22 LED23 LED24 LED25 LED26 LED27 LED28 LED29 LED30 LED31 LED32 LED33 LED34 LED35 LED36 LED37 LED38 LED39 LED40 LED41 LED42 LED43 LED44 LED45 LED46 LED47 LED48 LED49 LED50 LED51 LED52 LED53 LED54 LED55 LED56 LED57 LED58 LED59 LED60 LED61 LED62 LED63 LED64 LED65 LED66 LED67 LED68 LED69 LED70 LED71 LED72 LED73 LED74 LED75 LED76 LED77 LED78 LED79 LED80 LED81 LED82 LED83 LED84 LED85 LED86 LED87 LED88 LED89 LED90">Show</button></td><td>Reverse mount, bottom</td><td>One under every key, on one 5&nbsp;V data chain from Esc to Files, shining up through a window in the board. Rev&nbsp;02 pin assignment; check pin&nbsp;1 on a sample.</td><td>$0.06</td></tr>
+
+            <tr class="bom-group"><th colspan="6" scope="rowgroup">Keys and controls</th></tr>
+            <tr><th scope="row">CPG151101S11-16</th><td>90</td><td>SW2–SW92</td><td>Hot-swap socket, bottom</td><td>HanElectricity sockets for five-pin MX switches, so the switches push in and are never soldered.</td><td>$0.03</td></tr>
+            <tr><th scope="row">1N4148W</th><td>92</td><td>D1–D92</td><td>SOD-123, bottom</td><td>One per key and per dial press, with the cathode band toward the row, so any combination of pressed keys can be read.</td><td>$0.07</td></tr>
+            <tr><th scope="row">PEC11R-4220F-S0024</th><td>2</td><td>ENC1, ENC2 <button type="button" class="bom-show" data-show="ENC1 ENC2">Show</button></td><td>Through-hole, top</td><td>Bourns dial encoders, 24 clicks and 24 pulses a turn, with a push switch: volume on the left, brightness on the right. Their 20&nbsp;mm shafts put the knob tops about 23&nbsp;mm above the plate.</td><td>$2.30</td></tr>
+            <tr><th scope="row">Roller pads</th><td>1</td><td>J2 <button type="button" class="bom-show" data-show="J2">Show</button></td><td>Three wire pads, 1.5&nbsp;mm pitch, top</td><td>A, common ground and B from the roller’s encoder, an Alps EC11E with 30 clicks a turn mounted on its side.</td><td></td></tr>
+
+            <tr class="bom-group"><th colspan="6" scope="rowgroup">Testing</th></tr>
+            <tr><th scope="row">Test pads</th><td>7</td><td>TP1–TP7 <button type="button" class="bom-show" data-show="TP1 TP2 TP3 TP4 TP5 TP6 TP7">Show</button></td><td>1&nbsp;mm pads, top</td><td>Ground, 3.3&nbsp;V, the two debug lines, 5&nbsp;V, 1.1&nbsp;V and the last light’s data output, for first-article checks.</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="needs-title">What the board depends on</h3>
+      <dl class="needs">
+        <div><dt>Fabrication</dt><dd>Two copper layers on 1.6&nbsp;mm FR-4 with 1&nbsp;oz copper and an ENIG finish. 0.175&nbsp;mm traces and clearance, 0.30&nbsp;mm via drills, and 90 light windows, each 3.50 × 3.05&nbsp;mm, cut through the board.</dd></div>
+        <div><dt>Assembly</dt><dd>Both sides populated, including the two through-hole encoders. JLCPCB accepted all 403 placements and showed about three days to make the boards and four to five to assemble them, before shipping.</dd></div>
+        <div><dt>Power</dt><dd>5&nbsp;V from USB, with the firmware asking the computer for 500&nbsp;mA. The lights’ rail stays off until USB is configured and during sleep. Every key white at the 16 of 255 ceiling is estimated at 393&nbsp;mA for the whole board; the targets to measure are 100&nbsp;mA before configuration, 450&nbsp;mA steady and 2.5&nbsp;mA asleep.</dd></div>
+        <div><dt>USB</dt><dd>D+ and D− run 11.85 and 11.56&nbsp;mm on the board with no vias. The signal also passes through the harness and the carrier, so the return path has to be checked across both. The IDs 1209:0001 are private test IDs and need replacing before devices are shared.</dd></div>
+        <div><dt>USB-C carrier</dt><dd>Not designed yet. A 20 × 7 × 1&nbsp;mm board in the rear wall with the USB-C socket, a 5.1&nbsp;kΩ pull-down on each CC pin, low-capacitance static protection and a 500&nbsp;mA resettable fuse. Its pads must match J1.</dd></div>
+        <div><dt>Wiring</dt><dd>About 260 to 300&nbsp;mm of USB-rated twisted pair with power and ground, kept twisted to both ends and laid in three floor saddles. Three wires from the roller’s encoder, with a nominal 3&nbsp;mm gap between roller and board.</dd></div>
+        <div><dt>Mounting</dt><dd>Twelve 2.2&nbsp;mm M2 holes shared with the plate and two supports under the board alone. The board sits 5&nbsp;mm under the plate, with 24 extra bores for the six stabilized keys.</dd></div>
+        <div><dt>Switches and caps</dt><dd>89 five-pin Gateron G Pro&nbsp;3.0 Brown and one Cherry MX Grey, plugged in after assembly. The caps need shine-through legends; opaque dye-sublimated legends would leave only a halo around each key.</dd></div>
+        <div><dt>Firmware</dt><dd>QMK 0.31.0 with an Arm toolchain. An 8 × 12 matrix scanned column to row with 5&nbsp;ms debounce, encoders on GP20–GP25, light data on GP26, the light rail on GP27 and the buffer enable on GP28.</dd></div>
+      </dl>
+    </section>
+
+    <section class="roadmap" aria-labelledby="roadmap">
+      <div class="roadmap-head">
+        <h2 id="roadmap">Where it’s heading</h2>
+        <p class="circuit-note">Each step drawn as copper is done. The dashed lines are the ones still to route, the way KiCad draws a connection that has no trace yet.</p>
+        <p class="downloads"><a href="assets/omar-mainboard-rev-b1-gerbers.zip" download>Rev&nbsp;B.1 Gerbers</a> <span class="size">ZIP of copper, mask, drill and outline files, 1.0&nbsp;MB</span><br>
+          <a href="assets/omar_keyboard_rev_b_default.uf2" download>Firmware build</a> <span class="size">UF2 for Rev&nbsp;B, 82&nbsp;KB, not yet run on hardware</span><br>
+          <a href="assets/omar-assembly-specification.pdf">Assembly specification</a> <span class="size">PDF, revision 9, 2.7&nbsp;MB</span><br>
+          <a href="assets/omar-schematic.pdf">Rev&nbsp;A schematic</a> <span class="size">PDF of the earlier 15-light board, 1.5&nbsp;MB</span></p>
+      </div>
+      <ol class="route">
+        <li class="done"><b>Layout and keymap</b><span>92 controls placed around a standard US layout, with the keymap built on Omarchy’s own shortcuts.</span></li>
+        <li class="done"><b>Prototype and pilot firmware</b><span>The browser prototype, host scripts and the firmware’s key handling, with passing tests.</span></li>
+        <li class="done"><b>Case and assembly models</b><span>The two models on this page, built from the plate drawing’s switch coordinates and the routed board.</span></li>
+        <li class="done"><b>Rev&nbsp;B.1 schematic</b><span>Fourteen sheets and 235 nets, with a light for every key. All 1,078 pad connections match between the schematic and the board.</span></li>
+        <li class="done"><b>Routed board</b><span>Two layers, 4,744 trace segments and 522 vias, with no design-rule errors and nothing left unconnected.</span></li>
+        <li class="done"><b>Firmware for Rev&nbsp;B</b><span>A QMK 0.31.0 keyboard definition for all 90 lights that builds an 83,968-byte UF2.</span></li>
+        <li class="done"><b>Assembly quote</b><span>JLCPCB accepted all 403 placements, both encoders included: five assembled boards for $277.81 before shipping and tax.</span></li>
+        <li class="here"><b>USB-C carrier</b><span>The small board in the rear wall with the socket, the two CC resistors, static protection and the fuse. Its four pads have to match the harness pads on the main board.</span></li>
+        <li><b>Roller encoder and bezel</b><span>Prove the side-mounted encoder in its 7.5&nbsp;mm bracket, the shaft retention and the bezel’s clearance before choosing the production parts.</span></li>
+        <li><b>Parts checked at full size</b><span>The socket lands, each light’s first pin, the encoder slots and the knob height, against purchased samples.</span></li>
+        <li><b>First assembled board</b><span>Check for shorts, then measure the 5, 3.3 and 1.1&nbsp;V rails, flash the UF2, press all 92 inputs, turn each encoder, walk all 90 lights and measure the current at the ceiling.</span></li>
+        <li><b>Case fit and pilot</b><span>Mounts, clearances and plate spacing in the real case, a trial opening and closing by a second builder, then a pilot to measure reach and the feel of the roller.</span></li>
+      </ol>
+    </section>
+  </div>
+</section>
+
+<section class="cfg" aria-labelledby="configure">
+  <div class="cfg-wrap">
+    <header class="cfg-head">
+      <h2 id="configure">Configure the firmware</h2>
+      <p class="cfg-intro">The QMK keymap the board is designed to ship with. Choose a key to see its keycodes, its place in the switch matrix and what Omarchy receives when it is pressed. Pressing keys runs a copy of the firmware's own key handling, so you can watch a transfer wait for its desk or Caps decide between Caps Lock and Fn. Every keycode and build option you change is written into the firmware files beside it, and a board running VIA can be read and written over USB.</p>
+    </header>
+
+    <div class="cfg-work" data-pane="key" data-side="opts">
+      <div class="cfg-bar">
+        <div class="seg" role="group" aria-label="Layer shown on the board">
+          <button type="button" data-layer="0" aria-pressed="true">Base layer</button>
+          <button type="button" data-layer="1" aria-pressed="false">Fn layer</button>
+        </div>
+        <div class="seg" role="group" aria-label="What the keys show">
+          <button type="button" data-show="label" aria-pressed="true">Labels</button>
+          <button type="button" data-show="code" aria-pressed="false">Keycodes</button>
+        </div>
+        <button type="button" class="cfg-reset">Restore the default keymap</button>
+      </div>
+
+      <div class="cfg-top">
+      <div class="cfg-board-area">
+        <div class="cfg-board-scroll">
+          <div class="cfg-board" role="group" aria-label="Omar-Keyboard keymap. Choose a key to inspect it; pressing it runs the firmware trace."></div>
+        </div>
+        <p class="cfg-scroll-hint">Scroll the board sideways to reach every key.</p>
+        <p class="cfg-last" aria-hidden="true"></p>
+        <div class="seg cfg-panes" role="tablist" aria-label="Panel under the board">
+          <button type="button" role="tab" data-pane="key" aria-selected="true">Key</button>
+          <button type="button" role="tab" data-pane="trace" aria-selected="false">Trace</button>
+          <button type="button" role="tab" data-pane="opts" aria-selected="false">Options</button>
+          <button type="button" role="tab" data-pane="usb" aria-selected="false">USB</button>
+          <button type="button" role="tab" data-pane="files" aria-selected="false">Files</button>
+        </div>
+      </div>
+
+      <section class="cfg-panel cfg-trace" data-for="trace" aria-labelledby="cfg-trace-title">
+        <div class="cfg-panel-head">
+          <h3 id="cfg-trace-title">Firmware trace</h3>
+          <button type="button" class="cfg-clear">Clear</button>
+        </div>
+        <label class="cfg-check"><input type="checkbox" class="cfg-typing"> Send my own keyboard to the board while it has focus</label>
+        <dl class="cfg-state" aria-live="polite"></dl>
+        <div class="cfg-timer" hidden><span></span></div>
+        <ol class="cfg-log" aria-live="polite"></ol>
+      </section>
+      </div>
+
+      <div class="cfg-lower">
+      <section class="cfg-panel cfg-key" data-for="key" aria-labelledby="cfg-key-title" aria-live="polite"></section>
+
+      <div class="cfg-side">
+        <div class="seg cfg-side-tabs" role="tablist" aria-label="Settings shown">
+          <button type="button" role="tab" data-side="opts" aria-selected="true">Build options</button>
+          <button type="button" role="tab" data-side="usb" aria-selected="false">USB board</button>
+        </div>
+        <section class="cfg-panel cfg-opts" data-for="opts" aria-labelledby="cfg-opts-title">
+          <h3 id="cfg-opts-title">Build options</h3>
+          <form class="cfg-form" onsubmit="return false"></form>
+        </section>
+
+        <section class="cfg-panel cfg-usb" data-for="usb" aria-labelledby="cfg-usb-title">
+          <div class="cfg-panel-head">
+            <h3 id="cfg-usb-title">Connect a board over USB</h3>
+            <button type="button" class="cfg-connect">Connect a board</button>
+            <button type="button" class="cfg-disconnect" hidden>Disconnect</button>
+          </div>
+          <p class="cfg-usb-status" aria-live="polite"></p>
+          <p class="cfg-usb-note" aria-live="polite" hidden></p>
+          <div class="cfg-usb-body" hidden>
+            <div class="cfg-usb-group" data-needs="via">
+              <h4>Keymap</h4>
+              <p class="cfg-usb-diff" aria-live="polite"></p>
+              <div class="cfg-usb-actions">
+                <button type="button" class="cfg-usb-read">Load the board's keymap here</button>
+                <button type="button" class="cfg-usb-write">Write this keymap to the board</button>
+              </div>
+              <label class="cfg-check"><input type="checkbox" class="cfg-usb-live"> Write each change to the board as I make it</label>
+              <label class="cfg-check"><input type="checkbox" class="cfg-usb-presses"> Show keys pressed on the board in the trace</label>
+            </div>
+            <div class="cfg-usb-group">
+              <h4>Host lights</h4>
+              <p class="cfg-about">Sends the report <code>omar-indicators.py</code> sends, once a second, so the desk and microphone lights can be checked without the host script. It needs the indicator bridge in the firmware.</p>
+              <div class="cfg-usb-actions">
+                <label class="cfg-num">Lit desk <select class="cfg-usb-desk"><option value="0">none</option><option value="1">1</option><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option></select></label>
+                <label class="cfg-check"><input type="checkbox" class="cfg-usb-mic"> Microphone muted</label>
+              </div>
+              <button type="button" class="cfg-usb-lights" aria-pressed="false">Send test lights</button>
+            </div>
+            <div class="cfg-usb-group" data-needs="via">
+              <h4>Firmware</h4>
+              <div class="cfg-usb-actions">
+                <button type="button" class="cfg-usb-restore">Restore the board's built-in keymap</button>
+                <button type="button" class="cfg-usb-boot">Restart into the bootloader</button>
+              </div>
+              <p class="cfg-about">In the bootloader the board shows up as a drive named RPI-RP2. Copy a <code>.uf2</code> build onto it to flash new firmware.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="cfg-panel cfg-files" data-for="files" aria-labelledby="cfg-files-title">
+        <div class="cfg-panel-head">
+          <h3 id="cfg-files-title">Firmware files</h3>
+          <div class="seg" role="tablist" aria-label="Generated file"></div>
+        </div>
+        <pre class="cfg-code" tabindex="0"><code></code></pre>
+        <div class="cfg-file-actions">
+          <button type="button" class="cfg-copy">Copy</button>
+          <button type="button" class="cfg-download">Download</button>
+          <span class="cfg-done" aria-live="polite"></span>
+        </div>
+        <details class="cfg-before">
+          <summary>Before you compile</summary>
+          <p class="cfg-hint">These follow the pilot build notes and the electrical specification. The Rev&nbsp;B keyboard definition, for the 90-light Rev&nbsp;B.1 board, is in <code>firmware/qmk/omar_keyboard/rev_b</code>, and it was checked on QMK 0.31.0. Put these files in its <code>keymaps/default</code> folder beside <code>omar-controls.h</code> and <code>omar-indicators.h</code>, then run <code>qmk compile -kb omar_keyboard/rev_b -km default</code>. <code>LAYOUT</code> takes the 92 contacts in the order of <code>omar-switches.csv</code>, left to right and top to bottom. The lighting code has not been run on hardware.</p>
+        </details>
+      </section>
+      </div>
+    </div>
   </div>
 </section>
 
 <footer class="colophon">
-  <p>Omar is an independent design for Omarchy 4.5.0 and is not affiliated with the Omarchy project. The 3D view uses <a href="https://modelviewer.dev">model-viewer</a> under the <a href="vendor/model-viewer-LICENSE.txt">Apache 2.0 license</a>.</p>
+  <p>Omar-Keyboard is an independent design for Omarchy 4.5.0 and is not affiliated with the Omarchy project. The 3D view uses <a href="https://modelviewer.dev">model-viewer</a> under the <a href="vendor/model-viewer-LICENSE.txt">Apache 2.0 license</a>.</p>
 </footer>
 
 </main>

@@ -1,0 +1,303 @@
+/* The circuit board. A night-colored band in both themes, the way the board looks in KiCad. It is
+   opaque and sits above the fixed 3D board, like the configurator after it. */
+.circuit {
+  --ground: #1a1b26; --ink: #c0caf5; --ink-2: #a9b1d6; --dim: #737aa2; --rule: #2f344d; --well: #16161e;
+  --tn-blue: #7aa2f7; --tn-cyan: #7dcfff; --tn-magenta: #bb9af7; --tn-green: #9ece6a; --tn-orange: #ff9e64;
+  --tn-yellow: #e0af68; --tn-red: #f7768e; --accent: #ff9e64;
+  --cu-f: #ff9e64; --cu-b: #7aa2f7; --f-usb: #7dcfff; --f-led: #9ece6a; --f-roller: #e0af68;
+  position: relative; z-index: 3; pointer-events: auto;
+  margin-top: 70vh;
+  padding: clamp(56px, 10vh, 120px) var(--gutter) clamp(56px, 9vh, 100px);
+  background: var(--ground); color: var(--ink);
+  color-scheme: dark;
+}
+.circuit + .cfg { margin-top: 0; }
+.circuit-wrap { max-width: 1680px; margin: 0 auto; }
+.circuit :where(button, input) { font: inherit; color: inherit; }
+.circuit a { color: var(--ink); }
+.circuit .size { color: var(--dim); }
+.circuit-head { margin-bottom: 1.6rem; }
+.circuit .h-icon { color: var(--tn-orange); }
+.circuit-intro { max-width: 70ch; margin: 0; color: var(--ink-2); font-size: .95rem; }
+.circuit-note { max-width: 62ch; margin: 0 0 1rem; color: var(--ink-2); font-size: .84rem; line-height: 1.65; }
+.circuit h3 { margin: 0 0 .6rem; font: 750 1.05rem/1.3 var(--mono); letter-spacing: -.02em; }
+
+/* The board viewer */
+.pcb-view { margin: 0; border: 1px solid var(--rule); border-radius: 8px; background: var(--well); overflow: hidden; }
+.pcb-tools { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.4rem; padding: .7rem .9rem; border-bottom: 1px solid var(--rule); }
+.pcb-flows { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; font-size: .8rem; }
+.pcb-flow-pick { display: inline-flex; align-items: center; gap: .45rem; cursor: pointer; color: var(--ink-2); }
+.pcb-flow-pick input { margin: 0; accent-color: var(--c); }
+.pcb-flow-pick::after { content: ""; width: 16px; height: 2px; border-radius: 1px; background: var(--c); }
+.f-usb { --c: var(--f-usb); }
+.f-led { --c: var(--f-led); }
+.f-roller { --c: var(--f-roller); }
+.pcb-zoom { margin-left: auto; }
+.pcb-fit, .sch-zoom button, .pcb-picks button, .mcu-groups button {
+  margin: 0; padding: .4rem .7rem; border: 1px solid var(--rule); border-radius: 5px; cursor: pointer;
+  background: transparent; font: 600 .76rem/1.25 var(--mono); color: var(--ink-2);
+}
+.pcb-fit:disabled { opacity: .4; cursor: default; }
+:is(.pcb-fit, .sch-zoom button, .pcb-picks button, .mcu-groups button):not(:disabled):hover { border-color: var(--dim); color: var(--ink); }
+
+.pcb-canvas { position: relative; padding: clamp(10px, 2vw, 28px); touch-action: pan-y; outline-offset: -3px; }
+.pcb-canvas.zoomed { cursor: grab; }
+.pcb-canvas.dragging { cursor: grabbing; }
+.pcb-canvas svg { display: block; width: 100%; height: auto; aspect-ratio: 409.81 / 124.06; overflow: hidden; user-select: none; -webkit-user-select: none; }
+.pcb-loading { margin: 0; aspect-ratio: 409.81 / 124.06; display: grid; place-items: center; color: var(--dim); font-size: .82rem; }
+
+.pcb .board { fill: #1f2335; stroke: #3b4261; stroke-width: .3; }
+.pcb .zone { stroke: none; }
+.pcb-zone-b .zone { fill: rgb(122 162 247 / .07); }
+.pcb-zone-f .zone { fill: rgb(255 158 100 / .06); }
+.pcb .trk { stroke-width: max(var(--w, .2), calc(var(--k, .3) * 1.15)); stroke-dasharray: 1; stroke-dashoffset: 0; }
+.pcb-cu-b .trk { stroke: var(--cu-b); opacity: .62; }
+.pcb-cu-f .trk { stroke: var(--cu-f); opacity: .8; }
+.pcb-pads-b .pad { fill: var(--cu-b); opacity: .7; }
+.pcb-pads-f .pad { fill: var(--cu-f); opacity: .9; }
+.pcb-pads-th .pad { fill: #a9b1d6; opacity: .55; }
+.pcb-vias circle { fill: #a9b1d6; opacity: .75; }
+.pcb-holes :is(circle, rect, path) { fill: #16161e; }
+.pcb .part { fill: none; stroke: none; stroke-width: calc(var(--k, .3) * 1.5); }
+.pcb .part.sel { stroke: #c0caf5; fill: rgb(192 202 245 / .1); }
+.pcb g { transition: opacity .35s ease; }
+/* Layers */
+.pcb-view[data-side="f"] :is(.pcb-cu-b, .pcb-pads-b, .pcb-zone-b) { opacity: 0; }
+.pcb-view[data-side="b"] :is(.pcb-cu-f, .pcb-pads-f, .pcb-zone-f) { opacity: 0; }
+.pcb-view.tracing .trk { opacity: .42; }
+
+/* Signals: a faint route under a train of marks that travel the way the signal does. */
+.pcb .flow { fill: none; opacity: 0; transition: opacity .35s ease; }
+.pcb .flow[data-flow^="usb"] { stroke: var(--f-usb); }
+.pcb .flow[data-flow="led"] { stroke: var(--f-led); }
+.pcb .flow[data-flow="roller"] { stroke: var(--f-roller); }
+.pcb .flow-route { stroke-width: calc(var(--k, .3) * 2.2); }
+.pcb .flow-pulse {
+  stroke-width: calc(var(--k, .3) * 3.6);
+  stroke-dasharray: calc(var(--k, .3) * 5) calc(var(--k, .3) * 17);
+  animation: flow-run 1.1s linear infinite paused;
+}
+.pcb-view.show-usb .flow-pulse[data-flow^="usb"], .pcb-view.show-led .flow-pulse[data-flow="led"],
+.pcb-view.show-roller .flow-pulse[data-flow="roller"] { opacity: 1; }
+.pcb-view.show-usb .flow-route[data-flow^="usb"], .pcb-view.show-led .flow-route[data-flow="led"],
+.pcb-view.show-roller .flow-route[data-flow="roller"] { opacity: .4; }
+.pcb-view.live .flow-pulse { animation-play-state: running; }
+@keyframes flow-run { to { stroke-dashoffset: calc(var(--k, .3) * -22); } }
+
+/* The section's one reveal: the copper spreads out from the controller. */
+.pcb-canvas:not(.drawn) .trk { stroke-dashoffset: 1; }
+.pcb-canvas:not(.drawn) :is(.pcb-pads-b, .pcb-pads-f, .pcb-pads-th, .pcb-vias, .pcb-zone-b, .pcb-zone-f, .pcb-flow) { opacity: 0; }
+.pcb-canvas.drawn .trk { transition: stroke-dashoffset 1.1s cubic-bezier(.3, .6, .2, 1) var(--d, 0ms), opacity .4s ease; }
+.pcb-canvas.drawn:not(.settled) :is(.pcb-pads-b, .pcb-pads-f, .pcb-pads-th, .pcb-vias, .pcb-zone-b, .pcb-zone-f) { transition: opacity .9s ease .9s; }
+.pcb-canvas.drawn:not(.settled) .pcb-flow { transition: opacity .6s ease 2.2s; }
+
+.pcb-status { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .4rem 1.6rem; padding: .6rem .9rem; border-top: 1px solid var(--rule); font-size: .74rem; color: var(--dim); }
+.pcb-facts { display: flex; flex-wrap: wrap; gap: .2rem 1.4rem; margin: 0; }
+.pcb-facts div { display: flex; gap: .45rem; }
+.pcb-facts dd { margin: 0; color: var(--ink); font-weight: 650; font-variant-numeric: tabular-nums; }
+.pcb-help { margin: 0; }
+
+.pcb-picks { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1rem 0 .6rem; }
+.pcb-picks button b { color: var(--ink); font-weight: 700; }
+.pcb-picks button[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--ground); }
+.pcb-picks button[aria-pressed="true"] b { color: var(--ground); }
+.pcb-about { max-width: 78ch; min-height: 3.3em; margin: 0 0 clamp(2.4rem, 6vh, 4rem); font-size: .86rem; line-height: 1.65; color: var(--ink-2); }
+
+/* Controller pins and schematics side by side */
+.circuit-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 3vw, 48px); align-items: start; }
+.mcu-groups { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0 0 .6rem; }
+.mcu-groups button { position: relative; padding-left: 1.45rem; }
+.mcu-groups button::before { content: ""; position: absolute; left: .55rem; top: 50%; width: 7px; height: 7px; margin-top: -3.5px; border-radius: 1px; background: var(--g); }
+.mcu-groups button[aria-pressed="true"] { border-color: var(--g); color: var(--ink); background: color-mix(in srgb, var(--g) 14%, transparent); }
+.g-row { --g: #7aa2f7; }
+.g-col { --g: #7dcfff; }
+.g-enc { --g: #e0af68; }
+.g-light { --g: #9ece6a; }
+.g-usb { --g: #ff9e64; }
+.g-flash { --g: #bb9af7; }
+.g-sys { --g: #f7768e; }
+.g-power { --g: #a9b1d6; }
+.g-spare { --g: #565f89; }
+.mcu-chip { aspect-ratio: 1; max-width: 500px; margin: 0 auto; }
+.mcu-svg { display: block; width: 100%; height: 100%; font-family: var(--mono); }
+.mcu-body { fill: #24283b; stroke: #3b4261; stroke-width: 1.5; }
+.mcu-pad { fill: #1f2335; stroke: #3b4261; stroke-dasharray: 3 3; }
+.mcu-dot { fill: #565f89; }
+.mcu-name { fill: var(--ink); font-size: 15px; font-weight: 750; letter-spacing: -.02em; }
+.mcu-sub { fill: var(--dim); font-size: 8.5px; }
+.mcu-lead { fill: var(--g); opacity: .85; }
+.mcu-net { fill: var(--g); font-size: 8.5px; font-weight: 600; }
+.mcu-num { fill: var(--dim); font-size: 5.5px; }
+.mcu-pin { transition: opacity .2s ease; }
+.mcu-svg.focus .mcu-pin:not(.on) { opacity: .2; }
+.mcu-pin.hover .mcu-lead { opacity: 1; stroke: #c0caf5; stroke-width: 1; }
+.mcu-pin.hover .mcu-net { fill: #c0caf5; }
+.mcu-readout { min-height: 3.3em; margin: .6rem 0 0; font-size: .82rem; line-height: 1.6; color: var(--ink-2); }
+.mcu-readout b { color: var(--ink); }
+
+.sch-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .3rem 1rem; }
+.sch-pdf { font-size: .8rem; font-weight: 650; }
+.sch-tabs { display: flex; flex-wrap: wrap; width: 100%; margin: .2rem 0 .7rem; }
+.sch-tabs button { flex: 1 1 auto; white-space: nowrap; }
+.sch-frame { position: relative; border: 1px solid var(--rule); border-radius: 8px; background: var(--well); overflow: hidden; }
+.sch-canvas { aspect-ratio: 16 / 10; touch-action: pan-y; outline-offset: -3px; }
+.sch-canvas.zoomed { cursor: grab; }
+.sch-canvas.dragging { cursor: grabbing; }
+.sch-canvas svg { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-select: none; }
+.sch-zoom { position: absolute; right: 10px; bottom: 10px; display: flex; gap: 4px; }
+.sch-zoom button { min-width: 2.1rem; background: rgb(22 22 30 / .88); }
+.sch-caption { max-width: 72ch; min-height: 3.3em; margin: .7rem 0 0; font-size: .82rem; line-height: 1.6; color: var(--ink-2); }
+.sch { font-family: var(--mono); }
+.sch .sch-wire { stroke: #9ece6a; }
+.sch .sch-body { stroke: #bb9af7; }
+.sch .sch-body.sch-fill { fill: #24283b; }
+.sch .sch-body.sch-solid { fill: #bb9af7; }
+.sch .sch-pin { stroke: #7aa2f7; }
+.sch .sch-pin-num { fill: #737aa2; }
+.sch .sch-pin-name { fill: #7dcfff; }
+.sch .sch-ref { fill: #c0caf5; font-weight: 650; }
+.sch .sch-val { fill: #a9b1d6; }
+.sch :is(.sch-glabel, .sch-label, .sch-hlabel) { fill: #e0af68; }
+.sch :is(.sch-glabel-box, .sch-hlabel-box) { stroke: #e0af68; fill: rgb(224 175 104 / .08); }
+.sch .sch-junction { fill: #9ece6a; }
+.sch .sch-nc { stroke: #f7768e; }
+.sch .sch-note { fill: #737aa2; }
+.sch .sch-frame { stroke: #3b4261; fill: none; }
+
+/* Where it's heading: finished steps are routed copper, the rest are dashed ratsnest lines. */
+.roadmap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 3vw, 48px); margin-top: clamp(3.5rem, 10vh, 6rem); padding-top: clamp(2.5rem, 6vh, 4rem); border-top: 1px solid var(--rule); }
+.roadmap h2 { margin-bottom: .9rem; }
+.roadmap .downloads { font-size: .86rem; }
+.route { --pad: 13px; margin: 0; padding: 0; list-style: none; }
+.route li {
+  position: relative; display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: .15rem 1.6rem;
+  padding: 0 0 1.35rem calc(var(--pad) + 1.4rem); font-size: .84rem; line-height: 1.6;
+}
+.route li b { color: var(--ink); font-weight: 700; }
+.route li span { color: var(--ink-2); }
+.route li:not(.done) b { color: var(--ink-2); font-weight: 600; }
+.route li:not(.done) span { color: var(--dim); }
+/* The pad */
+.route li::before {
+  content: ""; position: absolute; z-index: 1; left: 0; top: .25em; width: var(--pad); height: var(--pad); box-sizing: border-box;
+  border-radius: 50%; border: 1.5px dashed #565f89; background: var(--ground);
+}
+.route li.done::before { border: 0; background: radial-gradient(circle, var(--ground) 0 2.5px, var(--cu-f) 3px); }
+/* The trace on to the next pad */
+.route li::after {
+  content: ""; position: absolute; left: calc(var(--pad) / 2 - .75px); top: .25em; bottom: -.25em;
+  border-left: 1.5px dashed #565f89;
+}
+.route li.done::after { left: calc(var(--pad) / 2 - 1px); border-left: 2px solid var(--cu-f); }
+.route li:last-child::after { display: none; }
+.route li.here b::after {
+  content: "Next"; margin-left: .6rem; padding: .05rem .4rem; border-radius: 3px; font-size: .68rem; font-weight: 700;
+  background: var(--cu-f); color: var(--ground); vertical-align: .08em;
+}
+.route li.here::before { border: 2px solid var(--cu-f); animation: here 2.4s ease-out infinite; }
+.route li.here b { color: var(--ink); font-weight: 700; }
+@keyframes here { 0% { box-shadow: 0 0 0 0 rgb(255 158 100 / .45); } 70%, 100% { box-shadow: 0 0 0 9px rgb(255 158 100 / 0); } }
+
+/* Parts list and the board's dependencies */
+/* The backlight: the key field as Rev B.1 lights it */
+.lights { margin-top: clamp(3.5rem, 10vh, 6rem); padding-top: clamp(2.5rem, 6vh, 4rem); border-top: 1px solid var(--rule); }
+.lights h2 { margin-bottom: .9rem; }
+.lights-tools { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem 1.4rem; margin: 0 0 .9rem; }
+.lights-level kbd { margin-left: .35rem; font: inherit; font-weight: 500; opacity: .7; }
+.lights-level button:disabled { opacity: .45; cursor: default; }
+.lights-states { display: flex; flex-wrap: wrap; gap: .4rem; }
+.lights-states button {
+  display: inline-flex; align-items: center; gap: .5rem; margin: 0; padding: .4rem .75rem;
+  border: 1px solid var(--rule); border-radius: 99px; background: transparent; cursor: pointer;
+  font: 600 .78rem/1.2 var(--mono); color: var(--ink-2);
+}
+.lights-states i { width: .62rem; height: .62rem; border-radius: 50%; border: 1px solid var(--c); }
+.lights-states button[aria-pressed="true"] { color: var(--ink); border-color: color-mix(in srgb, var(--ink) 45%, var(--rule)); }
+.lights-states button[aria-pressed="true"] i { background: var(--c); box-shadow: 0 0 8px var(--c); }
+.lights-board { border: 1px solid var(--rule); border-radius: 8px; background: var(--well); padding: clamp(8px, 1.4vw, 18px); }
+.lk { display: block; width: 100%; height: auto; }
+.lk-case { fill: #0d0e14; }
+.lk-glow rect { transition: opacity .25s, fill .25s; }
+.lk-cap { fill: #20222f; stroke: #2c2f42; stroke-width: .3; }
+.lk-spot { transition: opacity .25s, fill .25s; }
+.lk-legend { font: 600 3px var(--mono); text-anchor: middle; fill: #4a4f6a; transition: fill .25s; }
+.lk-dial { fill: #181a24; stroke: #3b3f55; stroke-width: .5; }
+.lk-roller rect { fill: #181a24; stroke: #3b3f55; stroke-width: .4; }
+.lk-roller line { stroke: #3b3f55; stroke-width: .5; }
+.lights-readout { max-width: 72ch; min-height: 3.3em; margin: .8rem 0 0; color: var(--ink-2); font-size: .84rem; line-height: 1.6; }
+@media (prefers-reduced-motion: reduce) { .lk-glow rect, .lk-spot, .lk-legend { transition: none; } }
+
+.parts { margin-top: clamp(3.5rem, 10vh, 6rem); padding-top: clamp(2.5rem, 6vh, 4rem); border-top: 1px solid var(--rule); }
+.parts-head { margin-bottom: 1.2rem; }
+.parts h2 { margin-bottom: .9rem; }
+.bom-wrap { border: 1px solid var(--rule); border-radius: 8px; background: var(--well); overflow-x: auto; }
+.bom { width: 100%; border-collapse: collapse; font-size: .8rem; line-height: 1.55; }
+.bom thead th { position: sticky; top: 0; padding: .65rem .8rem; text-align: left; font-weight: 650; font-size: .74rem; color: var(--dim); border-bottom: 1px solid var(--rule); background: var(--well); white-space: nowrap; }
+.bom td, .bom tbody th { padding: .55rem .8rem; vertical-align: top; text-align: left; border-bottom: 1px solid var(--rule); }
+.bom tbody th[scope="row"] { font-weight: 700; color: var(--ink); min-width: 9rem; }
+.bom td { color: var(--ink-2); }
+.bom td:nth-child(2), .bom td:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bom td:nth-child(2) { color: var(--ink); font-weight: 650; }
+.bom td:last-child { text-align: right; color: var(--ink); }
+.bom thead th:last-child { text-align: right; }
+.bom td:nth-child(3) { white-space: nowrap; }
+.bom td:nth-child(5) { min-width: 22rem; }
+.bom tr.bom-group th { padding: 1rem .8rem .45rem; font-size: .74rem; font-weight: 700; color: var(--tn-orange); border-bottom: 1px solid var(--rule); background: rgb(255 158 100 / .04); }
+.bom tbody tr:not(.bom-group):hover { background: rgb(192 202 245 / .03); }
+.bom tbody tr:last-child > * { border-bottom: 0; }
+.bom-show {
+  margin: 0 0 0 .4rem; padding: .08rem .45rem; border: 1px solid var(--rule); border-radius: 4px; cursor: pointer;
+  background: transparent; font: 600 .68rem/1.4 var(--mono); color: var(--tn-cyan); vertical-align: .05em;
+}
+.bom-show:hover { border-color: var(--tn-cyan); }
+.needs-title { margin: clamp(2rem, 5vh, 3rem) 0 .9rem; }
+.needs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 clamp(18px, 2vw, 32px); margin: 0; }
+.needs div { padding: .9rem 0 1.1rem; border-top: 1px solid var(--rule); }
+.needs dt { margin-bottom: .35rem; font-weight: 700; font-size: .86rem; }
+.needs dd { margin: 0; font-size: .8rem; line-height: 1.65; color: var(--ink-2); }
+.parts + .roadmap { margin-top: clamp(3rem, 8vh, 5rem); }
+@media (max-width: 1180px) {
+  .needs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* Phones: each part becomes a short card instead of a wide row. */
+@media (max-width: 720px) {
+  .needs { grid-template-columns: minmax(0, 1fr); }
+  .bom-wrap { overflow: visible; border: 0; background: none; }
+  .bom, .bom tbody, .bom tr, .bom td, .bom tbody th { display: block; }
+  .bom thead { display: none; }
+  .bom tbody tr:not(.bom-group) { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .1rem .8rem; padding: .7rem .2rem; border-bottom: 1px solid var(--rule); }
+  .bom tbody tr:not(.bom-group) > * { padding: 0; border: 0; min-width: 0; }
+  .bom tbody th[scope="row"] { grid-column: 1; }
+  .bom td:nth-child(2) { grid-column: 2; grid-row: 1; text-align: right; }
+  .bom td:nth-child(2)::after { content: " fitted"; font-weight: 400; color: var(--dim); }
+  .bom td:nth-child(3), .bom td:nth-child(4) { grid-column: 1 / -1; white-space: normal; font-size: .76rem; color: var(--dim); }
+  .bom td:nth-child(5) { grid-column: 1 / -1; min-width: 0; margin-top: .2rem; }
+  .bom td:last-child { grid-column: 1 / -1; text-align: left; }
+  .bom td:last-child:not(:empty)::before { content: "About "; color: var(--dim); font-weight: 400; }
+  .bom td:last-child:not(:empty)::after { content: " each"; color: var(--dim); }
+  .bom td:last-child:empty { display: none; }
+  .bom tr.bom-group th { padding: 1.4rem .2rem .3rem; background: none; }
+}
+
+@media (max-width: 1180px) {
+  .circuit-grid, .roadmap { grid-template-columns: minmax(0, 1fr); }
+  .mcu-chip { max-width: 460px; }
+}
+@media (max-width: 999px) {
+  .circuit { margin-top: 40vh; }
+}
+@media (max-width: 720px) {
+  .circuit { margin-top: 45vh; padding: 48px 12px; }
+  .pcb-tools { padding: .6rem; gap: .6rem .9rem; }
+  .pcb-zoom { margin-left: 0; }
+  .pcb-canvas { padding: 6px; }
+  .pcb-help { display: none; }
+  .route li { grid-template-columns: minmax(0, 1fr); padding-left: calc(var(--pad) + 1rem); }
+  .sch-canvas { aspect-ratio: 4 / 3.4; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pcb-canvas .trk, .pcb-canvas g { transition: none !important; }
+  .pcb .flow-pulse { animation: none; stroke-dasharray: none; stroke-width: calc(var(--k, .3) * 2.2); }
+  .pcb .flow-route { display: none; }
+  .route li.here::before { animation: none; }
+}
