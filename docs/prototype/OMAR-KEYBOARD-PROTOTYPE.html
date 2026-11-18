@@ -1,0 +1,632 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Omar Keyboard prototype</title><style>body{max-width:1180px;margin:12px auto;padding:0 10px;background:Canvas;color:CanvasText;color-scheme:light dark} *{box-sizing:border-box}</style></head><body>
+<div id="omar-build-prototype" class="viz-dotted-background">
+  <div class="oe-case">
+    <div class="oe-board" role="group" aria-label="Omar keyboard with 90 keys, two Super thumb keys, two corner dials and a page roller">
+      <div data-zone="volume" role="group" aria-label="Top-left volume wheel"></div>
+      <div data-zone="brightness" role="group" aria-label="Top-right display brightness wheel"></div>
+      <div data-zone="top" role="group" aria-label="Top row with five desktops, workspace controls, utilities, and Screenshot"></div>
+      <div data-zone="left" role="group" aria-label="Launchers on the left edge"></div>
+      <div data-zone="typing" role="group" aria-label="Standard QWERTY typing and navigation keys"></div>
+      <div data-zone="thumbs" role="group" aria-label="Bottom row with a Super key on each side of Space"></div>
+      <div class="oe-core" aria-hidden="true">QWERTY</div>
+      <div class="oe-module">
+        <div class="oe-barrel" aria-hidden="true"></div>
+        <span aria-hidden="true" class="oe-engraving">↕ SCROLL · <b class="fn">Fn PAGE</b></span>
+        <input class="oe-roll-input" type="range" min="0" max="1000" value="0" aria-label="Wide vertical page roller" aria-controls="omar-refined-reading-pane">
+      </div>
+      <div data-zone="arrows" role="group" aria-label="Arrow cluster"></div>
+      <div data-zone="right" role="group" aria-label="Window controls on the right edge"></div>
+    </div>
+  </div>
+  <div class="oe-work" role="group" aria-label="Simulated desktop">
+    <div class="oe-work-head"><strong class="oe-current">Desk 1</strong><span>Window preview</span></div>
+    <div class="oe-tiles"></div>
+  </div>
+  <div class="oe-result" role="status">Hold Focus or Swap on screen and press a physical arrow. Hold Caps (Fn) and press an arrow or Delete to try the second legends. Hold Alt and press a letter to see an Alt chord.</div>
+  <button type="button" class="oe-print-button">Print full-size fit template</button>
+  <details class="oe-sample">
+    <summary class="oe-paperhead">Omar key guide <output aria-label="Reading progress" aria-live="off">0%</output></summary>
+    <div id="omar-refined-reading-pane" class="oe-paper" tabindex="0" role="region" aria-label="Scrollable keyboard guide">
+      <p><strong>Use either thumb</strong>Super + arrow focuses a window. Super + Space opens Menu. Super + Tab visits the next desk. Next Window cycles windows, with Shift to reverse.</p>
+      <p><strong>Choose a desk</strong>The five desk keys sit above typing digits 1 through 5. Last Desk returns to the previous one. Send &amp; Stay and Move &amp; Go use the five desk keys.</p>
+      <p><strong>Take a picture or copy words</strong>Screenshot opens the capture tool. Grab Text extracts words from a screen region so you can paste them as text.</p>
+      <p><strong>Take a window with you</strong>Tap Move &amp; Go, then a desk key. Your focused window moves there and you follow it.</p>
+      <p><strong>Send a window ahead</strong>Tap Send &amp; Stay, then Desk 3. The window moves to desk 3 and you stay where you are. Esc or a second tap on the same action cancels. Modifier keys (Ctrl, Shift, Super, Alt), Caps/Fn, the dials and the roller do not cancel a pending transfer. Another key does.</p>
+      <p><strong>Return to your editor</strong>Last Desk takes you back to the previous desk on this monitor.</p>
+      <p><strong>Pick or swap a tile</strong>Hold Focus or Swap while pressing an arrow. Releasing the control immediately restores ordinary arrows. A quick accidental tap has no effect.</p>
+      <p><strong>Use the Fn legends</strong>Tap Caps for Caps Lock. Hold it for Fn. Fn does only what is printed in the Fn colour: Left/Right give Home/End, Up/Down give Page Up/Down, Delete gives Insert, and Next Window returns to the last window. Every other key types normally. A transfer expires after three seconds.</p>
+      <p><strong>Hold Alt</strong>Alt sits next to the arrows. Hold it for Alt + arrow, Alt + a letter in a shell, and Alt + Screenshot, which starts or stops screen recording. Holding Alt does not trigger Focus or Swap.</p>
+      <p><strong>Adjust the dials</strong>Volume presses mute speakers. Shift + Menu opens Apps. The right dial adjusts brightness, Fn + turn resizes the split, and pressing cycles layouts. Fn + roller delivers Page Up/Down to the focused application.</p>
+      <p><strong>Pick the next window</strong>Tap Next Window to cycle forward or add Shift to reverse. Fn + Next Window returns to the last focused window on this desk with the optional Omar bindings. Super + K opens Omarchy’s live shortcut list.</p>
+      <p><strong>Open and edit</strong>Menu is beside Caps on the left edge. Delete is above Backspace. Clipboard opens history and Paste inserts the current clipboard item into the focused app.</p>
+      <p><strong>Read the secondary legends</strong>Hold Super with W for Close, C for Copy, or V for Paste. The word is printed on the key.</p>
+    </div>
+  </details>
+</div>
+<style>
+.oe-print{display:none}.oe-print-button{margin:0 0 10px}
+@page{size:landscape;margin:10mm}
+@media print{
+  html,body{margin:0!important;padding:0!important;max-width:none!important;background:white!important;color:black!important;color-scheme:light}
+  #omar-build-prototype{padding:0!important;container-type:normal!important}
+  #omar-build-prototype>:not(.oe-print){display:none!important}
+  .oe-print{display:block;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .oe-sheet{break-inside:avoid;font:10pt system-ui,sans-serif}
+  .oe-sheet+.oe-sheet{break-before:page}
+  .oe-cut{height:119.0625mm;position:relative;overflow:hidden;outline:0.2mm dashed #333}
+  #omar-build-prototype .oe-cut .oe-board{display:block;position:absolute;top:0;width:404.8125mm;height:119.0625mm;max-width:none}
+  .oe-scale{width:100mm;height:3mm;border:solid black;border-width:0 .25mm .25mm;margin-top:6mm}
+}
+#omar-build-prototype{container-type:inline-size;padding:18px 2px 5px;color-scheme:light dark;--chassis:light-dark(#b8b8a9,#393e39);--edge:light-dark(#979a8c,#222723);--surface:light-dark(#f6f2e7,#424842);--mod:light-dark(#e0e0d3,#50554e);--ink:light-dark(#272e23,#f4f3e6);--shade:light-dark(#9d9f90,#292e28);--desks:light-dark(#f2cd8f,#87683d);--desks-ink:light-dark(#382810,#fff5db);--apps:light-dark(#bdd4aa,#536d4a);--apps-ink:light-dark(#162e18,#eef7e5);--wm:light-dark(#cad7e0,#495d6c);--wm-ink:light-dark(#1d3140,#edf5fb);--fn:light-dark(#7a1346,#ffd3e6);--sup:light-dark(#6b3d00,#ffd98a)}
+#omar-build-prototype .oe-case{background:var(--chassis);padding:9px 7px 8px;border:1px solid var(--edge);border-bottom-width:5px;border-radius:12px;box-shadow:0 3px 4px #171b1414}
+#omar-build-prototype .oe-board{position:relative;aspect-ratio:21.25/6.25}
+#omar-build-prototype .oe-core{display:none}
+#omar-build-prototype .cap{box-sizing:border-box;position:absolute;left:var(--x);top:var(--y);width:var(--w);height:15%;padding:0 1px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;background:var(--surface);color:var(--ink);border:1px solid var(--edge);border-bottom:3px solid var(--shade);border-radius:4px;white-space:pre-line;text-align:center;font:500 clamp(9px,1.35cqw,13px)/1.06 "Arial Narrow","Segoe UI",sans-serif}
+#omar-build-prototype .cap.mod{background:var(--mod)}
+#omar-build-prototype .cap.utility{background:light-dark(#dfd7c2,#655e4e);color:light-dark(#312b1e,#faf1dd)}
+#omar-build-prototype .cap[data-key="Screenshot"]{background:light-dark(#d4cbe4,#60566f);color:light-dark(#31253f,#f7efff)}
+#omar-build-prototype .cap.super{background:var(--desks);color:var(--desks-ink);font-weight:650}
+#omar-build-prototype [data-zone=left] .cap,#omar-build-prototype .cap.apps{background:var(--apps);color:var(--apps-ink)}
+#omar-build-prototype [data-zone=right] .cap,#omar-build-prototype .cap.layout{background:var(--wm);color:var(--wm-ink)}
+#omar-build-prototype .cap.desk,#omar-build-prototype .cap.send,#omar-build-prototype .cap.last{background:var(--desks);color:var(--desks-ink)}
+#omar-build-prototype .cap.desk{font:600 clamp(12px,1.85cqw,16px)/1 "IBM Plex Mono",Consolas,monospace}
+#omar-build-prototype .cap small{font:500 9px/1 "Arial Narrow","Segoe UI",sans-serif}
+#omar-build-prototype .cap small.fn,#omar-build-prototype b.fn{color:var(--fn);font-weight:700}
+#omar-build-prototype .cap small.sup{color:var(--sup);font-weight:700}
+#omar-build-prototype .key-word{display:inline-block;transform:scaleX(.83);white-space:nowrap}
+#omar-build-prototype .cap:is([data-key="F"],[data-key="J"])::after{content:"";position:absolute;bottom:2px;height:2px;width:20%;background:var(--edge);border-radius:1px}
+#omar-build-prototype .cap[data-key="Desk 5"]::after{content:"";width:24%;height:2px;position:absolute;bottom:1px;background:currentColor;opacity:.7}
+#omar-build-prototype button.cap:hover{filter:brightness(1.06)}
+#omar-build-prototype button.cap:focus-visible{outline:3px solid var(--ink);outline-offset:0;z-index:1}
+#omar-build-prototype button[aria-pressed=true]{box-shadow:inset 0 0 0 2px var(--ink)}
+#omar-build-prototype .cap.ready{outline:2px dashed var(--ink);outline-offset:-4px}
+#omar-build-prototype .oe-result{padding:10px 3px 3px;font:400 14px/1.45 system-ui,sans-serif;min-height:2.3em}
+#omar-build-prototype .oe-work{display:flex;align-items:stretch;gap:12px;margin:12px 0 0;color:var(--ink);font:500 13px/1.3 system-ui,sans-serif}
+#omar-build-prototype .oe-work-head{display:grid;align-content:center;gap:2px;min-width:84px}
+#omar-build-prototype .oe-work-head span{font-size:11px}
+#omar-build-prototype .oe-tiles{display:flex;align-items:stretch;flex:1;flex-wrap:wrap;gap:4px}
+#omar-build-prototype .oe-tile{flex:1;min-width:70px;background:var(--mod);color:var(--ink);border:1px solid var(--edge);border-radius:5px;padding:6px;display:flex;align-items:center;justify-content:space-between;gap:4px}
+#omar-build-prototype .oe-tile.current{border:2px solid var(--ink);background:var(--apps);color:var(--apps-ink)}
+#omar-build-prototype .oe-tile small{font-size:10px}
+#omar-build-prototype .oe-board [data-current=true]::before{content:"●";position:absolute;top:1px;left:2px;font-size:8px}
+#omar-build-prototype .cap[data-key="Lock"]{border:3px double var(--edge);box-shadow:inset 0 1px 3px var(--shade)}
+#omar-build-prototype :is(.cap[data-key="Menu"],.cap[data-key="Focus"])::after{content:"";position:absolute;bottom:2px;height:2px;width:22%;background:currentColor;border-radius:1px}
+#omar-build-prototype .cap[data-key="Next Window"]{background:var(--wm);color:var(--wm-ink)}
+#omar-build-prototype .oe-module{position:absolute;left:78.8235%;top:20%;width:13.86%;height:30.4%;box-sizing:border-box;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:5%;padding:5px 4px 2px;background:var(--mod);border:1px solid var(--edge);border-radius:5px}
+#omar-build-prototype .oe-barrel{border:2px solid #262c29;border-radius:14% / 22%;background-image:linear-gradient(to right,#262c29 0%,transparent 7%,transparent 93%,#262c29 100%),linear-gradient(to bottom,#171c1cbb 0%,#fcfffa22 27%,#ffffff44 40%,transparent 64%,#171c1ccc 100%),repeating-linear-gradient(to bottom,#59615a 0px,#59615a 3px,#343a34 4px,#969d8e 5px,#59615a 6px);background-position:0 0,0 0,0 var(--tread,0px);box-shadow:0 1px 2px #16221670}
+#omar-build-prototype .oe-engraving{color:var(--ink);font:650 clamp(8px,1.25cqw,11px)/1.05 system-ui,sans-serif;text-align:center;letter-spacing:.12em}
+#omar-build-prototype .oe-roll-input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;touch-action:none;cursor:ns-resize}
+#omar-build-prototype .oe-module:focus-within{outline:2px solid var(--ink);outline-offset:1px}
+#omar-build-prototype .oe-sample{border:1px solid var(--edge);border-radius:6px;overflow:hidden;background:var(--surface);color:var(--ink)}
+#omar-build-prototype .oe-paperhead{display:flex;justify-content:space-between;padding:6px 12px;background:var(--mod);font:600 12px/1.3 system-ui,sans-serif}
+#omar-build-prototype .oe-paperhead output{font-variant-numeric:tabular-nums}
+#omar-build-prototype .oe-paper{height:96px;overflow-y:auto;overscroll-behavior:contain;padding:0 12px;font:400 13px/1.45 system-ui,sans-serif}
+#omar-build-prototype .oe-paper p{margin:9px 0 12px}
+#omar-build-prototype .oe-paper strong{display:block;font-weight:600}
+#omar-build-prototype .cap.wheel{shape-rendering:geometricPrecision;border-radius:50%;border:1px solid #32372f;padding:0;touch-action:none;color:#f6f1df;background:repeating-conic-gradient(from 4deg,#3e453d 0deg 4deg,#7b8274 4deg 6deg,#51584e 6deg 10deg);box-shadow:0 2px 2px #171b1580}
+#omar-build-prototype .wheel::before{content:"";position:absolute;inset:12%;border-radius:50%;background:linear-gradient(145deg,#575e53,#343b32);box-shadow:inset 0 1px 1px #dce0cf55}
+#omar-build-prototype .wheel-marker{position:absolute;inset:3%;transform:rotate(var(--angle,-42deg));pointer-events:none}
+#omar-build-prototype .wheel-marker::after{content:"";position:absolute;top:1%;left:47%;width:6%;height:18%;background:#f3ca7b;border-radius:1px}
+#omar-build-prototype .wheel-glyph{position:relative;pointer-events:none;display:grid;place-items:center;height:47%;width:47%;font:600 clamp(12px,1.8cqw,20px)/1 system-ui,sans-serif}
+#omar-build-prototype .wheel-glyph svg{width:100%;height:100%;stroke-width:1.8}
+#omar-build-prototype .wheel-label{position:absolute;top:15%;width:4.82%;text-align:center;font:600 clamp(8px,1.15cqw,11px)/1 system-ui,sans-serif;color:var(--ink)}
+#omar-build-prototype [data-zone=volume] .wheel-label{left:0}
+#omar-build-prototype [data-zone=brightness] .wheel-label{right:0;width:max-content;text-align:right;white-space:nowrap}
+@container(max-width:650px){
+ #omar-build-prototype .oe-board{aspect-ratio:auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"volume work brightness" "left core right" "left roller right" "left arrows right" "thumbs thumbs thumbs";gap:6px;align-items:end}
+ #omar-build-prototype [data-zone=thumbs]{grid-area:thumbs;display:grid;grid-template-columns:1fr 1.15fr 1.4fr 1.15fr 1.25fr 1fr;gap:2px}
+ #omar-build-prototype [data-zone=thumbs] .cap{min-width:0}
+ #omar-build-prototype .oe-module{grid-area:roller;position:relative;inset:auto;width:min(100%,142px);height:56px;justify-self:center}
+ #omar-build-prototype [data-zone=volume]{grid-area:volume;align-self:start;justify-self:start}
+ #omar-build-prototype [data-zone=brightness]{grid-area:brightness;align-self:start;justify-self:end}
+ #omar-build-prototype .cap.wheel{width:44px;height:44px}
+ #omar-build-prototype .wheel-label{position:static;display:block;width:100%;padding-top:3px;font-size:11px}
+ #omar-build-prototype [data-zone=brightness] .wheel-label{width:48px;text-align:center;white-space:normal}
+ #omar-build-prototype [data-zone=top]{grid-area:work;display:flex;flex-wrap:wrap;justify-content:center;gap:3px;margin-bottom:6px}
+ #omar-build-prototype [data-zone=left],#omar-build-prototype [data-zone=right]{display:grid;grid-template-rows:repeat(5,46px);gap:2px}
+ #omar-build-prototype [data-zone=left]{grid-area:left}
+ #omar-build-prototype [data-zone=right]{grid-area:right}
+ #omar-build-prototype [data-zone=typing]{display:none}
+ #omar-build-prototype .oe-core{display:block;grid-area:core;text-align:center;align-self:center;font:500 12px/1.1 "IBM Plex Mono",monospace;letter-spacing:.12em;color:var(--ink)}
+ #omar-build-prototype [data-zone=arrows]{grid-area:arrows;display:grid;grid-template-columns:repeat(3,minmax(0,44px));justify-content:center;gap:1px}
+ #omar-build-prototype .cap{position:relative;inset:auto;width:auto;min-width:44px;height:44px;padding:2px;font-size:11px}
+ #omar-build-prototype [data-zone=arrows] .cap{min-width:0}
+ #omar-build-prototype [data-key="↑"]{grid-area:1/2}
+ #omar-build-prototype [data-key="←"]{grid-area:2/1}
+ #omar-build-prototype [data-key="↓"]{grid-area:2/2}
+ #omar-build-prototype [data-key="→"]{grid-area:2/3}
+}
+</style>
+<script>
+(() => {
+  const root = document.getElementById("omar-build-prototype");
+  const zones = Object.fromEntries(Array.from(root.querySelectorAll("[data-zone]"), z => [z.dataset.zone,z]));
+  const status = root.querySelector(".oe-result");
+  const controls = new Map();
+  const prompts = {"Send & Stay":"Choose Desk 1–5 within 3 seconds. You will stay here.","Move & Go":"Choose Desk 1–5 within 3 seconds. You will follow the window."};
+  const fnMap={"←":"Home","→":"End","↑":"PgUp","↓":"PgDn",Delete:"Insert","Next Window":"Last Win"};
+  const holdKeys=new Set(["Focus","Swap","Caps","Alt"]);
+  const held=new Map();
+  const hasHeld=k=>[...held.values()].some(v=>v.key===k);
+  let transferTimer=0,deadline=0,speakerMuted=false;
+  const namesUsed={Editor:1,Browser:1};
+  const direct = {Menu:"Open the Omarchy menu. Type an app or command, then press Enter.",Float:"Toggle floating for the focused window.",Fullscreen:"Toggle fullscreen for the focused window.",Delete:"Delete forward at the text cursor.",Paste:"Paste the current clipboard item into the focused app."};
+  const directions = {"←":"left","→":"right","↑":"up","↓":"down"};
+  const isSuper = k => k==="Left Super" || k==="Right Super";
+  const guide=root.querySelector(".oe-sample");
+  const desks=Array.from({length:5},()=>({apps:[],active:0,vertical:false,history:[]}));
+  desks[0].apps.push("Editor","Browser");
+  let deskNumber=1,previousDesk=0;
+  let captureTarget=null;
+  const desk=()=>desks[deskNumber-1];
+  function visit(n) {
+    if(n===deskNumber) return;
+    previousDesk=deskNumber;
+    deskNumber=n;
+  }
+  function renderDesk() {
+    const d=desk();
+    const active=d.apps[d.active];
+    d.history=[...new Set([active,...d.history])].filter(w=>d.apps.includes(w));
+    root.querySelector(".oe-current").textContent="Desk "+deskNumber;
+    const tiles=root.querySelector(".oe-tiles");
+    tiles.style.flexDirection=d.vertical?"column":"row";
+    tiles.replaceChildren();
+    if(!d.apps.length) tiles.textContent="Empty desk";
+    d.apps.forEach((app,i)=>{
+      const tile=document.createElement("span");
+      tile.className="oe-tile"+(i===d.active?" current":"");
+      tile.textContent=app;
+      if(i===d.active || i===captureTarget) {
+        const tag=document.createElement("small");
+        tag.textContent=i===captureTarget?"Capture target":"Focused";
+        tile.appendChild(tag);
+      }
+      tiles.appendChild(tile);
+    });
+    for(let n=1;n<=5;n++) controls.get("Desk "+n).dataset.current=String(n===deskNumber);
+  }
+  function chooseDesk(n,verb) {
+    if(verb!=="Send & Stay" && verb!=="Move & Go") {visit(n);return "Viewing desk "+n+".";}
+    const from=desk();
+    if(!from.apps.length) return "Empty desk. Choose a window first.";
+    if(n===deskNumber) return "The window is already on this desk.";
+    const app=from.apps.splice(from.active,1)[0];
+    from.active=Math.max(0,Math.min(from.active,from.apps.length-1));
+    const target=desks[n-1];
+    target.apps.push(app);
+    if(verb==="Move & Go") {
+      visit(n);
+      target.active=target.apps.length-1;
+    }
+    return app+" moved to desk "+n+". You are on desk "+deskNumber+".";
+  }
+  function nextWindow(reverse=false) {
+    const d=desk();
+    if(!d.apps.length) return "Empty desk. Open an app to focus a window.";
+    d.active=(d.active+(reverse?-1:1)+d.apps.length)%d.apps.length;
+    return "Focused "+d.apps[d.active]+".";
+  }
+  function directional(key,swap) {
+    const d=desk();
+    const delta=(d.vertical?{"↑":-1,"↓":1}:{"←":-1,"→":1})[key];
+    const next=d.active+delta;
+    if(!delta || next<0 || next>=d.apps.length) return "No adjacent tile in that direction.";
+    if(swap) [d.apps[d.active],d.apps[next]]=[d.apps[next],d.apps[d.active]];
+    d.active=next;
+    return (swap?"Swapped tiles. Focus stays on ":"Focused ")+d.apps[next]+".";
+  }
+  function superAction(key) {
+    if(directions[key]) return "Focus the window in the "+directions[key]+" direction.";
+    if(/^[1-5]$/.test(key)) return "Visit desk "+key+".";
+    if(key==="Tab") return "Visit the next workspace.";
+    if(key==="Space") return "Open the Omarchy menu.";
+    if(key==="W") return "Close the focused window.";
+    if(key==="C") return "Copy the current selection.";
+    if(key==="V") return "Paste from the clipboard.";
+    return "";
+  }
+  direct.Layout = "Cycle the layout of the current workspace.";
+  Object.assign(direct,{
+    Screenshot:"Open the screenshot picker. Choose a window or region to capture an image.",
+    Clipboard:"Open clipboard history to reuse something you copied earlier.",
+    "Grab Text":"Extract editable text from a screen region and copy it to the clipboard.",
+    Alerts:"Show notification history.",
+    Lock:"Lock the current session."
+  });
+  let micMuted=false;
+  let pending = "";
+  function clearPending() {
+    clearTimeout(transferTimer);deadline=0;pending="";
+  }
+  function expire() {
+    if(!deadline || performance.now()<deadline) return;
+    clearPending();refreshLights();status.textContent="Transfer expired. Desk keys visit normally.";
+  }
+  function press(key,shift=false) {
+    expire();
+    if(hasHeld("Alt") && !holdKeys.has(key)) {
+      if(key==="Screenshot") status.textContent="Alt + Screenshot · starts or stops screen recording.";
+      else status.textContent="Alt + "+(directions[key]?directions[key]+" arrow":key)+" · sent to the focused application.";
+      return;
+    }
+    if(isSuper(key) && prompts[pending]) {status.textContent="Super · modifier. The pending transfer stays; choose a desk key.";return;}
+    for(const hold of held.values()) if(hold.key==="Caps") hold.used=true;
+    if(hasHeld("Caps") && fnMap[key]) {
+      const fnKey=fnMap[key];
+      clearPending();
+      if(fnKey==="Last Win") {
+        const d=desk(); const prev=d.history[1];
+        if(prev) d.active=d.apps.indexOf(prev);
+        status.textContent=prev?"Returned to "+prev+" (host option).":"No previous window on this desk.";
+        renderDesk();
+      } else status.textContent=fnKey+" · application key.";
+      refreshLights();return;
+    }
+    if(directions[key] && (hasHeld("Swap") || hasHeld("Focus"))) {
+      clearPending();status.textContent=directional(key,hasHeld("Swap") && !hasHeld("Focus"));refreshLights();renderDesk();return;
+    }
+    const previous = pending;
+    clearPending();
+    const picking=captureTarget!==null;
+    if(picking && !directions[key] && key!=="Enter") captureTarget=null;
+    if(isSuper(key)) pending=previous==="Super" ? "" : "Super";
+    else pending = prompts[key] && previous!==key ? key : "";
+    if(prompts[pending]) {
+      deadline=performance.now()+3000;
+      const check=()=>{if(!deadline)return;if(performance.now()>=deadline)expire();else transferTimer=setTimeout(check,Math.ceil(deadline-performance.now()));};
+      transferTimer=setTimeout(check,3000);
+    }
+    let message;
+    if (picking && key==="Esc") message="Capture canceled.";
+    else if(picking && key==="Enter") {
+      message="Captured "+(desk().apps[captureTarget]||"the empty desk")+" in the preview.";
+      captureTarget=null;
+    }
+    else if(picking && directions[key]) {
+      const n=desk().apps.length;
+      if(n) captureTarget=(captureTarget+(key==="←" || key==="↑" ? n-1 : 1))%n;
+      message="Capture target: "+(desk().apps[captureTarget]||"desktop")+". Enter captures. Esc cancels.";
+    }
+    else if(key==="Screenshot") {
+      captureTarget=desk().active;
+      message="Choose a capture target with the arrows. Enter captures. Esc cancels.";
+    }
+    else if (isSuper(key)) message=pending ? "Super · Choose a highlighted key. W closes, C copies, and V pastes." : "Super released.";
+    else if (pending) message = key + " · " + prompts[key] + " Esc cancels.";
+    else if(previous===key && prompts[key]) message="Canceled. Normal typing.";
+    else if(previous==="Super" && directions[key]) message=directional(key,false);
+    else if(previous==="Super" && key==="Tab") {
+      const open=desks.map((d,i)=>d.apps.length || i+1===deskNumber ? i+1 : 0).filter(Boolean);
+      message=chooseDesk(open[(open.indexOf(deskNumber)+(shift?-1:1)+open.length)%open.length],"visit");
+    }
+    else if(previous==="Super" && /^[1-5]$/.test(key)) message=chooseDesk(Number(key),"visit");
+    else if(previous==="Super" && key==="W") {
+      const d=desk();
+      const closed=d.apps.splice(d.active,1)[0];
+      d.active=Math.max(0,Math.min(d.active,d.apps.length-1));
+      message=closed?"Closed "+closed+" in the preview.":"No window to close.";
+    }
+    else if(previous==="Super" && superAction(key)) message="Super + "+key+" · "+superAction(key);
+    else if(previous==="Super" && /^[06-9]$/.test(key)) message="Super + "+key+" visits a stock Omarchy workspace outside this five-desk preview.";
+    else if (key.startsWith("Desk ")) message=chooseDesk(Number(key.slice(5)),previous);
+    else if (key==="Last Desk") {
+      if(previousDesk) {visit(previousDesk);message="Back on desk "+deskNumber+".";}
+      else message="This is the first desk in the preview.";
+    }
+    else if(key==="Next Window") message=nextWindow(shift);
+    else if(key==="Menu" && shift) message="Open the app grid.";
+    else if(key==="Mute"){speakerMuted=!speakerMuted;message=speakerMuted?"Speakers muted in preview.":"Speakers unmuted in preview.";}
+    else if(key==="Guide") {guide.open=true;pane.focus();message="Omar’s key guide is open. Use the arrows to read and Esc to close.";}
+    else if(key==="Flip Split") {desk().vertical=!desk().vertical; message="Preview split is now "+(desk().vertical?"vertical.":"horizontal.");}
+    else if(["Terminal","Files","Browser"].includes(key)) {
+      const n=(namesUsed[key]||0)+1;namesUsed[key]=n;
+      desk().apps.push(n===1?key:key+" "+n);desk().active=desk().apps.length-1;message="Opened "+key+" on desk "+deskNumber+".";
+    }
+    else if (key==="Mic Mute") {
+      micMuted=!micMuted;
+      controls.get(key).setAttribute("aria-pressed",String(micMuted));
+      message=micMuted ? "Microphone muted in the preview." : "Microphone unmuted in the preview.";
+    }
+    else if (direct[key]) message = direct[key];
+    else if (key === "Esc" && !previous && guide.open) {guide.open=false;controls.get("Guide").focus();message="Guide closed.";}
+    else if (key === "Esc") message = previous ? "Canceled. Normal typing." : "Escape.";
+    else message = key + (directions[key] ? " · Ordinary arrow." : " · Ordinary typing.");
+    refreshLights();status.textContent = message;renderDesk();
+  }
+  function refreshLights() {
+    for (const [name,control] of controls) {
+      const deskAction = pending === "Send & Stay" || pending === "Move & Go";
+      const eligible = hasHeld("Caps") ? Boolean(fnMap[name]) : hasHeld("Swap") || hasHeld("Focus") ? Boolean(directions[name]) : pending==="Super" ? Boolean(superAction(name)) : deskAction && name.startsWith("Desk ");
+      control.classList.toggle("ready",captureTarget!==null ? Boolean(directions[name] || name==="Enter" || name==="Esc") : eligible);
+      if (prompts[name]) control.setAttribute("aria-pressed",String(name===pending));
+      if (isSuper(name)) control.setAttribute("aria-pressed",String(pending==="Super"));
+      if(holdKeys.has(name)) control.setAttribute("aria-pressed",String(hasHeld(name)));
+    }
+  }
+  function cap(zone,key,x,y,width=1,style="",label=key,active=false) {
+    const el = document.createElement(active ? "button" : "span");
+    el.className = "cap " + style;
+    el.dataset.key = key;
+    el.style.setProperty("--x",(x/21.25*100)+"%");
+    el.style.setProperty("--y",(y/6.25*100)+"%");
+    el.style.setProperty("--w",((width-.055)/21.25*100)+"%");
+    if (style==="desk") {
+      const legend = document.createElement("small");
+      legend.textContent = "Desk";
+      el.append(legend,document.createTextNode(key.slice(5)));
+    } else if(style==="send") {
+      el.textContent=label;
+      const legend=document.createElement("small");
+      legend.textContent="1–5";
+      el.appendChild(legend);
+    } else if(["Browser","Terminal"].includes(key)) {
+      const word=document.createElement("span");
+      word.className="key-word";
+      word.textContent=label;
+      el.appendChild(word);
+    } else el.textContent = label;
+    if(fnMap[key]) {
+      const sub=document.createElement("small");
+      sub.textContent=fnMap[key];sub.className="fn";el.appendChild(sub);
+    }
+    if(key==="Caps") {
+      const sub=document.createElement("small");
+      sub.textContent="Fn";sub.className="fn";el.appendChild(sub);
+    }
+    if(key==="Menu") {
+      const sub=document.createElement("small");
+      sub.textContent="⇧ Apps";el.appendChild(sub);
+    }
+    if (active) {
+      el.type = "button";
+      el.setAttribute("aria-label",directions[key] ? directions[key]+" arrow" : key);
+      if (prompts[key] || isSuper(key) || key==="Mic Mute") el.setAttribute("aria-pressed","false");
+      if(holdKeys.has(key)) {
+        el.setAttribute("aria-pressed","false");
+        el.addEventListener("pointerdown",e=>{
+          if(e.button!==0) return;
+          el.focus();el.setPointerCapture(e.pointerId);beginHold(key,"p"+e.pointerId);
+        });
+        el.addEventListener("pointerup",e=>endHold("p"+e.pointerId));
+        el.addEventListener("lostpointercapture",e=>endHold("p"+e.pointerId,true));
+        el.addEventListener("keydown",e=>{
+          if(e.key!==" " && e.key!=="Enter") return;
+          e.preventDefault();if(!e.repeat)beginHold(key,"b"+key);
+        });
+        el.addEventListener("keyup",e=>{
+          if(e.key!==" " && e.key!=="Enter") return;
+          e.preventDefault();endHold("b"+key);
+        });
+      } else el.addEventListener("click",e=>press(key,e.shiftKey));
+      controls.set(key,el);
+    }
+    zones[zone].appendChild(el);
+    return el;
+  }
+  function beginHold(key,id) {
+    if(held.has(id)) return;
+    if(key!=="Caps" && key!=="Alt") {clearPending();captureTarget=null;}
+    held.set(id,{key,start:performance.now(),used:false});
+    status.textContent=key==="Caps"?"Fn held. Press an arrow, Delete or Next Window for the printed Fn legends.":key==="Alt"?"Alt held. Press a letter, digit, arrow or Screenshot; release to type normally.":key+" held. Press a physical arrow; release to type normally.";
+    refreshLights();
+  }
+  function endHold(id,canceled=false) {
+    const entry=held.get(id);
+    if(!entry)return;
+    held.delete(id);
+    status.textContent=entry.key==="Caps" && !canceled && !entry.used && performance.now()-entry.start<200 ? "Caps Lock tapped." : "Hold released. Ordinary keys restored.";
+    refreshLights();
+  }
+  function resetInput() {
+    clearPending();held.clear();captureTarget=null;refreshLights();
+    status.textContent="Ready.";renderDesk();
+  }
+  window.addEventListener("blur",resetInput);
+  document.addEventListener("visibilitychange",()=>{if(document.hidden)resetInput();});
+  function preparePrint() {
+    root.querySelector(".oe-print")?.remove();
+    const pages=document.createElement("div");pages.className="oe-print";
+    [0,200].forEach((offset,index)=>{
+      const sheet=document.createElement("section");sheet.className="oe-sheet";
+      const heading=document.createElement("h2");heading.textContent="Omar Keyboard · "+(index?"right":"left")+" half";
+      const instruction=document.createElement("p");instruction.textContent="Print landscape at 100%. Trim both dashed edges at the center join and tape the halves edge to edge.";
+      const cut=document.createElement("div");cut.className="oe-cut";cut.style.width=(index?204.8125:200)+"mm";
+      const board=root.querySelector(".oe-case .oe-board").cloneNode(true);board.style.left=-offset+"mm";board.setAttribute("aria-hidden","true");
+      cut.appendChild(board);
+      const scale=document.createElement("div");scale.className="oe-scale";
+      const caption=document.createElement("p");caption.textContent="Check this line measures 100 mm before judging reach. Switch pitch 19.05 mm.";
+      sheet.append(heading,instruction,cut,scale,caption);pages.appendChild(sheet);
+    });
+    root.appendChild(pages);
+  }
+  root.querySelector(".oe-print-button").addEventListener("click",()=>window.print());
+  window.addEventListener("beforeprint",preparePrint);
+  window.addEventListener("afterprint",()=>root.querySelector(".oe-print")?.remove());
+  function wheel(zone,key,x,name,icon,fallback) {
+    const dial = cap(zone,key,x,0,1,"wheel","",true);
+    dial.setAttribute("aria-label",name+". Use arrow keys to adjust. Press for "+key+".");
+    dial.setAttribute("data-tooltip",name+" · Press for "+key);
+    const marker=document.createElement("span");
+    marker.className="wheel-marker";
+    marker.setAttribute("aria-hidden","true");
+    const face=document.createElement("span");
+    face.className="wheel-glyph";
+    face.setAttribute("aria-hidden","true");
+    const mark=document.createElement("i");
+    mark.setAttribute("data-lucide",icon);
+    mark.textContent=fallback;
+    face.appendChild(mark);
+    dial.append(marker,face);
+    const legend=document.createElement("span");
+    legend.className="wheel-label";
+    if(zone==="brightness"){legend.append("Layout · ");const fnPart=document.createElement("b");fnPart.className="fn";fnPart.textContent="Fn Resize";legend.appendChild(fnPart);}else legend.textContent=key;
+    zones[zone].appendChild(legend);
+    let angle=-42;
+    function turn(sign,steps=1) {
+      if(hasHeld("Caps") && zone==="brightness") {
+        for(const h of held.values()) h.used=true;
+        status.textContent="Resize the split boundary "+(sign>0?"right":"left")+" · "+steps+" step(s).";return;
+      }
+      angle+=sign*15*steps;
+      dial.style.setProperty("--angle",angle+"deg");
+      status.textContent=name+" "+(sign>0?"up":"down")+" · "+steps+(steps===1?" step":" steps")+".";
+    }
+    dial.addEventListener("wheel",e=>{
+      if(e.ctrlKey || !e.deltaY) return;
+      e.preventDefault();
+      turn(e.deltaY<0?1:-1);
+    },{passive:false});
+    dial.addEventListener("keydown",e=>{
+      const sign={ArrowLeft:-1,ArrowDown:-1,ArrowRight:1,ArrowUp:1}[e.key];
+      if(!sign) return;
+      e.preventDefault();
+      e.stopPropagation();
+      turn(sign);
+    });
+    let drag=null, dragged=false;
+    dial.addEventListener("pointerdown",e=>{
+      if(!e.isPrimary || e.button!==0) return;
+      drag={id:e.pointerId,y:e.clientY};
+      dragged=false;
+      dial.setPointerCapture(e.pointerId);
+    });
+    dial.addEventListener("pointermove",e=>{
+      if(!drag || e.pointerId!==drag.id) return;
+      const steps=Math.trunc((drag.y-e.clientY)/10);
+      if(!steps) return;
+      dragged=true;
+      drag.y-=steps*10;
+      turn(Math.sign(steps),Math.abs(steps));
+    });
+    dial.addEventListener("lostpointercapture",()=>{drag=null;});
+    dial.addEventListener("click",e=>{
+      if(dragged && e.detail!==0) {e.stopImmediatePropagation();e.preventDefault();}
+      dragged=false;
+    },true);
+  }
+  const origin = 1.5;
+  wheel("volume","Mute",0,"Volume","volume-2","◀))");
+  cap("top","Esc",origin,0,1,"mod","Esc",true);
+  for(let n=1;n<=5;n++) cap("top","Desk "+n,origin+n,0,1,"desk","",true);
+  cap("top","Last Desk",origin+6,0,1,"last","Last\nDesk",true);
+  cap("top","Send & Stay",origin+7,0,1.5,"send","Send\n& Stay",true);
+  cap("top","Move & Go",origin+8.5,0,1.5,"send","Move\n& Go",true);
+  [["Clipboard","Clip\nHistory"],["Paste","Paste"],["Alerts","Alerts"],["Mic Mute","Mic\nMute"],["Delete","Delete"]].forEach(([key,label],i)=>cap("top",key,origin+10+i,0,1,"utility",label,true));
+  cap("top","Screenshot",16.75,0,1,"utility","Screen\nshot",true);
+  cap("top","Grab Text",17.75,0,1,"utility","Grab\nText",true);
+  cap("top","Lock",18.75,0,1,"utility","Lock",true);
+  wheel("brightness","Layout",20.25,"Screen brightness","sun","☀");
+  if(globalThis.lucide) globalThis.lucide.createIcons();
+  ["Guide","Browser","Menu","Terminal","Files"].forEach((k,i)=>cap("left",k,0,1.25+i,1,"",k,true));
+  [["Flip Split","Flip\nSplit"],["Float","Float"],["Fullscreen","Full\nscreen"],["Swap","Swap\nhold"],["Focus","Focus\nhold"]].forEach(([k,label],i)=>cap("right",k,20.25,1.25+i,1,"",label,true));
+  function row(keys,y,zone="typing") {
+    let x=origin;
+    for(const entry of keys) {
+      const [k,w] = Array.isArray(entry) ? entry : [entry,1];
+      const style=isSuper(k) ? "super" : w>1 && k!=="Space" ? "mod" : "";
+      const label=isSuper(k)?"Super":k==="Caps"?"Caps":k==="Next Window"?"Next Window":k;
+      const el=cap(zone,k,x,y,w,style,label,k==="Caps" || k==="Alt" || k==="Enter" || Boolean(fnMap[k]) || isSuper(k) || Boolean(superAction(k)));
+      const front={W:"Close",C:"Copy",V:"Paste"}[k];
+      if(front) {
+        const sub=document.createElement("small");
+        sub.textContent=front;sub.className="sup";
+        el.appendChild(sub);
+        el.setAttribute("aria-label",k+", Super for "+front);
+      }
+      x+=w;
+    }
+  }
+  row(["~",..."1234567890","-","=",["Backspace",2]],1.25);
+  row([["Tab",1.5],..."QWERTYUIOP","[","]",["\\",1.5]],2.25);
+  row([["Caps",1.75],..."ASDFGHJKL",";","'",["Enter",2.25]],3.25);
+  row([["Shift",2.25],..."ZXCVBNM",",",".","/",["Shift",2.75]],4.25);
+  row([["Ctrl",1.5],["Left Super",1.75],["Space",6.25],["Right Super",1.5],["Next Window",2.25],["Alt",1.75]],5.25,"thumbs");
+  [["←",0,5.25],["↓",1,5.25],["↑",1,4.25],["→",2,5.25]].forEach(([k,x,y])=>cap("arrows",k,16.75+x,y,1,"mod",k,true));
+  const roller=root.querySelector(".oe-roll-input");
+  const barrel=root.querySelector(".oe-barrel");
+  const pane=root.querySelector(".oe-paper");
+  const progress=root.querySelector(".oe-paperhead output");
+  function syncReading() {
+    const maximum=pane.scrollHeight-pane.clientHeight;
+    const fraction=maximum>0 ? pane.scrollTop/maximum : 0;
+    const percent=Math.round(fraction*100)+"%";
+    progress.textContent=percent;
+    roller.value=String(Math.round(fraction*1000));
+    roller.setAttribute("aria-valuetext",percent+" through the guide");
+    barrel.style.setProperty("--tread",(pane.scrollTop*0.11 % 6)+"px");
+  }
+  function scrollByPixels(amount) {
+    if(hasHeld("Caps")) {
+      for(const h of held.values()) h.used=true;
+      if(amount) {amount=Math.sign(amount)*(pane.clientHeight||96);status.textContent="Focused application · "+(amount>0?"Page Down":"Page Up");}
+    }
+    guide.open=true;
+    pane.scrollTop=Math.max(0,Math.min(pane.scrollTop+amount,pane.scrollHeight-pane.clientHeight));
+    syncReading();
+  }
+  roller.addEventListener("wheel",e=>{
+    if(e.ctrlKey || !e.deltaY) return;
+    e.preventDefault();
+    const unit=e.deltaMode===1 ? 18 : e.deltaMode===2 ? pane.clientHeight : 1;
+    scrollByPixels(e.deltaY*unit);
+  },{passive:false});
+  let grip=null;
+  roller.addEventListener("pointerdown",e=>{
+    if(!e.isPrimary || e.button!==0) return;
+    e.preventDefault();
+    roller.focus({preventScroll:true});
+    roller.setPointerCapture(e.pointerId);
+    grip={id:e.pointerId,y:e.clientY};
+  });
+  roller.addEventListener("pointermove",e=>{
+    if(!grip || e.pointerId!==grip.id) return;
+    scrollByPixels((e.clientY-grip.y)*3);
+    grip.y=e.clientY;
+  });
+  roller.addEventListener("lostpointercapture",()=>{grip=null});
+  roller.addEventListener("keydown",e=>{
+    const amount={ArrowDown:26,ArrowUp:-26,PageDown:pane.clientHeight,PageUp:-pane.clientHeight,Home:-pane.scrollHeight,End:pane.scrollHeight}[e.key];
+    if(amount===undefined) return;
+    e.preventDefault();
+    e.stopPropagation();
+    scrollByPixels(amount);
+  });
+  roller.addEventListener("input",()=>{
+    pane.scrollTop=Number(roller.value)/1000*(pane.scrollHeight-pane.clientHeight);
+    syncReading();
+  });
+  pane.addEventListener("scroll",syncReading);
+  guide.addEventListener("toggle",syncReading);
+  syncReading();
+  renderDesk();
+  zones.typing.addEventListener("click",e=>{
+    const target = e.target.closest("span.cap");
+    if (pending && target) press(target.dataset.key);
+  });
+  root.addEventListener("keydown",e=>{
+    if(e.code==="CapsLock"){e.preventDefault();if(!e.repeat)beginHold("Caps","physicalCaps");return;}
+    if(e.code==="AltLeft" || e.code==="AltRight"){e.preventDefault();if(!e.repeat)beginHold("Alt","physical"+e.code);return;}
+    const physical={ArrowLeft:"←",ArrowRight:"→",ArrowUp:"↑",ArrowDown:"↓",Minus:"-",Equal:"=",Delete:"Delete",MetaLeft:"Left Super",MetaRight:"Right Super"}[e.code] || (/^Digit[0-9]$/.test(e.code)?e.code.slice(5):"");
+    if(held.size && physical) {
+      e.preventDefault();
+      if(!e.repeat)press(physical,e.shiftKey);return;
+    }
+    if(hasHeld("Alt") && e.key.length===1 && !e.ctrlKey && !e.metaKey) {e.preventDefault();if(!e.repeat)status.textContent="Alt + "+e.key+" · sent to the focused application.";return;}
+    if(e.key==="Escape" && guide.open && !pending && captureTarget===null) {e.preventDefault();press("Esc");return;}
+    if ((!pending && captureTarget===null) || e.altKey || e.ctrlKey || e.metaKey || e.isComposing) return;
+    if(captureTarget!==null && e.key==="Enter") {e.preventDefault();press("Enter");return;}
+    if(pending==="Super" && e.key===" " && !isSuper(e.target?.dataset?.key)){e.preventDefault();press("Space");return;}
+    const key = {Escape:"Esc",ArrowLeft:"←",ArrowRight:"→",ArrowUp:"↑",ArrowDown:"↓"}[e.key];
+    if(key) {e.preventDefault();press(key);}
+    else if(e.key.length===1 && e.key!==" ") press(e.key);
+  });
+  root.addEventListener("keyup",e=>{
+    if(e.code==="CapsLock"){e.preventDefault();endHold("physicalCaps");}
+    if(e.code==="AltLeft" || e.code==="AltRight"){e.preventDefault();endHold("physical"+e.code);status.textContent="Alt released. Ordinary keys restored.";}
+  });
+  if(location.hash==="#guide") {guide.open=true;pane.focus();}
+})();
+</script>
+
+</body></html>

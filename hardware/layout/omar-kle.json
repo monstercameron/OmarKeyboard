@@ -1,0 +1,8 @@
+[
+ ["Mute", {"x": 0.5}, "Esc", "Desk 1", "Desk 2", "Desk 3", "Desk 4", "Desk 5", "Last Desk", {"w": 1.5}, "Send & Stay", {"w": 1.5}, "Move & Go", "Clip History", "Paste", "Alerts", "Mic Mute", "Delete\nInsert", {"x": 0.25}, "Screenshot", "Grab Text", "Lock", {"x": 0.5}, "Layout"],
+ [{"y": 0.25}, "Guide", {"x": 0.5}, "~", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", {"w": 2}, "Backspace", {"x": 3.75}, "Flip Split"],
+ ["Browser", {"x": 0.5, "w": 1.5}, "Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", {"w": 1.5}, "\\", {"x": 3.75}, "Float"],
+ ["Menu", {"x": 0.5, "w": 1.75}, "Caps\nFn", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", {"w": 2.25}, "Enter", {"x": 3.75}, "Fullscreen"],
+ ["Terminal", {"x": 0.5, "w": 2.25}, "Shift", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", {"w": 2.75}, "Shift", {"x": 1.25}, "↑\nPgUp", {"x": 1.5}, "Swap"],
+ ["Files", {"x": 0.5, "w": 1.5}, "Ctrl", {"w": 1.75}, "Super", {"w": 6.25}, "", {"w": 1.5}, "Super", {"w": 2.25}, "Next Window\nLast Win", {"w": 1.75}, "Alt", {"x": 0.25}, "←\nHome", "↓\nPgDn", "→\nEnd", {"x": 0.5}, "Focus"]
+]

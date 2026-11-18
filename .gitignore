@@ -1,0 +1,14 @@
+# Local development
+.venv/
+node_modules/
+__pycache__/
+*.py[cod]
+/build/
+test-results/
+playwright-report/
+debug.log
+
+# Blender backups and operating-system files
+*.blend[0-9]*
+.DS_Store
+Thumbs.db

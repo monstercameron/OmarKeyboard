@@ -1,0 +1,12 @@
+{
+  "name": "omar-keyboard",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node tests/check-prototype.cjs && node tests/check-viewer.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

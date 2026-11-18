@@ -1,0 +1,1 @@
+/* Test receiver entry point. Real firmware supplies this header through QMK. */

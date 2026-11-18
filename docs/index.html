@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Omar, a keyboard for Omarchy</title>
+<meta name="description" content="Omar is a keyboard designed for Omarchy. Its everyday desktop commands have keys of their own, labeled with what they do, arranged around a standard US layout.">
+<meta property="og:title" content="Omar, a keyboard for Omarchy">
+<meta property="og:description" content="Desks, windows and launchers on labeled keys around a standard US layout.">
+<meta property="og:image" content="assets/omar-social.jpg">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300..800;1,400&display=swap">
+<link rel="stylesheet" href="styles.css">
+<link rel="preload" href="assets/omar-render.webp" as="image">
+<script type="module" src="vendor/model-viewer.min.js"></script>
+<script type="module" src="site.js"></script>
+</head>
+<body>
+<div class="stage">
+  <model-viewer
+    src="assets/omar-keyboard.glb"
+    poster="assets/omar-render.webp"
+    alt="Omar keyboard: a dark green case holding cream keys, with amber desk keys across the top, sage launcher keys down the left edge, blue-grey window keys down the right edge, a dial in each top corner and a ribbed scroll roller above the arrows"
+    camera-controls
+    disable-zoom
+    disable-pan
+    touch-action="pan-y"
+    interaction-prompt="none"
+    camera-orbit="13deg 52deg 100%"
+    camera-target="auto auto auto"
+    field-of-view="30deg"
+    min-camera-orbit="auto 0deg auto"
+    max-camera-orbit="auto 100deg auto"
+    interpolation-decay="45"
+    shadow-intensity="0.7"
+    shadow-softness="0.9"
+    exposure="1.05"
+    loading="eager"
+    reveal="auto">
+  </model-viewer>
+  <p class="stage-caption" aria-live="polite"></p>
+</div>
+
+<main class="story">
+
+<header class="hero" data-view="hero">
+  <h1>Omar</h1>
+  <div class="hero-foot">
+  <p class="dek">A keyboard for Omarchy. The commands you use to move around the desktop have keys of their own, labeled with what they do, around a standard US layout.</p>
+  <p class="cue">Scroll, and the board turns to show each part as you read about it. Drag it to turn it yourself.</p>
+  </div>
+</header>
+
+<section class="chapter" data-side="left" aria-labelledby="grammar">
+  <div class="step" data-view="lean">
+    <h2 id="grammar">Omarchy’s shortcuts follow a pattern</h2>
+    <p>Omarchy is an Arch Linux setup built on Hyprland, a tiling window manager: windows are laid side by side rather than stacked on top of each other, and each workspace is a separate screen of them. It is meant to be driven from the keyboard, with Super as the desktop modifier. Super and a digit shows that workspace. Super, Shift and the same digit carries the focused window there. Add Alt and the window goes on its own while you stay put. Super and an arrow moves focus in that direction, and with Shift the two windows trade places.</p>
+    <p>The pattern is easy to learn and awkward to type. Sending a window away and taking it with you differ by one held key, Alt, and every desktop action is a chord on keys whose legends name something else.</p>
+    <p>Omar takes the actions people repeat dozens of times an hour and gives each one a key that names its result. The desk and window keys send the corresponding Omarchy chords. You can also type those chords directly. Omar calls a workspace a desk.</p>
+  </div>
+</section>
+
+<section class="chapter" data-side="right" aria-labelledby="edges">
+  <div class="step" data-view="above">
+    <h2 id="edges">Three edges around a normal keyboard</h2>
+    <p>The center of Omar is the board you already type on: US QWERTY, a full number row, both Shift keys and a full spacebar. The desktop controls sit around it, and each edge has one job.</p>
+    <dl class="edges">
+    <div><dt>The left edge opens things</dt>
+      <dd><kbd class="k launch">Guide</kbd> <kbd class="k launch">Browser</kbd> <kbd class="k launch">Menu</kbd> <kbd class="k launch">Terminal</kbd> <kbd class="k launch">Files</kbd></dd></div>
+    <div><dt>The top edge chooses places</dt>
+      <dd><kbd class="k desk">Desk 1</kbd> to <kbd class="k desk">Desk 5</kbd>, <kbd class="k desk">Last Desk</kbd>, <kbd class="k desk">Send &amp; Stay</kbd> and <kbd class="k desk">Move &amp; Go</kbd></dd></div>
+    <div><dt>The right edge arranges windows</dt>
+      <dd><kbd class="k window">Flip Split</kbd> <kbd class="k window">Float</kbd> <kbd class="k window">Fullscreen</kbd> <kbd class="k window">Swap</kbd> <kbd class="k window">Focus</kbd></dd></div>
+  </dl>
+    <p>Each group has its own cap color, for finding it by eye, and its own place on the board, for finding it by touch. A raised bar on <kbd class="k launch">Menu</kbd>, <kbd class="k window">Focus</kbd> and <kbd class="k desk">Desk 5</kbd> marks the end of each group for a finger working by touch, the same way the homing bars on F and J mark the home row.</p>
+  </div>
+</section>
+
+<section class="chapter" data-side="left" aria-labelledby="desks">
+  <div class="step" data-view="desks">
+    <h2 id="desks">Five desks on the top row</h2>
+    <p>Omarchy gives every monitor ten workspaces. Omar labels the first five and puts <kbd class="k desk">Desk 1</kbd> to <kbd class="k desk">Desk 5</kbd> so each one sits directly above the digit it stands for. Super with a digit still works, workspaces six to ten are still there, and <kbd class="k desk">Last Desk</kbd> at the end of the group returns you to wherever you were before.</p>
+  </div>
+  <div class="step" data-view="transfers">
+    <p>Moving a window takes two taps. Tap <kbd class="k desk">Send &amp; Stay</kbd>, then a desk, and the window goes there while you keep working where you are. Tap <kbd class="k desk">Move &amp; Go</kbd>, then a desk, and you go with it. The keys name the result because, with chords alone, the only difference between the two is whether Alt was held.</p>
+  </div>
+  <div class="step" data-view="desks">
+    <p>While a move is waiting, the five desk keys light up. It waits three seconds. Esc or a second tap on the same key cancels it. An arrow or any typing key cancels it and then does its usual job, so typing is never lost to a forgotten move. Holding a modifier, turning a dial or rolling the roller leaves it alone, so you can hold Shift or lower the volume in the middle of a move.</p>
+  </div>
+</section>
+
+<section class="chapter" data-side="right" aria-labelledby="windows">
+  <div class="step" data-view="next">
+    <h2 id="windows">Windows under the right hand</h2>
+    <p><kbd class="k window">Next Window</kbd> sits beside the right Super key, where the right thumb can reach it. One tap moves to the next window on this desk. Shift goes the other way, and Fn goes back to the window you used last.</p>
+  </div>
+  <div class="step" data-view="corner">
+    <p><kbd class="k window">Focus</kbd> and <kbd class="k window">Swap</kbd> sit in the bottom-right corner, beside the arrows, and work only while held. Hold <kbd class="k window">Focus</kbd> and press an arrow to move to the neighboring window, or hold <kbd class="k window">Swap</kbd> to trade places with it. Because they act only while held, brushing one by accident cannot turn the next arrow into a window command, and letting go hands the arrows straight back to the text cursor.</p>
+  </div>
+  <div class="step" data-view="rail">
+    <p>Above them, <kbd class="k window">Flip Split</kbd> turns a side-by-side pair into a stacked one, <kbd class="k window">Float</kbd> lifts a window out of the tiling, and <kbd class="k window">Fullscreen</kbd> gives it the whole display. Pressing the right dial changes the layout of the entire desk.</p>
+  </div>
+</section>
+
+<section class="chapter" data-side="left" aria-labelledby="room">
+  <div class="step" data-view="toprow">
+    <h2 id="room">What made room</h2>
+    <p>The edges needed space, and it came from three places: the function row, the six-key navigation block and the right-hand Ctrl.</p>
+    <p>Omar has no F1 to F12. The top row holds desks and utilities instead, and nothing on the Fn layer brings function keys back. Applications that depend on them need those shortcuts rebound. This is the largest compromise in the design. It suits Omarchy, where Super shortcuts do the work that function keys do elsewhere.</p>
+  </div>
+  <div class="step" data-view="roller">
+    <p>The navigation block became a scroll roller: a ribbed barrel 42&nbsp;mm wide above the arrows, broad enough to catch with whichever finger is nearest, with thirty soft detents to a turn. Pull it toward you to read further down a page. <kbd class="k">Delete</kbd> moved to the top row, directly above <kbd class="k">Backspace</kbd>, so the two directions of deleting share a column.</p>
+  </div>
+  <div class="step" data-view="alt">
+    <p>The right-hand Ctrl became <kbd class="k">Alt</kbd>. It sits beside the left arrow, so the right hand can hold it while using the arrows, and it sends a true Right Alt, which Omarchy uses for push-to-talk dictation and which some keyboard layouts need for accented characters.</p>
+  </div>
+  <div class="step" data-view="fn">
+    <p>Caps Lock still toggles when tapped. Held, it becomes Fn, and Fn does only what is printed on the keys in <span class="fn">plum</span>: <span class="fn">Home</span>, <span class="fn">End</span>, <span class="fn">PgUp</span> and <span class="fn">PgDn</span> on the arrows, <span class="fn">Insert</span> on Delete, <span class="fn">Last Win</span> on Next Window, split resizing on the right dial and paging on the roller.</p>
+  </div>
+</section>
+
+<section class="chapter" data-side="right" aria-labelledby="touch">
+  <div class="step" data-view="dial">
+    <h2 id="touch">Dials and utility keys</h2>
+    <p>The two corner dials are knurled aluminum knobs. The left one sets the volume and mutes the speakers when pressed. The right one sets screen brightness and, pressed, cycles the desk’s layout. <kbd class="k">Mic Mute</kbd> has its own key, so silencing your microphone never touches what you hear.</p>
+  </div>
+  <div class="step" data-view="lock">
+    <p><kbd class="k">Lock</kbd> ends the top row, next to the brightness dial, and is the one key there that interrupts your work. Its cap is about two millimeters lower than its neighbors and its switch takes 80 grams to press, so a finger sweeping along the row or reaching for the dial is unlikely to press it by accident.</p>
+  </div>
+  <div class="step" data-view="capture">
+    <p><kbd class="k capture">Screenshot</kbd> and <kbd class="k">Grab Text</kbd> sit together. One captures an image of the screen; the other reads the text in a region and puts it on the clipboard as words you can paste.</p>
+  </div>
+</section>
+
+<section class="chapter" data-side="left" aria-labelledby="stock">
+  <div class="step" data-view="stockview">
+    <h2 id="stock">It uses Omarchy’s own shortcuts</h2>
+    <p>Desk travel, window transfers, focus, launchers and clipboard controls send Omarchy 4.5.0 shortcuts. These actions work with the stock bindings.</p>
+    <table class="chords">
+    <caption class="visually-hidden">What a few of the keys send</caption>
+    <thead><tr><th scope="col">Press</th><th scope="col">Omarchy receives</th></tr></thead>
+    <tbody>
+      <tr><td><kbd class="k desk">Desk 3</kbd></td><td>Super + 3</td></tr>
+      <tr><td><kbd class="k desk">Send &amp; Stay</kbd> then <kbd class="k desk">Desk 3</kbd></td><td>Super + Shift + Alt + 3</td></tr>
+      <tr><td><kbd class="k desk">Move &amp; Go</kbd> then <kbd class="k desk">Desk 3</kbd></td><td>Super + Shift + 3</td></tr>
+      <tr><td><kbd class="k desk">Last Desk</kbd></td><td>Super + Ctrl + Tab</td></tr>
+      <tr><td><kbd class="k window">Next Window</kbd></td><td>Alt + Tab</td></tr>
+      <tr><td>Hold <kbd class="k window">Focus</kbd>, press <kbd class="k">→</kbd></td><td>Super + Right</td></tr>
+      <tr><td>Hold <kbd class="k window">Swap</kbd>, press <kbd class="k">→</kbd></td><td>Super + Shift + Right</td></tr>
+      <tr><td><kbd class="k window">Flip Split</kbd>, <kbd class="k window">Float</kbd>, <kbd class="k window">Fullscreen</kbd></td><td>Super + J, Super + T, Super + F</td></tr>
+      <tr><td><kbd class="k launch">Menu</kbd></td><td>Super + Space</td></tr>
+      <tr><td><kbd class="k">Clip History</kbd></td><td>Super + Ctrl + V</td></tr>
+      <tr><td><kbd class="k">Lock</kbd></td><td>Super + Ctrl + L</td></tr>
+    </tbody>
+  </table>
+    <p>Optional host bindings open the physical key guide, recall the last window on a desk and provide the pilot’s microphone toggle. A separate setting limits keyboard travel to the five labeled desks. A small helper program lets the desk keys show which desk is active and lets <kbd class="k">Mic Mute</kbd> show whether the microphone is live. Without it, the keys light only for what the keyboard itself knows.</p>
+  </div>
+</section>
+
+<section class="chapter" data-side="right" aria-labelledby="specs">
+  <div class="step" data-view="rear">
+    <h2 id="specs">The physical board</h2>
+    <dl class="specs">
+    <div><dt>Case</dt><dd>422.8 × 137.1&nbsp;mm, a 6° typing angle, about 20&nbsp;mm high at the front edge</dd></div>
+    <div><dt>Controls</dt><dd>90 keys, two push-button dials and a scroll roller</dd></div>
+    <div><dt>Switches</dt><dd>MX-compatible in hot-swap sockets, so switch weights can be changed after testing</dd></div>
+    <div><dt>Keycaps</dt><dd>Cherry profile PBT with dye-sublimated legends</dd></div>
+    <div><dt>Electronics</dt><dd>RP2040 controller running QMK, USB-C on the back edge</dd></div>
+    <div><dt>Lights</dt><dd>Fifteen keys lit from below, for moves in progress, held window keys, the active desk, Caps Lock and the microphone</dd></div>
+  </dl>
+  </div>
+  <div class="step" data-view="finale">
+    <p>No physical board has been made yet. Omar exists as a full dimensional specification, a browser prototype, pilot firmware and host scripts with passing tests, and the model on this page, which is built from the same switch coordinates as the plate drawing. The next steps are a full-size paper fit test on a real desk, then a hand-wired pilot to measure reach, the feel of the roller and how often a tired hand finds the wrong key.</p>
+    <p class="downloads"><a href="prototype/OMAR-KEYBOARD-PROTOTYPE.html">Try the keyboard or print the full-size layout</a><br>
+     <a href="assets/omar-keyboard.glb" download>Download the 3D model</a> <span class="size">GLB, 5.3&nbsp;MB</span><br>
+     <a href="assets/omar-dimensions.svg">Open the dimension drawing</a> <span class="size">SVG, to scale in millimeters</span></p>
+  </div>
+</section>
+
+<footer class="colophon">
+  <p>Omar is an independent design for Omarchy 4.5.0 and is not affiliated with the Omarchy project. The 3D view uses <a href="https://modelviewer.dev">model-viewer</a> under the <a href="vendor/model-viewer-LICENSE.txt">Apache 2.0 license</a>.</p>
+</footer>
+
+</main>
+</body>
+</html>

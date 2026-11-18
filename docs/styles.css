@@ -1,0 +1,204 @@
+/* Omar keyboard site. The board is the page: it stays fixed behind the text and turns to each part
+   as the reader reaches it. Colors come from the render's studio ground, the case green and the
+   keycap groups. The type is JetBrains Mono, Omarchy's default system font. */
+:root {
+  --ground: #d6d8d3;
+  --panel: rgb(240 242 237 / .6);
+  --panel-edge: rgb(255 255 255 / .55);
+  --panel-shadow: 0 24px 48px -28px rgb(20 30 25 / .35);
+  --ink: #1d2924;
+  --ink-2: #47554e;
+  --rule: #c4c9c1;
+  --cap: #f6f2e7;
+  --cap-ink: #24302a;
+  --desk: #f2cd8f;
+  --launch: #bdd4aa;
+  --window: #cad7e0;
+  --capture: #d4cbe4;
+  --fn: #7a1346;
+  --mono: "JetBrains Mono", "JetBrainsMono Nerd Font", ui-monospace, monospace;
+  --gutter: clamp(20px, 5vw, 80px);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #2b322e;
+    --panel: rgb(22 28 25 / .6);
+    --panel-edge: rgb(255 255 255 / .09);
+    --panel-shadow: 0 24px 48px -28px rgb(0 0 0 / .6);
+    --ink: #e2e7df;
+    --ink-2: #a9b6af;
+    --rule: #3c4842;
+    --fn: #f4a6c8;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 400 1rem/1.72 var(--mono);
+  font-variant-ligatures: none;
+}
+::selection { background: var(--desk); color: var(--cap-ink); }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+
+/* The board fills the window and never scrolls. */
+.stage { position: fixed; inset: 0; z-index: 0; }
+model-viewer {
+  display: block; width: 100%; height: 100%;
+  background-color: transparent;
+  --poster-color: transparent;
+  --progress-bar-color: var(--ink-2);
+  --progress-bar-height: 2px;
+  will-change: transform;
+}
+.stage-caption {
+  position: fixed; left: 50%; bottom: clamp(18px, 3.5vh, 36px);
+  transform: translateX(calc(-50% + var(--dx, 0px)));
+  width: max-content; max-width: min(30rem, 52vw);
+  margin: 0; text-align: center;
+  font: 500 .88rem/1.45 var(--mono);
+  color: var(--ink-2);
+  pointer-events: none;
+}
+.stage-caption:empty { display: none; }
+
+/* The text floats over the board; only the text itself takes the pointer. */
+.story { position: relative; pointer-events: none; padding-bottom: 50vh; }
+.story :is(h1, p, dl, table, .step, .colophon) { pointer-events: auto; }
+
+/* Opening screen */
+.hero {
+  min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: clamp(28px, 6vh, 64px) var(--gutter) clamp(28px, 6vh, 56px);
+}
+h1 {
+  font: 800 clamp(5rem, 11.5vw, 11rem)/.82 var(--mono);
+  letter-spacing: -.07em;
+  margin: 0 0 0 -.05em;
+}
+.dek {
+  font-size: clamp(1.08rem, 1.45vw, 1.3rem);
+  line-height: 1.5;
+  max-width: 34em;
+  margin: 0 0 .9rem;
+  hyphens: manual;
+}
+.cue {
+  margin: 0; max-width: 34em;
+  font: 400 .85rem/1.5 var(--mono);
+  color: var(--ink-2);
+}
+
+/* Chapters alternate sides; the board slides the other way. */
+.chapter { padding: 0 var(--gutter); margin-top: 75vh; }
+.hero + .chapter { margin-top: 40vh; }
+.step {
+  width: min(37rem, 41vw);
+  padding: 2rem 2.2rem 1rem;
+  background: var(--panel);
+  -webkit-backdrop-filter: blur(22px) saturate(1.35); backdrop-filter: blur(22px) saturate(1.35);
+  border: 1px solid var(--panel-edge);
+  border-radius: 6px;
+  box-shadow: var(--panel-shadow);
+}
+.step + .step { margin-top: 55vh; }
+.chapter[data-side="right"] .step { margin-left: auto; }
+
+h2 {
+  font: 750 1.6rem/1.18 var(--mono);
+  letter-spacing: -.04em;
+  margin: 0 0 1.05rem;
+  text-wrap: balance;
+  hyphens: manual;
+}
+p { margin: 0 0 1.15em; text-wrap: pretty; hyphens: manual; }
+
+/* Key names written as the caps they are on the board */
+kbd.k {
+  font: 600 .8em/1 var(--mono);
+  letter-spacing: -.02em;
+  display: inline-block;
+  padding: .26em .48em .3em;
+  margin: 0 .04em;
+  border: 1px solid rgb(29 41 36 / .24);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--cap);
+  color: var(--cap-ink);
+  white-space: nowrap;
+  vertical-align: .08em;
+}
+kbd.desk { background: var(--desk); }
+kbd.launch { background: var(--launch); }
+kbd.window { background: var(--window); }
+kbd.capture { background: var(--capture); }
+.fn { color: var(--fn); font-weight: 600; }
+
+/* The three edges */
+.edges { margin: 1.4rem 0 1.6rem; display: grid; gap: 1.2rem; }
+.edges dt { font: 700 .95rem/1.3 var(--mono); }
+.edges dd { margin: .4rem 0 0; line-height: 2.05; }
+
+/* Shortcut table */
+.chords { width: 100%; border-collapse: collapse; margin: 1.3rem 0 1.7rem; font-size: .92rem; }
+.chords th {
+  text-align: left; font: 600 .8rem/1.3 var(--mono);
+  color: var(--ink-2); padding: 0 0 .45rem; border-bottom: 1px solid var(--ink-2);
+}
+.chords td { padding: .5rem 1rem .5rem 0; border-bottom: 1px solid var(--rule); vertical-align: baseline; line-height: 1.9; }
+.chords td:last-child { font: 500 .88rem/1.4 var(--mono); padding-right: 0; white-space: nowrap; }
+
+/* Physical summary */
+.specs { margin: 0 0 1.4rem; }
+.specs div { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding: .65rem 0; border-top: 1px solid var(--rule); }
+.specs div:last-child { border-bottom: 1px solid var(--rule); }
+.specs dt { font: 600 .85rem/1.6 var(--mono); color: var(--ink-2); }
+.specs dd { margin: 0; font-size: .95rem; line-height: 1.6; }
+.downloads { line-height: 1.9; }
+.downloads a { font-weight: 650; }
+.size { color: var(--ink-2); font-size: .82rem; margin-left: .35rem; }
+.colophon {
+  width: min(37rem, 41vw); margin: 30vh var(--gutter) 0 auto;
+  color: var(--ink-2); font-size: .82rem; line-height: 1.6;
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+/* Narrow screens: the board shrinks into a band at the top once the reader starts to scroll,
+   and the text passes underneath it. The script sets the band's height. */
+@media (max-width: 999px) {
+  .stage {
+    inset: 0 0 auto; height: 100vh; height: 100svh; z-index: 2;
+    background: var(--ground);
+    box-shadow: 0 1px 0 rgb(29 41 36 / .16);
+  }
+  .stage-caption {
+    position: absolute; bottom: 8px; transform: translateX(-50%);
+    max-width: calc(100vw - 24px); font-size: .78rem;
+  }
+  .hero { position: relative; z-index: 3; padding: 28px 20px 32px; }
+  h1 { font-size: clamp(4.5rem, 24vw, 7rem); }
+  .dek { font-size: 1.05rem; }
+  body { font-size: .95rem; }
+  p { hyphens: manual; }
+  .chapter { padding: 0 12px; margin-top: 40vh; }
+  .hero + .chapter { margin-top: 30vh; }
+  .step { width: auto; max-width: 36rem; margin: 0 auto; padding: 1.4rem 1.2rem .5rem; position: relative; z-index: 1; }
+  .chapter[data-side="right"] .step { margin-left: auto; }
+  .step + .step { margin-top: 30vh; }
+  h2 { font-size: 1.4rem; }
+  .specs div { grid-template-columns: 6rem 1fr; gap: .75rem; }
+  .chords td:last-child { white-space: normal; }
+  .colophon { width: auto; max-width: 36rem; margin: 20vh auto 0; padding: 0 20px; position: relative; z-index: 1; }
+}
