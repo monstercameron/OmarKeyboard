@@ -1,6 +1,6 @@
 # Contributing to Omar-Keyboard
 
-Use the [revision 3 keymap](docs/design/keymap.md) for what a control does and the [hardware specification](hardware/specification.md) for where it sits. The research explains the decisions. Earlier drafts in `archive/` are historical references.
+Use the [keymap](docs/design/keymap.md) for what a control does and the [hardware specification](hardware/specification.md) for where it sits. The research explains the decisions. Earlier drafts in `archive/` are historical references.
 
 ## Where to make a change
 
