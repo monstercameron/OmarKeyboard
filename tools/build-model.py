@@ -218,8 +218,10 @@ for row in rows:
     slab("Stabilizer wire | "+row["id"],2*half+1,1.2,-3.0,-1.8,.45,steel,switch_col,(x,y-4,0))
 mount_holes=[offset(circle(1.1,20),x-CX,CY-y) for x,y in fixings]
 roller_x,roller_y=345.59-CX,CY-42.86
+roller_mounts=[(347.665+sx*25.1,42.86+sy*15.6) for sx in (-1,1) for sy in (-1,1)]
+roller_holes=[offset(circle(1.1,32),x-CX,CY-y) for x,y in roller_mounts]
 plate=punched("5052 aluminium plate | 1.5 mm",roundrect(405.81,120.06,1),
-              switch_holes+stab_holes+mount_holes+[offset(roundrect(44,12,.55),roller_x,roller_y)],
+              switch_holes+stab_holes+mount_holes+roller_holes+[offset(roundrect(44,12,.55),roller_x,roller_y)],
               -1.5,0,plate_mat,plate_col)
 plate["switch cutouts"]=92;plate["cutout size mm"]=14.0
 punched("PCB | FR4 envelope",roundrect(405.81,120.06,1),mount_holes,-6.6,-5,pcb_mat,plate_col)
@@ -341,7 +343,7 @@ for r in (r for r in rows if r["zone"]=="dial"):
         legend("Plate print | Fn Resize","Fn Resize",2.4,x+4.6,CY-21.4,lambda a,b:0,plum,dial_col,deck,12.7)
 
 bezelx,bezely=347.665-CX,CY-42.86
-bezel=punched("Roller | satin bezel",roundrect(56.2,37.2,2.2),[offset(roundrect(46,16,.85),roller_x-bezelx,0)],6.8,8,knurl,roll_col,loc=(bezelx,bezely,0))
+bezel=punched("Roller | satin bezel",roundrect(56.2,37.2,2.2),[offset(roundrect(46,17,.85),roller_x-bezelx,0)],6.8,8,knurl,roll_col,loc=(bezelx,bezely,0))
 punched("Roller | bezel skirt",roundrect(56.15,37.15,2.17),[roundrect(53.5,34.5,1.55)],.05,6.8,knurl,roll_col,loc=(bezelx,bezely,0))
 legend("Bezel legend | Scroll","SCROLL",2.0,bezelx-6.7,bezely-12.1,lambda a,b:8,cream,roll_col,deck,12)
 legend("Bezel legend | Fn Page","Fn PAGE",1.8,bezelx+6.0,bezely-12.1,lambda a,b:8,cream,roll_col,deck,12)
@@ -358,9 +360,15 @@ for nm,rad,x0,x1,material_ in [("3 mm stub",1.5,320.4,325.5,steel),("MR63ZZ bear
     part.rotation_euler.y=math.pi/2
 slab("Roller | left bearing block",4,9,0,7.75,.5,black,roll_col,(322.09-CX,roller_y,0))
 slab("Roller | horizontal EC11 envelope",7.5,12.6,.10,7.75,.5,black,roll_col,(370.84-CX,roller_y,0))
-for side in [-1,1]:
-    for end in [-1,1]:
-        cyl("Bezel | M2 head "+str((side,end)),1.42,8.0,8.17,knurl,roll_col,(bezelx+side*25.1,bezely+end*14.8,0),n=24)
+# Two clamp feet tie the supports to the four shared bezel/plate fixings.
+for side in (-1,1):
+    px=bezelx+side*25.1
+    punched("Roller | bracket foot "+str(side),roundrect(4.4,35.2,.55),
+            [offset(circle(1.1),0,dy) for dy in (-15.6,15.6)],0,1.5,black,roll_col,loc=(px,bezely,0))
+for i,(px,py) in enumerate(roller_mounts,1):
+    loc=(px-CX,CY-py,0)
+    punched(f"Bezel | threaded post {i}",circle(2.3),[circle(.8)],1.5,6.8,knurl,roll_col,loc=loc)
+    cyl(f"Bezel | underside M2 head {i}",1.9,-2.6,-1.5,steel,roll_col,loc,n=32)
 
 def point_at(o,target):
     o.rotation_euler=(Vector(target)-o.location).to_track_quat("-Z","Y").to_euler()
@@ -392,14 +400,7 @@ for o in studio.objects:o.hide_set(True)  # keep the editing viewport clear; obj
 bpy.context.view_layer.update()
 assert sum(o.name.startswith("Cap | ") for o in caps_col.objects)==90
 assert len([o for o in dial_col.objects if o.name.startswith("Dial | ")])==2
-print("Writing native assembly.",flush=True)
-bpy.ops.wm.save_as_mainfile(filepath=str(OUT/"Omar-Keyboard.blend"),compress=True)
-bpy.ops.object.select_all(action="DESELECT")
-for c in [case_col,plate_col,switch_col,caps_col,dial_col,roll_col]:
-    for o in c.objects:o.select_set(True)
-print("Writing portable assembly.",flush=True)
-bpy.ops.export_scene.gltf(filepath=str(ROOT/"docs/assets/omar-keyboard.glb"),export_format="GLB",use_selection=True,
-                          export_extras=True,export_texcoords=False,export_cameras=False,export_lights=False,
-                          export_animations=False,export_yup=True)
-print("Rendering studio preview.",flush=True)
-bpy.ops.render.render(write_still=True)
+# Both public models use one populated assembly and the same tray geometry.
+if __name__ == "__main__":
+    import runpy
+    runpy.run_path(str(ROOT/"tools/build-internals.py"), init_globals={"exterior_ready": True})

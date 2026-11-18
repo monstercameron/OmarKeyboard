@@ -1,0 +1,88 @@
+# Omar-Keyboard parts and cost plan
+
+**Rev B.1 assembled-board pricing.** JLCPCB supplies both Bourns PEC11R-4220F-S0024 encoders, all 90 LEDs and the sockets on each board. The five-board quote is $277.81 before shipping and tax. The TT encoder and loose-part figures below belong to the earlier prototype budget. [Full quote](mainboard-rev-b/quotes/2026-11-18-bourns/Omar-Keyboard-Rev-B.1-JLCPCB-quote.md)
+
+Revision 3 · One complete wired keyboard · Prices checked November 18, 2026
+
+**Budget about $164–278 plus €4.50 for the hand-wired prototype, or $294–541 for the first custom PCB build.** Both budgets include 90 switches, three rotary controls, 15 indicator LEDs, a printed case, a plate, keycaps and a USB cable. The prototype uses the Olimex RP2040-PICO30. The PCB build puts an RP2040 directly on the switch board.
+
+**Rev B lighting delta.** The figures above cover the original 15-indicator builds. Backlighting adds 75 SK6812MINI-E emitters, 75 local 100 nF capacitors, a TPS22919DCKR load switch, one 1 µF capacitor and three resistors per PCB. The November 18 Rev A quote priced 34 LEDs at $2.7404, equivalent to about $6.05 for 75 additional LEDs before assembly, attrition and setup. Shine-through custom caps, the extra passives and the load switch need a Rev B quote. [Rev B purchasing BOM](mainboard-rev-b/purchasing-bom.csv)
+
+| Starting from an empty parts bin | Hand-wired prototype | Custom PCB, one populated keyboard |
+| --- | ---: | ---: |
+| Listed component prices, including packs and spares | $88.81 + €4.50 | $76.62 |
+| Custom legend set at the supplier’s published unit rate | $0 extra (blank pilot caps in the listed subtotal) | $84.80 |
+| Planning allowances for remaining parts and fabrication | $75–189 | $133–380 |
+| **Estimated cash outlay** | **$163.81–277.81 + €4.50** | **$294.42–541.42** |
+
+These are two independent builds. If you reuse parts from the prototype, subtract what you already own. Prices use US retail listings except for Olimex, which bills in euros. Allowances are my estimates for a one-off build. The totals assume you print the case locally and assemble the keyboard yourself. Shipping, tax, duties, tools, paid assembly and repeat fabrication runs are extra. The PCB allowance covers one small bare-board order, even if the fabricator supplies several copies.
+
+## Parts used in both builds
+
+“Fit / buy” gives the quantity fitted to one keyboard followed by the quantity in the budget. The right column is the cost of the full purchase. All dimensions are in millimetres unless marked otherwise.
+
+| Part | Fit / buy | Dimensions and selection | Purchase cost |
+| --- | ---: | --- | ---: |
+| Tactile MX switches | 89 / 100 | Gateron G Pro 3.0 Brown, 5-pin, nominal 55 g actuation, 4.0 travel. Switch pitch 19.05, plate opening 14.00 square. Eleven spares. [Supplier](https://mechanicalkeyboards.com/products/Gateron-G-Pro-30-Brown-55g-Tactile-PCB-Mount?variant=48300368625964) | 100 × $0.30 = **$30.00** |
+| Heavy linear Lock switch | 1 / 1 | Cherry MX Linear Grey, PCB-mount MX1A-21NW. Listed at 80 g actuation, a trial candidate for the specified 80 gf feel. The retail listing showed sold out. Check the force at actuation before choosing a substitute. [Supplier and variants](https://mechanicalkeyboards.com/products/cherry-mx-grey-80g-linear?sacode=042505) | **$0.40** reference |
+| Push encoders for Volume and Brightness | 2 / 2 | TT Electronics EN11-HSM1BF20. Top-adjust, 20 detents and 20 pulses per revolution, Ø6 flat shaft, 20 nominal shaft length, 7 threaded bushing. A candidate substitute for the specified EC11E. Check the top-adjust drawing against the plate and PCB before routing. [Drawing](https://www.ttelectronics.com/TTElectronics/media/ProductFiles/Datasheet/EN11.pdf) · [DigiKey](https://www.digikey.com/en/products/detail/tt-electronics-bi/EN11-HSM1BF20/2620667) | 2 × $3.81 = **$7.62** |
+| Roller bearing | 1 / 1 | MR63-ZZ, Ø3 bore × Ø6 outside × 2.5 wide, metal shields. Fits the left-hand axle stub. [FastEddy](https://www.fasteddybearings.com/products/3x6x2-5-metal-shielded-bearing-mr63-zz) | **$1.25** |
+| Addressable indicator LEDs | 15 / 25 | SK6812MINI-E, 5 V, reverse-mount. LED centres are 5.08 north of the switch centres. Match the window and pad pattern to the purchased LED. Keebio’s 25-pack showed sold out. LCSC lists the same part under C5149201. [Pack price](https://keeb.io/products/sk-6812-mini-e-rgb-leds-12-pack) · [Alternate source and footprint](https://www.lcsc.com/product-detail/C5149201.html) | 1 pack = **$5.99** reference |
+| LED data buffer | 1 / 1 | TI SN74AHCT1G125DBVR, SOT-23-5. Powered from 5 V, accepts the controller’s 3.3 V signal on GP26. [DigiKey](https://www.digikey.com/en/products/detail/texas-instruments/SN74AHCT1G125DBVR/376028) | **$0.14** |
+| Bypass capacitors for LEDs and buffer | 16 / 20 | 100 nF X7R, 16 V, 0603 (1.6 × 0.8). Fit one at each LED and one at the buffer. [DigiKey](https://www.digikey.com/en/products/detail/kemet/C0603C104K4RECTU/8643664) | 20 × $0.078 = **$1.56** |
+| Recessed Lock keycap | 1 / 1 | 1u DSA, MX mount. Fit target is about 2 lower than adjacent caps. A blank can take a temporary legend. [Signature Plastics individual caps](https://spkeyboards.com/collections/dsa-keycaps) | **$3.00** |
+| USB data cable | 1 / 1 | USB-A to USB-C, approximately 1 m. Deduct this line if a suitable cable is already on hand. [Adafruit](https://www.adafruit.com/product/4474) | **$4.95** |
+| **Both builds, listed-price subtotal** | | | **$54.91** |
+
+| Shared mechanical parts | Qty fitted | Dimensions and fabrication details | Allowance |
+| --- | ---: | --- | ---: |
+| Dial knobs | 2 | Ø18 × 12 high, knurled, Ø6 bore with set screw. Target knob top 16 ±1 above the plate and at least 1 clearance to a neighboring keycap. Print test knobs before buying machined ones. | $6–16 / pair |
+| Roller mechanics | 1 set | Ø16 × 42 tread, Ø3 left axle stub, Ø6 drive bore, M3 set screw, bearing block, encoder bracket and shims. Printed barrel with 1 silicone sleeve or finished Ø16 ribbed barrel. Bezel 56.2 × 37.2 with a 46 × 17 window. Includes four M2 module fixings. The bearing and encoder have their own lines. | $5–15 / printed set |
+| Case hardware and feet | 1 set | 14 M2 lower supports, 12 upper spacers and four 2-high feet. H1–H12 pass through the plate and PCB. H13 and H14 support the PCB only. Include joiner hardware for the optional split tray. Select standoff lengths from the assembled stack. | $6–15 / set |
+| **Both builds, allowance subtotal** | | | **$17–46** |
+
+## A. Hand-wired prototype
+
+The PICO30 exposes 30 GPIO. Use GP0–7 for rows, GP8–19 for columns, GP20–25 for the three encoder pairs and GP26 for the LEDs. The two dial pushes occupy matrix positions. GP27–29 remain available. Follow Olimex’s header numbering when soldering. [Controller specifications and pinout](https://www.olimex.com/Products/RaspberryPi/PICO/RP2040-PICO30/open-source-hardware)
+
+| Part | Fit / buy | Dimensions and specification | Purchase cost or allowance |
+| --- | ---: | --- | ---: |
+| Olimex RP2040-PICO30 | 1 / 1 | Base 2 MB version, 51 × 21, with USB-C, regulator, BOOT and RESET. Mount on a removable support and check cable insertion at the rear opening. | **€4.50** |
+| Axial switching diodes | 92 / 100 | Through-hole 1N4148, one per switch contact, including both dial pushes. Leads can form part of the hand-wired matrix. Band faces the row in the COL2ROW design. [Keebio](https://keeb.io/products/1n4148-diodes) | **$2.99** |
+| Roller encoder for the bench fixture | 1 / 1 | Alps EC11E15204A3, flat 20 shaft, no push, 30 detents / 15 pulses. Mount the encoder on its side in a separate bracket so the shaft runs horizontally. Its normal PCB mounting is vertical. Confirm shaft engagement before machining a barrel. [Alps drawing and variant table](https://tech.alpsalpine.com/cms.media/product_catalog_ec_01_ec11e_en_611f078659.pdf) · [DigiKey](https://www.digikey.com/en/products/detail/alps-alpine/EC11E15204A3/21721644) | **$4.41** |
+| Blank keycaps | 1 / 1 set | YMDK 123-key Cherry-profile PBT set, nominal 1.55 wall. Use for ordinary positions and add temporary legends. The project needs 89 non-Lock caps. Check row and width for every perimeter cap. [YMDK](https://ymdkey.com/products/ymdk-white-blank-cherry-profile-keycaps) | **$26.50** |
+| Wiring and supports | 1 lot | Insulated matrix wire, flexible encoder leads, heat-shrink, solder, small carrier boards for the LEDs and buffer, and a controller mount. Solder the switches directly for this version. | $8–20 allowance |
+| Plate-mount stabilizers | 5 × 2u, 1 × 6.25u | Supports Backspace, Enter, both Shifts, Next Window and Space on a build without a switch PCB. Use cutouts for the particular plate-mount clip. [Cherry plate-mount size options](https://www.primekb.com/products/cherry-stabilizers-plate-mount) | $10–18 allowance |
+| Special blanks and labels | 1 lot | Reserve two R1 1.5u tops, an R4 2.25u Next Window, an R4 1.75u Alt, removable legends and tactile marks where the base set falls short. | $5–15 allowance |
+| Prototype plate | 1 | FR4, 405.81 × 120.06 × 1.6. Includes a 44 × 12 roller slot. Verify clip engagement in a cut sample of the actual plate thickness. | $25–65 fabrication allowance |
+| Printed case | 1 two-piece case | Outside 422.8 × 137.1, 6° typing angle, 2.5 floor. Split near x = 200. This allowance assumes local printing and covers case material. | $10–25 allowance |
+| **Prototype additions** | | Add once to the shared tables. | **$33.90 + €4.50 listed, $58–143 allowances** |
+
+## B. Full-size hot-swap PCB
+
+The custom board carries the controller, all 90 MX sockets and both dial switches. It uses the same pin map as the prototype. Price the bare-board order at **405.81 × 120.06**, including the long dimension in the quote. The repository has layout coordinates, dimensions and an appearance model. Fabrication requires a routed board, drill files and a checked manufacturing export. [PCB fabricator size limits](https://jlcpcb.com/help/article/pcb-dimensions)
+
+| Part | Fit / buy | Dimensions and specification | Purchase cost or allowance |
+| --- | ---: | --- | ---: |
+| MX hot-swap sockets | 90 / 100 | Kailh MX family, supplier SKU CPG151101S11-16. Bottom-side SMD. Confirm the land pattern, 5-pin MX holes and north-facing LED window together. [Supplier](https://mechanicalkeyboards.com/products/kailh-switch-hot-swap-socket) | 100 × $0.11 = **$11.00** |
+| SMD matrix diodes | 92 / 100 | Diodes Inc. 1N4148W-7-F, SOD-123. Anode to column, cathode to row. [DigiKey cut-tape pricing](https://www.digikey.com/en/products/detail/diodes-incorporated/1N4148W-7-F/815280) | 100 × $0.0665 = **$6.65** |
+| Microcontroller | 1 / 1 | Raspberry Pi RP2040 SC0914(13), QFN-56, 7 × 7. Allow for exposed-pad assembly and SWD test pads. [DigiKey](https://www.digikey.com/en/products/detail/raspberry-pi/SC0914-13/14306015) | **$0.76** |
+| Flash memory | 1 / 1 | Winbond W25Q16JVSSIQ, 16 Mbit / 2 MB, 3.3 V QSPI, SOIC-8. Match the firmware boot stage to the selected device. [DigiKey](https://www.digikey.com/en/products/detail/winbond-electronics/W25Q16JVSSIQ-TR/6193775) | **$1.96** |
+| USB-C receptacle | 1 / 1 | GCT USB4105-GF-A candidate, USB 2.0, 8.94 wide. Rear opening 12 × 7, centred at x = 95.25. Check connector height and shell tabs in the assembly. [Drawing](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/5492/USB4105.pdf) · [DigiKey](https://www.digikey.com/en/products/detail/gct/USB4105-GF-A/11198441) | **$0.80** |
+| USB ESD protection | 1 / 1 | ST USBLC6-2SC6, SOT-23-6, beside the receptacle. [DigiKey](https://www.digikey.com/en/products/detail/stmicroelectronics/USBLC6-2SC6/1040559) | **$0.54** |
+| Clock, power, reset and passives | 1 lot | One 12 MHz ABM8-272-T3 crystal (3.2 × 2.5) and matched load capacitors, one 3.3 V AP2112K-3.3 600 mA LDO (SOT-25), one 500 mA hold PTC (1206), two 5.1 kΩ CC resistors, two 27 Ω USB series resistors, BOOTSEL and RUN buttons, plus the reference design’s bias and bypass parts. Final counts follow the schematic. [RP2040 reference circuit](https://pip-assets.raspberrypi.com/categories/814-rp2040/documents/RP-008279-DS-2-hardware-design-with-rp2040.pdf) · [Crystal](https://www.digikey.com/en/products/detail/abracon-llc/ABM8-272-T3/22472366) · [LDO](https://www.digikey.com/en/products/detail/diodes-incorporated/AP2112K-3-3TRG1/4470746) · [Fuse](https://www.digikey.com/en/products/detail/littelfuse-inc/1206L050YR/455698) | $3–8 allowance |
+| Production roller encoder | 1 | Right-angle / side-adjust with a horizontal Ø6 D shaft, 30 detents / 15 pulses, no push. The chosen sensor **and bracket** must fit 7.50 along the shaft axis. Exact orderable part and footprint remain open. | $3–10 allowance |
+| Screw-in PCB stabilizers | 5 × 2u, 1 × 6.25u | Cherry-style for 1.6 FR4. Wire spacings 23.88 and 100 respectively. Count the fifth short wire for Next Window when selecting a kit. [Durock sizing](https://divinikey.com/products/durock-v2-stabilizers-screw-in) | $15–26 allowance |
+| Custom printed keycaps | 89 caps / 106u | Cherry-profile dye-sub PBT. The full layout is 107u across 90 caps. Exclude the separate 1u DSA Lock cap. YUZU’s published 80u+ tier gives 106 × $0.80. Confirm R1 1.5u stock, front legends, colors, tactile bars and 1.5 wall thickness before ordering. [YUZU pricing](https://yuzukeycaps.com/custom-keycaps) | **$84.80 modeled**, plus $0–25 for specials |
+| Full-size bare PCB | 1 fitted / 1 fab lot | Two-layer 1.6 FR4, ENIG. Plate-matching outline, 12 defined Ø2.2 M2 holes plus two interior PCB-only Ø2.2 holes. The costing assumes a small prototype lot and one populated board. | $55–150 fabrication allowance |
+| Finished switch plate | 1 | 5052 aluminium, 405.81 × 120.06 × 1.50. Get a quote for actual 1.50 stock. A common US 0.063-inch option is 1.60 and needs a new switch-clip trial. [Example stock thicknesses](https://sendcutsend.com/materials/5052-aluminum/) | $30–90 fabrication allowance |
+| Printed case | 1 two-piece case | Same outside dimensions as the pilot. Check the socket underside at −8.4 against the floor at −10.4 for 2 clearance. CNC machining would require a separate quote. | $10–25 local material allowance |
+| **PCB-build additions** | | Add once to the shared tables. | **$21.71 listed, $84.80 modeled, $116–334 allowances** |
+
+## What to order first
+
+1. **Buy a controller and a small control sample.** One PICO30, two EN11 dial encoders, one Alps roller sample and one MR63-ZZ bearing cost **$13.28 + €4.50** before shipping. Fit them to a printed corner and roller fixture. Measure knob height with the push switch depressed, shaft engagement, roller drag and one output step per detent.
+2. **Print the full layout before cutting the plate.** Check the two 100 mm scale bars, hold Focus while reaching each arrow, and test the recessed Lock. Print or cut one switch-and-stabilizer coupon before committing to a 406 mm plate. [Full-size template](../docs/prototype/OMAR-KEYBOARD-PROTOTYPE.html)
+3. **Release the expensive parts after the fit test.** Confirm encoder and socket footprints, the 2 mm underside clearance and USB plug access. Get separate prices for the PCB lot, plate and keycaps, with freight and minimum quantities. Have the cap vendor confirm the unusual row/width combinations and tactile marks in writing.
+
+Use the [hardware specification](specification.md) for the height stack and hole datums, and the [switch-coordinate CSV](layout/omar-switches.csv) for each cap width, row, matrix address and LED index.

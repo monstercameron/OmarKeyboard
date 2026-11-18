@@ -1,0 +1,7 @@
+#pragma once
+#define HOLD_ON_OTHER_KEY_PRESS
+#define TAPPING_TERM 200
+#define QUICK_TAP_TERM 0
+#define USB_POLLING_INTERVAL_MS 1
+#define RGB_MATRIX_SLEEP
+#define WS2812_TRST_US 100

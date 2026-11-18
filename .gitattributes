@@ -19,3 +19,4 @@ docs/vendor/* -text
 *.png binary
 *.jpg binary
 *.webp binary
+*.stl binary

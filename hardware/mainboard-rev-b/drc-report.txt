@@ -1,0 +1,10 @@
+** DRC report for Omar-Keyboard Rev B.1 / omar-mainboard.kicad_pcb **
+** Created on 2026-11-18 12:23:57 **
+
+** Found 0 DRC violations **
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **

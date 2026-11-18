@@ -1,0 +1,4 @@
+(footprint "NPTH_2p2" (version 20221018)(generator pcbnew)(layer "F.Cu")
+(fp_text reference "REF**" (at 0 0)(layer "F.Fab")(effects(font(size 0.8 0.8)(thickness 0.12))))
+(fp_text value "NPTH_2p2" (at 0 0)(layer "F.Fab") hide (effects(font(size 0.8 0.8)(thickness 0.12))))
+(pad "" np_thru_hole circle (at 0 0) (size 2.2 2.2) (drill 2.2) (layers "*.Cu" "*.Mask")))

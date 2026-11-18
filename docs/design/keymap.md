@@ -6,6 +6,8 @@
 
 [Try the interactive layout or print the full-size fit template](../prototype/OMAR-KEYBOARD-PROTOTYPE.html)
 
+**Rev B keyboard lighting.** Hold Caps/Fn and press the left or right bracket to dim or brighten the keys. Hold Caps/Fn and press backslash to toggle all key lighting. Display brightness stays on the right dial. [Lighting and status colors](../../hardware/assembly-design-specification.md#07a--a3-and-a8--white-backlight-at-every-key)
+
 ## Where actions live
 
 | Location | Controls and behavior |

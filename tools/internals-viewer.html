@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omar-Keyboard · Internal assembly</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,sans-serif;color:#202f29;background:#e7ebe4}
+*{box-sizing:border-box} body{margin:0;display:grid;min-height:100vh;min-height:100dvh;grid-template-rows:auto minmax(300px,1fr) auto}
+header,footer{background:#f4f4ed;padding:16px clamp(16px,4vw,58px)}
+header{display:flex;gap:15px;justify-content:space-between;align-items:baseline;border-bottom:1px solid #c5cdc3}
+h1{font-size:clamp(17px,2vw,26px);letter-spacing:-.04em;font-weight:650;margin:0} header span,output,label{font-size:13px}
+main{position:relative;background:radial-gradient(ellipse at center,#f3f4ed,#dce3d9);min-height:48vh}
+model-viewer,.still{position:absolute;width:100%;height:100%;inset:0}model-viewer{--poster-color:#e7ebe4;touch-action:pan-y}
+.still{display:none;object-fit:contain;background:#eceee8}footer{border-top:1px solid #c5cdc3;display:grid;gap:12px}
+.bar,nav,.spacing{display:flex;align-items:center;gap:7px}.bar{justify-content:space-between;gap:16px;flex-wrap:wrap}nav{flex-wrap:wrap}
+button{background:transparent;border:1px solid #b9c4b7;color:#202f29;font:inherit;font-size:13px;padding:8px 13px;border-radius:24px;cursor:pointer}
+button[aria-pressed=true]{background:#234e40;border-color:#234e40;color:white}button:focus-visible,input:focus-visible{outline:3px solid #aa6a26;outline-offset:2px}
+input{accent-color:#295744;width:128px}output{color:#45574b}.spacing{gap:10px}
+@media(max-width:650px){header{align-items:start;flex-direction:column;gap:4px}footer{padding:12px 14px}.bar{gap:10px}nav{gap:4px}button{padding:6px 9px}}
+</style>
+</head>
+<body>
+<header><h1>Omar-Keyboard · Internal assembly</h1><span>Mainboard Rev A · 90 switches · 3 encoders</span></header>
+<main><model-viewer camera-controls loading="eager" interaction-prompt="none" shadow-intensity=".25" exposure=".96" field-of-view="31deg" min-camera-orbit="auto 0.1deg 0.013m" max-camera-orbit="auto 179.9deg 2m" alt="Explorable internal keyboard assembly with a switch plate, main PCB, USB-C power module and tray"></model-viewer><img class="still" alt="Exploded view of the five keyboard layers"></main>
+<footer><div class="bar"><nav aria-label="Assembly views">
+<button data-view="exploded" aria-pressed="true">Exploded</button><button data-view="assembled" aria-pressed="false">Assembled</button><button data-view="board" aria-pressed="false">Main PCB</button><button data-view="usb" aria-pressed="false">Rear USB-C</button><button data-view="bay" aria-pressed="false">Under the roller</button><button data-view="sockets" aria-pressed="false">Socket side</button>
+</nav><label class="spacing">Layer spacing <input type="range" min="0" max="100" value="100" id="spacing"></label></div>
+<output aria-live="polite">Loading the assembly…</output></footer>
+<script>
+const v=document.querySelector("model-viewer"),note=document.querySelector("output"),slider=document.querySelector("input");
+const buttons=[...document.querySelectorAll("[data-view]")];
+const poster="data:image/jpeg;base64,__POSTER__";
+v.setAttribute("poster",poster);
+let mode="exploded", activeAsset="",ready=false,assets={};
+const descriptions={exploded:"Caps, switches, plate, populated PCB and tray. Drag to orbit or change the layer spacing.",
+ assembled:"The layers are in their fitted positions. Drag to orbit and scroll or pinch to zoom.",
+ board:"Component side of the main PCB. The rear USB carrier connects to J1 in the roller bay.",
+ usb:"Rear inlet behind Desk 3, protection and four-wire breakout.",
+ bay:"The RP2040 lies under the Ø16 tread. Its mounted envelope clears the full sweep by 2.00 mm. Drag to orbit.",
+ sockets:"The underside carries 90 hot-swap sockets, 92 matrix diodes and the reverse-mount indicators."};
+function framing(){
+  const narrow=window.innerWidth<650;
+  const radius=(phone,desktop)=>narrow ? phone : desktop;
+  const t=Number(slider.value)/100;
+  const camera={
+    exploded:[`0m ${.023+.096*t}m ${.011*t}m`,`14deg 67deg ${radius(.90,.63)}m`],
+    assembled:["0m .024m 0m",`14deg 55deg ${radius(.83,.50)}m`],
+    board:["0m -.005m 0m",`3deg 25deg ${radius(.80,.48)}m`],
+    usb:["-.101m -.004m -.050m",`169deg 39deg ${radius(.149,.105)}m`],
+    bay:[".139594m -.0028m -.01667m",`-102deg 88deg ${radius(.112,.080)}m`],
+    sockets:["0m -.006m 0m",`3deg 156deg ${radius(.80,.48)}m`],
+  }[mode];
+  v.cameraTarget=camera[0];v.cameraOrbit=camera[1];
+}
+function pose(){
+  if(!ready)return;
+  if(activeAsset==="full" && v.availableAnimations.length){
+    v.pause();
+    v.currentTime=Number(slider.value)/100*Math.max(0,v.duration-.0001);
+  }
+  framing();v.jumpCameraToGoal();
+  note.textContent=descriptions[mode];
+}
+function select(next,moveSlider=true){
+  mode=next;
+  const full=next==="exploded"||next==="assembled";
+  if(full && moveSlider)slider.value=next==="assembled"?"0":"100";
+  slider.disabled=!full;
+  buttons.forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.view===mode)));
+  const key=full?"full":next==="bay"?"bay":"pcb";
+  if(!assets[key])return;
+  if(activeAsset!==key){activeAsset=key;ready=false;note.textContent="Loading view…";v.src=assets[key];}
+  else pose();
+}
+buttons.forEach(b=>b.onclick=()=>select(b.dataset.view));
+slider.oninput=()=>select(Number(slider.value)===0?"assembled":"exploded",false);
+v.addEventListener("load",async()=>{
+  const asset=activeAsset;
+  if(asset==="full" && v.availableAnimations.length){
+    v.animationName=v.availableAnimations[0];await v.updateComplete;
+    v.play();await new Promise(requestAnimationFrame);v.pause();
+  }
+  if(asset===activeAsset){ready=true;pose()}
+});
+window.addEventListener("resize",()=>{if(ready)framing()});
+async function unpack(id){
+  const raw=Uint8Array.from(atob(document.getElementById(id).textContent.trim()),c=>c.charCodeAt(0));
+  return new Response(new Blob([raw]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
+}
+function isolated(glb,includeRoller=false){
+  const dv=new DataView(glb),len=dv.getUint32(12,true);
+  const doc=JSON.parse(new TextDecoder().decode(new Uint8Array(glb,20,len)));
+  const root=doc.nodes.findIndex(o=>o.name==="02 · Mainboard assembly");
+  if(root<0)throw Error("Missing PCB assembly");
+  const roots=[root];
+  if(includeRoller){
+    const roller=doc.nodes.findIndex(n=>n.name.startsWith("Roller | Ø16"));
+    if(roller<0)throw Error("Missing barrel");
+    roots.push(roller);
+  }
+  doc.scenes=[{nodes:roots}];doc.scene=0;delete doc.animations;
+  for(const node of doc.nodes){
+    if(node.children)node.children=node.children.filter(id=>!roots.includes(id));
+  }
+  delete doc.nodes[root].translation;
+  const json=new TextEncoder().encode(JSON.stringify(doc)),pad=(json.length+3)&~3,tail=glb.slice(20+len);
+  const head=new ArrayBuffer(20+pad),h=new DataView(head);
+  for(const [i,n] of [[0,0x46546c67],[4,2],[8,head.byteLength+tail.byteLength],[12,pad],[16,0x4e4f534a]])h.setUint32(i,n,true);
+  new Uint8Array(head,20).fill(32);new Uint8Array(head,20,json.length).set(json);
+  return new Blob([head,tail],{type:"model/gltf-binary"});
+}
+function fallback(){
+  const img=document.querySelector(".still");img.src=poster;img.style.display="block";v.style.display="none";
+  document.querySelector(".bar").hidden=true;document.querySelector(".bar").style.display="none";
+  note.textContent="Exploded render. Interactive inspection needs a browser with WebGL 2 and gzip decompression.";
+}
+v.addEventListener("error",fallback);
+async function init(){
+  const [runtime,model]=await Promise.all([unpack("runtime"),unpack("model")]);
+  await import(URL.createObjectURL(new Blob([runtime],{type:"text/javascript"})));
+  await customElements.whenDefined("model-viewer");
+  assets={full:URL.createObjectURL(new Blob([model],{type:"model/gltf-binary"})),pcb:URL.createObjectURL(isolated(model)),bay:URL.createObjectURL(isolated(model,true))};
+  select(mode);
+}
+window.addEventListener("DOMContentLoaded",()=>init().catch(fallback));
+</script>
+<script type="application/octet-stream" id="runtime">__CODE__</script>
+<script type="application/octet-stream" id="model">__MODEL__</script>
+<script type="text/plain" id="third-party-notices">__LICENSE__</script>
+</body></html>

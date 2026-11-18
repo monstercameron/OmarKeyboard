@@ -48,7 +48,7 @@ for fmt in ["blend","glb"]:
         bb=bounds_in_deck(knob)
         assert abs(size(bb,0)-18)<.015 and abs(size(bb,2)-12)<.015
     assert bpy.data.objects.get("Cap | Alt") and bpy.data.objects.get("Cap | Right Super")
-    assert bpy.data.objects.get("USB-C | receptacle shield")
+    assert bpy.data.objects.get("J1 · USB-C shell, tongue and mating contacts")
     assert len([o for o in bpy.data.objects if o.name.startswith("Homing bar |")])==5
     assert len([o for o in bpy.data.objects if o.name.startswith("Stabilizer wire |")])==6
     normal=deck.matrix_world.to_quaternion() @ Vector((0,0,1))

@@ -4,6 +4,8 @@ Revision 3 · first-sample values. This sheet fixes the numbers a plate, PCB, ca
 
 ![Dimensioned top view](../docs/assets/omar-dimensions.svg)
 
+**Rev B backlight option.** All 90 MX positions have a rear-facing optical window, an individually addressable RGB emitter and a local bypass. See the [Rev B register](mainboard-rev-b/backlight-map.csv) for exact aperture centers and matrix indices. The original 15-light development layout and the current case envelope remain the mechanical baselines.
+
 ## Coordinates and overall size
 
 All plan dimensions use the **switch field origin**: the top-left corner of the top-left key unit (the volume dial position), x to the right, y toward the user, 1u = 19.05 mm. Switch positions are centres.
@@ -70,7 +72,7 @@ PCB-mount, screw-in, Cherry-style. Use the same wire for 2u through 2.75u.
 | 10 | (347.66, 71.44) | Empty space under the roller |
 | 11–12 | (328.61, 90.49), (366.71, 90.49) | Empty spaces beside ↑ |
 
-A 405 mm span needs interior support under the typing block. The PCB layout adds three more M2 standoffs at switch-body junctions in the main block. Check each against stabilizer wire paths and hot-swap socket outlines before fixing them.
+H13 and H14 support the typing span at (66.68, 42.86) and (190.50, 61.91) mm. They terminate at the PCB. The tray leaves the Enter stabilizer at HS6 clear. [Tray and mounting schedule](assembly-design-specification.md)
 
 ## Height stack
 
@@ -88,8 +90,8 @@ z is measured from the top of the plate, positive up. **(sample)** values need m
 | Roller barrel bottom | −2.0 (passes through the plate slot, 3 mm above the PCB) |
 | PCB | −5.0 to −6.6 (MX standard plate-to-PCB spacing, 1.6 mm board) |
 | Hot-swap sockets | to −8.4 |
-| Case floor top | −10.4 (2 mm clearance) |
-| Case bottom | −12.9 (2.5 mm floor) |
+| Case floor top | −10.4 nominal target at the front reference. Desk-parallel floor, 3.22 mm smallest modeled socket-vertex clearance |
+| Case bottom | −12.9 at the front reference, 2.5 mm floor |
 
 The case sits on 2 mm feet. Typing angle is **6°**. The front edge is about **20 mm** above the desk, and the back edge about 34 mm.
 
@@ -100,7 +102,7 @@ The case sits on 2 mm feet. Typing angle is **6°**. The front edge is about **2
 | Module envelope | x 319.09–376.24 mm, y 23.81–61.91 mm (3u × 2u above the arrows) |
 | Barrel | Ø16.0 mm, 42.0 mm tread, x 324.59–366.59 mm, axis at y = 42.86 mm. Aluminium with a fine circumferential rib, or a printed core with a 1 mm silicone sleeve |
 | Axle height | +6.0 mm above the plate top, set by a shim under the encoder bracket |
-| Exposure | 6 mm above the bezel. Bezel window 46 × 16 mm |
+| Exposure | 6 mm above the bezel. Bezel window 46 × 17 mm |
 | Left support | Printed or machined block, 4 mm, x 320.09–324.09 mm, holding an MR63ZZ bearing (3 × 6 × 2.5 mm) on a Ø3 mm barrel stub |
 | Right support and sensor | Horizontal-shaft (right-angle) EC11-series encoder, no push switch, 30 detents / 15 pulses, 6 mm D shaft into the barrel bore with an M3 set screw. Bracket and body x 367.09–374.59 mm |
 | Feel | 30 detents per turn, about 1.7 mm of tread per detent. One detent is one wheel step |
@@ -113,8 +115,8 @@ The case sits on 2 mm feet. Typing angle is **6°**. The front edge is about **2
 | Item | Specification |
 | --- | --- |
 | Positions | Volume (9.53, 9.53). Brightness (395.29, 9.53) |
-| Encoder | Vertical EC11E with push switch, 20 detents / 20 pulses, 6 mm D shaft, 20 mm shaft length from the mounting face, PCB-mounted through a 14 × 14 mm plate cutout |
-| Knob | Ø18.0 × 12 mm knurled aluminium with a set screw. Top level with the Esc cap. At least 1 mm clearance to every cap |
+| Encoder | Bourns PEC11R-4220F-S0024, integral push, 24 pulses and 24 detents per turn. Ø6 mm D shaft, 20 mm from mounting face. Rev B.1 uses a 14 × 14 mm plate opening and two PCB anchor slots on 11.40 mm centers. |
+| Knob | Ø18.0 × 12 mm knurled aluminium with a set screw. Rev B.1 nominal knob top 23 mm above plate. At least 1 mm clearance to every cap |
 | Labels | Printed or engraved on the plate in the 4.76 mm band under each dial, 2.4 mm cap height: "Mute" under the left dial and "Layout · Fn Resize" under the right, with "Fn Resize" in the Fn legend colour |
 
 ## Switches
